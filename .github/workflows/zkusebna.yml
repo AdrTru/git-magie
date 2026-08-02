@@ -23,17 +23,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Číslo běhu posílá engine v signálu (`repository_dispatch` má payload
-      # jen do 64 kB, takže soubor sám se jím poslat nedá — jen odkaz na něj).
-      # Token musí umět ČÍST i soukromé vsc-magie, aby artefakt stáhl.
+      # NEJNOVĚJŠÍ HOTOVÝ ARTEFAKT, ne z konkrétního běhu. Číslo běhu ze signálu
+      # nejde použít: engine artefakt nahraje a HNED nato pošle signál, takže
+      # ten běh v tu chvíli ještě běží — a stáhnout artefakt z neukončeného
+      # běhu API neumí. Bereme proto poslední dokončený „zkusebna" jménem;
+      # zpoždění o jeden běh nevadí, geometrie se nemění každou minutu.
+      #
+      # `dawidd6/action-download-artifact` tohle umí (najde napříč běhy podle
+      # jména), kdežto oficiální `download-artifact` chce `run-id`.
       - name: Stáhnout zkušebnu z vsc-magie
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v6
         with:
           name: zkusebna
-          repository: AdrTru/vsc-magie
-          run-id: ${{ github.event.client_payload.run_id }}
-          github-token: ${{ secrets.TOKEN_ZKUSEBNA }}
+          repo: AdrTru/vsc-magie
+          workflow: testy.yml
+          workflow_conclusion: success
+          github_token: ${{ secrets.TOKEN_ZKUSEBNA }}
           path: staz
+          if_no_artifact_found: fail
 
       # index.html je to, co Pages servírují jako kořen. Přepíše se jen když se
       # obsah opravdu změnil — jinak by tu přibývaly prázdné commity po každém
@@ -41,16 +48,19 @@ jobs:
       - name: Uložit jako index.html, když se změnil
         run: |
           set -e
-          if [ ! -s staz/zkusebna.html ]; then
+          # dawidd6 rozbaluje do path/<název_artefaktu>/, oficiální by dal do
+          # path/. Vezmeme soubor, ať leží kdekoli z toho.
+          SRC=$(find staz -name zkusebna.html | head -1)
+          if [ -z "$SRC" ] || [ ! -s "$SRC" ]; then
             echo "Artefakt je prázdný nebo chybí — nic neukládám."; exit 1
           fi
-          if cmp -s staz/zkusebna.html index.html; then
+          if cmp -s "$SRC" index.html; then
             echo "Zkušebna se nezměnila, commit netřeba."; exit 0
           fi
-          mv staz/zkusebna.html index.html
+          mv "$SRC" index.html
           git config user.name "zkušebna-bot"
           git config user.email "actions@github.com"
           git add index.html
-          git commit -m "Zkušebna obnovena z vsc-magie (běh ${{ github.event.client_payload.run_id }})"
+          git commit -m "Zkušebna obnovena z vsc-magie"
           git push
           echo "✅ index.html obnoven a publikován" >> $GITHUB_STEP_SUMMARY
