@@ -32,7 +32,7 @@ jobs:
       # `dawidd6/action-download-artifact` tohle umí (najde napříč běhy podle
       # jména), kdežto oficiální `download-artifact` chce `run-id`.
       - name: Stáhnout zkušebnu z vsc-magie
-        uses: dawidd6/action-download-artifact@v6
+        uses: dawidd6/action-download-artifact@v9
         with:
           name: zkusebna
           repo: AdrTru/vsc-magie
