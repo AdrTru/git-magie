@@ -3,18 +3,15 @@ name: zkušebna
 # Zkušebna se VYRÁBÍ v soukromém enginu vsc-magie (z pudorys.html, bez scén),
 # kde ji po zelených testech CI věší jako artefakt. Sem se jen PŘENÁŠÍ.
 #
-# Obráceně schválně: kdyby ji vsc-magie „strkalo" sem, potřebovalo by na tenhle
-# veřejný repozitář zapisovací token navíc. Takhle si ji tenhle repozitář
-# VYTÁHNE sám — číst artefakt z veřejného repa smí kdokoli a do sebe má
-# workflow právo z vestavěného tokenu. Žádný další token, žádné heslo.
-#
-# Spouští se, když ve vsc-magie doběhne workflow „testy" (jen úspěšně, jen
-# z main), a taky ručně tlačítkem.
+# Spouští se SIGNÁLEM z enginu (`repository_dispatch`), ne `workflow_run`:
+# ten totiž reaguje jen na workflow ve VLASTNÍM repu, napříč repy mlčí (a
+# přesně na to jsme narazili — nula běhů). Engine tedy po zelených testech
+# „ťukne" sem úzkým tokenem a tenhle workflow na ťuknutí zareaguje. Ručně jde
+# spustit taky.
 
 on:
-  workflow_run:
-    workflows: ["testy"]
-    types: [completed]
+  repository_dispatch:
+    types: [zkusebna-hotova]
   workflow_dispatch:
 
 permissions:
@@ -23,25 +20,19 @@ permissions:
 jobs:
   prenes:
     runs-on: ubuntu-latest
-    # Ruční spuštění nemá `workflow_run`, proto ta první podmínka. U té druhé
-    # se ptáme na závěr a větev zdrojového běhu — přetáhnout zkušebnu z rudého
-    # běhu nebo z rozpracované větve by na web pustilo něco nehotového.
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.head_branch == 'main')
     steps:
       - uses: actions/checkout@v4
 
-      # Artefakt „zkusebna" z posledního úspěšného běhu testů ve vsc-magie.
-      # Při ručním spuštění (dispatch) se `run-id` neuvádí a akce vezme nejnovější.
+      # Číslo běhu posílá engine v signálu (`repository_dispatch` má payload
+      # jen do 64 kB, takže soubor sám se jím poslat nedá — jen odkaz na něj).
+      # Token musí umět ČÍST i soukromé vsc-magie, aby artefakt stáhl.
       - name: Stáhnout zkušebnu z vsc-magie
         uses: actions/download-artifact@v4
         with:
           name: zkusebna
           repository: AdrTru/vsc-magie
-          run-id: ${{ github.event.workflow_run.id || '' }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.client_payload.run_id }}
+          github-token: ${{ secrets.TOKEN_ZKUSEBNA }}
           path: staz
 
       # index.html je to, co Pages servírují jako kořen. Přepíše se jen když se
@@ -51,7 +42,7 @@ jobs:
         run: |
           set -e
           if [ ! -s staz/zkusebna.html ]; then
-            echo "Artefakt je prázdný nebo chybí — nic nedělám."; exit 1
+            echo "Artefakt je prázdný nebo chybí — nic neukládám."; exit 1
           fi
           if cmp -s staz/zkusebna.html index.html; then
             echo "Zkušebna se nezměnila, commit netřeba."; exit 0
@@ -60,6 +51,6 @@ jobs:
           git config user.name "zkušebna-bot"
           git config user.email "actions@github.com"
           git add index.html
-          git commit -m "Zkušebna obnovena z vsc-magie (běh ${{ github.event.workflow_run.id || 'ručně' }})"
+          git commit -m "Zkušebna obnovena z vsc-magie (běh ${{ github.event.client_payload.run_id }})"
           git push
           echo "✅ index.html obnoven a publikován" >> $GITHUB_STEP_SUMMARY
