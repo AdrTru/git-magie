@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zkušebna rozvržení</title>
+<!--
+  Zkušebna rozvržení. Panely tu NEMAJÍ herní obsah — o to jde: rozmístění se
+  má dát posoudit dřív, než se do něj naleje skladač kouzel. Cedule „zatím nemá
+  obsah" je správný stav, ne rozdělaná práce.
+
+  Otevírá se přes server (http://127.0.0.1:8765/rozvrzeni.html) nebo z Pages
+  vedle `panely.js`; z `file://` ne — modul odtud prohlížeč nenačte.
+-->
+<style>
+  :root {
+    --bg: #14121a; --panel: #1e1b26; --panel2: #26222f; --line: #38323f;
+    --ink: #e8e2d6; --dim: #9a92a6; --gold: #d9b45a; --gold2: #f0cf7a;
+    --bad: #d9605a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 15px/1.5 "Segoe UI", system-ui, sans-serif; }
+  header { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+           padding: 12px 14px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 17px; margin: 0; color: var(--gold2); font-weight: 600; }
+  .sub { color: var(--dim); font-size: 12px; }
+  button { font: inherit; color: var(--ink); background: var(--panel2);
+           border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px;
+           cursor: pointer; }
+  button.on { background: var(--gold); color: #201a0a; border-color: var(--gold);
+              font-weight: 600; }
+
+  #dilna { gap: 12px; padding: 14px; align-items: start; }
+  .panel { background: var(--panel); border: 1px solid var(--line);
+           border-radius: 12px; padding: 12px; min-height: 64px; }
+  .panel h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+              color: var(--dim); margin: 0 0 8px; font-weight: 600; }
+  /* Zapomenutý panel má být vidět na první pohled, ne splynout s hotovými. */
+  .panel[data-neumisten] { border-color: var(--bad); border-style: dashed; }
+  .panel[data-neumisten] h2::after { content: " ⚠ bez místa"; color: var(--bad); }
+  .panel-prazdny { color: var(--dim); font-size: 12.5px; font-style: italic; }
+  #stav { padding: 0 14px 18px; color: var(--dim); font-size: 12px; }
+  #stav code { color: var(--gold); }
+</style>
+</head>
+<body>
+<header>
+  <h1>⚝ Zkušebna rozvržení</h1>
+  <span class="sub">rozvržení bez obsahu — zmenši okno nebo přepni ručně</span>
+  <span style="flex:1"></span>
+  <span id="prepinace"></span>
+  <button id="auto">Podle okna</button>
+</header>
+
+<div id="dilna"></div>
+<div id="stav"></div>
+
+<script type="module">
+import { vytvor } from "./panely.js";
+
+const P = vytvor();
+
+/* Rozvržení: počet sloupců a od jaké šířky okna platí. Mobil má práh 0 —
+   je to záchranná síť, bez které by úzká obrazovka zůstala bez rozvržení. */
+P.rozvrzeni("mobil", { sloupcu: 4,  prah: 0 });
+P.rozvrzeni("tablet", { sloupcu: 8,  prah: 620 });
+P.rozvrzeni("stul",  { sloupcu: 12, prah: 980 });
+
+/* Zástupné panely. Jména odpovídají tomu, co se sem jednou nalije, ale žádný
+   z nich zatím nic nedělá — engine se zkouší na prázdných rámech. */
+P.deklaruj({ id: "pudorys", titulek: "Půdorys", misto: {
+  stul:   { s: 1, r: 1, w: 8, h: 2 },
+  tablet: { s: 1, r: 1, w: 8, h: 2 },
+  mobil:  { w: 4 },
+} });
+P.deklaruj({ id: "objekty", titulek: "Scéna", misto: {
+  stul:   { s: 1, r: 3, w: 8, h: 2 },
+  tablet: { w: 8 },
+  mobil:  { w: 4 },
+} });
+P.deklaruj({ id: "skladac", titulek: "Skladač kouzla", misto: {
+  stul:   { s: 9, r: 1, w: 4, h: 2 },
+  tablet: { w: 8 },
+  mobil:  { w: 4 },
+} });
+P.deklaruj({ id: "runy", titulek: "Runy", misto: {
+  stul:   { s: 9, r: 3, w: 4, h: 2 },
+  tablet: { w: 4 },
+  mobil:  { w: 2 },
+} });
+P.deklaruj({ id: "kronika", titulek: "Kronika", misto: {
+  stul:   { s: 1, r: 5, w: 8, h: 1 },
+  tablet: { w: 4 },
+  mobil:  { w: 2 },
+} });
+/* Schválně bez `misto`: takhle vypadá panel, na který se v rozvržení
+   zapomnělo. Nespadne, ale je označený — nevyplněné pole nesmí zvýhodnit. */
+P.deklaruj({ id: "sirotek", titulek: "Panel bez místa" });
+
+/* Jediný obsah v celé zkušebně: ukázka, že se obsah věší až po deklaraci
+   a že se dá vyměnit, aniž by se sáhlo na rozvržení. */
+P.obsah("skladac", (telo) => {
+  telo.textContent = "sem přijde řada přihrádek (sloveso · živel · cíl · forma)";
+  telo.style.color = "var(--dim)";
+  telo.style.fontSize = "12.5px";
+});
+
+const dilna = document.querySelector("#dilna");
+P.pripoj(dilna);
+
+/* Přepínače: ruční volba rozvržení vedle automatiky podle šířky okna. */
+const prepinace = document.querySelector("#prepinace");
+for (const nazev of ["mobil", "tablet", "stul"]) {
+  const b = document.createElement("button");
+  b.textContent = nazev;
+  b.onclick = () => { P.prepni(nazev); popis(); };
+  prepinace.appendChild(b);
+}
+document.querySelector("#auto").onclick = () => { P.prekresli(); popis(); };
+
+function popis() {
+  const plan = P.rozmisteni();
+  const rada = plan.map((m) => {
+    const kde = m.sloupec != null
+      ? `${m.sloupec},${m.radek} ${m.sirka}×${m.vyska}`
+      : `tok, šířka ${m.sirka}`;
+    return `<code>${m.id}</code> ${kde}${m.neumisten ? " ⚠" : ""}`;
+  }).join(" · ");
+  document.querySelector("#stav").innerHTML =
+    `Rozvržení <b>${P.aktivni()}</b> · okno ${window.innerWidth}px<br>${rada}`;
+  for (const b of prepinace.children) {
+    b.classList.toggle("on", b.textContent === P.aktivni());
+  }
+}
+window.addEventListener("resize", popis);
+popis();
+</script>
+</body>
+</html>
