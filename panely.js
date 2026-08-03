@@ -132,6 +132,7 @@ export function vytvor() {
   let koren = null;
   let aktivni = null;                // nazev právě vykresleného rozvržení
   const tela = new Map();            // id → element, do kterého píše obsah
+  const ramy = new Map();            // id → rám panelu (přežívá přeskládání)
 
   const najdi = (id) => panely.find((p) => p.id === id);
 
@@ -188,7 +189,7 @@ export function vytvor() {
       return api;
     },
 
-    /** Postaví rámy panelů znovu a nechá do nich obsah napsat. */
+    /** Postaví panely znovu a přeskládá je; hotový obsah nechá být. */
     prekresli(nazev) {
       if (!koren) chyba("prekresli() před pripoj()");
       const sirka = typeof window !== "undefined" ? window.innerWidth : 0;
@@ -196,36 +197,48 @@ export function vytvor() {
       const plan = rozmisti(panely, r);
 
       aktivni = r.nazev;
-      koren.innerHTML = "";
       koren.style.display = "grid";
       koren.style.gridTemplateColumns = `repeat(${r.sloupcu}, minmax(0, 1fr))`;
       koren.dataset.rozvrzeni = r.nazev;
-      tela.clear();
 
+      const nove = [];
       for (const m of plan) {
-        const def = najdi(m.id);
-        const ram = document.createElement("section");
-        ram.className = "panel";
-        ram.dataset.panel = m.id;
+        /* RÁM SE STAVÍ JEDNOU. Přepnutí rozvržení je přeskládání, ne nový
+         * začátek — kdyby se DOM zahazoval, přišel by při otočení telefonu
+         * o rozepsaný řádek, o obsah canvasu i o navěšené posluchače. Mění
+         * se tedy jen souřadnice a pořadí; `appendChild` uzel přesune,
+         * nezkopíruje. */
+        let ram = ramy.get(m.id);
+        if (!ram) {
+          const def = najdi(m.id);
+          ram = document.createElement("section");
+          ram.className = "panel";
+          ram.dataset.panel = m.id;
+          if (def.titulek) {
+            const h = document.createElement("h2");
+            h.textContent = def.titulek;
+            ram.appendChild(h);
+          }
+          const telo = document.createElement("div");
+          telo.className = "panel-telo";
+          ram.appendChild(telo);
+          ramy.set(m.id, ram);
+          tela.set(m.id, telo);
+          nove.push(m.id);
+        }
         ram.style.gridColumn = m.sloupec != null
           ? `${m.sloupec} / span ${m.sirka}` : `span ${m.sirka}`;
-        if (m.radek != null) ram.style.gridRow = `${m.radek} / span ${m.vyska}`;
+        ram.style.gridRow = m.radek != null
+          ? `${m.radek} / span ${m.vyska}` : "";
         /* Panel, na který rozvržení zapomnělo, se OZNAČÍ. Kdyby jen tiše spadl
          * do toku, vypadalo by rozvržení hotově a chyběl by v něm kus. */
         if (m.neumisten) ram.dataset.neumisten = "1";
-
-        if (def.titulek) {
-          const h = document.createElement("h2");
-          h.textContent = def.titulek;
-          ram.appendChild(h);
-        }
-        const telo = document.createElement("div");
-        telo.className = "panel-telo";
-        ram.appendChild(telo);
-        koren.appendChild(ram);
-        tela.set(m.id, telo);
+        else delete ram.dataset.neumisten;
+        koren.appendChild(ram);          // přesun do pořadí podle plánu
       }
-      api.obnov();
+      /* Obsah se vlévá jen do nově vzniklých panelů. Přeskládání není důvod
+       * ho přepisovat — a u dílny by to znamenalo překreslit celou scénu. */
+      for (const id of nove) api.obnov(id);
       return api;
     },
 
