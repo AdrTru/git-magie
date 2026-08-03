@@ -907,18 +907,44 @@ function kresliDosahy(o){
       ctx.restore();
     }
   }
-  if(zornePole(o) != null) kresliZornePole(o);
+  kresliZornePole(o);   // klín se peče jen bytostem, sám ví, koho kreslit
+}
+
+/* Kam bytost DOOPRAVDY dohlédne (§5.2) — zapečený `zorny_klin` z jádra, ne
+   kužel z natočení a vymyšleného poloměru. Ten tu byl do 3. 8. 2026 a byl to
+   přesně ten druh výkresu, před kterým celý tenhle soubor varuje: sliboval
+   dohled skrz zeď a končil tam, kde nic není. Clonění se do JS nepřepisuje
+   (druhá pravda o tom, kdo co vidí), takže se peče hotová odpověď.
+
+   PLATÍ PRO ROZESTAVENÍ ZE SOUBORU, stejně jako takty chození: jakmile se
+   výkresem hne, klín se schová, místo aby lhal. A při PŘEHRÁVÁNÍ se váže na
+   takt — mezi dvěma takty žádný stav není, tak se přepne v jeho půlce, kdy je
+   bytost blíž k novému místu než ke starému. */
+function klinObjektu(o){
+  if(hybanoScenou) return null;
+  const k = DATA.kontrola[klic] || {};
+  const ch = k.chuze;
+  if(ch && ch.kliny && ch.kliny[taktKlinu] && ch.kliny[taktKlinu][o.id]){
+    const v = ch.takty[taktKlinu][o.id];
+    return {body: ch.kliny[taktKlinu][o.id], oko: v ? [v[0], v[1]] : o.pozice};
+  }
+  const body = ((k.klin || {}).kdo || {})[o.id];
+  return body ? {body, oko: o.pozice} : null;
 }
 
 function kresliZornePole(o){
-  const c = [sx(o.pozice[0]), sy(o.pozice[1])];
-  const pul = (zornePole(o)/2) * Math.PI/180, smer = -(o.smer||0) * Math.PI/180;
-  const r = Math.max(DOTEK, PRAH_RETEZENI) * kamera.m * 1.7;
-  const g = ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], r);
-  g.addColorStop(0, "rgba(245,167,66,.20)"); g.addColorStop(1, "rgba(245,167,66,0)");
-  ctx.fillStyle = g;
-  ctx.beginPath(); ctx.moveTo(c[0], c[1]);
-  ctx.arc(c[0], c[1], r, smer - pul, smer + pul); ctx.closePath(); ctx.fill();
+  const klin = klinObjektu(o);
+  if(!klin) return;
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(sx(klin.oko[0]), sy(klin.oko[1]));   // vrchol: odkud se dívá
+  for(const b of klin.body) ctx.lineTo(sx(b[0]), sy(b[1]));
+  ctx.closePath();
+  ctx.fillStyle = "rgba(245,167,66,.13)";
+  ctx.fill();
+  ctx.strokeStyle = "rgba(245,167,66,.35)"; ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.restore();
 }
 
 /* Kam se bytost dívá. `smer` je MECHANIKA (zorné pole, §5.2), ne popisek —
@@ -1373,7 +1399,11 @@ volba.onchange = () => nactiScenu(volba.value);
 const KROK_CASU = 1000;                  // ms na takt
 const casTlac = document.getElementById("cas-prep");
 const chuzeSceny = () => (DATA.kontrola[klic] || {}).chuze || null;
-let takt = 0, hodiny = null;
+// `taktKlinu` = ke kterému taktu patří kreslené zorné klíny (`klinObjektu`).
+// Drží se na TÉMŽE řádku jako `takt` schválně: zkoušky přehrávače si přehrávač
+// vytahují po řádcích (`tests/vyber_pudorys.mjs`), takže co je o řádek níž, to
+// jim chybí a spadnou na nedefinované jméno.
+let takt = 0, hodiny = null, taktKlinu = 0;
 
 /* Místo na lomené čáře v daném PODÍLU její délky — bod a k němu SMĚR úseku,
    po kterém se zrovna jde. Snímky jsou po taktech a takt je až tři kroky, takže
@@ -1410,12 +1440,15 @@ function mistoNaDraze(draha, podil){
 
 function bodNaDraze(draha, podil){ return mistoNaDraze(draha, podil).bod; }
 
-/* Úhel mezi dvěma směry KRATŠÍM obloukem. Hlídka na krajním bodě dojde čelem
+/* Plynulý přechod mezi dvěma směry KRATŠÍM obloukem. Jmenuje se `uhelPlynule`,
+   a ne `uhelMezi`: tím jménem se do 3. 8. 2026 volaly DVĚ různé věci a ta
+   druhá (geometrický úhel k obrysu, `vZornemPoli`) tím tiše přestala platit —
+   pozdější deklarace v JS prostě přebije dřívější. Hlídka na krajním bodě dojde čelem
    k cestě a pak se otočí po místnosti (na balvan, na ohniště), což je otočka
    o osmdesát až devadesát stupňů — a skokem to vypadalo jako cuknutí. Přes
    nulu se točí správně: z 350 na 10 jde deset stupňů doprava, ne tři sta
    čtyřicet doleva. */
-function uhelMezi(od, kam, podil){
+function uhelPlynule(od, kam, podil){
   const rozdil = ((((kam - od) % 360) + 540) % 360) - 180;
   return (((od + rozdil * podil) % 360) + 360) % 360;
 }
@@ -1445,6 +1478,7 @@ function prejezd(cil){
   const snimek = () => {
     if(!hodiny) return;                       // mezitím se zastavilo
     const podil = (performance.now() - zacatek) / KROK_CASU;
+    taktKlinu = podil < 0.5 ? takt : cil;    // klín patří taktu, ne mezisnímku
     if(podil >= 1){
       nastavTakt(cil);
       hodiny = requestAnimationFrame(() => prejezd((cil + 1) % ch.takty.length));
@@ -1457,8 +1491,8 @@ function prejezd(cil){
       o.pozice = [m.bod[0], m.bod[1]];
       if(m.bod[2]) o.z = m.bod[2]; else delete o.z;
       o.smer = m.smer === null
-        ? uhelMezi(smery[o.id][0], smery[o.id][1], podil)          // rozhlíží se
-        : uhelMezi(smery[o.id][0], m.smer, Math.min(1, podil / PODIL_OTOCKY));
+        ? uhelPlynule(smery[o.id][0], smery[o.id][1], podil)       // rozhlíží se
+        : uhelPlynule(smery[o.id][0], m.smer, Math.min(1, podil / PODIL_OTOCKY));
     }
     kresli();
     hodiny = requestAnimationFrame(snimek);
@@ -1471,6 +1505,7 @@ function nastavTakt(i){
   if(!ch) return;
   const kolik = ch.takty.length;
   takt = ((i % kolik) + kolik) % kolik;
+  taktKlinu = takt;
   /* NULA se nebere ze snímku, ale ze samotné scény — ta je jediná pravda o tom,
      jak přišla ze souboru, VČETNĚ toho, které údaje v ní vůbec nejsou. Snímek
      nese čísla, a číslem zapsaná nula se od chybějícího údaje v exportu pozná:
