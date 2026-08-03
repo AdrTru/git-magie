@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Náhled — Runová dílna</title>
+<style>
+  :root {
+    --bg: #14121a; --panel: #1e1b26; --panel2: #26222f; --line: #38323f;
+    --ink: #e8e2d6; --dim: #9a92a6; --gold: #d9b45a; --gold2: #f0cf7a;
+    --enemy: #d97a6a; --ally: #6ab0d9; --self: #b98fd9; --ok: #7fce8a;
+    --warn: #e0b64a; --bad: #d9605a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 "Segoe UI", system-ui, sans-serif;
+  }
+  h1, h2, h3 { font-weight: 600; margin: 0; }
+  h1 { font-size: 20px; color: var(--gold2); letter-spacing: .5px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+       color: var(--dim); margin-bottom: 8px; }
+  a { color: var(--gold); }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 18px; }
+  header { display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+           margin-bottom: 16px; }
+  header .sub { color: var(--dim); font-size: 13px; }
+  select, input, button, textarea {
+    font: inherit; color: var(--ink); background: var(--panel2);
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 11px;
+  }
+  button { cursor: pointer; transition: .12s; }
+  button:hover { border-color: var(--gold); }
+  button.primary { background: var(--gold); color: #201a0a; border-color: var(--gold);
+                   font-weight: 600; }
+  button.primary:hover { background: var(--gold2); }
+  /* Rozvržení kreslí `panely.js` z dat ve skriptu — tady zůstává jen vzhled
+     panelu. `align-items: start` drží panel u horní hrany svého pásma; bez
+     něj by se roztáhl na výšku nejvyššího souseda v řádku. */
+  .nahled-pruh { background: #3a2f14; border: 1px solid var(--gold);
+                 color: var(--gold2); border-radius: 10px; padding: 10px 12px;
+                 margin-bottom: 14px; font-size: 13px; line-height: 1.5; }
+  #dilna { gap: 16px; align-items: start; }
+  .panel { background: var(--panel); border: 1px solid var(--line);
+           border-radius: 12px; padding: 16px; }
+  /* Odsazení mezi panely dělá `gap` mřížky; ruční margin by se s ním sčítal. */
+  /* Proužek s posledním výsledkem není samostatná deska — rám by se mu zdvojil
+     s vlastním rámečkem `.lastresult`, a prázdný by svítil naprázdno. */
+  .panel[data-panel="vysledek"] { background: none; border: 0; padding: 0; }
+
+  /* scéna */
+  .scene-head { display: flex; justify-content: space-between; align-items: baseline;
+                gap: 10px; margin-bottom: 12px; }
+  .goal { font-size: 13px; color: var(--dim); }
+  .goal b { color: var(--ink); font-weight: 500; }
+  .head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+
+  /* nádrž many místnosti (ukazatel zdroje, § mana) */
+  .manapool { min-width: 150px; text-align: right; }
+  .manapool .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+                   color: var(--dim); }
+  .manapool .num { font-size: 13px; font-weight: 600; color: var(--gold2); margin-left: 5px; }
+  .manapool.low .num { color: var(--bad); }
+  .manabar { height: 6px; border-radius: 6px; background: var(--panel2);
+             border: 1px solid var(--line); margin-top: 4px; overflow: hidden; }
+  .manabar > i { display: block; height: 100%; border-radius: 6px;
+                 background: linear-gradient(90deg, var(--self), var(--ally)); transition: width .2s; }
+  .manapool.low .manabar > i { background: var(--bad); }
+
+  /* živý náhled ceny/šance/validace během psaní kouzla */
+  .preview { display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+             min-height: 22px; margin-bottom: 8px; font-size: 12.5px; color: var(--dim); }
+  .preview.empty { display: none; }
+  .preview .pv { display: inline-flex; gap: 5px; align-items: center; }
+  .preview .pv b { font-weight: 600; color: var(--ink); }
+  .preview .ok   { color: var(--ok); }
+  .preview .warn { color: var(--warn); }
+  .preview .bad  { color: var(--bad); }
+  .plan-wrap { position: relative; margin: 0 0 10px; }
+  #plan { width: 100%; height: 240px; display: block; border-radius: 8px;
+          background: #0b1a2b; border: 1px solid #1e3a56; cursor: crosshair; }
+  .plan-note { font-size: 11px; opacity: .65; margin-top: 4px; }
+  .walkbar { display: flex; align-items: center; gap: 8px; margin-top: 6px;
+             font-size: 12px; }
+  .walkbar .bad { color: #f5a742; }
+  .objs { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px,1fr));
+          gap: 10px; }
+  .obj { background: var(--panel2); border: 1px solid var(--line); border-radius: 10px;
+         padding: 10px; position: relative; }
+  .obj.dead { opacity: .45; filter: grayscale(.6); }
+  .obj .ico { font-size: 22px; }
+  .obj .nm { font-weight: 600; font-size: 14px; margin: 2px 0 6px; }
+  .obj .podtyp { font-size: 11px; margin: -4px 0 6px; color: var(--dim); opacity: .6; }
+  .obj .slotline { font-size: 11px; margin: -2px 0 6px; color: var(--dim); }
+  .obj .slotline.on { color: var(--ok); font-weight: 600; }
+  .obj .bonusline { font-size: 11px; margin: -2px 0 6px; color: var(--gold); }
+  .obj .podtyp.znam { color: var(--gold); opacity: 1; }   /* objevený druh (§3.7) */
+  .obj.enemy { border-left: 3px solid var(--enemy); }
+  .obj.ally  { border-left: 3px solid var(--ally); }
+  .obj.self  { border-left: 3px solid var(--self); }
+  .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; min-height: 4px; }
+  .chip { font-size: 11px; padding: 1px 7px; border-radius: 20px;
+          background: #322b3a; color: var(--dim); border: 1px solid var(--line); }
+  .chip.illus { font-style: italic; opacity: .7; }
+  .src { font-size: 11px; color: var(--gold); margin-top: 6px; }
+  .hp { height: 4px; background: #3a3340; border-radius: 3px; margin-top: 8px;
+        overflow: hidden; }
+  .hp > i { display: block; height: 100%; background: var(--ok); }
+  .inv-wrap { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+  .invh { font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+          color: var(--gold); margin-bottom: 8px; }
+  .obj .pick { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px;
+               flex-wrap: wrap; justify-content: flex-end; max-width: 96px; }
+  .obj .pick button { padding: 2px 6px; font-size: 12px; border-radius: 6px;
+                      line-height: 1; }
+  .pick button.on { background: var(--gold); color: #201a0a; border-color: var(--gold); }
+
+  /* seslání */
+  .castbar { display: flex; gap: 8px; margin-top: 4px; }
+  .castbar input { flex: 1; font-size: 15px; }
+  .opts { display: flex; gap: 16px; align-items: center; margin-top: 10px;
+          font-size: 13px; color: var(--dim); flex-wrap: wrap; }
+  .opts label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+  .hintline { font-size: 12px; color: var(--dim); margin-top: 8px; }
+  .hintline code { background: var(--panel2); padding: 1px 6px; border-radius: 5px;
+                   color: var(--gold2); cursor: pointer; }
+
+  /* log */
+  #log { max-height: 320px; overflow-y: auto; }
+  /* zrcadlo posledního záznamu Kroniky nad řádkem sesílání */
+  .lastresult { background: var(--panel); border: 1px solid var(--line);
+                border-left: 3px solid var(--gold); border-radius: 12px;
+                padding: 2px 16px; margin-bottom: 16px; }
+  .lastresult.empty { display: none; }
+  .lastresult .entry { border-top: none; }
+  .entry { border-top: 1px solid var(--line); padding: 9px 0; }
+  .entry:first-child { border-top: none; }
+  .entry .cmd { font-family: ui-monospace, monospace; color: var(--gold2); }
+  .entry .meta { font-size: 12px; color: var(--dim); margin: 3px 0; }
+  .entry .msg { font-size: 13px; margin: 1px 0; }
+  .badge { display: inline-block; font-size: 11px; padding: 0 7px; border-radius: 20px;
+           margin-left: 6px; }
+  .b-ok { background: #23402a; color: var(--ok); }
+  .b-warn { background: #43391c; color: var(--warn); }
+  .b-bad { background: #431f1d; color: var(--bad); }
+  .err { color: var(--bad); }
+
+  /* paleta + čtení */
+  .pgroup { margin-bottom: 12px; }
+  .pgroup h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+               color: var(--dim); margin-bottom: 5px; }
+  .runes { display: flex; flex-wrap: wrap; gap: 5px; }
+  .rune { font-size: 13px; padding: 2px 9px; border-radius: 7px; cursor: pointer;
+          background: var(--panel2); border: 1px solid var(--line); }
+  .rune:hover { border-color: var(--gold); color: var(--gold2); }
+  .rune small { color: var(--dim); }
+  .rune.otisk { border-color: var(--gold); border-style: dashed; color: var(--gold2); }
+  .read-out { font-size: 13px; margin-top: 10px; }
+  .read-out .zam { font-family: ui-monospace, monospace; font-size: 16px;
+                   color: var(--gold2); background: var(--panel2); padding: 8px 10px;
+                   border-radius: 8px; }
+  .solved { background: #23402a; color: var(--ok); border: 1px solid #3a6b45;
+            padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+  /* tipy kouzel */
+  .tgh { font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+         color: var(--dim); margin: 14px 0 4px; }
+  .tgh:first-child { margin-top: 0; }
+  .tip { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+         padding: 6px 0; cursor: pointer; border-top: 1px solid var(--line); }
+  .tgroup .tip:first-child { border-top: none; }
+  .tip code { background: var(--panel2); padding: 2px 8px; border-radius: 6px;
+              color: var(--gold); white-space: nowrap; }
+  .tip:hover code { color: var(--gold2); border: 0; outline: 1px solid var(--gold); }
+  .tdesc { font-size: 12px; color: var(--dim); flex: 1; }
+  .tbadge { font-size: 11px; background: #2b3550; color: #9ec2e6; padding: 0 8px;
+            border-radius: 20px; white-space: nowrap; }
+  .tbadge.tneed { background: #3a2c1c; color: var(--warn); }
+  .tip.tlock { opacity: .68; }
+
+  /* paleta: mastery + zamčené runy */
+  .rune small { color: var(--gold); opacity: .8; font-size: 11px; }
+  .rune.locked { opacity: .6; border-style: dashed; color: var(--dim); }
+  .rune.locked:hover { border-color: var(--gold); color: var(--gold2); opacity: .9; }
+  /* „umíš pojmenovat, ale neumíš seslat" (SEEN jméno-látka, #47): zvýrazněná
+     i se zámkem — má jméno v knize, ale není naučená; klik ji vloží do řádku. */
+  .rune.seen { border-color: var(--gold); border-style: dashed; color: var(--gold2);
+               background: #2e2718; }
+  .rune.seen:hover { border-color: var(--gold2); background: #372e1c; }
+  .rune.seen small { color: var(--gold); opacity: .9; }
+
+  /* rozklad ve čtení */
+  .decomp { margin-top: 10px; font-size: 13px; color: var(--dim); }
+  .dbtn { padding: 2px 9px; font-size: 13px; border-radius: 6px; margin: 2px 3px 0 0; }
+  .dbtn:hover { border-color: var(--gold); color: var(--gold2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>⚝ Runová dílna</h1>
+    <span class="sub">prototyp jazyka kouzel — napiš kouzlo a dívej se, co to udělá</span>
+    <span style="flex:1"></span>
+    <label class="sub">Scéna:
+      <select id="scenePick"></select>
+    </label>
+    <label class="sub" title="Zapnuto: naučené runy, otisky, objevené látky a pojmenovaná kouzla se při přepnutí místnosti ZACHOVAJÍ (bez přepsání). Vypnuto: každá scéna má čerstvý profil.">
+      <input type="checkbox" id="prenes"> Přenášet mezi místnostmi
+    </label>
+    <button id="saveBtn" title="Uloží rozehranou partii — scénu i s průběhem, znalosti a knihu kouzel.">Uložit</button>
+    <button id="loadBtn" title="Vrátí se k uložené partii.">Načíst</button>
+    <button id="resetBtn">Restart scény</button>
+  </header>
+
+  <div class="nahled-pruh">
+    <b>Náhled rozvržení.</b> Běží tu jen obrazovka — seslání, chůze i ukládání
+    potřebují Python, a ten tady není. Zkoušej rozmístění panelů: zmenši okno
+    nebo otoč telefon.
+  </div>
+  <div id="dilna"></div>
+</div>
+
+<!-- OBSAH PANELŮ.
+     Rozmístění dělá `panely.js` z dat níž ve skriptu; sem patří jen
+     to, CO v panelu je. Šablona se do panelu přesune jednou, při jeho
+     vzniku — přeskládání rozvržení ji nechává být, takže rozepsaný
+     řádek ani obsah canvasu otočením telefonu nezmizí. -->
+<template id="sablona-scena">
+  <div class="scene-head">
+    <div>
+      <h2 id="sceneName">Scéna</h2>
+      <div class="goal" id="goal"></div>
+    </div>
+    <div class="head-right">
+      <div class="manapool" id="manapool"></div>
+      <span class="solved" id="solved" style="display:none">✔ Scéna vyřešena</span>
+    </div>
+  </div>
+  <div class="plan-wrap">
+    <canvas id="plan" width="640" height="300"></canvas>
+    <div class="plan-note" id="planNote"></div>
+    <div class="walkbar" id="walkBar" style="display:none">
+      <button class="primary" id="walkBtn">👣 Jdi sem</button>
+      <button id="aimBtn" title="natočit se k tomuto místu (Směr)">🧭 Zamiř sem</button>
+      <span id="walkInfo"></span>
+      <button id="walkCancel" title="zrušit označené místo">✕</button>
+    </div>
+  </div>
+  <div class="objs" id="objs"></div>
+  <div class="inv-wrap" id="invWrap" style="display:none">
+    <h3 class="invh">Neseš 🎒</h3>
+    <div class="objs" id="inv"></div>
+  </div>
+
+</template>
+
+<template id="sablona-seslani">
+  <div class="preview empty" id="preview"></div>
+  <div class="castbar">
+    <input id="spell" placeholder="např. Zažehni Oheň Nepřítel Projektil"
+           autocomplete="off">
+    <button id="clearBtn" title="smazat řádek (Esc)">✕</button>
+    <button class="primary" id="castBtn">Sešli</button>
+    <button id="tickBtn" title="krok času: šíření ohně, průběžné působení (#39)">Krok času ⏱</button>
+  </div>
+  <div class="opts">
+    <label><input type="checkbox" id="force"> na sílu (protlačit nejednoznačné)</label>
+    <span id="selInfo"></span>
+  </div>
+  <div class="hintline">
+    Tip: klikni na runu v paletě, přidá se do řádku. Zdroj čerpej tlačítkem
+    <b>⛏</b>, kanál/cíl ukaž <b>👉</b>. Zkus:
+    <code>Zažehni Oheň Nepřítel Projektil</code>
+    <code>Zmraz Voda Nepřítel : Oheň</code>
+    <code>Zaštiť Já skrze Kámen</code>
+  </div>
+
+</template>
+
+<template id="sablona-vysledek">
+<div class="lastresult empty" id="lastResult"></div>
+</template>
+
+<template id="sablona-runy">
+  <div id="paleta"></div>
+  <div id="podtypy"></div>
+  <div id="otisky"></div>
+
+</template>
+
+<template id="sablona-akce">
+  <div class="castbar">
+    <input id="action" autocomplete="off"
+           placeholder="např. otevři truhla · seber měšec · použij pochodeň na lampa">
+    <button class="primary" id="actBtn">Proveď</button>
+  </div>
+  <div class="hintline">
+    <b>jdi k X</b> / <b>jdi na X Y</b> / <b>seber</b> / <b>polož</b> /
+    <b>otevři</b> / <b>zavři</b> / <b>použij X na Y</b> — sléva se na tytéž
+    stavy jako kouzla. Chůze stojí čas (§39). Zkus:
+    <code>otevři truhla</code> <code>seber měšec</code>
+    <code>jdi na 5.5 3.8</code>
+  </div>
+
+</template>
+
+<template id="sablona-tipy">
+  <div id="tips"></div>
+
+</template>
+
+<template id="sablona-kronika">
+  <div id="log"></div>
+
+</template>
+
+<template id="sablona-svitek">
+  <div class="castbar">
+    <input id="scroll" placeholder="Sváž Já Bod" autocomplete="off">
+    <button id="readBtn">Číst</button>
+  </div>
+  <div class="read-out" id="readOut"></div>
+
+</template>
+
+
+<script type="module">
+/* MODUL, ne obyčejný skript: dílna si načítá `panely.js` a `import` jinde než
+   v modulu nejde. Nic jiného se tím neměnilo — kód níž nikdo zvenčí nevolá
+   (v HTML není jediné `onclick=`), takže mu uzavřený obor nevadí. */
+import { vytvor } from "./panely.js";
+
+/* ── ROZVRŽENÍ DÍLNY ────────────────────────────────────────────────────────
+   Kde co leží, se odteď zadává TADY, ne v CSS. Nový panel je nový záznam
+   v tomhle seznamu a šablona v HTML; kód se nemění.
+
+   Pořadí záznamů je pořadí NA MOBILU, kde panely tečou pod sebou: nejdřív
+   scéna a řádek seslání, hned za nimi výsledek a runy — to je jádro smyčky
+   (vidím cíl → složím kouzlo → vidím, co to udělalo). Na stole o pořadí
+   nerozhoduje, tam má každý panel své souřadnice.
+
+   Souřadnice se zadávají ve SLOUPCÍCH, ne v pixelech: přechod mezi telefonem
+   a monitorem je změna počtu sloupců, ne přepis souřadnic. `stul` má dvanáct
+   sloupců a drží dosavadní podobu — hlavní sloupec 1–8, postranní 9–12. */
+const P = vytvor();
+P.rozvrzeni("mobil", { sloupcu: 4,  prah: 0 });      // záchranná síť, viz panely.js
+P.rozvrzeni("stul",  { sloupcu: 12, prah: 1000 });
+
+const PANELY = [
+  ["scena",    null,                       { s: 1, r: 1, w: 8, h: 1 }],
+  ["seslani",  "Seslání",                  { s: 1, r: 3, w: 8, h: 1 }],
+  ["vysledek", null,                       { s: 1, r: 2, w: 8, h: 1 }],
+  ["runy",     "Runy, které znáš",         { s: 9, r: 1, w: 4, h: 1 }],
+  ["akce",     "Akce se světem — manipulace (ne kouzlo, §8.4)",
+                                           { s: 1, r: 4, w: 8, h: 1 }],
+  ["tipy",     "Co zkusit — klikni a kouzlo se vloží do řádku",
+                                           { s: 1, r: 5, w: 8, h: 1 }],
+  ["kronika",  "Kronika",                  { s: 1, r: 6, w: 8, h: 1 }],
+  ["svitek",   "Číst cizí svitek (§7)",    { s: 9, r: 2, w: 4, h: 1 }],
+];
+
+for (const [id, titulek, stul] of PANELY) {
+  P.deklaruj({ id, ...(titulek ? { titulek } : {}), misto: {
+    stul,
+    mobil: { w: 4 },     // na telefonu všechno přes celou šířku, v tomhle pořadí
+  } });
+  /* Obsah je šablona z HTML a stěhuje se do panelu jednou. `content` je
+     fragment — připojením se jeho děti PŘESUNOU, takže `id` uvnitř zůstávají
+     jedinečná a `$("#objs")` a spol. míří pořád na tentýž uzel. */
+  P.obsah(id, (telo) => {
+    telo.appendChild(document.getElementById(`sablona-${id}`).content);
+  });
+}
+P.pripoj(document.getElementById("dilna"));
+
+const $ = s => document.querySelector(s);
+let cerpej = new Set();     // id objektů, ze kterých čerpám
+let ukazIds = new Set();    // id ručně označených cílů (víc naráz, §3.7)
+// Kam se hráč chystá dojít: {cil:[x,y], body:[[x,y,z],…], kroky, chyba}.
+// NENÍ to rozkaz — chůze posouvá scénu, takže se napřed ukáže cena a teprve
+// pak se potvrdí. Bez toho by byl každý minutý klik do výkresu ztracený takt.
+let chuze = null;
+// Kam by letěl mířený zásah rozepsaného kouzla (#60): [{odkud, konec, sirka,
+// zasazeni}] hotové z jádra. U `Směr` si cíl nikdo nenajde za hráče, takže je
+// to jediný cíl, u kterého má smysl ukázat DOPŘEDU, kam se strefí.
+let koridory = [];
+
+// stav -> {emoji, barva}
+const STAVY = {
+  "hoří":{e:"🔥",c:"#d97a6a"}, "promáčeno":{e:"💧",c:"#6ab0d9"},
+  "zmrazeno":{e:"❄️",c:"#8fd0e0"}, "prochladlé":{e:"🌫",c:"#9fc4d0"},
+  "vodivé":{e:"⚡",c:"#e0c24a"}, "šok":{e:"⚡",c:"#f0d24a"},
+  "ozářeno":{e:"☀️",c:"#e0c24a"}, "zatemněno":{e:"🌑",c:"#8a86a0"},
+  "oslněno":{e:"😵",c:"#f0e0a0"}, "oslepeno":{e:"🙈",c:"#c0b090"},
+  "zavaleno":{e:"🪨",c:"#b0a08a"}, "ovládnuto":{e:"🔒",c:"#b98fd9"},
+  "zničeno":{e:"💀",c:"#b0605a"}, "posíleno":{e:"🛡",c:"#7fce8a"},
+  "oslabeno":{e:"📉",c:"#d9a05a"}, "otráveno":{e:"☠",c:"#8ac06a"},
+  "taví":{e:"🌋",c:"#e07a4a"}, "znehybněno":{e:"⛓",c:"#b0a08a"},
+  "vyčerpáno":{e:"🕳",c:"#8a86a0"},
+};
+const TAG_ICO = {
+  "nepřítel":"👹","já":"🧙","spojenec":"🛡️","goblin":"👺","dveře":"🚪",
+  "hořlavé":"🧺","kamenné":"🗿","kámen":"🪨","voda":"💧","oheň":"🔥",
+  "bod":"🎯","stavba":"🏛",
+};
+
+// Nápovědy kouzel — jen ta ke konkrétní scéně + obecná (fungují všude).
+// t = kouzlo (vloží se do řádku), d = co dělá, pick = potřebný klik na objekt.
+const TIPY = {
+  zazemi: [
+    {t:"Zažehni Blesk Nepřítel Projektil", d:"UČENÍ: u zřídla se čerpáním naučíš nový živel Blesk (§8.1)", pick:"⛏ Zřídlo blesku", learn:true},
+    {t:"Zažehni Vítr Nepřítel", d:"neznámý živel → surge → otisk Vítr do hole; pak ho pochop v panelu Otisky", learn:true},
+    {t:"Zmraz Jed Nepřítel", d:"objev odvozené látky Jed z kotlíku (Voda + ne Život, §8.1)", pick:"⛏ Cvičný kotlík", learn:true},
+    {t:"Zaštiť Já skrze Kámen", d:"ukotvení TRVALE do many (§5.1)", pick:"👉 Runová kotva"},
+    {t:"Zažehni Oheň Nepřítel Výbuch", d:"plošně na všechny cvičné terče — mana tu nedochází"},
+  ],
+  sklad: [
+    {t:"ne Zažehni Bod", d:"„uhas“ na dveře — zruší stav hoří (runa ne)"},
+    {t:"Zažehni Oheň Nepřítel Projektil", d:"ohnivý šíp na goblina → vyřeší scénu"},
+    {t:"Zmraz Voda Bod", d:"voda z potoka uhasí dveře, ušetří manu", pick:"⛏ Stružka vody"},
+    {t:"Zaštiť Já skrze Kámen", d:"trvalý štít ukotvený do many (§5.1)", pick:"👉 Manový krystal"},
+  ],
+  slejvak: [
+    {t:"Zažehni Blesk Nepřítel Projektil", d:"blesk se řetězí přes mokré nepřátele (#39) — jen když jsou u sebe, sleduj obchůzku"},
+    {t:"Zmraz Voda Nepřítel : Voda", d:"zúžení cíle: jen na promáčené nepřátele (#38)"},
+    {t:"Zažehni Oheň Bod", d:"zapálí bednu; pak zmáčkni Krok času a oheň se šíří", pick:"pak Krok času ⏱"},
+    {t:"Zatemni Nepřítel", d:"sebere dozorci zrak; ve skladu jsi vetřelec, ale potmě o tom nikdo neví", pick:"👉 Suchý goblin (dozorce)"},
+  ],
+  arena: [
+    {t:"Zažehni Oheň Nepřítel Výbuch", d:"plošně na všechny tři terče naráz"},
+    {t:"Zažehni Oheň Nepřítel Projektil", d:"jen nejbližší cíl — porovnej s Výbuchem"},
+    {t:"Zhoj Život Spojenec", d:"vyléčí Druha (výdrž nahoru)"},
+    {t:"Zažehni Oheň Bod Zeď", d:"vytvoří ve scéně ohnivou zeď (terén, #37)"},
+    {t:"Sváž Já Bod pak Přesuň Já skrze Spojení", d:"teleport rekombinací pouta (§7.1)"},
+    {t:"Zažehni Světlo Nepřítel Paprsek", d:"u zřídla se naučíš nový živel Světlo (§8.1)", pick:"⛏ Zřídlo světla", learn:true},
+  ],
+  chalupa: [
+    {t:"Zažehni Oheň Nepřítel Projektil", d:"ohnivý šíp na Babu Jagu"},
+    {t:"Zažehni Oheň Kámen Nepřítel Výbuch", d:"Oheň+Kámen = Láva, plošně a silněji"},
+    {t:"Zažehni Oheň Vítr Nepřítel", d:"Oheň+Vítr = Ohnivá bouře, šíří se"},
+    {t:"Zhoj Život Spojenec", d:"vyléčíš Vasilisinu panenku (spojence)"},
+    {t:"Zažehni Oheň Nepřítel Výbuch", d:"oheň zdarma z rozpálené pece", pick:"⛏ Rozpálená pec"},
+    {t:"Zmraz Voda Nepřítel", d:"seber vodu z kotlíku (⛏) — vyčerpaný odhalí, co je na dně…", pick:"⛏ Kotlík s jedem"},
+    {t:"Odhal Nepřítel", d:"čarodějnice mámí iluzemi — rozptýlíš „zdánlivé“ stavy"},
+  ],
+  vezeni: [
+    {t:"ne Zmraz Já", d:"„uvolni“ — sundá okovy (zruší spoutáno)"},
+    {t:"Rozbij Kámen Bod", d:"probouráš rezavé mříže → útěk"},
+    {t:"Zmraz ne Světlo Nepřítel", d:"zahalíš stráž do tmy — sebereš mu ozáření (Tma)"},
+    {t:"Zmraz Kámen Nepřítel", d:"nebo strážného znehybni"},
+    {t:"Rozbij Kámen Bod tiše", d:"totéž potichu, ať stráž nevzbudíš"},
+  ],
+  hrbitov: [
+    {t:"Zažehni Světlo Nepřítel Paprsek", d:"posvátný paprsek projede nemrtvé v řadě"},
+    {t:"Rozbij Kámen Nepřítel Výbuch", d:"plošně rozdrtíš křehké kostlivce"},
+    {t:"Zažehni Oheň Nepřítel Výbuch", d:"zapálíš celou hordu naráz"},
+    {t:"Rozbij Kámen Bod silně", d:"probouráš se do staré krypty"},
+    {t:"Zažehni Oheň Nepřítel Projektil", d:"šíp na nejbližšího — nekromant stojí vpředu (vyřeší scénu)"},
+  ],
+};
+// Gramatická slova negatuje jen fáze, ne znalost run — pro hlídání tipů je ber jako známá.
+const GRAM = new Set(["ne","a","pak","pokud","skrze","pojmenuj","jako","dokud",":","(",")"]);
+let knownNames = new Set();
+function tipMissing(t){
+  return [...new Set(t.split(/\s+/).map(w=>w.trim()).filter(Boolean)
+    .filter(w=>!GRAM.has(w.toLowerCase()))
+    .filter(w=>!knownNames.has(w.toLowerCase())))];
+}
+const TIPY_OBECNE = [
+  {t:"Zažehni Oheň Oheň Nepřítel", d:"intenzita stackingem — žhavější oheň (×1.4)"},
+  {t:"Zažehni Oheň Nepřítel silně", d:"intenzita modifikátorem (levnější než stacking)"},
+  {t:"Zažehni Oheň Voda Nepřítel Projektil", d:"Oheň+Voda = Pára (emergentní živel)"},
+  {t:"Zmraz Voda ne Oheň Nepřítel", d:"Voda+Chlad = Led (zmrazeno) — odvozená látka"},
+  {t:"Zažehni Oheň Nepřítel Projektil iluzorně", d:"iluze — jen zdání, bez skutečné škody"},
+  {t:"Odhal Nepřítel", d:"protihra iluzí — rozptýlí „zdánlivě“ stavy na cíli (§5.3)"},
+  {t:"Oheň Nepřítel", d:"bez slovesa se doplní „Zažehni“ (= Zažehni Oheň Nepřítel)"},
+];
+
+function tipHTML(x){
+  const missing = x.learn ? [] : tipMissing(x.t);  // learn = objeví se čerpáním u zřídla
+  const locked = missing.length>0;
+  let badge = "";
+  if(locked) badge = `<span class="tbadge tneed">objev: ${missing.join(", ")}</span>`;
+  else if(x.pick) badge = `<span class="tbadge">${x.pick}</span>`;
+  return `<div class="tip ${locked?'tlock':''}" data-t="${x.t}" data-locked="${locked?1:0}">` +
+         `<code>${x.t}</code><span class="tdesc">${x.d}</span>${badge}</div>`;
+}
+function renderTips(klic){
+  const scenove = TIPY[klic] || [];
+  $("#tips").innerHTML =
+    (scenove.length ? `<div class="tgroup">${scenove.map(tipHTML).join("")}</div>` : "") +
+    `<h3 class="tgh">Obecné (fungují ve všech scénách)</h3>` +
+    `<div class="tgroup">${TIPY_OBECNE.map(tipHTML).join("")}</div>`;
+}
+
+function objIco(o){
+  for(const t of o.tagy){ if(TAG_ICO[t]) return TAG_ICO[t]; }
+  return "◻️";
+}
+function objClass(o){
+  if(o.tagy.includes("nepřítel")) return "enemy";
+  if(o.tagy.includes("já")) return "self";
+  if(o.tagy.includes("spojenec")) return "ally";
+  return "";
+}
+
+function chipsHTML(o){
+  return o.stavy.map(st=>{
+    const illus = st.startsWith("zdánlivě ");
+    const base = illus ? st.slice(9) : st;
+    const m = STAVY[base] || {e:"", c:"#9a92a6"};
+    return `<span class="chip ${illus?'illus':''}" style="color:${m.c};border-color:${m.c}44">${m.e} ${st}</span>`;
+  }).join("");
+}
+// Pasivní modifikátory výbavy → čitelný text („−20% mana · +5% šance").
+function bonusText(b){
+  if(!b) return "";
+  const p = [];
+  if(b.mana!=null && b.mana!==1) p.push(`${b.mana<1?'−':'+'}${Math.round(Math.abs(1-b.mana)*100)}% mana`);
+  if(b.sance!=null && b.sance!==0) p.push(`${b.sance>0?'+':'−'}${Math.round(Math.abs(b.sance)*100)}% šance`);
+  return p.join(" · ");
+}
+// Karta objektu — sdílená pro scénu i inventář; tlačítka podle režimu (§8.4).
+function objCard(o, mode){
+  const src = o.zdroj_zivel
+    ? `<div class="src">⛲ zdroj ${o.zdroj_zivel} · ${Math.round(o.kvalita*100)}%${o.zdroj_many?" · kotva many":""}</div>`
+    : (o.zdroj_many?`<div class="src">🔗 kotva many</div>`:"");
+  const hp = (o.vydrz!==null)
+    ? `<div class="hp"><i style="width:${Math.max(0,Math.min(100,o.vydrz*4))}%"></i></div>` : "";
+  let btns = `<button class="prozkoumej" data-id="${o.id}" title="prozkoumej (popis + odhalí obsah, §8.4)">🔍</button>`;
+  // ⛏ čerpání a 👉 cílení jdou i na nesené věci (§8.2): nasazený prsten-kotva se
+  // dá označit jako kanál/cíl, z neseného zdroje čerpat (bod 2 novinek).
+  if(o.zdroj_zivel) btns += `<button class="cerp ${cerpej.has(o.id)?'on':''}" data-id="${o.id}" title="čerpat z tohoto zdroje">⛏</button>`;
+  btns += `<button class="ukaz ${ukazIds.has(o.id)?'on':''}" data-id="${o.id}" title="označit cíl / kanál (klikni víc — zásah všech, mana ×počet)">👉</button>`;
+  // 👣 jen na věci ve scéně: co neseš, k tomu se nechodí.
+  if(mode!=="inv" && !o.tagy.includes("já")) btns += `<button class="jdi" data-id="${o.id}" title="jdi k tomu (chůze stojí čas, §39)">👣</button>`;
+  if(mode==="inv"){
+    if(o.slot) btns += `<button class="vybav ${o.vybaveno?'on':''}" data-id="${o.id}" data-on="${o.vybaveno?1:0}" title="${o.vybaveno?'sundej':'nasaď'} (slot ${o.slot})">${o.vybaveno?'✅':'⬜'}</button>`;
+    btns += `<button class="poloz" data-id="${o.id}" title="polož do scény (§8.4)">🖐</button>`;
+  } else {
+    if(o.otviratelny){
+      const open = (o.stavy||[]).includes("otevřeno");
+      const lbl = o.zamceno ? "🔒" : (open ? "📂" : "📦");
+      const ttl = o.zamceno ? "zamčeno — odemkni klíčem (použij klíč na …), rozvaž kouzlem (ne Sváž), nebo rozbij"
+                            : (open ? "zavři (§8.4)" : "otevři (§8.4)");
+      btns += `<button class="otevri" data-id="${o.id}" data-open="${open?1:0}" title="${ttl}">${lbl}</button>`;
+    }
+    if(o.prenosny && !o.znicene) btns += `<button class="seber" data-id="${o.id}" title="seber do inventáře (§8.4)">🫳</button>`;
+  }
+  return `<div class="obj ${objClass(o)} ${o.znicene?'dead':''}">
+    <div class="pick">${btns}</div>
+    <div class="ico">${objIco(o)}</div>
+    <div class="nm">${o.nazev}</div>
+    ${o.podtyp?`<div class="podtyp ${o.podtyp_znamy?'znam':''}" title="${o.podtyp_znamy?'objevený druh — zvedá šanci (§3.7)':'druh cíle — zatím neobjevený'}">🎯 ${o.podtyp}${o.podtyp_znamy?'':' ?'}</div>`:""}
+    ${(mode==="inv"&&o.slot)?`<div class="slotline ${o.vybaveno?'on':''}">${o.vybaveno?"🎽 nasazeno":"🎒 slot "+o.slot}</div>`:""}
+    ${(mode==="inv"&&o.slot&&bonusText(o.bonusy))?`<div class="bonusline">✨ ${bonusText(o.bonusy)}</div>`:""}
+    <div class="chips">${chipsHTML(o)}</div>
+    ${src}${hp}
+  </div>`;
+}
+
+function render(state){
+  const s = state.scena;
+  // Pročisti výběr: vyčerpaný/zmizelý zdroj nesmí zůstat označený k čerpání
+  // (jinak by ho další seslání poslalo a spadlo na „není z čeho čerpat").
+  // Bere scénu I nesený inventář (§8.2) — z neseného zdroje/kotvy jde taky čerpat/cílit.
+  const vse = s.objekty.concat(s.inventar || []);
+  const zdroje = new Set(vse.filter(o=>o.zdroj_zivel).map(o=>o.id));
+  cerpej = new Set([...cerpej].filter(id=>zdroje.has(id)));
+  // Odznač cíle, které zmizely NEBO padly (zničené) — ať neplýtváš manou na
+  // mrtvý cíl (troska zůstává ve scéně, ale z ručního výběru vypadne).
+  const ziveCile = new Set(vse.filter(o=>!o.znicene).map(o=>o.id));
+  ukazIds = new Set([...ukazIds].filter(id=>ziveCile.has(id)));
+  ukazUlozeni(state.ulozeni);
+  planStav = {objekty: s.objekty};   // půdorys kreslí TÝŽ stav, co seznam kusů
+  // Cíl chůze platí jen pro TEN stav, ve kterém se spočítal: mezi kroky se
+  // hlídka pohne, dveře zavřou, oheň chytí — a trasa už neplatí.
+  chuze = null; ukazChuzi();
+  koridory = [];       // scéna je jiná — pás dokreslí až čerstvý náhled
+  kresliPlan();
+  $("#sceneName").textContent = s.nazev;
+  $("#goal").innerHTML = s.cil.length
+    ? "Cíl: " + s.cil.map(t=>`<b>${t}</b>`).join(" &amp; ")
+    : "Volná aréna — bez cíle, jen si hraj.";
+  $("#solved").style.display = s.vyresena ? "" : "none";
+
+  // nádrž many místnosti (§ mana). mana_max<=0 = neomezená → ukazatel skryjeme.
+  const mp = $("#manapool");
+  if(s.mana_max > 0){
+    const pct = Math.max(0, Math.min(100, 100 * s.mana / s.mana_max));
+    const low = s.mana <= s.mana_max * 0.25;
+    mp.className = "manapool" + (low ? " low" : "");
+    mp.innerHTML =
+      `<span class="lbl">Mana místnosti</span>` +
+      `<span class="num">${s.mana} / ${s.mana_max}</span>` +
+      `<div class="manabar"><i style="width:${pct}%"></i></div>`;
+  } else {
+    mp.className = "manapool"; mp.innerHTML = "";
+  }
+
+  // scény do selectu
+  const pick = $("#scenePick");
+  if(pick.children.length !== state.sceny.length){
+    pick.innerHTML = state.sceny.map(x=>`<option value="${x.klic}">${x.nazev}</option>`).join("");
+  }
+  pick.value = s.klic;
+
+  // objekty ve scéně + nesený inventář (stejná karta, jiná tlačítka, §8.4)
+  $("#objs").innerHTML = s.objekty.map(o=>objCard(o,"scene")).join("");
+  const inv = s.inventar || [];
+  $("#invWrap").style.display = inv.length ? "" : "none";
+  $("#inv").innerHTML = inv.map(o=>objCard(o,"inv")).join("");
+
+  // paleta: naučené runy s mastery %, neznámé zamčené (klik = do svitku)
+  $("#paleta").innerHTML = state.paleta.map(g=>`
+    <div class="pgroup"><h3>${g.nadpis}</h3><div class="runes">
+      ${g.runy.map(r=> r.znama
+        ? `<span class="rune" data-t="${r.nazev}" title="${r.vyznam||''}">${r.nazev}${r.mastery!=null?` <small>${Math.round(r.mastery*100)}%</small>`:''}</span>`
+        : r.videna
+          ? `<span class="rune seen" data-t="${r.nazev}" title="Umíš pojmenovat, ale zatím neumíš seslat${r.vyznam?` — ${r.vyznam}`:''}. Klik ji vloží do řádku; sešli (čerpej ⛏ zdroj) a naučíš se ji.">🔒 ${r.nazev} <small>✎ pojmenuješ</small></span>`
+          : `<span class="rune locked" data-t="${r.nazev}" title="neznámá runa — objev ji čtením svitku (§7) nebo čerpáním u zřídla (§8.1)">🔒 ${r.nazev}</span>`
+      ).join("")}
+    </div></div>`).join("");
+
+  // Poznané podtypy cílů (§3.7): expertíza na druh, zvedá šanci
+  const pt = state.podtypy || [];
+  $("#podtypy").innerHTML = pt.length
+    ? `<div class="pgroup"><h3>Poznané druhy cílů 🎯</h3><div class="runes">${
+        pt.map(p=>`<span class="rune" title="expertíza na druh — naučený podtyp zvedá šanci (§3.7)">${p.nazev} <small>${Math.round(p.mastery*100)}%</small></span>`).join("")
+      }</div></div>`
+    : "";
+
+  // Otisky magie v holi (§4.1): surgem zahlédnutá runa; klik = pochopit (naučit)
+  const ot = state.otisky || [];
+  $("#otisky").innerHTML = ot.length
+    ? `<div class="pgroup"><h3>Otisky v holi 🪄</h3><div class="runes">${
+        ot.map(o=>`<span class="rune otisk" data-id="${o.id}" title="klik = pochopit otisk a naučit se runu (§4.1)">✨ ${o.nazev}</span>`).join("")
+      }</div></div>`
+    : "";
+
+  knownNames = new Set();
+  state.paleta.forEach(g=>g.runy.forEach(r=>{ if(r.znama) knownNames.add(r.nazev.toLowerCase()); }));
+
+  renderTips(s.klic);
+  bindObjButtons();
+  updateSel();
+  schedulePreview();   // stav se změnil (nádrž, čerpání, cíle) → osvěž náhled
+}
+
+function updateSel(){
+  const parts = [];
+  if(cerpej.size) parts.push("⛏ čerpám: " + [...cerpej].join(", "));
+  if(ukazIds.size) parts.push("👉 cíle (" + ukazIds.size + "): " + [...ukazIds].join(", "));
+  $("#selInfo").textContent = parts.join("   ");
+}
+
+function bindObjButtons(){
+  document.querySelectorAll(".cerp").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.id; cerpej.has(id)?cerpej.delete(id):cerpej.add(id);
+    b.classList.toggle("on"); updateSel(); schedulePreview();  // čerpání mění cenu
+  });
+  document.querySelectorAll(".ukaz").forEach(b=>b.onclick=()=>{
+    const id=b.dataset.id; ukazIds.has(id)?ukazIds.delete(id):ukazIds.add(id);
+    b.classList.toggle("on"); updateSel(); schedulePreview();  // cíle mění faktor many
+  });
+  document.querySelectorAll(".otisk").forEach(b=>b.onclick=async()=>{
+    const r = await api("/api/comprehend", {runa_id: b.dataset.id});
+    if(r && r.chyba){ alert(r.chyba); return; }
+    await refresh();   // otisk zmizí, runa přibude do palety
+  });
+  // Manipulace (§8.4): tlačítka na kartách odkazují objekt id → doAction.
+  document.querySelectorAll(".prozkoumej").forEach(b=>b.onclick=()=>doAction("prozkoumej "+b.dataset.id));
+  document.querySelectorAll(".jdi").forEach(b=>b.onclick=()=>doAction("jdi k "+b.dataset.id));
+  document.querySelectorAll(".seber").forEach(b=>b.onclick=()=>doAction("seber "+b.dataset.id));
+  document.querySelectorAll(".poloz").forEach(b=>b.onclick=()=>doAction("polož "+b.dataset.id));
+  document.querySelectorAll(".otevri").forEach(b=>b.onclick=()=>doAction((b.dataset.open==="1"?"zavři ":"otevři ")+b.dataset.id));
+  document.querySelectorAll(".vybav").forEach(b=>b.onclick=()=>doAction((b.dataset.on==="1"?"sundej ":"nasaď ")+b.dataset.id));
+}
+
+// Delegovaně (přežije překreslení palety): klik na runu ji vloží do řádku,
+// klik na příklad v nápovědě nahradí řádek.
+document.addEventListener("click", e=>{
+  const inp = $("#spell");
+  const locked = e.target.closest(".rune.locked");   // neznámá runa → do svitku k objevení
+  if(locked){ const sc=$("#scroll"); sc.value=locked.dataset.t; sc.focus(); return; }
+  const rune = e.target.closest(".rune");            // známá runa → přidá slovo
+  if(rune && rune.dataset.t){ inp.value=(inp.value+" "+rune.dataset.t).trim(); inp.focus(); schedulePreview(); return; }
+  const tip = e.target.closest(".tip");
+  if(tip){
+    if(tip.dataset.locked==="1"){ const sc=$("#scroll"); sc.value=tip.dataset.t; sc.focus(); }
+    else { inp.value=tip.dataset.t; inp.focus(); schedulePreview(); }   // dostupný tip → nahradí řádek
+    return;
+  }
+  const ex = e.target.closest(".hintline code");
+  if(ex){ inp.value=ex.textContent; inp.focus(); schedulePreview(); }
+});
+
+// Rozklad: tlačítko ◇ ve čtení vytáhne střípek runy a naučí ji (§7).
+document.addEventListener("click", async e=>{
+  const d = e.target.closest(".dbtn");
+  if(!d) return;
+  const text = $("#scroll").value.trim();
+  const res = await api("/api/decompose", {text, runa_id:d.dataset.id});
+  if(res.ok){ $("#readBtn").click(); await refresh(); }
+  else { $("#readOut").innerHTML = `<span class="err">✖ ${res.chyba}</span>`; }
+});
+
+
+/* ── PŮDORYS VE HŘE ──────────────────────────────────────────────────────────
+   Prostorová vrstva byla dosud pro hráče neviditelná: `prozkoumej` hlásil
+   číslo a zbytek si měl domyslet. Tady se kreslí, co scéna doopravdy je.
+
+   ŽÁDNÁ GEOMETRIE V PROHLÍŽEČI. Obrys, vzdálenost i „vidíš na to" počítá
+   `prostor.py` a server je posílá hotové (`misto_json`). Kdyby si to výkres
+   dopočítával sám, měl by projekt druhou kopii pravdy — přesně to, co se tu
+   jednou stalo mezi náhledem a sesláním. Zdejší kód umí jen škálovat a kreslit.
+
+   Editor `ui/pudorys.html` je jiný případ: je to samostatný soubor bez serveru,
+   svou kopii geometrie má a hlídá ji `test_pudorys.py` proti Pythonu.         */
+let planStav = null;
+const plan = $("#plan"), pctx = plan.getContext("2d");
+
+function bodyObrysu(o){                     // všechny body obrysu, ať už je jakýkoli
+  if(!o.obrys) return [];
+  if(o.obrys[0] === "kruh"){
+    const [[x,y], r] = o.obrys[1];
+    return [[x-r,y-r],[x+r,y+r]];
+  }
+  return o.obrys[1].flat();
+}
+
+function kresliPlan(){
+  const st = planStav;
+  const dpr = window.devicePixelRatio || 1;
+  const sir = plan.clientWidth || 640, vys = plan.clientHeight || 240;
+  if(plan.width !== Math.round(sir*dpr) || plan.height !== Math.round(vys*dpr)){
+    plan.width = Math.round(sir*dpr); plan.height = Math.round(vys*dpr);
+  }
+  pctx.setTransform(dpr,0,0,dpr,0,0);
+  pctx.clearRect(0,0,sir,vys);
+  pctx.fillStyle = "#0b1a2b"; pctx.fillRect(0,0,sir,vys);
+  if(!st) return;
+
+  // Kreslí se JEN, na co vidíš. Tma a clona z výkresu kus vyškrtnou — jinak by
+  // půdorys prozradil rozvržení cely, jejíž celý smysl je „jsi slepý, sežeň
+  // světlo". Natočení hlavy naopak nekreslí nic: otočit se je zadarmo, tak by
+  // místnost jen blikala (server proto počítá `vidis` bez výseče).
+  const vsechny = st.objekty.filter(o=>o.obrys);
+  const umistene = vsechny.filter(o=>o.vidis);
+  const skryto = vsechny.length - umistene.length;
+  const note = $("#planNote");
+  if(!umistene.length){
+    pctx.fillStyle = "rgba(159,211,232,.5)";
+    pctx.font = "12px ui-monospace,monospace"; pctx.textAlign = "center";
+    pctx.fillText(vsechny.length ? "Odsud nevidíš na nic — posviť si."
+                                 : "Tahle scéna nemá souřadnice — půdorys se nekreslí.",
+                  sir/2, vys/2);
+    note.textContent = "";
+    return;
+  }
+
+  // Měřítko podle toho, co ve scéně je; okraj na popisky.
+  const vse = umistene.flatMap(bodyObrysu);
+  const xs = vse.map(b=>b[0]), ys = vse.map(b=>b[1]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs);
+  const y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const okraj = 26;
+  const m = Math.min((sir-2*okraj) / Math.max(0.5, x1-x0),
+                     (vys-2*okraj) / Math.max(0.5, y1-y0));
+  const sx = x => okraj + (x - x0) * m;
+  const sy = y => vys - okraj - (y - y0) * m;   // sever nahoru, jako v editoru
+  planStav.prevod = {sx, sy, m, x0, y0, vys, okraj};
+
+  const ja = umistene.find(o=>o.tagy.includes("já"));
+  kresliKliny(umistene, sx, sy);      // pod objekty, ať nepřebarvují scénu
+  for(const o of umistene){
+    const jaSam = o === ja;
+    const oznaceny = ukazIds.has(o.id), cerpany = cerpej.has(o.id);
+    pctx.save();
+    pctx.lineWidth = oznaceny || cerpany ? 3 : (o.cloni || o.neprojdes ? 2.5 : 1.5);
+    // Barva NESE VÝZNAM, ne dekoraci: co cloní, co jde projít, co je vybrané.
+    pctx.strokeStyle = jaSam ? "#7ee0a8"
+      : oznaceny ? "#f5a742"
+      : cerpany ? "#8fd3ff"
+      : o.znicene ? "rgba(159,211,232,.3)"
+      : o.cloni && !o.neprojdes ? "#c9a5f0"
+      : "#9fd3e8";
+
+    if(o.obrys[0] === "kruh"){
+      const [[x,y], r] = o.obrys[1];
+      pctx.beginPath(); pctx.arc(sx(x), sy(y), Math.max(3, r*m), 0, 7); pctx.stroke();
+    } else {
+      const puntik = o.obrys[1].length === 1 &&
+                     o.obrys[1][0][0][0] === o.obrys[1][0][1][0] &&
+                     o.obrys[1][0][0][1] === o.obrys[1][0][1][1];
+      if(puntik){
+        pctx.beginPath(); pctx.arc(sx(o.pozice[0]), sy(o.pozice[1]), oznaceny?6:4, 0, 7);
+        pctx.fillStyle = pctx.strokeStyle; pctx.fill();
+      } else {
+        pctx.beginPath();
+        for(const [a,b] of o.obrys[1]){ pctx.moveTo(sx(a[0]), sy(a[1])); pctx.lineTo(sx(b[0]), sy(b[1])); }
+        pctx.stroke();
+      }
+    }
+    pctx.restore();
+  }
+
+  if(ja) kresliSmerHrace(ja, sx, sy, m);
+  if(koridory.length) kresliKoridory(sx, sy, m);
+  if(chuze) kresliChuzi(ja, sx, sy);
+
+  // Popisky až nakonec, ať je nepřekryjí čáry.
+  pctx.font = "10px ui-monospace,monospace"; pctx.textAlign = "center";
+  for(const o of umistene){
+    pctx.fillStyle = ukazIds.has(o.id) ? "#f5a742" : "rgba(210,232,244,.75)";
+    const popis = o.vzdalenost == null ? o.nazev : `${o.nazev} · ${o.vzdalenost}`;
+    pctx.fillText(popis, sx(o.pozice[0]), sy(o.pozice[1]) - 8);
+  }
+  note.textContent = "Klik na kus = cíl kouzla 👉, klik do volna = místo "
+    + "(👣 jít · 🧭 zamířit). Oranžová plocha je to, kam hlídka dohlédne. "
+    + "Čísla jsou kroky od tebe."
+    + (skryto ? `  Na ${skryto} ${skryto===1?"kus":(skryto<5?"kusy":"kusů")} odsud nevidíš — posviť si.` : "");
+}
+
+/* Kam se hlídky dívají (§5.2). Podklad, ne rada: hra neříká „tudy nechoď",
+   ukáže zorná pole a načasovat si průchod — počkat, otočit stráž kouzlem,
+   proklouznout mezi obchůzkami — zůstane na hráči. Klín počítá jádro
+   (`zorny_klin`) toutéž funkcí, kterou pak vydá „spatřeno", takže je ořezaný
+   o zdi a zavře se, když stráž oslepne. Kreslí se pod objekty, ať nepřekrývá
+   to, co je ve scéně doopravdy. */
+function kresliKliny(umistene, sx, sy){
+  pctx.save();
+  for(const o of umistene){
+    if(!o.klin || !o.pozice) continue;
+    pctx.beginPath();
+    pctx.moveTo(sx(o.pozice[0]), sy(o.pozice[1]));
+    for(const b of o.klin) pctx.lineTo(sx(b[0]), sy(b[1]));
+    pctx.closePath();
+    pctx.fillStyle = "rgba(245,167,66,.13)";
+    pctx.fill();
+    pctx.strokeStyle = "rgba(245,167,66,.35)"; pctx.lineWidth = 1;
+    pctx.stroke();
+  }
+  pctx.restore();
+}
+
+/* Kudy poletí mířený zásah a koho vezme (#60). Pás i seznam zasažených počítá
+   jádro (`Nahled.koridory`) TÝMIŽ funkcemi, jakými se pak zásah rozhoduje —
+   výkres jen škáluje kroky na pixely, aby nemohl slíbit trefu, kterou seslání
+   neudělá. Šířka je skutečná šířka koridoru, ne ozdoba, takže je na první
+   pohled vidět, jak přesně se musí mířit. */
+function kresliKoridory(sx, sy, m){
+  pctx.save();
+  for(const k of koridory){
+    const trefa = k.zasazeni.length > 0;
+    pctx.strokeStyle = trefa ? "rgba(245,110,90,.30)" : "rgba(126,224,168,.18)";
+    pctx.lineWidth = Math.max(2, k.sirka * m);
+    pctx.lineCap = "round";
+    pctx.beginPath();
+    pctx.moveTo(sx(k.odkud[0]), sy(k.odkud[1]));
+    pctx.lineTo(sx(k.konec[0]), sy(k.konec[1]));
+    pctx.stroke();
+    // Zasažené se obtáhnou, ať se nemusí hádat, jestli okraj pásu ještě bere.
+    pctx.strokeStyle = "#f56e5a"; pctx.lineWidth = 2; pctx.setLineDash([]);
+    for(const id of k.zasazeni){
+      const o = ((planStav && planStav.objekty) || []).find(x=>x.id === id);
+      if(!o || !o.pozice) continue;
+      pctx.beginPath();
+      pctx.arc(sx(o.pozice[0]), sy(o.pozice[1]), 9, 0, Math.PI*2);
+      pctx.stroke();
+    }
+  }
+  pctx.restore();
+}
+
+/* Zamýšlená cesta: lomená čára po TÝCHŽ bodech, po kterých se pak opravdu
+   půjde (`trasa` ze serveru), a křížek na cíli. Nedostupný cíl se kreslí
+   varovně — hráč má vidět, že tudy ne, ne to zjistit až z hlášky. */
+function kresliChuzi(ja, sx, sy){
+  const spatne = !!chuze.chyba;
+  pctx.save();
+  pctx.strokeStyle = spatne ? "#f5a742" : "#7ee0a8";
+  pctx.lineWidth = 1.5;
+  pctx.setLineDash([4, 3]);
+  if(chuze.body && chuze.body.length && ja){
+    pctx.beginPath();
+    pctx.moveTo(sx(ja.pozice[0]), sy(ja.pozice[1]));
+    for(const b of chuze.body) pctx.lineTo(sx(b[0]), sy(b[1]));
+    pctx.stroke();
+  }
+  pctx.setLineDash([]);
+  const [cx, cy] = [sx(chuze.cil[0]), sy(chuze.cil[1])];
+  pctx.beginPath();
+  pctx.moveTo(cx-5, cy-5); pctx.lineTo(cx+5, cy+5);
+  pctx.moveTo(cx+5, cy-5); pctx.lineTo(cx-5, cy+5);
+  pctx.stroke();
+  pctx.restore();
+}
+
+/* Kam se čaroděj dívá. Kreslí se BLEDĚ, dokud nemá vlastní `zorne_pole` —
+   výkres nemá slibovat mechaniku, která ve scéně není zapsaná. */
+function kresliSmerHrace(ja, sx, sy, m){
+  if(ja.smer == null) return;
+  const c = [sx(ja.pozice[0]), sy(ja.pozice[1])];
+  const uhel = -ja.smer * Math.PI/180, delka = Math.max(18, 1.2*m);
+  pctx.save();
+  pctx.strokeStyle = "#7ee0a8"; pctx.lineWidth = 2;
+  pctx.beginPath(); pctx.moveTo(c[0], c[1]);
+  pctx.lineTo(c[0] + Math.cos(uhel)*delka, c[1] + Math.sin(uhel)*delka);
+  pctx.stroke();
+  pctx.restore();
+}
+
+/* Klik = označit cíl. Vybírá se NEJBLIŽŠÍ kus k prstu, ne první v seznamu —
+   překryté puntíky by jinak šly odklikat jen některé. */
+plan.onclick = ev => {
+  const st = planStav;
+  if(!st || !st.prevod) return;
+  const r = plan.getBoundingClientRect();
+  const px = ev.clientX - r.left, py = ev.clientY - r.top;
+  const {sx, sy} = st.prevod;
+  let nejlepsi = null, nejmin = 26;             // dosah prstu v pixelech
+  for(const o of st.objekty){
+    if(!o.obrys || o.tagy.includes("já")) continue;
+    const d = Math.hypot(sx(o.pozice[0]) - px, sy(o.pozice[1]) - py);
+    if(d < nejmin){ nejmin = d; nejlepsi = o; }
+  }
+  if(!nejlepsi){ vezmiCilChuze(px, py); return; }   // do volna = KAM JÍT
+  ukazIds.has(nejlepsi.id) ? ukazIds.delete(nejlepsi.id) : ukazIds.add(nejlepsi.id);
+  const btn = document.querySelector(`.ukaz[data-id="${nejlepsi.id}"]`);
+  if(btn) btn.classList.toggle("on", ukazIds.has(nejlepsi.id));
+  updateSel(); schedulePreview(); kresliPlan();
+};
+
+/* Klik do prázdna: zeptej se JÁDRA, kudy a za kolik by se tam šlo, a ukaž to.
+   Přepočet z pixelů na kroky je jediná geometrie, kterou tenhle soubor dělá —
+   trasu ani cenu si nepočítá, aby výkres nemohl slíbit cestu, kterou pak
+   sloveso `jdi na` odmítne. */
+async function vezmiCilChuze(px, py){
+  const st = planStav;
+  if(!st || !st.prevod) return;
+  const {sx, sy, m, x0, y0, vys, okraj} = st.prevod;
+  const x = (px - okraj) / m + x0, y = (vys - okraj - py) / m + y0;
+  chuze = {cil: [+x.toFixed(2), +y.toFixed(2)], body: null, kroky: null,
+           chyba: null, ceka: true};
+  ukazChuzi(); kresliPlan();
+  const r = await api("/api/trasa", {x: chuze.cil[0], y: chuze.cil[1]});
+  if(!chuze) return;                       // mezitím zrušeno
+  chuze = {cil: r.cil || chuze.cil, body: r.body, kroky: r.kroky,
+           chyba: r.chyba, ceka: false};
+  ukazChuzi(); kresliPlan();
+}
+
+/* Lišta označeného místa: JEDEN bod, dvě nabídnuté akce. Míření se na trasu
+   neptá a nemůže selhat cestou (otáčení je zadarmo a nepotřebuje výhled), tak
+   je 🧭 aktivní i tam, kam se dojít nedá — za zeď se člověk podívat může,
+   dojít ne. Čeká se jen na cenu chůze, kterou počítá server. */
+function ukazChuzi(){
+  const bar = $("#walkBar"), info = $("#walkInfo"), btn = $("#walkBtn");
+  if(!chuze){ bar.style.display = "none"; return; }
+  bar.style.display = "flex";
+  if(chuze.ceka){ info.textContent = "…"; info.className = ""; btn.disabled = true; return; }
+  btn.disabled = !!chuze.chyba;
+  info.textContent = chuze.chyba
+    ? chuze.chyba
+    : `${chuze.kroky} kroku — chůze stojí čas (§39)`;
+  info.className = chuze.chyba ? "bad" : "";
+}
+
+function zrusChuzi(){ chuze = null; ukazChuzi(); kresliPlan(); }
+
+$("#walkBtn").onclick = async ()=>{
+  if(!chuze || chuze.chyba) return;
+  const [x, y] = chuze.cil;
+  zrusChuzi();
+  await doAction(`jdi na ${x} ${y}`);
+};
+$("#aimBtn").onclick = async ()=>{
+  if(!chuze) return;
+  const [x, y] = chuze.cil;
+  zrusChuzi();
+  await doAction(`otoč se na ${x} ${y}`);
+};
+$("#walkCancel").onclick = zrusChuzi;
+window.addEventListener("resize", kresliPlan);
+
+/* NÁHLED BEZ SERVERU — vygenerováno `generuj_nahled.py`, needituj.
+   Stav scény je zapečený snímek z enginu; volání na server se
+   nahradila odpovědí, aby tlačítko odpovědělo místo mlčení. */
+const NAHLED_STAV = {"scena": {"nazev": "Hořící sklad", "klic": "sklad", "objekty": [{"id": "dvere", "nazev": "Dubové dveře", "tagy": ["bod", "dveře", "hořlavé"], "stavy": ["hoří"], "vydrz": 12.0, "zdroj_zivel": "Oheň", "kvalita": 0.3, "zdroj_many": false, "vycerpatelny": false, "prenosny": false, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": ["usecky", [[[8.0, 4.0], [8.0, 6.0]]]], "pozice": [8.0, 4.0], "smer": 0.0, "z": 0.0, "vyska": null, "cloni": true, "neprojdes": true, "vzdalenost": 5.75, "vidis": true, "klin": null}, {"id": "goblin", "nazev": "Goblin s klíčem", "tagy": ["goblin", "nepřítel", "živé"], "stavy": [], "vydrz": 10.0, "zdroj_zivel": null, "kvalita": 0.0, "zdroj_many": false, "vycerpatelny": false, "prenosny": false, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": "goblin", "podtyp_znamy": false, "obrys": ["kruh", [[5.5, 2.5], 0.25]], "pozice": [5.5, 2.5], "smer": 0.0, "z": 0.0, "vyska": 1.6, "cloni": false, "neprojdes": false, "vzdalenost": 3.31, "vidis": true, "klin": [[5.500698131700763, -37.49999999390765], [9.681786550262842, -37.28080769979464], [13.817059457493993, -36.62577822843285], [17.86121094395561, -35.54208806045], [21.7699334233984, -34.0416100684984], [25.500403065171525, -32.14078343846567], [29.01174897065592, -29.860433562312792], [32.26550095344061, -27.225543875787537], [35.226011017377644, -24.264982140751435], [37.86084391481644, -21.01118417096186], [40.141132506074776, -17.499798466398843], [42.0418940268401, -13.769295649510706], [43.542303798486344, -9.86054698238194], [44.62592338254526, -5.816376582574778], [45.28088067967959, -1.681092243552487], [45.5, 2.5], [45.28088067967959, 6.681092243552487], [44.62592338254526, 10.816376582574769], [43.542303798486344, 14.86054698238194], [42.0418940268401, 18.769295649510706], [40.14113250607477, 22.499798466398847], [7.901781384302783, 4.244970700188576], [7.93846184126926, 4.695564941233515], [7.90471297628568, 5.170654332590287], [7.9797547742488675, 5.913014477275176], [25.500403065171515, 37.140783438465675], [21.769933423398417, 39.04161006849839], [17.86121094395561, 40.54208806045], [13.817059457493993, 41.62577822843285], [9.681786550262842, 42.28080769979464], [5.500698131700763, 42.49999999390765]]}, {"id": "potok", "nazev": "Stružka vody", "tagy": ["voda"], "stavy": [], "vydrz": null, "zdroj_zivel": "Voda", "kvalita": 0.5, "zdroj_many": false, "vycerpatelny": true, "prenosny": false, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": ["usecky", [[[0.6000000000000001, 6.35], [1.6500000000000001, 6.8999999999999995]], [[1.6500000000000001, 6.8999999999999995], [2.7, 6.3999999999999995]], [[2.7, 6.3999999999999995], [3.75, 6.8999999999999995]], [[3.75, 6.8999999999999995], [4.800000000000001, 6.449999999999999]], [[4.800000000000001, 6.449999999999999], [5.800000000000001, 6.8]]]], "pozice": [3.2, 6.6], "smer": 0.0, "z": 0.0, "vyska": 0.05, "cloni": false, "neprojdes": false, "vzdalenost": 2.25, "vidis": true, "klin": null}, {"id": "pochoden", "nazev": "Pochodeň", "tagy": ["oheň"], "stavy": [], "vydrz": null, "zdroj_zivel": "Oheň", "kvalita": 0.3, "zdroj_many": false, "vycerpatelny": true, "prenosny": true, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": ["usecky", [[[3.4, 2.4], [3.4, 2.4]]]], "pozice": [3.4, 2.4], "smer": 0.0, "z": 0.0, "vyska": 1.5, "cloni": false, "neprojdes": false, "vzdalenost": 1.88, "vidis": true, "klin": null}, {"id": "krystal", "nazev": "Manový krystal", "tagy": ["kámen"], "stavy": [], "vydrz": null, "zdroj_zivel": "Kámen", "kvalita": 0.2, "zdroj_many": true, "vycerpatelny": false, "prenosny": false, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": ["usecky", [[[2.0, 2.5], [2.0, 2.5]]]], "pozice": [2.0, 2.5], "smer": 0.0, "z": 0.0, "vyska": 0.4, "cloni": false, "neprojdes": false, "vzdalenost": 1.25, "vidis": true, "klin": null}, {"id": "ja", "nazev": "Čaroděj (ty)", "tagy": ["já", "živé"], "stavy": [], "vydrz": 20.0, "zdroj_zivel": null, "kvalita": 0.0, "zdroj_many": false, "vycerpatelny": false, "prenosny": false, "otviratelny": false, "zamceno": false, "slot": null, "vybaveno": false, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": ["kruh", [[2.0, 4.0], 0.25]], "pozice": [2.0, 4.0], "smer": 350.0, "z": 0.0, "vyska": 1.8, "cloni": false, "neprojdes": false, "vzdalenost": null, "vidis": true, "klin": null}], "inventar": [{"id": "hul", "nazev": "Tvá runová hůl", "tagy": ["bod", "hůl"], "stavy": [], "vydrz": null, "zdroj_zivel": null, "kvalita": 0.0, "zdroj_many": false, "vycerpatelny": false, "prenosny": true, "otviratelny": false, "zamceno": false, "slot": "hůl", "vybaveno": true, "bonusy": {}, "znicene": false, "podtyp": null, "podtyp_znamy": false, "obrys": null}], "cil": ["dveře není hoří", "nepřítel je zničeno"], "vyresena": false, "mana": 30.0, "mana_max": 30.0}, "sceny": [{"klic": "zazemi", "nazev": "Runová dílna (zázemí)"}, {"klic": "sklad", "nazev": "Hořící sklad"}, {"klic": "slejvak", "nazev": "Sklad ve slejváku"}, {"klic": "arena", "nazev": "Cvičná aréna"}, {"klic": "chalupa", "nazev": "Chalupa Baby Jagy"}, {"klic": "vezeni", "nazev": "Útěk z vězení"}, {"klic": "hrbitov", "nazev": "Půlnoční hřbitov"}, {"klic": "cvicna", "nazev": "Zkušebna kroků"}, {"klic": "komnata", "nazev": "Komnata za dveřmi"}, {"klic": "skala", "nazev": "Skála s pozorovatelnou"}], "paleta": [{"nadpis": "Slovesa", "runy": [{"nazev": "Zažehni", "znama": true, "videna": false, "vyznam": "sloveso — poškození", "mastery": 0.85}, {"nazev": "Zmraz", "znama": true, "videna": false, "vyznam": "sloveso — ovládnutí", "mastery": 0.7}, {"nazev": "Zhoj", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Rozbij", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Zaštiť", "znama": true, "videna": false, "vyznam": "sloveso — posílení", "mastery": 0.6}, {"nazev": "Odhal", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Sváž", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Přesuň", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}]}, {"nadpis": "Živly", "runy": [{"nazev": "Oheň", "znama": true, "videna": false, "vyznam": "živel — hoří", "mastery": 0.8}, {"nazev": "Voda", "znama": true, "videna": false, "vyznam": "živel — promáčeno", "mastery": 0.7}, {"nazev": "Vítr", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Kámen", "znama": true, "videna": false, "vyznam": "živel — zavaleno", "mastery": 0.6}, {"nazev": "Světlo", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Život", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Mysl", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Zvuk", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Blesk", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Spojení", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Éter", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}]}, {"nadpis": "Cíle", "runy": [{"nazev": "Já", "znama": true, "videna": false, "vyznam": "cíl — self", "mastery": 0.9}, {"nazev": "Nepřítel", "znama": true, "videna": false, "vyznam": "cíl — enemy", "mastery": 0.9}, {"nazev": "Spojenec", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Bod", "znama": true, "videna": false, "vyznam": "cíl — point", "mastery": 0.85}, {"nazev": "Směr", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Cíl", "znama": true, "videna": false, "vyznam": "cíl — any", "mastery": 0.0}]}, {"nadpis": "Formy", "runy": [{"nazev": "Projektil", "znama": true, "videna": false, "vyznam": "forma — geometrie zásahu", "mastery": 0.7}, {"nazev": "Výbuch", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Paprsek", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Kužel", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Zeď", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "Aura", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}]}, {"nadpis": "Modifikátory", "runy": [{"nazev": "silně", "znama": true, "videna": false, "vyznam": "modifikátor — sila ×1.5", "mastery": 0.6}, {"nazev": "slabě", "znama": true, "videna": false, "vyznam": "modifikátor — sila ×0.6", "mastery": 0.6}, {"nazev": "dlouze", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "doširoka", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "soustředěně", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "tiše", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "okázale", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "iluzorně", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}, {"nazev": "průrazně", "znama": false, "videna": false, "vyznam": null, "mastery": 0.0}]}, {"nadpis": "Spojky", "runy": [{"nazev": "a", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}, {"nazev": "pak", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}, {"nazev": "pokud", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}, {"nazev": "skrze", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}, {"nazev": "ne", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}, {"nazev": ":", "znama": true, "videna": false, "vyznam": "spojka (struktura)", "mastery": null}]}], "podtypy": [], "otisky": [], "ulozeni": {"soubor": "/home/runner/work/vsc-magie/vsc-magie/ulozena_hra.json", "existuje": false, "autosave": false}};
+async function api(path, body){
+  return { ok:false, chyba:"Náhled rozvržení běží bez serveru — kouzla, chůze ani ukládání tu nefungují." };
+}
+async function refresh(){ render(JSON.parse(JSON.stringify(NAHLED_STAV))); }
+
+// Zapíše záznam do Kroniky a ZRCADLÍ ho jako poslední výsledek nad řádkem.
+function pridejZaznam(html){
+  const div = document.createElement("div");
+  div.className = "entry";
+  div.innerHTML = html;
+  $("#log").prepend(div);
+  const last = $("#lastResult");
+  last.className = "lastresult";
+  last.innerHTML = `<div class="entry">${html}</div>`;
+}
+function logCast(text, res){
+  let html;
+  if(!res.ok){
+    html = `<div class="cmd">${text}</div><div class="msg err">✖ ${res.chyba}</div>`;
+  } else {
+    const cls = res.vyusteni.includes("čisté")?"b-ok":(res.vyusteni.includes("fatální")?"b-bad":"b-warn");
+    const raz = res.razeni?` <span class="badge b-warn">⚒ raženo</span>`:"";
+    const vyr = res.vyreseno?` <span class="badge b-ok">✔ vyřešeno</span>`:"";
+    const zbytek = res.mana_max>0 ? ` · nádrž ${res.mana_zbyva}/${res.mana_max}` : "";
+    html = `<div class="cmd">${text}</div>
+      <div class="meta">mana ${res.mana}${zbytek} · šance ${Math.round(res.sance*100)}% ·
+        výklad ${res.vyklad} <span class="badge ${cls}">${res.vyusteni}</span>${raz}${vyr}</div>
+      ${res.zpravy.map(z=>`<div class="msg">${z}</div>`).join("")}`;
+  }
+  pridejZaznam(html);
+}
+function logTick(res){
+  pridejZaznam(`<div class="cmd">⏱ krok času</div>` +
+    res.zpravy.map(z=>`<div class="msg">${z}</div>`).join(""));
+}
+function logAction(text, res){
+  let html;
+  if(!res.ok){
+    html = `<div class="cmd">🎬 ${text}</div><div class="msg err">✖ ${res.chyba}</div>`;
+  } else {
+    const vyr = res.vyreseno?` <span class="badge b-ok">✔ vyřešeno</span>`:"";
+    html = `<div class="cmd">🎬 ${text}${vyr}</div>` +
+      (res.zpravy||[]).map(z=>`<div class="msg">${z}</div>`).join("");
+  }
+  pridejZaznam(html);
+}
+async function doAction(text){
+  if(!text || !text.trim()) return;
+  const res = await api("/api/manipulate", {text});
+  logAction(text, res);
+  await refresh();
+}
+
+// Živý náhled ceny/šance/validace nad řádkem (§10-11). Debounce, ať se neposílá
+// dotaz na každý stisk; poslední odpověď vyhrává.
+let previewTimer = null, previewSeq = 0;
+function schedulePreview(){ clearTimeout(previewTimer); previewTimer = setTimeout(runPreview, 130); }
+async function runPreview(){
+  const box = $("#preview");
+  const text = $("#spell") ? $("#spell").value : "";
+  if(!text.trim()){ box.className = "preview empty"; box.innerHTML = "";
+                    if(koridory.length){ koridory = []; kresliPlan(); } return; }
+  const seq = ++previewSeq;
+  const r = await api("/api/preview", {text, cerpej:[...cerpej], ukaz_ids:[...ukazIds]});
+  if(seq !== previewSeq) return;                 // dorazila starší odpověď — zahoď
+  // Neúspěch (404 staré instance serveru, výpadek…) náhled jen skryje — nikdy
+  // nevypisuj syrovou serverovou chybu do lišty náhledu.
+  if(!r || !r.ok || r.prazdno){ box.className = "preview empty"; box.innerHTML = "";
+                                koridory = []; kresliPlan(); return; }
+  // Pás se kreslí i u kouzla, na které zatím nemáš manu: „kam to letí" je
+  // otázka natočení, ne peněženky, a hráč podle něj míří DŘÍV, než dopíše.
+  koridory = r.koridory || [];
+  kresliPlan();
+  box.className = "preview";
+  if(!r.platne){
+    box.innerHTML = `<span class="pv bad">✖ ${r.chyba || "kouzlo zatím nedrží tvar"}</span>`;
+    return;
+  }
+  const pct = Math.round(r.sance*100);
+  const sCls = pct>=70 ? "ok" : (pct>=40 ? "warn" : "bad");
+  const mCls = r.dost_many ? "" : "bad";
+  const amb = r.pocet_vykladu>1
+    ? `<span class="pv warn">⚑ nejednoznačné (${r.pocet_vykladu} výklady — sešli „na sílu“)</span>` : "";
+  box.innerHTML =
+    `<span class="pv ok">✔ drží tvar</span>` +
+    `<span class="pv">mana <b class="${mCls}">${r.mana}</b></span>` +
+    `<span class="pv">šance <b class="${sCls}">${pct}%</b></span>` + amb;
+}
+
+$("#castBtn").onclick = async ()=>{
+  const text = $("#spell").value.trim();
+  if(!text) return;
+  const res = await api("/api/cast", {text, cerpej:[...cerpej], ukaz_ids:[...ukazIds],
+                                      na_silu:$("#force").checked});
+  logCast(text, res);
+  await refresh();
+};
+$("#spell").addEventListener("input", schedulePreview);
+$("#spell").addEventListener("keydown", e=>{
+  if(e.key==="Enter") $("#castBtn").click();
+  if(e.key==="Escape"){ e.target.value=""; schedulePreview(); }
+});
+$("#clearBtn").onclick = ()=>{ const inp=$("#spell"); inp.value=""; inp.focus(); schedulePreview(); };
+
+// Akce se světem (manipulace, §8.4) — druhý vstupní jazyk.
+$("#actBtn").onclick = async ()=>{
+  const inp = $("#action"); const t = inp.value.trim();
+  if(!t) return;
+  await doAction(t); inp.value="";
+};
+$("#action").addEventListener("keydown", e=>{
+  if(e.key==="Enter") $("#actBtn").click();
+  if(e.key==="Escape"){ e.target.value=""; }
+});
+
+$("#tickBtn").onclick = async ()=>{ logTick(await api("/api/tick")); await refresh(); };
+
+async function restartScenu(){
+  cerpej.clear(); ukazIds.clear();
+  $("#lastResult").className = "lastresult empty";   // nová scéna → skryj starý výsledek
+  $("#lastResult").innerHTML = "";
+  // prenes = přenos znalostí/kouzel mezi místnostmi bez přepsání (§8.3).
+  render(await api("/api/reset", {klic: $("#scenePick").value, prenes: $("#prenes").checked}));
+}
+$("#resetBtn").onclick = restartScenu;
+$("#scenePick").onchange = restartScenu;
+
+/* Uložit/Načíst. Autosave (server s `--hra`) tuhle dvojici nenahrazuje:
+   tam se partie drží sama a tlačítko jen potvrzuje, co se stejně děje —
+   proto to popisek říká nahlas, místo aby se dvojí režim tvářil stejně. */
+$("#saveBtn").onclick = async ()=>{
+  const r = await api("/api/save");
+  pridejZaznam(r.ok ? `<div class="msg">💾 Partie uložena → <code>${r.kam}</code></div>`
+                    : `<div class="msg err">✖ ${r.chyba}</div>`);
+  if(r.ulozeni) ukazUlozeni(r.ulozeni);
+};
+$("#loadBtn").onclick = async ()=>{
+  const r = await api("/api/load");
+  if(!r.ok){ pridejZaznam(`<div class="msg err">✖ ${r.chyba}</div>`); return; }
+  cerpej.clear(); ukazIds.clear();          // označení patřilo staré scéně
+  render(r);
+  pridejZaznam(`<div class="msg">📂 Navázáno na uloženou partii.</div>`);
+};
+
+/* „Načíst" se bez souboru netváří jako funkční — UI nemá slibovat, co není. */
+function ukazUlozeni(u){
+  if(!u) return;
+  const load = $("#loadBtn");
+  load.disabled = !u.existuje;
+  load.title = u.existuje ? `Vrátí se k uložené partii (${u.soubor}).`
+                          : "Zatím není co načíst — nejdřív ulož.";
+  $("#saveBtn").title = u.autosave
+    ? `Partie se ukládá sama do ${u.soubor}; tlačítko ji uloží hned.`
+    : `Uloží rozehranou partii do ${u.soubor}.`;
+}
+
+$("#readBtn").onclick = async ()=>{
+  const text = $("#scroll").value.trim(); if(!text) return;
+  const r = await api("/api/read", {text});
+  const out = $("#readOut");
+  if(!r.ok){ out.innerHTML = `<span class="err">✖ ${r.chyba}</span>`; return; }
+  let h = `<div class="zam">${r.zamlzeno}</div>`;
+  if(r.plne_citelne && r.popis) h += `<p>✔ Plně čitelné: ${r.popis.split("\\n")[0]}</p>`;
+  else if(r.nejednoznacne) h += `<p>Runy znáš, ale kouzlo má ${r.pocet_vykladu} výklady — záměr autora skryt (šifra §9.2).</p>`;
+  else h += `<p>Zamlženo. Neznámé runy: <b>${r.nezname.map(n=>n.nazev).join(", ")||"—"}</b></p>`;
+  for(const l of r.latentni) h += `<p>⋯ latentní význam <b>${l.nazev}</b>: ${l.jadro} — ${l.napoveda}</p>`;
+  if(r.nezname && r.nezname.length){
+    h += `<div class="decomp">Rozlož střípek (naučíš se runu, §7): ` +
+      r.nezname.map(n=>`<button class="dbtn" data-id="${n.id}">◇ ${n.nazev}</button>`).join("") +
+      `</div>`;
+  }
+  out.innerHTML = h;
+};
+$("#scroll").addEventListener("keydown", e=>{ if(e.key==="Enter") $("#readBtn").click(); });
+
+refresh();
+</script>
+</body>
+</html>
