@@ -42,25 +42,34 @@ jobs:
           path: staz
           if_no_artifact_found: fail
 
-      # index.html je to, co Pages servírují jako kořen. Přepíše se jen když se
-      # obsah opravdu změnil — jinak by tu přibývaly prázdné commity po každém
-      # pushi do enginu, i když se geometrie nehnula.
-      - name: Uložit jako index.html, když se změnil
+      # KOPÍRUJE SE CELÝ ARTEFAKT, ne jmenovitě zkušebna. Co jde ven, rozhoduje
+      # `publikace.py` v enginu — tady by druhý seznam zestárl v okamžiku, kdy
+      # tam přibude stránka, a nikdo by si toho nevšiml: běh by prošel zeleně
+      # a soubor by na webu prostě nebyl. Jediné, co si tenhle repozitář drží
+      # sám, je že `zkusebna.html` je kořen Pages, tedy `index.html`.
+      #
+      # Commit se dělá jen při skutečné změně — jinak by tu přibývaly prázdné
+      # commity po každém pushi do enginu, i když se nic nehnulo.
+      - name: Uložit artefakt do repa, když se změnil
         run: |
           set -e
           # dawidd6 rozbaluje do path/<název_artefaktu>/, oficiální by dal do
-          # path/. Vezmeme soubor, ať leží kdekoli z toho.
-          SRC=$(find staz -name zkusebna.html | head -1)
-          if [ -z "$SRC" ] || [ ! -s "$SRC" ]; then
+          # path/. Najdeme složku, ať leží kdekoli z toho.
+          SRC=$(dirname "$(find staz -name zkusebna.html | head -1)")
+          if [ ! -s "$SRC/zkusebna.html" ]; then
             echo "Artefakt je prázdný nebo chybí — nic neukládám."; exit 1
           fi
-          if cmp -s "$SRC" index.html; then
-            echo "Zkušebna se nezměnila, commit netřeba."; exit 0
-          fi
-          mv "$SRC" index.html
+          cp "$SRC/zkusebna.html" index.html
+          rm "$SRC/zkusebna.html"
+          # Zbytek artefaktu jde do kořene pod svým jménem (rozvrzeni.html,
+          # panely.js, …). Prázdný artefakt sem nespadne — kontrola je výš.
+          find "$SRC" -maxdepth 1 -type f -exec cp {} . \;
           git config user.name "zkušebna-bot"
           git config user.email "actions@github.com"
-          git add index.html
-          git commit -m "Zkušebna obnovena z vsc-magie"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nic se nezměnilo, commit netřeba."; exit 0
+          fi
+          git commit -m "Web obnoven z vsc-magie"
           git push
-          echo "✅ index.html obnoven a publikován" >> $GITHUB_STEP_SUMMARY
+          echo "✅ web obnoven a publikován" >> $GITHUB_STEP_SUMMARY

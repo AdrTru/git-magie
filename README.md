@@ -1,9 +1,13 @@
-# Zkušebna — geometrie prostoru z enginu vsc-magie
+# Zkušebny z enginu vsc-magie
 
-Devět zkušebních místností, ve kterých se dá **chodit** a zkoušet, co brání
-výhledu a co pohybu. Otevři si je v prohlížeči:
+Dvě pískoviště k otevření v prohlížeči — obojí bez příběhu, jen mechanika:
 
-**https://adrtru.github.io/git-magie/**
+| | |
+| --- | --- |
+| **[Geometrie prostoru](https://adrtru.github.io/git-magie/)** | devět místností, ve kterých se dá chodit a zkoušet, co brání výhledu a co pohybu |
+| **[Rozvržení panelů](https://adrtru.github.io/git-magie/rozvrzeni.html)** | jak se ovládací panely dílny skládají na různě široké obrazovky |
+
+## Geometrie prostoru
 
 Vyber v horní liště místnost, klepni na postavu a táhni s ní. Zelená plocha pod
 ní je **zóna pohybu** — kam odtud dojde, než se scéna posune o krok. Přepočítá
@@ -42,3 +46,21 @@ jako měřítko. Odznak vpravo nahoře je porovnává při každém načtení �
 
 `index.html` je jeden soběstačný soubor. Nic se nestahuje, nic se neodesílá,
 funguje i bez sítě.
+
+## Rozvržení panelů
+
+`rozvrzeni.html` zkouší druhou vrstvu: **kde co v dílně leží**. Panel se
+deklaruje (co je zač a kolik sloupců zabere v kterém rozvržení), obsah se do
+něj věší až potom — proto tam panely žádný herní obsah nemají a hlásí, že ho
+čekají. Přepínači nahoře se rozvržení volí ručně, `Podle okna` se vrátí
+k automatice; dole je vypsané spočítané rozmístění.
+
+Na rozdíl od geometrie to **není** soběstačný soubor: engine si stránka načte
+vedle sebe jako `panely.js`. Obojí je tu tak, jak leží v enginu, aby
+neexistovala druhá slepená kopie, která by se s ním rozešla.
+
+## Odkud se to sem bere
+
+Soubory vyrábí CI v enginu a tenhle repozitář si je stahuje z artefaktu; co jde
+ven, rozhoduje `publikace.py` tam, ne seznam tady. Publikuje se celý artefakt,
+takže další stránka nevyžaduje změnu na téhle straně.

@@ -1,0 +1,4 @@
+# Sem `dawidd6/action-download-artifact` rozbaluje artefakt z vsc-magie.
+# Do repa nepatří: publikuje se jeho OBSAH nakopírovaný do kořene, ne on sám.
+# Bez tohohle řádku by ho `git add -A` v publikačním kroku přibalil taky.
+staz/
