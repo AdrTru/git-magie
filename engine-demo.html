@@ -37,7 +37,7 @@
 <div id="sceny"></div>
 
 <script type="module">
-import { vzdalenost, vnima, projde, obrys } from "./engine/geometrie.js";
+import { vzdalenost, vnima, projde, obrys, zornyKlin } from "./engine/geometrie.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
   e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
@@ -45,11 +45,20 @@ const havarie = (t) => { const e = document.getElementById("havarie");
 function objekt(spec) { return { ...spec, tagy: spec.tagy || [], stavy: spec.stavy || [] }; }
 function paruj(p) { const i = p.indexOf("|"); return [p.slice(0, i), p.slice(i + 1)]; }
 
-// Drobná kresba scény z obrysů (jen náhled — clonění počítá engine, ne tohle).
-function nakresli(objekty) {
+// Drobná kresba scény z obrysů + zorný klín, obojí z enginu (ne z kopie).
+function nakresli(objekty, klin) {
   const S = 26, W = 8, H = 5, ox = 1, oy = 2.5;   // krok→px, počátek doprostřed
   const px = (x) => (x + ox) * S, py = (y) => (H - (y + oy)) * S;
   let kresba = "";
+  const scena = { objekty };
+  // Klín kreslíme POD objekty, ať je nepřekrývá — vějíř z pozice bytosti.
+  for (const kdo of Object.keys(klin?.kdo || {})) {
+    const o = objekty[kdo]; if (!o) continue;
+    const body = zornyKlin(o, scena, { dosah: klin.dosah, krokUhlu: klin.krok });
+    if (!body.length) continue;
+    const b = [o.pozice, ...body];
+    kresba += `<polygon points="${b.map((p) => `${px(p[0])},${py(p[1])}`).join(" ")}" fill="rgba(245,167,66,.18)" />`;
+  }
   for (const o of Object.values(objekty)) {
     const u = obrys(o); if (!u) continue;
     if (u[0] === "kruh") {
@@ -92,7 +101,7 @@ try {
         (par in z.vidi ? bunka(vd, z.vidi[par]) : "<td>—</td>") +
         (par in z.projde ? bunka(pr, z.projde[par]) : "<td>—</td>") + `</tr>`);
     }
-    ven.push(`<section><h2>${nazev}</h2>${nakresli(objekty)}
+    ven.push(`<section><h2>${nazev}</h2>${nakresli(objekty, z.klin)}
       <table><thead><tr><th>dvojice</th><th>vzdál.</th><th>vidí</th><th>projde</th></tr></thead>
       <tbody>${radky.join("")}</tbody></table></section>`);
   }

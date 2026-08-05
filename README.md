@@ -23,9 +23,11 @@ engine, Python jde do důchodu a JS je jediná pravda.
 Postupuje se po částech, každá ověřená v CI:
 
 1. **Kostra + geometrie** — `engine/geometrie.js`: tvary, vzdálenost, dvě
-   nezávislé osy clonění (výhled × pohyb), výška (2.5D) a zorné pole.
-   Ověřeno **60/60 hodnot proti Pythonu** na pěti zkouškách. ✅ *tady jsme*
-2. Hledání cesty (zóna pohybu, Dijkstra) a zorný klín — živě, konec zapékání.
+   nezávislé osy clonění (výhled × pohyb), výška (2.5D), zorné pole a **zorný
+   klín** (věnec paprsků s cloněním). Ověřeno **130/130 hodnot proti Pythonu**
+   na pěti zkouškách. ✅ *tady jsme*
+2. **Zóna pohybu** (Dijkstra, víceúrovňový graf) živě — konec zapékání zóny.
+   Klín už je hotový (bod 1); zbývá dopočítat i dosažitelnost živě.
 3. Jazyk kouzel + skloňování.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.

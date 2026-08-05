@@ -443,3 +443,60 @@ export function vZornemPoli(kdo, co, scena) {
 export function vnima(kdo, co, scena) {
   return vZornemPoli(kdo, co, scena) && vidiNa(kdo, co, scena);
 }
+
+// -- zorný klín (kam bytost dohlédne) ---------------------------------------
+// Věnec paprsků přes zorné pole; každý jde tak daleko, dokud pozorovatel vidí.
+// PODKLAD, ne rada: ukazuje, kam se stráž dívá, ne kudy jít. Ptá se týmž
+// cloněním jako `vidi`, takže se sám ořízne o zdi a zavře, když stráž oslepne.
+// Sonda je ve výšce OČÍ (vodorovný paprsek), tak přehlédne zídku po pás — a je
+// to správně, stráž přes ni doopravdy vidí.
+
+export const NEVNIMAJICI_STAVY = ["zničeno", "spí", "omráčeno", "zkamenělé"];
+const UVNITR_VYSECE = 1e-3;   // o kolik vést krajní paprsky dovnitř výseče
+const ODSTUP = 0.35;          // pod tím je klín „skvrna pod nohama" = slepý
+
+function bodPoAzimutu(z, stupne, delka) {
+  return posun(z, otoc([Math.max(delka, 0), 0], stupne));
+}
+
+// Terč pro dotaz „dohlédne tam?" — bod ve výšce očí pozorovatele, bez rozměru.
+function znackaPohledu(bod, oko) {
+  return { id: "místo:pohled", tagy: [], stavy: [],
+           pozice: [bod[0], bod[1]], z: vyskaOci(oko), vyska: 0 };
+}
+
+// Nejvzdálenější bod daného azimutu, na který pozorovatel ještě vidí. Půlením,
+// protože clona je binární a monotónní (za první zdí už nevidí dál). Plný dosah
+// se zkouší napřed — v otevřené místnosti tím většina paprsků skončí jedním
+// dotazem místo osmi.
+function dohledPoPaprsku(kdo, scena, odkud, dosah, presnost, uhel) {
+  const vidi = (delka) =>
+    vidiNa(kdo, znackaPohledu(bodPoAzimutu(odkud, uhel, delka), kdo), scena);
+  if (vidi(dosah)) return bodPoAzimutu(odkud, uhel, dosah);
+  let blizko = 0, daleko = dosah;
+  for (let i = 0; i < presnost; i++) {
+    const stred = (blizko + daleko) / 2;
+    if (vidi(stred)) blizko = stred; else daleko = stred;
+  }
+  return bodPoAzimutu(odkud, uhel, blizko);
+}
+
+export function zornyKlin(kdo, scena, { dosah, krokUhlu = 10, presnost = 8 } = {}) {
+  const odkud = pozObjektu(kdo, scena);
+  if (odkud === null || dosah <= 0 || krokUhlu <= 0) return [];
+  if (NEVNIMAJICI_STAVY.some((s) => maStav(kdo, s))) return [];
+  const vysec = zornePole(kdo);
+  let sirka = vysec === null ? 360 : Math.max(0, Math.min(vysec, 360));
+  const stred = Number(pole(kdo, "smer")) || 0;
+  const kroku = Math.max(2, Math.ceil(sirka / krokUhlu));
+  const okraj = Math.min(UVNITR_VYSECE, sirka / 4);
+  const od = stred - sirka / 2 + okraj;
+  sirka = sirka - 2 * okraj;
+  const body = [];
+  for (let i = 0; i <= kroku; i++) {
+    body.push(dohledPoPaprsku(kdo, scena, odkud, dosah, presnost,
+                              od + (sirka * i) / kroku));
+  }
+  if (body.every((b) => dist(odkud, b) < ODSTUP)) return [];
+  return body;
+}

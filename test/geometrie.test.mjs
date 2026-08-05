@@ -12,7 +12,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
-import { vzdalenost, vnima, projde } from "../engine/geometrie.js";
+import { vzdalenost, vnima, projde, zornyKlin } from "../engine/geometrie.js";
 
 const ZDE = dirname(fileURLToPath(import.meta.url));
 const data = JSON.parse(readFileSync(join(ZDE, "fixtury_geometrie.json"), "utf-8"));
@@ -58,6 +58,21 @@ for (const [nazev, z] of Object.entries(data)) {
     const [a, b] = paruj(par);
     const dostal = projde(objekty[a], objekty[b], scena);
     zkus("projde", par, dostal, cekal, dostal === cekal);
+  }
+  // Zorný klín: bod po bodu proti oracle (týž dosah/krok, půlení je určité).
+  const kl = z.klin;
+  for (const [kdo, cekal] of Object.entries(kl.kdo)) {
+    const dostal = zornyKlin(objekty[kdo], scena,
+                             { dosah: kl.dosah, krokUhlu: kl.krok });
+    if (dostal.length !== cekal.length) {
+      chyby.push(`  [${nazev}] klín ${kdo}: JS má ${dostal.length} bodů, oracle ${cekal.length}`);
+      continue;
+    }
+    for (let i = 0; i < cekal.length; i++) {
+      const ok = Math.abs(dostal[i][0] - cekal[i][0]) < TOLERANCE &&
+                 Math.abs(dostal[i][1] - cekal[i][1]) < TOLERANCE;
+      zkus("klín", `${kdo}[${i}]`, "…", "…", ok);
+    }
   }
 }
 
