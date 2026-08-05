@@ -1,0 +1,414 @@
+{
+  "zeď mezi": {
+    "objekty": [
+      {
+        "id": "a",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          0,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "b",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          6,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "zed",
+        "tagy": [
+          "zeď"
+        ],
+        "pozice": [
+          3,
+          -2
+        ],
+        "pozice_do": [
+          3,
+          2
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0
+      }
+    ],
+    "vzdalenost": {
+      "a|b": 5.5,
+      "a|zed": 2.75,
+      "b|zed": 2.75
+    },
+    "vidi": {
+      "a|b": false,
+      "b|a": false,
+      "a|zed": true,
+      "zed|a": true,
+      "b|zed": false,
+      "zed|b": true
+    },
+    "projde": {
+      "a|b": false,
+      "a|zed": true,
+      "b|zed": true
+    }
+  },
+  "mříž": {
+    "objekty": [
+      {
+        "id": "a",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          0,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "b",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          6,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "m",
+        "tagy": [
+          "mříž"
+        ],
+        "pozice": [
+          3,
+          -2
+        ],
+        "pozice_do": [
+          3,
+          2
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0
+      }
+    ],
+    "vzdalenost": {
+      "a|b": 5.5,
+      "a|m": 2.75,
+      "b|m": 2.75
+    },
+    "vidi": {
+      "a|b": true,
+      "b|a": false,
+      "a|m": true,
+      "m|a": true,
+      "b|m": false,
+      "m|b": true
+    },
+    "projde": {
+      "a|b": false,
+      "a|m": true,
+      "b|m": true
+    }
+  },
+  "závěs": {
+    "objekty": [
+      {
+        "id": "a",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          0,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "b",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          6,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "z",
+        "tagy": [
+          "závěs"
+        ],
+        "pozice": [
+          3,
+          -2
+        ],
+        "pozice_do": [
+          3,
+          2
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0
+      }
+    ],
+    "vzdalenost": {
+      "a|b": 5.5,
+      "a|z": 2.75,
+      "b|z": 2.75
+    },
+    "vidi": {
+      "a|b": false,
+      "b|a": false,
+      "a|z": true,
+      "z|a": true,
+      "b|z": false,
+      "z|b": true
+    },
+    "projde": {
+      "a|b": true,
+      "a|z": true,
+      "b|z": true
+    }
+  },
+  "hradba a výška": {
+    "objekty": [
+      {
+        "id": "straz",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          0,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 3.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "carodej",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          6,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "zidka",
+        "tagy": [
+          "zeď"
+        ],
+        "pozice": [
+          3,
+          -2
+        ],
+        "pozice_do": [
+          3,
+          2
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.2
+      }
+    ],
+    "vzdalenost": {
+      "straz|carodej": 5.629387178015028,
+      "straz|zidka": 3.286715685908959,
+      "carodej|zidka": 2.75
+    },
+    "vidi": {
+      "straz|carodej": true,
+      "carodej|straz": false,
+      "straz|zidka": true,
+      "zidka|straz": true,
+      "carodej|zidka": false,
+      "zidka|carodej": true
+    },
+    "projde": {
+      "straz|carodej": true,
+      "straz|zidka": true,
+      "carodej|zidka": true
+    }
+  },
+  "obrubník a krok": {
+    "objekty": [
+      {
+        "id": "a",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          0,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "b",
+        "tagy": [
+          "živé"
+        ],
+        "pozice": [
+          6,
+          0
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 1.8
+      },
+      {
+        "id": "o",
+        "tagy": [
+          "zeď"
+        ],
+        "pozice": [
+          3,
+          -2
+        ],
+        "pozice_do": [
+          3,
+          2
+        ],
+        "tvar": "bod",
+        "rozmer": [
+          0.0,
+          0.0
+        ],
+        "smer": 0.0,
+        "body": [],
+        "z": 0.0,
+        "vyska": 0.3
+      }
+    ],
+    "vzdalenost": {
+      "a|b": 5.5,
+      "a|o": 2.75,
+      "b|o": 2.75
+    },
+    "vidi": {
+      "a|b": true,
+      "b|a": false,
+      "a|o": true,
+      "o|a": true,
+      "b|o": false,
+      "o|b": true
+    },
+    "projde": {
+      "a|b": true,
+      "a|o": true,
+      "b|o": true
+    }
+  }
+}

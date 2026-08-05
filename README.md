@@ -7,6 +7,31 @@ Dvě pískoviště k otevření v prohlížeči — obojí bez příběhu, jen m
 | **[Geometrie prostoru](https://adrtru.github.io/git-magie/)** | devět místností, ve kterých se dá chodit a zkoušet, co brání výhledu a co pohybu |
 | **[Rozvržení panelů](https://adrtru.github.io/git-magie/rozvrzeni.html)** | jak se ovládací panely dílny skládají na různě široké obrazovky |
 
+## Přepis do JS enginu (probíhá)
+
+Cíl: **celý engine kouzel poběží v prohlížeči**, ne jako zapékané náhledy.
+Dnes se scéna počítá v Pythonu (`vsc-magie`) a sem se vozí jen hotové obrázky —
+na telefonu se tak nedá nic interaktivně rozběhnout. JS engine to řeší: jeden
+statický web, hratelný na mobilu, blízko i „spustitelnému" balení.
+
+Aby z toho nevznikla druhá, rozcházející se pravda, jede přepis **proti
+oracle**: pro každý portovaný kus vydá Python engine očekávané hodnoty
+(`oracle_geometrie.py` → `test/fixtury_geometrie.json`) a `npm test`
+(`test/geometrie.test.mjs`) ověří, že JS počítá totéž. Až JS pokryje celý
+engine, Python jde do důchodu a JS je jediná pravda.
+
+Postupuje se po částech, každá ověřená v CI:
+
+1. **Kostra + geometrie** — `engine/geometrie.js`: tvary, vzdálenost, dvě
+   nezávislé osy clonění (výhled × pohyb), výška (2.5D) a zorné pole.
+   Ověřeno **60/60 hodnot proti Pythonu** na pěti zkouškách. ✅ *tady jsme*
+2. Hledání cesty (zóna pohybu, Dijkstra) a zorný klín — živě, konec zapékání.
+3. Jazyk kouzel + skloňování.
+4. Běh scény, manipulace, chování, uložení; konec serveru.
+5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
+
+Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
+
 ## Geometrie prostoru
 
 Vyber v horní liště místnost, klepni na postavu a táhni s ní. Zelená plocha pod

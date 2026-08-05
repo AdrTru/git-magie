@@ -1,0 +1,29 @@
+name: testy
+
+# Testy JS enginu. Běží při každém pushi a PR do main a hlídají, že přepis
+# geometrie z Pythonu sedí na oracle (`test/fixtury_geometrie.json`, vydané
+# z vsc-magie). NEZASAHUJE do `zkusebna.yml` — ten jen přenáší web z enginu;
+# tenhle ověřuje kód, který sem přesouváme.
+#
+# Fixtury jsou zatím VENDOROVANÉ (spočítá je Python oracle v vsc-magie a
+# nakopírují se sem). Když se v enginu změní geometrie, přegeneruj oracle a
+# fixtury; jinak zeleň tady znamená „JS sedí na STARÝ oracle". Až JS pokryje
+# celý engine, Python se zruší a oracle zmizí — do té doby je to ta pravda.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  geometrie:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Geometrie JS == Python oracle
+        run: node test/geometrie.test.mjs

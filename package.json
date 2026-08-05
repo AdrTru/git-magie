@@ -1,0 +1,10 @@
+{
+  "name": "git-magie",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Herní engine kouzel v prohlížeči (přepis z Pythonu vsc-magie do JS).",
+  "scripts": {
+    "test": "node test/geometrie.test.mjs"
+  }
+}

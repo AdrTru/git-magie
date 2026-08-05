@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="cs">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engine geometrie — JS vs Python</title>
+<!--
+  Živá ukázka PRVNÍHO kusu JS enginu. Importuje SKUTEČNÝ `engine/geometrie.js`
+  (ne slepenou kopii) a načte tytéž fixtury jako `npm test`. Pro každou zkoušku
+  spočítá vzdálenost/vidí/projde v prohlížeči a postaví je vedle Python oracle.
+  Zelená = JS sedí na Python; červená = rozdíl. Kdyby engine nešel nahrát,
+  ukáže se to v pruhu #havarie, ať to nemlčí.
+-->
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 1rem;
+         max-width: 46rem; margin-inline: auto; }
+  h1 { font-size: 1.25rem; }
+  #souhrn { font-weight: 600; padding: .5rem .75rem; border-radius: .5rem;
+            background: #e8f0e8; margin: .5rem 0 1.25rem; }
+  #souhrn.spatne { background: #f3d9d9; }
+  #havarie { display: none; background: #f3d9d9; color: #7a1f1f;
+             padding: .75rem; border-radius: .5rem; white-space: pre-wrap;
+             font-family: ui-monospace, monospace; font-size: 13px; }
+  section { margin-bottom: 1.5rem; }
+  h2 { font-size: 1rem; margin-bottom: .25rem; }
+  .popis { color: #666; font-size: .85rem; margin: 0 0 .5rem; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+  th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid #ccc3; }
+  td.ok { color: #1a7f37; } td.zle { color: #b30000; font-weight: 700; }
+  .par { font-family: ui-monospace, monospace; }
+  svg { background: #0001; border-radius: .4rem; margin-bottom: .5rem; }
+</style>
+
+<h1>Engine geometrie — JS proti Python oracle</h1>
+<div id="havarie"></div>
+<div id="souhrn">Počítám…</div>
+<div id="sceny"></div>
+
+<script type="module">
+import { vzdalenost, vnima, projde, obrys } from "./engine/geometrie.js";
+
+const havarie = (t) => { const e = document.getElementById("havarie");
+  e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
+
+function objekt(spec) { return { ...spec, tagy: spec.tagy || [], stavy: spec.stavy || [] }; }
+function paruj(p) { const i = p.indexOf("|"); return [p.slice(0, i), p.slice(i + 1)]; }
+
+// Drobná kresba scény z obrysů (jen náhled — clonění počítá engine, ne tohle).
+function nakresli(objekty) {
+  const S = 26, W = 8, H = 5, ox = 1, oy = 2.5;   // krok→px, počátek doprostřed
+  const px = (x) => (x + ox) * S, py = (y) => (H - (y + oy)) * S;
+  let kresba = "";
+  for (const o of Object.values(objekty)) {
+    const u = obrys(o); if (!u) continue;
+    if (u[0] === "kruh") {
+      const [s, r] = u[1];
+      kresba += `<circle cx="${px(s[0])}" cy="${py(s[1])}" r="${Math.max(3, r * S)}" fill="#3a7" />`;
+      kresba += `<text x="${px(s[0]) + 6}" y="${py(s[1]) - 4}" font-size="11">${o.id}</text>`;
+    } else {
+      for (const [a, b] of u[1]) {
+        if (a[0] === b[0] && a[1] === b[1]) continue;
+        kresba += `<line x1="${px(a[0])}" y1="${py(a[1])}" x2="${px(b[0])}" y2="${py(b[1])}" stroke="#a63" stroke-width="3" />`;
+      }
+    }
+  }
+  return `<svg width="100%" viewBox="0 0 ${W * S} ${H * S}">${kresba}</svg>`;
+}
+
+try {
+  const data = await (await fetch("./test/fixtury_geometrie.json")).json();
+  let ok = 0, zle = 0;
+  const ven = [];
+  for (const [nazev, z] of Object.entries(data)) {
+    const objekty = {};
+    for (const spec of z.objekty) objekty[spec.id] = objekt(spec);
+    const scena = { nazev, objekty };
+    const radky = [];
+    const bunka = (js, or, cislo = false) => {
+      const shoda = cislo ? Math.abs(js - or) < 1e-9 : js === or;
+      shoda ? ok++ : zle++;
+      const t = cislo ? (js === undefined ? "—" : (+js).toFixed(2)) : String(js);
+      return `<td class="${shoda ? "ok" : "zle"}">${t}${shoda ? "" : ` ✗(${or})`}</td>`;
+    };
+    const pary = new Set([...Object.keys(z.vzdalenost), ...Object.keys(z.vidi), ...Object.keys(z.projde)]);
+    for (const par of pary) {
+      const [a, b] = paruj(par);
+      const d = par in z.vzdalenost ? vzdalenost(objekty[a], objekty[b], scena) : undefined;
+      const vd = par in z.vidi ? vnima(objekty[a], objekty[b], scena) : undefined;
+      const pr = par in z.projde ? projde(objekty[a], objekty[b], scena) : undefined;
+      radky.push(`<tr><td class="par">${par}</td>` +
+        (par in z.vzdalenost ? bunka(d, z.vzdalenost[par], true) : "<td>—</td>") +
+        (par in z.vidi ? bunka(vd, z.vidi[par]) : "<td>—</td>") +
+        (par in z.projde ? bunka(pr, z.projde[par]) : "<td>—</td>") + `</tr>`);
+    }
+    ven.push(`<section><h2>${nazev}</h2>${nakresli(objekty)}
+      <table><thead><tr><th>dvojice</th><th>vzdál.</th><th>vidí</th><th>projde</th></tr></thead>
+      <tbody>${radky.join("")}</tbody></table></section>`);
+  }
+  document.getElementById("sceny").innerHTML = ven.join("");
+  const s = document.getElementById("souhrn");
+  s.textContent = zle ? `${ok}/${ok + zle} sedí, ${zle} rozdílů proti Pythonu` :
+                        `${ok}/${ok + zle} hodnot sedí na Python oracle ✓`;
+  if (zle) s.classList.add("spatne");
+} catch (e) { havarie(e && e.stack ? e.stack : String(e)); }
+</script>
+</html>
