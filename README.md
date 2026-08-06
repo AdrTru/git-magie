@@ -16,9 +16,10 @@ statický web, hratelný na mobilu, blízko i „spustitelnému" balení.
 
 Aby z toho nevznikla druhá, rozcházející se pravda, jede přepis **proti
 oracle**: pro každý portovaný kus vydá Python engine očekávané hodnoty
-(`oracle_geometrie.py` → `test/fixtury_geometrie.json`) a `npm test`
-(`test/geometrie.test.mjs`) ověří, že JS počítá totéž. Až JS pokryje celý
-engine, Python jde do důchodu a JS je jediná pravda.
+(`oracle_geometrie.py` → `test/fixtury_geometrie.json`, `oracle_jazyk.py` →
+`test/fixtury_jazyk.json`) a `npm test` (`test/vse.mjs` pustí všechny zkoušky)
+ověří, že JS počítá totéž. Až JS pokryje celý engine, Python jde do důchodu
+a JS je jediná pravda.
 
 Postupuje se po částech, každá ověřená v CI:
 
@@ -28,16 +29,20 @@ Postupuje se po částech, každá ověřená v CI:
 2. **Zóna pohybu** — `engine/pohyb.js`: kam bytost dojde, než se scéna pohne.
    Viditelnostní graf **po patrech** (rohy překážek + žebříky/pěšiny jako
    přechody), Dijkstra, mřížka dosažitelných bodů. **UMÍ PATRA** — kdo vyleze
-   po žebříku, má zónu i nahoře. ✅ *tady jsme*
-
-Celá geometrická vrstva ověřená bod po bodu proti Pythonu: **627/627 hodnot**
-na šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
-(`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
-
-Další na řadě: jazyk kouzel a skloňování (`cestina.py`).
-3. Jazyk kouzel + skloňování.
+   po žebříku, má zónu i nahoře. ✅
+3. **Jazyk kouzel + skloňování** — *tady jsme*.
+   - **Skloňování hlášek** (`engine/cestina.js`, port `cestina.py`) ✅ —
+     podstatná jména ze slovníku (`slova.js`, GENEROVANÝ z Pythonu, ne opsaný),
+     přídavná jména pravidlem (tvrdá/měkká/přivlastňovací × rod × pád),
+     opisovaný ocas fráze, vokalizace předložek (k → ke), zájmena. **1317/1317
+     tvarů** proti oracle.
+   - Zbývá: lexer, parser runové věty, AST, validátor, ceny, vyhodnocení.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
+
+Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** na
+šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
+(`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
 
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 

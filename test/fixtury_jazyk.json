@@ -1,0 +1,7527 @@
+{
+  "sklonuj": [
+    {
+      "nazev": "balvan",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "balvan"
+    },
+    {
+      "nazev": "balvan",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "balvanu"
+    },
+    {
+      "nazev": "balvan",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "balvanu"
+    },
+    {
+      "nazev": "balvan",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "balvan"
+    },
+    {
+      "nazev": "balvan",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "balvan"
+    },
+    {
+      "nazev": "Balvan",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Balvan"
+    },
+    {
+      "nazev": "Balvan",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Balvanu"
+    },
+    {
+      "nazev": "Balvan",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Balvanu"
+    },
+    {
+      "nazev": "Balvan",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Balvan"
+    },
+    {
+      "nazev": "Balvan",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Balvan"
+    },
+    {
+      "nazev": "bedna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "bedna"
+    },
+    {
+      "nazev": "bedna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "bedny"
+    },
+    {
+      "nazev": "bedna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "bedně"
+    },
+    {
+      "nazev": "bedna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "bednu"
+    },
+    {
+      "nazev": "bedna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "bedna"
+    },
+    {
+      "nazev": "Bedna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Bedna"
+    },
+    {
+      "nazev": "Bedna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Bedny"
+    },
+    {
+      "nazev": "Bedna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Bedně"
+    },
+    {
+      "nazev": "Bedna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Bednu"
+    },
+    {
+      "nazev": "Bedna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Bedna"
+    },
+    {
+      "nazev": "boty",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "boty"
+    },
+    {
+      "nazev": "boty",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "bot"
+    },
+    {
+      "nazev": "boty",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "botám"
+    },
+    {
+      "nazev": "boty",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "boty"
+    },
+    {
+      "nazev": "boty",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "boty"
+    },
+    {
+      "nazev": "Boty",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Boty"
+    },
+    {
+      "nazev": "Boty",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Bot"
+    },
+    {
+      "nazev": "Boty",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Botám"
+    },
+    {
+      "nazev": "Boty",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Boty"
+    },
+    {
+      "nazev": "Boty",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Boty"
+    },
+    {
+      "nazev": "dveře",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "dveře"
+    },
+    {
+      "nazev": "dveře",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "dveří"
+    },
+    {
+      "nazev": "dveře",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "dveřím"
+    },
+    {
+      "nazev": "dveře",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "dveře"
+    },
+    {
+      "nazev": "dveře",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "dveře"
+    },
+    {
+      "nazev": "Dveře",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Dveře"
+    },
+    {
+      "nazev": "Dveře",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Dveří"
+    },
+    {
+      "nazev": "Dveře",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Dveřím"
+    },
+    {
+      "nazev": "Dveře",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Dveře"
+    },
+    {
+      "nazev": "Dveře",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Dveře"
+    },
+    {
+      "nazev": "hůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "hůl"
+    },
+    {
+      "nazev": "hůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "hole"
+    },
+    {
+      "nazev": "hůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "holi"
+    },
+    {
+      "nazev": "hůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "hůl"
+    },
+    {
+      "nazev": "hůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "hůl"
+    },
+    {
+      "nazev": "Hůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hůl"
+    },
+    {
+      "nazev": "Hůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hole"
+    },
+    {
+      "nazev": "Hůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Holi"
+    },
+    {
+      "nazev": "Hůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hůl"
+    },
+    {
+      "nazev": "Hůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hůl"
+    },
+    {
+      "nazev": "klíč",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "klíč"
+    },
+    {
+      "nazev": "klíč",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "klíče"
+    },
+    {
+      "nazev": "klíč",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "klíči"
+    },
+    {
+      "nazev": "klíč",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "klíč"
+    },
+    {
+      "nazev": "klíč",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "klíč"
+    },
+    {
+      "nazev": "Klíč",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Klíč"
+    },
+    {
+      "nazev": "Klíč",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Klíče"
+    },
+    {
+      "nazev": "Klíč",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Klíči"
+    },
+    {
+      "nazev": "Klíč",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Klíč"
+    },
+    {
+      "nazev": "Klíč",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Klíč"
+    },
+    {
+      "nazev": "kotlík",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kotlík"
+    },
+    {
+      "nazev": "kotlík",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kotlíku"
+    },
+    {
+      "nazev": "kotlík",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kotlíku"
+    },
+    {
+      "nazev": "kotlík",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kotlík"
+    },
+    {
+      "nazev": "kotlík",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kotlík"
+    },
+    {
+      "nazev": "Kotlík",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kotlík"
+    },
+    {
+      "nazev": "Kotlík",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kotlíku"
+    },
+    {
+      "nazev": "Kotlík",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kotlíku"
+    },
+    {
+      "nazev": "Kotlík",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kotlík"
+    },
+    {
+      "nazev": "Kotlík",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kotlík"
+    },
+    {
+      "nazev": "kotva",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kotva"
+    },
+    {
+      "nazev": "kotva",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kotvy"
+    },
+    {
+      "nazev": "kotva",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kotvě"
+    },
+    {
+      "nazev": "kotva",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kotvu"
+    },
+    {
+      "nazev": "kotva",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kotva"
+    },
+    {
+      "nazev": "Kotva",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kotva"
+    },
+    {
+      "nazev": "Kotva",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kotvy"
+    },
+    {
+      "nazev": "Kotva",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kotvě"
+    },
+    {
+      "nazev": "Kotva",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kotvu"
+    },
+    {
+      "nazev": "Kotva",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kotva"
+    },
+    {
+      "nazev": "krystal",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "krystal"
+    },
+    {
+      "nazev": "krystal",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "krystalu"
+    },
+    {
+      "nazev": "krystal",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "krystalu"
+    },
+    {
+      "nazev": "krystal",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "krystal"
+    },
+    {
+      "nazev": "krystal",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "krystal"
+    },
+    {
+      "nazev": "Krystal",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Krystal"
+    },
+    {
+      "nazev": "Krystal",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Krystalu"
+    },
+    {
+      "nazev": "Krystal",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Krystalu"
+    },
+    {
+      "nazev": "Krystal",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Krystal"
+    },
+    {
+      "nazev": "Krystal",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Krystal"
+    },
+    {
+      "nazev": "křída",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "křída"
+    },
+    {
+      "nazev": "křída",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "křídy"
+    },
+    {
+      "nazev": "křída",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "křídě"
+    },
+    {
+      "nazev": "křída",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "křídu"
+    },
+    {
+      "nazev": "křída",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "křída"
+    },
+    {
+      "nazev": "Křída",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Křída"
+    },
+    {
+      "nazev": "Křída",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Křídy"
+    },
+    {
+      "nazev": "Křída",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Křídě"
+    },
+    {
+      "nazev": "Křída",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Křídu"
+    },
+    {
+      "nazev": "Křída",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Křída"
+    },
+    {
+      "nazev": "lampa",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "lampa"
+    },
+    {
+      "nazev": "lampa",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "lampy"
+    },
+    {
+      "nazev": "lampa",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "lampě"
+    },
+    {
+      "nazev": "lampa",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "lampu"
+    },
+    {
+      "nazev": "lampa",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "lampa"
+    },
+    {
+      "nazev": "Lampa",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Lampa"
+    },
+    {
+      "nazev": "Lampa",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Lampy"
+    },
+    {
+      "nazev": "Lampa",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Lampě"
+    },
+    {
+      "nazev": "Lampa",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Lampu"
+    },
+    {
+      "nazev": "Lampa",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Lampa"
+    },
+    {
+      "nazev": "lektvar",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "lektvar"
+    },
+    {
+      "nazev": "lektvar",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "lektvaru"
+    },
+    {
+      "nazev": "lektvar",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "lektvaru"
+    },
+    {
+      "nazev": "lektvar",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "lektvar"
+    },
+    {
+      "nazev": "lektvar",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "lektvar"
+    },
+    {
+      "nazev": "Lektvar",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Lektvar"
+    },
+    {
+      "nazev": "Lektvar",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Lektvaru"
+    },
+    {
+      "nazev": "Lektvar",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Lektvaru"
+    },
+    {
+      "nazev": "Lektvar",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Lektvar"
+    },
+    {
+      "nazev": "Lektvar",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Lektvar"
+    },
+    {
+      "nazev": "měšec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "měšec"
+    },
+    {
+      "nazev": "měšec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "měšce"
+    },
+    {
+      "nazev": "měšec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "měšci"
+    },
+    {
+      "nazev": "měšec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "měšec"
+    },
+    {
+      "nazev": "měšec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "měšec"
+    },
+    {
+      "nazev": "Měšec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Měšec"
+    },
+    {
+      "nazev": "Měšec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Měšce"
+    },
+    {
+      "nazev": "Měšec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Měšci"
+    },
+    {
+      "nazev": "Měšec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Měšec"
+    },
+    {
+      "nazev": "Měšec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Měšec"
+    },
+    {
+      "nazev": "mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "mříže"
+    },
+    {
+      "nazev": "mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "mříží"
+    },
+    {
+      "nazev": "mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "mřížím"
+    },
+    {
+      "nazev": "mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "mříže"
+    },
+    {
+      "nazev": "mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "mříže"
+    },
+    {
+      "nazev": "Mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Mříže"
+    },
+    {
+      "nazev": "Mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Mříží"
+    },
+    {
+      "nazev": "Mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Mřížím"
+    },
+    {
+      "nazev": "Mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Mříže"
+    },
+    {
+      "nazev": "Mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Mříže"
+    },
+    {
+      "nazev": "oblázek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "oblázek"
+    },
+    {
+      "nazev": "oblázek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "oblázku"
+    },
+    {
+      "nazev": "oblázek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "oblázku"
+    },
+    {
+      "nazev": "oblázek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "oblázek"
+    },
+    {
+      "nazev": "oblázek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "oblázek"
+    },
+    {
+      "nazev": "Oblázek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Oblázek"
+    },
+    {
+      "nazev": "Oblázek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Oblázku"
+    },
+    {
+      "nazev": "Oblázek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Oblázku"
+    },
+    {
+      "nazev": "Oblázek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Oblázek"
+    },
+    {
+      "nazev": "Oblázek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Oblázek"
+    },
+    {
+      "nazev": "panenka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "panenka"
+    },
+    {
+      "nazev": "panenka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "panenky"
+    },
+    {
+      "nazev": "panenka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "panence"
+    },
+    {
+      "nazev": "panenka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "panenku"
+    },
+    {
+      "nazev": "panenka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "panenka"
+    },
+    {
+      "nazev": "Panenka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Panenka"
+    },
+    {
+      "nazev": "Panenka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Panenky"
+    },
+    {
+      "nazev": "Panenka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Panence"
+    },
+    {
+      "nazev": "Panenka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Panenku"
+    },
+    {
+      "nazev": "Panenka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Panenka"
+    },
+    {
+      "nazev": "pec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "pec"
+    },
+    {
+      "nazev": "pec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "pece"
+    },
+    {
+      "nazev": "pec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "peci"
+    },
+    {
+      "nazev": "pec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "pec"
+    },
+    {
+      "nazev": "pec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "pec"
+    },
+    {
+      "nazev": "Pec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Pec"
+    },
+    {
+      "nazev": "Pec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Pece"
+    },
+    {
+      "nazev": "Pec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Peci"
+    },
+    {
+      "nazev": "Pec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Pec"
+    },
+    {
+      "nazev": "Pec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Pec"
+    },
+    {
+      "nazev": "pochodeň",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "pochodeň"
+    },
+    {
+      "nazev": "pochodeň",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "pochodně"
+    },
+    {
+      "nazev": "pochodeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "pochodni"
+    },
+    {
+      "nazev": "pochodeň",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "pochodeň"
+    },
+    {
+      "nazev": "pochodeň",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "pochodeň"
+    },
+    {
+      "nazev": "Pochodeň",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Pochodeň"
+    },
+    {
+      "nazev": "Pochodeň",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Pochodně"
+    },
+    {
+      "nazev": "Pochodeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Pochodni"
+    },
+    {
+      "nazev": "Pochodeň",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Pochodeň"
+    },
+    {
+      "nazev": "Pochodeň",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Pochodeň"
+    },
+    {
+      "nazev": "police",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "police"
+    },
+    {
+      "nazev": "police",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "police"
+    },
+    {
+      "nazev": "police",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "polici"
+    },
+    {
+      "nazev": "police",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "polici"
+    },
+    {
+      "nazev": "police",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "police"
+    },
+    {
+      "nazev": "Police",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Police"
+    },
+    {
+      "nazev": "Police",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Police"
+    },
+    {
+      "nazev": "Police",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Polici"
+    },
+    {
+      "nazev": "Police",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Polici"
+    },
+    {
+      "nazev": "Police",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Police"
+    },
+    {
+      "nazev": "prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "prsten"
+    },
+    {
+      "nazev": "prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "prstenu"
+    },
+    {
+      "nazev": "prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "prstenu"
+    },
+    {
+      "nazev": "prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "prsten"
+    },
+    {
+      "nazev": "prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "prsten"
+    },
+    {
+      "nazev": "Prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Prsten"
+    },
+    {
+      "nazev": "Prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Prstenu"
+    },
+    {
+      "nazev": "Prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Prstenu"
+    },
+    {
+      "nazev": "Prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Prsten"
+    },
+    {
+      "nazev": "Prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Prsten"
+    },
+    {
+      "nazev": "sloup",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "sloup"
+    },
+    {
+      "nazev": "sloup",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "sloupu"
+    },
+    {
+      "nazev": "sloup",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "sloupu"
+    },
+    {
+      "nazev": "sloup",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "sloup"
+    },
+    {
+      "nazev": "sloup",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "sloup"
+    },
+    {
+      "nazev": "Sloup",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Sloup"
+    },
+    {
+      "nazev": "Sloup",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Sloupu"
+    },
+    {
+      "nazev": "Sloup",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Sloupu"
+    },
+    {
+      "nazev": "Sloup",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Sloup"
+    },
+    {
+      "nazev": "Sloup",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Sloup"
+    },
+    {
+      "nazev": "stůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "stůl"
+    },
+    {
+      "nazev": "stůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "stolu"
+    },
+    {
+      "nazev": "stůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "stolu"
+    },
+    {
+      "nazev": "stůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "stůl"
+    },
+    {
+      "nazev": "stůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "stůl"
+    },
+    {
+      "nazev": "Stůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Stůl"
+    },
+    {
+      "nazev": "Stůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Stolu"
+    },
+    {
+      "nazev": "Stůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Stolu"
+    },
+    {
+      "nazev": "Stůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Stůl"
+    },
+    {
+      "nazev": "Stůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Stůl"
+    },
+    {
+      "nazev": "sud",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "sud"
+    },
+    {
+      "nazev": "sud",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "sudu"
+    },
+    {
+      "nazev": "sud",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "sudu"
+    },
+    {
+      "nazev": "sud",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "sud"
+    },
+    {
+      "nazev": "sud",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "sud"
+    },
+    {
+      "nazev": "Sud",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Sud"
+    },
+    {
+      "nazev": "Sud",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Sudu"
+    },
+    {
+      "nazev": "Sud",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Sudu"
+    },
+    {
+      "nazev": "Sud",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Sud"
+    },
+    {
+      "nazev": "Sud",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Sud"
+    },
+    {
+      "nazev": "truhla",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "truhla"
+    },
+    {
+      "nazev": "truhla",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "truhly"
+    },
+    {
+      "nazev": "truhla",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "truhle"
+    },
+    {
+      "nazev": "truhla",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "truhlu"
+    },
+    {
+      "nazev": "truhla",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "truhla"
+    },
+    {
+      "nazev": "Truhla",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Truhla"
+    },
+    {
+      "nazev": "Truhla",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Truhly"
+    },
+    {
+      "nazev": "Truhla",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Truhle"
+    },
+    {
+      "nazev": "Truhla",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Truhlu"
+    },
+    {
+      "nazev": "Truhla",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Truhla"
+    },
+    {
+      "nazev": "žebřík",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "žebřík"
+    },
+    {
+      "nazev": "žebřík",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "žebříku"
+    },
+    {
+      "nazev": "žebřík",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "žebříku"
+    },
+    {
+      "nazev": "žebřík",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "žebřík"
+    },
+    {
+      "nazev": "žebřík",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "žebřík"
+    },
+    {
+      "nazev": "Žebřík",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Žebřík"
+    },
+    {
+      "nazev": "Žebřík",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Žebříku"
+    },
+    {
+      "nazev": "Žebřík",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Žebříku"
+    },
+    {
+      "nazev": "Žebřík",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Žebřík"
+    },
+    {
+      "nazev": "Žebřík",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Žebřík"
+    },
+    {
+      "nazev": "aréna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "aréna"
+    },
+    {
+      "nazev": "aréna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "arény"
+    },
+    {
+      "nazev": "aréna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "aréně"
+    },
+    {
+      "nazev": "aréna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "arénu"
+    },
+    {
+      "nazev": "aréna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "aréna"
+    },
+    {
+      "nazev": "Aréna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Aréna"
+    },
+    {
+      "nazev": "Aréna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Arény"
+    },
+    {
+      "nazev": "Aréna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Aréně"
+    },
+    {
+      "nazev": "Aréna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Arénu"
+    },
+    {
+      "nazev": "Aréna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Aréna"
+    },
+    {
+      "nazev": "chalupa",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "chalupa"
+    },
+    {
+      "nazev": "chalupa",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "chalupy"
+    },
+    {
+      "nazev": "chalupa",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "chalupě"
+    },
+    {
+      "nazev": "chalupa",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "chalupu"
+    },
+    {
+      "nazev": "chalupa",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "chalupa"
+    },
+    {
+      "nazev": "Chalupa",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Chalupa"
+    },
+    {
+      "nazev": "Chalupa",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Chalupy"
+    },
+    {
+      "nazev": "Chalupa",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Chalupě"
+    },
+    {
+      "nazev": "Chalupa",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Chalupu"
+    },
+    {
+      "nazev": "Chalupa",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Chalupa"
+    },
+    {
+      "nazev": "dílna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "dílna"
+    },
+    {
+      "nazev": "dílna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "dílny"
+    },
+    {
+      "nazev": "dílna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "dílně"
+    },
+    {
+      "nazev": "dílna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "dílnu"
+    },
+    {
+      "nazev": "dílna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "dílna"
+    },
+    {
+      "nazev": "Dílna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Dílna"
+    },
+    {
+      "nazev": "Dílna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Dílny"
+    },
+    {
+      "nazev": "Dílna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Dílně"
+    },
+    {
+      "nazev": "Dílna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Dílnu"
+    },
+    {
+      "nazev": "Dílna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Dílna"
+    },
+    {
+      "nazev": "hřbitov",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "hřbitov"
+    },
+    {
+      "nazev": "hřbitov",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "hřbitova"
+    },
+    {
+      "nazev": "hřbitov",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "hřbitovu"
+    },
+    {
+      "nazev": "hřbitov",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "hřbitov"
+    },
+    {
+      "nazev": "hřbitov",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "hřbitov"
+    },
+    {
+      "nazev": "Hřbitov",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hřbitov"
+    },
+    {
+      "nazev": "Hřbitov",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hřbitova"
+    },
+    {
+      "nazev": "Hřbitov",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hřbitovu"
+    },
+    {
+      "nazev": "Hřbitov",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hřbitov"
+    },
+    {
+      "nazev": "Hřbitov",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hřbitov"
+    },
+    {
+      "nazev": "komnata",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "komnata"
+    },
+    {
+      "nazev": "komnata",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "komnaty"
+    },
+    {
+      "nazev": "komnata",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "komnatě"
+    },
+    {
+      "nazev": "komnata",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "komnatu"
+    },
+    {
+      "nazev": "komnata",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "komnata"
+    },
+    {
+      "nazev": "Komnata",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Komnata"
+    },
+    {
+      "nazev": "Komnata",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Komnaty"
+    },
+    {
+      "nazev": "Komnata",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Komnatě"
+    },
+    {
+      "nazev": "Komnata",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Komnatu"
+    },
+    {
+      "nazev": "Komnata",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Komnata"
+    },
+    {
+      "nazev": "komora",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "komora"
+    },
+    {
+      "nazev": "komora",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "komory"
+    },
+    {
+      "nazev": "komora",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "komoře"
+    },
+    {
+      "nazev": "komora",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "komoru"
+    },
+    {
+      "nazev": "komora",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "komora"
+    },
+    {
+      "nazev": "Komora",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Komora"
+    },
+    {
+      "nazev": "Komora",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Komory"
+    },
+    {
+      "nazev": "Komora",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Komoře"
+    },
+    {
+      "nazev": "Komora",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Komoru"
+    },
+    {
+      "nazev": "Komora",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Komora"
+    },
+    {
+      "nazev": "konec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "konec"
+    },
+    {
+      "nazev": "konec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "konce"
+    },
+    {
+      "nazev": "konec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "konci"
+    },
+    {
+      "nazev": "konec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "konec"
+    },
+    {
+      "nazev": "konec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "konec"
+    },
+    {
+      "nazev": "Konec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Konec"
+    },
+    {
+      "nazev": "Konec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Konce"
+    },
+    {
+      "nazev": "Konec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Konci"
+    },
+    {
+      "nazev": "Konec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Konec"
+    },
+    {
+      "nazev": "Konec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Konec"
+    },
+    {
+      "nazev": "kraj",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kraj"
+    },
+    {
+      "nazev": "kraj",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kraje"
+    },
+    {
+      "nazev": "kraj",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kraji"
+    },
+    {
+      "nazev": "kraj",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kraj"
+    },
+    {
+      "nazev": "kraj",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kraj"
+    },
+    {
+      "nazev": "Kraj",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kraj"
+    },
+    {
+      "nazev": "Kraj",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kraje"
+    },
+    {
+      "nazev": "Kraj",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kraji"
+    },
+    {
+      "nazev": "Kraj",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kraj"
+    },
+    {
+      "nazev": "Kraj",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kraj"
+    },
+    {
+      "nazev": "krypta",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "krypta"
+    },
+    {
+      "nazev": "krypta",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "krypty"
+    },
+    {
+      "nazev": "krypta",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kryptě"
+    },
+    {
+      "nazev": "krypta",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kryptu"
+    },
+    {
+      "nazev": "krypta",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "krypta"
+    },
+    {
+      "nazev": "Krypta",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Krypta"
+    },
+    {
+      "nazev": "Krypta",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Krypty"
+    },
+    {
+      "nazev": "Krypta",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kryptě"
+    },
+    {
+      "nazev": "Krypta",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kryptu"
+    },
+    {
+      "nazev": "Krypta",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Krypta"
+    },
+    {
+      "nazev": "mech",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "mech"
+    },
+    {
+      "nazev": "mech",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "mechu"
+    },
+    {
+      "nazev": "mech",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "mechu"
+    },
+    {
+      "nazev": "mech",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "mech"
+    },
+    {
+      "nazev": "mech",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "mech"
+    },
+    {
+      "nazev": "Mech",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Mech"
+    },
+    {
+      "nazev": "Mech",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Mechu"
+    },
+    {
+      "nazev": "Mech",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Mechu"
+    },
+    {
+      "nazev": "Mech",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Mech"
+    },
+    {
+      "nazev": "Mech",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Mech"
+    },
+    {
+      "nazev": "obrubník",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "obrubník"
+    },
+    {
+      "nazev": "obrubník",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "obrubníku"
+    },
+    {
+      "nazev": "obrubník",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "obrubníku"
+    },
+    {
+      "nazev": "obrubník",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "obrubník"
+    },
+    {
+      "nazev": "obrubník",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "obrubník"
+    },
+    {
+      "nazev": "Obrubník",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Obrubník"
+    },
+    {
+      "nazev": "Obrubník",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Obrubníku"
+    },
+    {
+      "nazev": "Obrubník",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Obrubníku"
+    },
+    {
+      "nazev": "Obrubník",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Obrubník"
+    },
+    {
+      "nazev": "Obrubník",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Obrubník"
+    },
+    {
+      "nazev": "ohniště",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ohniště"
+    },
+    {
+      "nazev": "ohniště",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ohniště"
+    },
+    {
+      "nazev": "ohniště",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ohništi"
+    },
+    {
+      "nazev": "ohniště",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "ohniště"
+    },
+    {
+      "nazev": "ohniště",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ohniště"
+    },
+    {
+      "nazev": "Ohniště",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ohniště"
+    },
+    {
+      "nazev": "Ohniště",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Ohniště"
+    },
+    {
+      "nazev": "Ohniště",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Ohništi"
+    },
+    {
+      "nazev": "Ohniště",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Ohniště"
+    },
+    {
+      "nazev": "Ohniště",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ohniště"
+    },
+    {
+      "nazev": "ohrazení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ohrazení"
+    },
+    {
+      "nazev": "ohrazení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ohrazení"
+    },
+    {
+      "nazev": "ohrazení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ohrazení"
+    },
+    {
+      "nazev": "ohrazení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "ohrazení"
+    },
+    {
+      "nazev": "ohrazení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ohrazení"
+    },
+    {
+      "nazev": "Ohrazení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ohrazení"
+    },
+    {
+      "nazev": "Ohrazení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Ohrazení"
+    },
+    {
+      "nazev": "Ohrazení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Ohrazení"
+    },
+    {
+      "nazev": "Ohrazení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Ohrazení"
+    },
+    {
+      "nazev": "Ohrazení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ohrazení"
+    },
+    {
+      "nazev": "plamen",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "plamen"
+    },
+    {
+      "nazev": "plamen",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "plamene"
+    },
+    {
+      "nazev": "plamen",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "plameni"
+    },
+    {
+      "nazev": "plamen",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "plamen"
+    },
+    {
+      "nazev": "plamen",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "plamen"
+    },
+    {
+      "nazev": "Plamen",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Plamen"
+    },
+    {
+      "nazev": "Plamen",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Plamene"
+    },
+    {
+      "nazev": "Plamen",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Plameni"
+    },
+    {
+      "nazev": "Plamen",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Plamen"
+    },
+    {
+      "nazev": "Plamen",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Plamen"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "pozorovatelna"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "pozorovatelny"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "pozorovatelně"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "pozorovatelnu"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "pozorovatelna"
+    },
+    {
+      "nazev": "Pozorovatelna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Pozorovatelna"
+    },
+    {
+      "nazev": "Pozorovatelna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Pozorovatelny"
+    },
+    {
+      "nazev": "Pozorovatelna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Pozorovatelně"
+    },
+    {
+      "nazev": "Pozorovatelna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Pozorovatelnu"
+    },
+    {
+      "nazev": "Pozorovatelna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Pozorovatelna"
+    },
+    {
+      "nazev": "průchod",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "průchod"
+    },
+    {
+      "nazev": "průchod",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "průchodu"
+    },
+    {
+      "nazev": "průchod",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "průchodu"
+    },
+    {
+      "nazev": "průchod",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "průchod"
+    },
+    {
+      "nazev": "průchod",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "průchod"
+    },
+    {
+      "nazev": "Průchod",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Průchod"
+    },
+    {
+      "nazev": "Průchod",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Průchodu"
+    },
+    {
+      "nazev": "Průchod",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Průchodu"
+    },
+    {
+      "nazev": "Průchod",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Průchod"
+    },
+    {
+      "nazev": "Průchod",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Průchod"
+    },
+    {
+      "nazev": "příčka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "příčka"
+    },
+    {
+      "nazev": "příčka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "příčky"
+    },
+    {
+      "nazev": "příčka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "příčce"
+    },
+    {
+      "nazev": "příčka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "příčku"
+    },
+    {
+      "nazev": "příčka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "příčka"
+    },
+    {
+      "nazev": "Příčka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Příčka"
+    },
+    {
+      "nazev": "Příčka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Příčky"
+    },
+    {
+      "nazev": "Příčka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Příčce"
+    },
+    {
+      "nazev": "Příčka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Příčku"
+    },
+    {
+      "nazev": "Příčka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Příčka"
+    },
+    {
+      "nazev": "pěšina",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "pěšina"
+    },
+    {
+      "nazev": "pěšina",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "pěšiny"
+    },
+    {
+      "nazev": "pěšina",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "pěšině"
+    },
+    {
+      "nazev": "pěšina",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "pěšinu"
+    },
+    {
+      "nazev": "pěšina",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "pěšina"
+    },
+    {
+      "nazev": "Pěšina",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Pěšina"
+    },
+    {
+      "nazev": "Pěšina",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Pěšiny"
+    },
+    {
+      "nazev": "Pěšina",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Pěšině"
+    },
+    {
+      "nazev": "Pěšina",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Pěšinu"
+    },
+    {
+      "nazev": "Pěšina",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Pěšina"
+    },
+    {
+      "nazev": "skála",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "skála"
+    },
+    {
+      "nazev": "skála",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "skály"
+    },
+    {
+      "nazev": "skála",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "skále"
+    },
+    {
+      "nazev": "skála",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "skálu"
+    },
+    {
+      "nazev": "skála",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "skála"
+    },
+    {
+      "nazev": "Skála",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Skála"
+    },
+    {
+      "nazev": "Skála",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Skály"
+    },
+    {
+      "nazev": "Skála",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Skále"
+    },
+    {
+      "nazev": "Skála",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Skálu"
+    },
+    {
+      "nazev": "Skála",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Skála"
+    },
+    {
+      "nazev": "sklad",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "sklad"
+    },
+    {
+      "nazev": "sklad",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "skladu"
+    },
+    {
+      "nazev": "sklad",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "skladu"
+    },
+    {
+      "nazev": "sklad",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "sklad"
+    },
+    {
+      "nazev": "sklad",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "sklad"
+    },
+    {
+      "nazev": "Sklad",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Sklad"
+    },
+    {
+      "nazev": "Sklad",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Skladu"
+    },
+    {
+      "nazev": "Sklad",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Skladu"
+    },
+    {
+      "nazev": "Sklad",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Sklad"
+    },
+    {
+      "nazev": "Sklad",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Sklad"
+    },
+    {
+      "nazev": "socha",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "socha"
+    },
+    {
+      "nazev": "socha",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "sochy"
+    },
+    {
+      "nazev": "socha",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "soše"
+    },
+    {
+      "nazev": "socha",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "sochu"
+    },
+    {
+      "nazev": "socha",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "socha"
+    },
+    {
+      "nazev": "Socha",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Socha"
+    },
+    {
+      "nazev": "Socha",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Sochy"
+    },
+    {
+      "nazev": "Socha",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Soše"
+    },
+    {
+      "nazev": "Socha",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Sochu"
+    },
+    {
+      "nazev": "Socha",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Socha"
+    },
+    {
+      "nazev": "stružka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "stružka"
+    },
+    {
+      "nazev": "stružka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "stružky"
+    },
+    {
+      "nazev": "stružka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "stružce"
+    },
+    {
+      "nazev": "stružka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "stružku"
+    },
+    {
+      "nazev": "stružka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "stružka"
+    },
+    {
+      "nazev": "Stružka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Stružka"
+    },
+    {
+      "nazev": "Stružka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Stružky"
+    },
+    {
+      "nazev": "Stružka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Stružce"
+    },
+    {
+      "nazev": "Stružka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Stružku"
+    },
+    {
+      "nazev": "Stružka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Stružka"
+    },
+    {
+      "nazev": "střed",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "střed"
+    },
+    {
+      "nazev": "střed",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "středu"
+    },
+    {
+      "nazev": "střed",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "středu"
+    },
+    {
+      "nazev": "střed",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "střed"
+    },
+    {
+      "nazev": "střed",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "střed"
+    },
+    {
+      "nazev": "Střed",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Střed"
+    },
+    {
+      "nazev": "Střed",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Středu"
+    },
+    {
+      "nazev": "Střed",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Středu"
+    },
+    {
+      "nazev": "Střed",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Střed"
+    },
+    {
+      "nazev": "Střed",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Střed"
+    },
+    {
+      "nazev": "stěny",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "stěny"
+    },
+    {
+      "nazev": "stěny",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "stěn"
+    },
+    {
+      "nazev": "stěny",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "stěnám"
+    },
+    {
+      "nazev": "stěny",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "stěny"
+    },
+    {
+      "nazev": "stěny",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "stěny"
+    },
+    {
+      "nazev": "Stěny",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Stěny"
+    },
+    {
+      "nazev": "Stěny",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Stěn"
+    },
+    {
+      "nazev": "Stěny",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Stěnám"
+    },
+    {
+      "nazev": "Stěny",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Stěny"
+    },
+    {
+      "nazev": "Stěny",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Stěny"
+    },
+    {
+      "nazev": "terč",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "terč"
+    },
+    {
+      "nazev": "terč",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "terče"
+    },
+    {
+      "nazev": "terč",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "terči"
+    },
+    {
+      "nazev": "terč",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "terč"
+    },
+    {
+      "nazev": "terč",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "terč"
+    },
+    {
+      "nazev": "Terč",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Terč"
+    },
+    {
+      "nazev": "Terč",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Terče"
+    },
+    {
+      "nazev": "Terč",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Terči"
+    },
+    {
+      "nazev": "Terč",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Terč"
+    },
+    {
+      "nazev": "Terč",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Terč"
+    },
+    {
+      "nazev": "ulička",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ulička"
+    },
+    {
+      "nazev": "ulička",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "uličky"
+    },
+    {
+      "nazev": "ulička",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "uličce"
+    },
+    {
+      "nazev": "ulička",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "uličku"
+    },
+    {
+      "nazev": "ulička",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ulička"
+    },
+    {
+      "nazev": "Ulička",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ulička"
+    },
+    {
+      "nazev": "Ulička",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Uličky"
+    },
+    {
+      "nazev": "Ulička",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Uličce"
+    },
+    {
+      "nazev": "Ulička",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Uličku"
+    },
+    {
+      "nazev": "Ulička",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ulička"
+    },
+    {
+      "nazev": "ústí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ústí"
+    },
+    {
+      "nazev": "ústí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ústí"
+    },
+    {
+      "nazev": "ústí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ústí"
+    },
+    {
+      "nazev": "ústí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "ústí"
+    },
+    {
+      "nazev": "ústí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ústí"
+    },
+    {
+      "nazev": "Ústí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ústí"
+    },
+    {
+      "nazev": "Ústí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Ústí"
+    },
+    {
+      "nazev": "Ústí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Ústí"
+    },
+    {
+      "nazev": "Ústí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Ústí"
+    },
+    {
+      "nazev": "Ústí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ústí"
+    },
+    {
+      "nazev": "vnitřek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "vnitřek"
+    },
+    {
+      "nazev": "vnitřek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "vnitřku"
+    },
+    {
+      "nazev": "vnitřek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "vnitřku"
+    },
+    {
+      "nazev": "vnitřek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "vnitřek"
+    },
+    {
+      "nazev": "vnitřek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "vnitřek"
+    },
+    {
+      "nazev": "Vnitřek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Vnitřek"
+    },
+    {
+      "nazev": "Vnitřek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Vnitřku"
+    },
+    {
+      "nazev": "Vnitřek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Vnitřku"
+    },
+    {
+      "nazev": "Vnitřek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Vnitřek"
+    },
+    {
+      "nazev": "Vnitřek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Vnitřek"
+    },
+    {
+      "nazev": "zdi",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zdi"
+    },
+    {
+      "nazev": "zdi",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zdí"
+    },
+    {
+      "nazev": "zdi",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zdem"
+    },
+    {
+      "nazev": "zdi",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zdi"
+    },
+    {
+      "nazev": "zdi",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zdi"
+    },
+    {
+      "nazev": "Zdi",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zdi"
+    },
+    {
+      "nazev": "Zdi",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zdí"
+    },
+    {
+      "nazev": "Zdi",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zdem"
+    },
+    {
+      "nazev": "Zdi",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zdi"
+    },
+    {
+      "nazev": "Zdi",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zdi"
+    },
+    {
+      "nazev": "zdivo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zdivo"
+    },
+    {
+      "nazev": "zdivo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zdiva"
+    },
+    {
+      "nazev": "zdivo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zdivu"
+    },
+    {
+      "nazev": "zdivo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zdivo"
+    },
+    {
+      "nazev": "zdivo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zdivo"
+    },
+    {
+      "nazev": "Zdivo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zdivo"
+    },
+    {
+      "nazev": "Zdivo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zdiva"
+    },
+    {
+      "nazev": "Zdivo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zdivu"
+    },
+    {
+      "nazev": "Zdivo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zdivo"
+    },
+    {
+      "nazev": "Zdivo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zdivo"
+    },
+    {
+      "nazev": "zeď",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zeď"
+    },
+    {
+      "nazev": "zeď",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zdi"
+    },
+    {
+      "nazev": "zeď",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zdi"
+    },
+    {
+      "nazev": "zeď",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zeď"
+    },
+    {
+      "nazev": "zeď",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zeď"
+    },
+    {
+      "nazev": "Zeď",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zeď"
+    },
+    {
+      "nazev": "Zeď",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zdi"
+    },
+    {
+      "nazev": "Zeď",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zdi"
+    },
+    {
+      "nazev": "Zeď",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zeď"
+    },
+    {
+      "nazev": "Zeď",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zeď"
+    },
+    {
+      "nazev": "zkušebna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zkušebna"
+    },
+    {
+      "nazev": "zkušebna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zkušebny"
+    },
+    {
+      "nazev": "zkušebna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zkušebně"
+    },
+    {
+      "nazev": "zkušebna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zkušebnu"
+    },
+    {
+      "nazev": "zkušebna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zkušebna"
+    },
+    {
+      "nazev": "Zkušebna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zkušebna"
+    },
+    {
+      "nazev": "Zkušebna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zkušebny"
+    },
+    {
+      "nazev": "Zkušebna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zkušebně"
+    },
+    {
+      "nazev": "Zkušebna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zkušebnu"
+    },
+    {
+      "nazev": "Zkušebna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zkušebna"
+    },
+    {
+      "nazev": "zábradlí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zábradlí"
+    },
+    {
+      "nazev": "zábradlí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zábradlí"
+    },
+    {
+      "nazev": "zábradlí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zábradlí"
+    },
+    {
+      "nazev": "zábradlí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zábradlí"
+    },
+    {
+      "nazev": "zábradlí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zábradlí"
+    },
+    {
+      "nazev": "Zábradlí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zábradlí"
+    },
+    {
+      "nazev": "Zábradlí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zábradlí"
+    },
+    {
+      "nazev": "Zábradlí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zábradlí"
+    },
+    {
+      "nazev": "Zábradlí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zábradlí"
+    },
+    {
+      "nazev": "Zábradlí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zábradlí"
+    },
+    {
+      "nazev": "zídka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zídka"
+    },
+    {
+      "nazev": "zídka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zídky"
+    },
+    {
+      "nazev": "zídka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zídce"
+    },
+    {
+      "nazev": "zídka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zídku"
+    },
+    {
+      "nazev": "zídka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zídka"
+    },
+    {
+      "nazev": "Zídka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zídka"
+    },
+    {
+      "nazev": "Zídka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zídky"
+    },
+    {
+      "nazev": "Zídka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zídce"
+    },
+    {
+      "nazev": "Zídka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zídku"
+    },
+    {
+      "nazev": "Zídka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zídka"
+    },
+    {
+      "nazev": "zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "zřídlo"
+    },
+    {
+      "nazev": "zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "zřídla"
+    },
+    {
+      "nazev": "zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "zřídlu"
+    },
+    {
+      "nazev": "zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "zřídlo"
+    },
+    {
+      "nazev": "zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "zřídlo"
+    },
+    {
+      "nazev": "Zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zřídlo"
+    },
+    {
+      "nazev": "Zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zřídla"
+    },
+    {
+      "nazev": "Zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zřídlu"
+    },
+    {
+      "nazev": "Zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zřídlo"
+    },
+    {
+      "nazev": "Zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zřídlo"
+    },
+    {
+      "nazev": "domy",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "domy"
+    },
+    {
+      "nazev": "domy",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "domů"
+    },
+    {
+      "nazev": "domy",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "domům"
+    },
+    {
+      "nazev": "domy",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "domy"
+    },
+    {
+      "nazev": "domy",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "domy"
+    },
+    {
+      "nazev": "Domy",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Domy"
+    },
+    {
+      "nazev": "Domy",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Domů"
+    },
+    {
+      "nazev": "Domy",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Domům"
+    },
+    {
+      "nazev": "Domy",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Domy"
+    },
+    {
+      "nazev": "Domy",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Domy"
+    },
+    {
+      "nazev": "čaroděj",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "čaroděj"
+    },
+    {
+      "nazev": "čaroděj",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "čaroděje"
+    },
+    {
+      "nazev": "čaroděj",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "čaroději"
+    },
+    {
+      "nazev": "čaroděj",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "čaroděje"
+    },
+    {
+      "nazev": "čaroděj",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "čaroděj"
+    },
+    {
+      "nazev": "Čaroděj",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Čaroděj"
+    },
+    {
+      "nazev": "Čaroděj",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Čaroděje"
+    },
+    {
+      "nazev": "Čaroděj",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Čaroději"
+    },
+    {
+      "nazev": "Čaroděj",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Čaroděje"
+    },
+    {
+      "nazev": "Čaroděj",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Čaroděj"
+    },
+    {
+      "nazev": "druh",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "druh"
+    },
+    {
+      "nazev": "druh",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "druha"
+    },
+    {
+      "nazev": "druh",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "druhovi"
+    },
+    {
+      "nazev": "druh",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "druha"
+    },
+    {
+      "nazev": "druh",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "druh"
+    },
+    {
+      "nazev": "Druh",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Druh"
+    },
+    {
+      "nazev": "Druh",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Druha"
+    },
+    {
+      "nazev": "Druh",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Druhovi"
+    },
+    {
+      "nazev": "Druh",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Druha"
+    },
+    {
+      "nazev": "Druh",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Druh"
+    },
+    {
+      "nazev": "goblin",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "goblin"
+    },
+    {
+      "nazev": "goblin",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "goblina"
+    },
+    {
+      "nazev": "goblin",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "goblinovi"
+    },
+    {
+      "nazev": "goblin",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "goblina"
+    },
+    {
+      "nazev": "goblin",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "goblin"
+    },
+    {
+      "nazev": "Goblin",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Goblin"
+    },
+    {
+      "nazev": "Goblin",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Goblina"
+    },
+    {
+      "nazev": "Goblin",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Goblinovi"
+    },
+    {
+      "nazev": "Goblin",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Goblina"
+    },
+    {
+      "nazev": "Goblin",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Goblin"
+    },
+    {
+      "nazev": "hlídka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "hlídka"
+    },
+    {
+      "nazev": "hlídka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "hlídky"
+    },
+    {
+      "nazev": "hlídka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "hlídce"
+    },
+    {
+      "nazev": "hlídka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "hlídku"
+    },
+    {
+      "nazev": "hlídka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "hlídka"
+    },
+    {
+      "nazev": "Hlídka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hlídka"
+    },
+    {
+      "nazev": "Hlídka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hlídky"
+    },
+    {
+      "nazev": "Hlídka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hlídce"
+    },
+    {
+      "nazev": "Hlídka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hlídku"
+    },
+    {
+      "nazev": "Hlídka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hlídka"
+    },
+    {
+      "nazev": "kostlivec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kostlivec"
+    },
+    {
+      "nazev": "kostlivec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kostlivce"
+    },
+    {
+      "nazev": "kostlivec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kostlivci"
+    },
+    {
+      "nazev": "kostlivec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kostlivce"
+    },
+    {
+      "nazev": "kostlivec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kostlivec"
+    },
+    {
+      "nazev": "Kostlivec",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kostlivec"
+    },
+    {
+      "nazev": "Kostlivec",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kostlivce"
+    },
+    {
+      "nazev": "Kostlivec",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kostlivci"
+    },
+    {
+      "nazev": "Kostlivec",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kostlivce"
+    },
+    {
+      "nazev": "Kostlivec",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kostlivec"
+    },
+    {
+      "nazev": "mrtvola",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "mrtvola"
+    },
+    {
+      "nazev": "mrtvola",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "mrtvoly"
+    },
+    {
+      "nazev": "mrtvola",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "mrtvole"
+    },
+    {
+      "nazev": "mrtvola",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "mrtvolu"
+    },
+    {
+      "nazev": "mrtvola",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "mrtvola"
+    },
+    {
+      "nazev": "Mrtvola",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Mrtvola"
+    },
+    {
+      "nazev": "Mrtvola",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Mrtvoly"
+    },
+    {
+      "nazev": "Mrtvola",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Mrtvole"
+    },
+    {
+      "nazev": "Mrtvola",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Mrtvolu"
+    },
+    {
+      "nazev": "Mrtvola",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Mrtvola"
+    },
+    {
+      "nazev": "nekromant",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "nekromant"
+    },
+    {
+      "nazev": "nekromant",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "nekromanta"
+    },
+    {
+      "nazev": "nekromant",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "nekromantovi"
+    },
+    {
+      "nazev": "nekromant",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "nekromanta"
+    },
+    {
+      "nazev": "nekromant",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "nekromant"
+    },
+    {
+      "nazev": "Nekromant",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nekromant"
+    },
+    {
+      "nazev": "Nekromant",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nekromanta"
+    },
+    {
+      "nazev": "Nekromant",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nekromantovi"
+    },
+    {
+      "nazev": "Nekromant",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nekromanta"
+    },
+    {
+      "nazev": "Nekromant",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nekromant"
+    },
+    {
+      "nazev": "ruka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ruka"
+    },
+    {
+      "nazev": "ruka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ruky"
+    },
+    {
+      "nazev": "ruka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ruce"
+    },
+    {
+      "nazev": "ruka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "ruku"
+    },
+    {
+      "nazev": "ruka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ruka"
+    },
+    {
+      "nazev": "Ruka",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ruka"
+    },
+    {
+      "nazev": "Ruka",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Ruky"
+    },
+    {
+      "nazev": "Ruka",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Ruce"
+    },
+    {
+      "nazev": "Ruka",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Ruku"
+    },
+    {
+      "nazev": "Ruka",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ruka"
+    },
+    {
+      "nazev": "strážný",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "strážný"
+    },
+    {
+      "nazev": "strážný",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "strážného"
+    },
+    {
+      "nazev": "strážný",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "strážnému"
+    },
+    {
+      "nazev": "strážný",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "strážného"
+    },
+    {
+      "nazev": "strážný",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "strážný"
+    },
+    {
+      "nazev": "Strážný",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Strážný"
+    },
+    {
+      "nazev": "Strážný",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Strážného"
+    },
+    {
+      "nazev": "Strážný",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Strážnému"
+    },
+    {
+      "nazev": "Strážný",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Strážného"
+    },
+    {
+      "nazev": "Strážný",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Strážný"
+    },
+    {
+      "nazev": "vězeň",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "vězeň"
+    },
+    {
+      "nazev": "vězeň",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "vězně"
+    },
+    {
+      "nazev": "vězeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "vězni"
+    },
+    {
+      "nazev": "vězeň",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "vězně"
+    },
+    {
+      "nazev": "vězeň",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "vězeň"
+    },
+    {
+      "nazev": "Vězeň",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Vězeň"
+    },
+    {
+      "nazev": "Vězeň",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Vězně"
+    },
+    {
+      "nazev": "Vězeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Vězni"
+    },
+    {
+      "nazev": "Vězeň",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Vězně"
+    },
+    {
+      "nazev": "Vězeň",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Vězeň"
+    },
+    {
+      "nazev": "aura",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "aura"
+    },
+    {
+      "nazev": "aura",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "aury"
+    },
+    {
+      "nazev": "aura",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "auře"
+    },
+    {
+      "nazev": "aura",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "auru"
+    },
+    {
+      "nazev": "aura",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "aura"
+    },
+    {
+      "nazev": "Aura",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Aura"
+    },
+    {
+      "nazev": "Aura",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Aury"
+    },
+    {
+      "nazev": "Aura",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Auře"
+    },
+    {
+      "nazev": "Aura",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Auru"
+    },
+    {
+      "nazev": "Aura",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Aura"
+    },
+    {
+      "nazev": "kupole",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kupole"
+    },
+    {
+      "nazev": "kupole",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kupole"
+    },
+    {
+      "nazev": "kupole",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kupoli"
+    },
+    {
+      "nazev": "kupole",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kupoli"
+    },
+    {
+      "nazev": "kupole",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kupole"
+    },
+    {
+      "nazev": "Kupole",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kupole"
+    },
+    {
+      "nazev": "Kupole",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kupole"
+    },
+    {
+      "nazev": "Kupole",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kupoli"
+    },
+    {
+      "nazev": "Kupole",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kupoli"
+    },
+    {
+      "nazev": "Kupole",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kupole"
+    },
+    {
+      "nazev": "kužel",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "kužel"
+    },
+    {
+      "nazev": "kužel",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "kužele"
+    },
+    {
+      "nazev": "kužel",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "kuželi"
+    },
+    {
+      "nazev": "kužel",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "kužel"
+    },
+    {
+      "nazev": "kužel",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "kužel"
+    },
+    {
+      "nazev": "Kužel",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kužel"
+    },
+    {
+      "nazev": "Kužel",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kužele"
+    },
+    {
+      "nazev": "Kužel",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kuželi"
+    },
+    {
+      "nazev": "Kužel",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kužel"
+    },
+    {
+      "nazev": "Kužel",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kužel"
+    },
+    {
+      "nazev": "paprsek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "paprsek"
+    },
+    {
+      "nazev": "paprsek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "paprsku"
+    },
+    {
+      "nazev": "paprsek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "paprsku"
+    },
+    {
+      "nazev": "paprsek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "paprsek"
+    },
+    {
+      "nazev": "paprsek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "paprsek"
+    },
+    {
+      "nazev": "Paprsek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Paprsek"
+    },
+    {
+      "nazev": "Paprsek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Paprsku"
+    },
+    {
+      "nazev": "Paprsek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Paprsku"
+    },
+    {
+      "nazev": "Paprsek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Paprsek"
+    },
+    {
+      "nazev": "Paprsek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Paprsek"
+    },
+    {
+      "nazev": "projektil",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "projektil"
+    },
+    {
+      "nazev": "projektil",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "projektilu"
+    },
+    {
+      "nazev": "projektil",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "projektilu"
+    },
+    {
+      "nazev": "projektil",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "projektil"
+    },
+    {
+      "nazev": "projektil",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "projektil"
+    },
+    {
+      "nazev": "Projektil",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Projektil"
+    },
+    {
+      "nazev": "Projektil",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Projektilu"
+    },
+    {
+      "nazev": "Projektil",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Projektilu"
+    },
+    {
+      "nazev": "Projektil",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Projektil"
+    },
+    {
+      "nazev": "Projektil",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Projektil"
+    },
+    {
+      "nazev": "vějíř",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "vějíř"
+    },
+    {
+      "nazev": "vějíř",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "vějíře"
+    },
+    {
+      "nazev": "vějíř",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "vějíři"
+    },
+    {
+      "nazev": "vějíř",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "vějíř"
+    },
+    {
+      "nazev": "vějíř",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "vějíř"
+    },
+    {
+      "nazev": "Vějíř",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Vějíř"
+    },
+    {
+      "nazev": "Vějíř",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Vějíře"
+    },
+    {
+      "nazev": "Vějíř",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Vějíři"
+    },
+    {
+      "nazev": "Vějíř",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Vějíř"
+    },
+    {
+      "nazev": "Vějíř",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Vějíř"
+    },
+    {
+      "nazev": "výbuch",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "výbuch"
+    },
+    {
+      "nazev": "výbuch",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "výbuchu"
+    },
+    {
+      "nazev": "výbuch",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "výbuchu"
+    },
+    {
+      "nazev": "výbuch",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "výbuch"
+    },
+    {
+      "nazev": "výbuch",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "výbuch"
+    },
+    {
+      "nazev": "Výbuch",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Výbuch"
+    },
+    {
+      "nazev": "Výbuch",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Výbuchu"
+    },
+    {
+      "nazev": "Výbuch",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Výbuchu"
+    },
+    {
+      "nazev": "Výbuch",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Výbuch"
+    },
+    {
+      "nazev": "Výbuch",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Výbuch"
+    },
+    {
+      "nazev": "léčení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "léčení"
+    },
+    {
+      "nazev": "léčení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "léčení"
+    },
+    {
+      "nazev": "léčení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "léčení"
+    },
+    {
+      "nazev": "léčení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "léčení"
+    },
+    {
+      "nazev": "léčení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "léčení"
+    },
+    {
+      "nazev": "Léčení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Léčení"
+    },
+    {
+      "nazev": "Léčení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Léčení"
+    },
+    {
+      "nazev": "Léčení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Léčení"
+    },
+    {
+      "nazev": "Léčení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Léčení"
+    },
+    {
+      "nazev": "Léčení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Léčení"
+    },
+    {
+      "nazev": "oslabení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "oslabení"
+    },
+    {
+      "nazev": "oslabení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "oslabení"
+    },
+    {
+      "nazev": "oslabení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "oslabení"
+    },
+    {
+      "nazev": "oslabení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "oslabení"
+    },
+    {
+      "nazev": "oslabení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "oslabení"
+    },
+    {
+      "nazev": "Oslabení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Oslabení"
+    },
+    {
+      "nazev": "Oslabení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Oslabení"
+    },
+    {
+      "nazev": "Oslabení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Oslabení"
+    },
+    {
+      "nazev": "Oslabení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Oslabení"
+    },
+    {
+      "nazev": "Oslabení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Oslabení"
+    },
+    {
+      "nazev": "ovládnutí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "ovládnutí"
+    },
+    {
+      "nazev": "ovládnutí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ovládnutí"
+    },
+    {
+      "nazev": "ovládnutí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ovládnutí"
+    },
+    {
+      "nazev": "ovládnutí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "ovládnutí"
+    },
+    {
+      "nazev": "ovládnutí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "ovládnutí"
+    },
+    {
+      "nazev": "Ovládnutí",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Ovládnutí"
+    },
+    {
+      "nazev": "Ovládnutí",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Ovládnutí"
+    },
+    {
+      "nazev": "Ovládnutí",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Ovládnutí"
+    },
+    {
+      "nazev": "Ovládnutí",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Ovládnutí"
+    },
+    {
+      "nazev": "Ovládnutí",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Ovládnutí"
+    },
+    {
+      "nazev": "poškození",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "poškození"
+    },
+    {
+      "nazev": "poškození",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "poškození"
+    },
+    {
+      "nazev": "poškození",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "poškození"
+    },
+    {
+      "nazev": "poškození",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "poškození"
+    },
+    {
+      "nazev": "poškození",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "poškození"
+    },
+    {
+      "nazev": "Poškození",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Poškození"
+    },
+    {
+      "nazev": "Poškození",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Poškození"
+    },
+    {
+      "nazev": "Poškození",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Poškození"
+    },
+    {
+      "nazev": "Poškození",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Poškození"
+    },
+    {
+      "nazev": "Poškození",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Poškození"
+    },
+    {
+      "nazev": "posílení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "posílení"
+    },
+    {
+      "nazev": "posílení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "posílení"
+    },
+    {
+      "nazev": "posílení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "posílení"
+    },
+    {
+      "nazev": "posílení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "posílení"
+    },
+    {
+      "nazev": "posílení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "posílení"
+    },
+    {
+      "nazev": "Posílení",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Posílení"
+    },
+    {
+      "nazev": "Posílení",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Posílení"
+    },
+    {
+      "nazev": "Posílení",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Posílení"
+    },
+    {
+      "nazev": "Posílení",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Posílení"
+    },
+    {
+      "nazev": "Posílení",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Posílení"
+    },
+    {
+      "nazev": "přivolání",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "přivolání"
+    },
+    {
+      "nazev": "přivolání",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "přivolání"
+    },
+    {
+      "nazev": "přivolání",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "přivolání"
+    },
+    {
+      "nazev": "přivolání",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "přivolání"
+    },
+    {
+      "nazev": "přivolání",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "přivolání"
+    },
+    {
+      "nazev": "Přivolání",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Přivolání"
+    },
+    {
+      "nazev": "Přivolání",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Přivolání"
+    },
+    {
+      "nazev": "Přivolání",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Přivolání"
+    },
+    {
+      "nazev": "Přivolání",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Přivolání"
+    },
+    {
+      "nazev": "Přivolání",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Přivolání"
+    },
+    {
+      "nazev": "užitek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "užitek"
+    },
+    {
+      "nazev": "užitek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "užitku"
+    },
+    {
+      "nazev": "užitek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "užitku"
+    },
+    {
+      "nazev": "užitek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "užitek"
+    },
+    {
+      "nazev": "užitek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "užitek"
+    },
+    {
+      "nazev": "Užitek",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Užitek"
+    },
+    {
+      "nazev": "Užitek",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Užitku"
+    },
+    {
+      "nazev": "Užitek",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Užitku"
+    },
+    {
+      "nazev": "Užitek",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Užitek"
+    },
+    {
+      "nazev": "Užitek",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Užitek"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kamenný prsten"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kamenného prstenu"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kamennému prstenu"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kamenný prsten"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kamenný prsten"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kamenná bedna"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kamenné bedny"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kamenné bedně"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kamennou bednu"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kamenná bedna"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kamenné zřídlo"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kamenného zřídla"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kamennému zřídlu"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kamenné zřídlo"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kamenné zřídlo"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kamenné mříže"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kamenných mříží"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kamenným mřížím"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kamenné mříže"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kamenné mříže"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zamčená truhla"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zamčené truhly"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zamčené truhle"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zamčenou truhlu"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zamčená truhla"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Rezavé mříže"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Rezavých mříží"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Rezavým mřížím"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Rezavé mříže"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Rezavé mříže"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hřbitovní zeď"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hřbitovní zdi"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hřbitovní zdi"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hřbitovní zeď"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hřbitovní zeď"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hřbitovní hřbitov"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hřbitovního hřbitova"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hřbitovnímu hřbitovu"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hřbitovní hřbitov"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hřbitovní hřbitov"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hřbitovní zřídlo"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hřbitovního zřídla"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hřbitovnímu zřídlu"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hřbitovní zřídlo"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hřbitovní zřídlo"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Hřbitovní mříže"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Hřbitovních mříží"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Hřbitovním mřížím"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Hřbitovní mříže"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Hřbitovní mříže"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nekromantův prsten"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nekromanta prstenu"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nekromantu prstenu"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nekromant prsten"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nekromantův prsten"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nekromantova hůl"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nekromantovy hole"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nekromantově holi"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nekromantovu hůl"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nekromantova hůl"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nekromantovo zřídlo"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nekromantova zřídla"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nekromantovu zřídlu"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nekromantovo zřídlo"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nekromantovo zřídlo"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nekromantovy mříže"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nekromantovy mříže"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nekromantovy mříže"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nekromantovy mříže"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nekromantovy mříže"
+    },
+    {
+      "nazev": "Babin prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Babin prsten"
+    },
+    {
+      "nazev": "Babin prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Babina prstenu"
+    },
+    {
+      "nazev": "Babin prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Babinu prstenu"
+    },
+    {
+      "nazev": "Babin prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Babin prsten"
+    },
+    {
+      "nazev": "Babin prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Babin prsten"
+    },
+    {
+      "nazev": "Babina hůl",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Babina hůl"
+    },
+    {
+      "nazev": "Babina hůl",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Babiny hole"
+    },
+    {
+      "nazev": "Babina hůl",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Babině holi"
+    },
+    {
+      "nazev": "Babina hůl",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Babinu hůl"
+    },
+    {
+      "nazev": "Babina hůl",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Babina hůl"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Babino zřídlo"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Babina zřídla"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Babinu zřídlu"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Babino zřídlo"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Babino zřídlo"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Vasilisin prsten"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Vasilisina prstenu"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Vasilisinu prstenu"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Vasilisin prsten"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Vasilisin prsten"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Sud se smůlou"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Sudu se smůlou"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Sudu se smůlou"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Sud se smůlou"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Sud se smůlou"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zřídlo blesku"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zřídla blesku"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zřídlu blesku"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zřídlo blesku"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zřídlo blesku"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Goblin u dveří"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Goblina u dveří"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Goblinovi u dveří"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Goblina u dveří"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Goblin u dveří"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Cvičný terč 1"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Cvičného terče 1"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Cvičnému terči 1"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Cvičný terč 1"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Cvičný terč 1"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Strážného pochodeň"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Strážného pochodeň"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Strážného pochodeň"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Strážného pochodeň"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Strážného pochodeň"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Zeď (Kámen)"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Zdi (Kámen)"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Zdi (Kámen)"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Zeď (Kámen)"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Zeď (Kámen)"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Kužel (Oheň)"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Kužele (Oheň)"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Kuželi (Oheň)"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Kužel (Oheň)"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Kužel (Oheň)"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Aura (Život)"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Aury (Život)"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Auře (Život)"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Auru (Život)"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Aura (Život)"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Nevímco",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Nevímco"
+    },
+    {
+      "nazev": "Nevímco",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Nevímco"
+    },
+    {
+      "nazev": "Nevímco",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Nevímco"
+    },
+    {
+      "nazev": "Nevímco",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Nevímco"
+    },
+    {
+      "nazev": "Nevímco",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Nevímco"
+    },
+    {
+      "nazev": "Strážný pes",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Strážný pes"
+    },
+    {
+      "nazev": "Strážný pes",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Strážného pes"
+    },
+    {
+      "nazev": "Strážný pes",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Strážnému pes"
+    },
+    {
+      "nazev": "Strážný pes",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Strážného pes"
+    },
+    {
+      "nazev": "Strážný pes",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Strážný pes"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "pad": 1,
+      "prepis": null,
+      "ceka": "Stará kamenná bedna"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "Staré kamenné bedny"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "Staré kamenné bedně"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "Starou kamennou bednu"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "pad": 5,
+      "prepis": null,
+      "ceka": "Stará kamenná bedna"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 1,
+      "prepis": {
+        "2": "Baby Jagy",
+        "3": "Babě Jaze",
+        "4": "Babu Jagu"
+      },
+      "ceka": "Baba Jaga"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 2,
+      "prepis": {
+        "2": "Baby Jagy",
+        "3": "Babě Jaze",
+        "4": "Babu Jagu"
+      },
+      "ceka": "Baby Jagy"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 3,
+      "prepis": {
+        "2": "Baby Jagy",
+        "3": "Babě Jaze",
+        "4": "Babu Jagu"
+      },
+      "ceka": "Babě Jaze"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 4,
+      "prepis": {
+        "2": "Baby Jagy",
+        "3": "Babě Jaze",
+        "4": "Babu Jagu"
+      },
+      "ceka": "Babu Jagu"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "pad": 5,
+      "prepis": {
+        "2": "Baby Jagy",
+        "3": "Babě Jaze",
+        "4": "Babu Jagu"
+      },
+      "ceka": "Baba Jaga"
+    }
+  ],
+  "rod": [
+    {
+      "nazev": "balvan",
+      "ceka": "m"
+    },
+    {
+      "nazev": "bedna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "boty",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "dveře",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "hůl",
+      "ceka": "z"
+    },
+    {
+      "nazev": "klíč",
+      "ceka": "m"
+    },
+    {
+      "nazev": "kotlík",
+      "ceka": "m"
+    },
+    {
+      "nazev": "kotva",
+      "ceka": "z"
+    },
+    {
+      "nazev": "krystal",
+      "ceka": "m"
+    },
+    {
+      "nazev": "křída",
+      "ceka": "z"
+    },
+    {
+      "nazev": "lampa",
+      "ceka": "z"
+    },
+    {
+      "nazev": "lektvar",
+      "ceka": "m"
+    },
+    {
+      "nazev": "měšec",
+      "ceka": "m"
+    },
+    {
+      "nazev": "mříže",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "oblázek",
+      "ceka": "m"
+    },
+    {
+      "nazev": "panenka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "pec",
+      "ceka": "z"
+    },
+    {
+      "nazev": "pochodeň",
+      "ceka": "z"
+    },
+    {
+      "nazev": "police",
+      "ceka": "z"
+    },
+    {
+      "nazev": "prsten",
+      "ceka": "m"
+    },
+    {
+      "nazev": "sloup",
+      "ceka": "m"
+    },
+    {
+      "nazev": "stůl",
+      "ceka": "m"
+    },
+    {
+      "nazev": "sud",
+      "ceka": "m"
+    },
+    {
+      "nazev": "truhla",
+      "ceka": "z"
+    },
+    {
+      "nazev": "žebřík",
+      "ceka": "m"
+    },
+    {
+      "nazev": "aréna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "chalupa",
+      "ceka": "z"
+    },
+    {
+      "nazev": "dílna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "hřbitov",
+      "ceka": "m"
+    },
+    {
+      "nazev": "komnata",
+      "ceka": "z"
+    },
+    {
+      "nazev": "komora",
+      "ceka": "z"
+    },
+    {
+      "nazev": "konec",
+      "ceka": "m"
+    },
+    {
+      "nazev": "kraj",
+      "ceka": "m"
+    },
+    {
+      "nazev": "krypta",
+      "ceka": "z"
+    },
+    {
+      "nazev": "mech",
+      "ceka": "m"
+    },
+    {
+      "nazev": "obrubník",
+      "ceka": "m"
+    },
+    {
+      "nazev": "ohniště",
+      "ceka": "s"
+    },
+    {
+      "nazev": "ohrazení",
+      "ceka": "s"
+    },
+    {
+      "nazev": "plamen",
+      "ceka": "m"
+    },
+    {
+      "nazev": "pozorovatelna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "průchod",
+      "ceka": "m"
+    },
+    {
+      "nazev": "příčka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "pěšina",
+      "ceka": "z"
+    },
+    {
+      "nazev": "skála",
+      "ceka": "z"
+    },
+    {
+      "nazev": "sklad",
+      "ceka": "m"
+    },
+    {
+      "nazev": "socha",
+      "ceka": "z"
+    },
+    {
+      "nazev": "stružka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "střed",
+      "ceka": "m"
+    },
+    {
+      "nazev": "stěny",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "terč",
+      "ceka": "m"
+    },
+    {
+      "nazev": "ulička",
+      "ceka": "z"
+    },
+    {
+      "nazev": "ústí",
+      "ceka": "s"
+    },
+    {
+      "nazev": "vnitřek",
+      "ceka": "m"
+    },
+    {
+      "nazev": "zdi",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "zdivo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "zeď",
+      "ceka": "z"
+    },
+    {
+      "nazev": "zkušebna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "zábradlí",
+      "ceka": "s"
+    },
+    {
+      "nazev": "zídka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "zřídlo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "domy",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "čaroděj",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "druh",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "goblin",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "hlídka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "kostlivec",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "mrtvola",
+      "ceka": "z"
+    },
+    {
+      "nazev": "nekromant",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "ruka",
+      "ceka": "z"
+    },
+    {
+      "nazev": "strážný",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "vězeň",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "aura",
+      "ceka": "z"
+    },
+    {
+      "nazev": "kupole",
+      "ceka": "z"
+    },
+    {
+      "nazev": "kužel",
+      "ceka": "m"
+    },
+    {
+      "nazev": "paprsek",
+      "ceka": "m"
+    },
+    {
+      "nazev": "projektil",
+      "ceka": "m"
+    },
+    {
+      "nazev": "vějíř",
+      "ceka": "m"
+    },
+    {
+      "nazev": "výbuch",
+      "ceka": "m"
+    },
+    {
+      "nazev": "léčení",
+      "ceka": "s"
+    },
+    {
+      "nazev": "oslabení",
+      "ceka": "s"
+    },
+    {
+      "nazev": "ovládnutí",
+      "ceka": "s"
+    },
+    {
+      "nazev": "poškození",
+      "ceka": "s"
+    },
+    {
+      "nazev": "posílení",
+      "ceka": "s"
+    },
+    {
+      "nazev": "přivolání",
+      "ceka": "s"
+    },
+    {
+      "nazev": "užitek",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Kamenný prsten",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Kamenná bedna",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Kamenné zřídlo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "Kamenné mříže",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "Zamčená truhla",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Rezavé mříže",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "Hřbitovní zeď",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Hřbitovní hřbitov",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Hřbitovní zřídlo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "Hřbitovní mříže",
+      "ceka": "mn"
+    },
+    {
+      "nazev": "Nekromantův prsten",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Nekromantova hůl",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Nekromantovo zřídlo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "Nekromantovy mříže",
+      "ceka": null
+    },
+    {
+      "nazev": "Babin prsten",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Babina hůl",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Babino zřídlo",
+      "ceka": "s"
+    },
+    {
+      "nazev": "Vasilisin prsten",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Sud se smůlou",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Zřídlo blesku",
+      "ceka": "s"
+    },
+    {
+      "nazev": "Goblin u dveří",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "Cvičný terč 1",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Strážného pochodeň",
+      "ceka": null
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Kužel (Oheň)",
+      "ceka": "m"
+    },
+    {
+      "nazev": "Aura (Život)",
+      "ceka": "z"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "ceka": null
+    },
+    {
+      "nazev": "Nevímco",
+      "ceka": null
+    },
+    {
+      "nazev": "Strážný pes",
+      "ceka": "mz"
+    },
+    {
+      "nazev": "Stará kamenná bedna",
+      "ceka": "z"
+    }
+  ],
+  "vokalizuj": [
+    {
+      "predlozka": "k",
+      "slovo": "kotlíku",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "goblinovi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "Truhle",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "Skále",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "zdi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "Pochodně",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "sudem",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "skladu",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "Zdi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "dveřím",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "mně",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "šeru",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "žebříku",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "domu",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "arény",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "oblázku",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "prstenu",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "k",
+      "slovo": "",
+      "ceka": "k"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "kotlíku",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "goblinovi",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "Truhle",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "Skále",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "zdi",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "Pochodně",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "sudem",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "skladu",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "Zdi",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "dveřím",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "mně",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "šeru",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "žebříku",
+      "ceka": "ze"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "domu",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "arény",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "oblázku",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "prstenu",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "z",
+      "slovo": "",
+      "ceka": "z"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "kotlíku",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "goblinovi",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "Truhle",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "Skále",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "zdi",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "Pochodně",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "sudem",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "skladu",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "Zdi",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "dveřím",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "mně",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "šeru",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "žebříku",
+      "ceka": "se"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "domu",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "arény",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "oblázku",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "prstenu",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "s",
+      "slovo": "",
+      "ceka": "s"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "kotlíku",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "goblinovi",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "Truhle",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "Skále",
+      "ceka": "ve"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "zdi",
+      "ceka": "ve"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "Pochodně",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "sudem",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "skladu",
+      "ceka": "ve"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "Zdi",
+      "ceka": "ve"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "dveřím",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "mně",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "šeru",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "žebříku",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "domu",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "arény",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "oblázku",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "prstenu",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "v",
+      "slovo": "",
+      "ceka": "v"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "kotlíku",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "goblinovi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "Truhle",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "Skále",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "zdi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "Pochodně",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "sudem",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "skladu",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "Zdi",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "dveřím",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "mně",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "šeru",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "žebříku",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "domu",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "arény",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "oblázku",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "prstenu",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "ke",
+      "slovo": "",
+      "ceka": "ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "kotlíku",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "goblinovi",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "Truhle",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "Skále",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "zdi",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "Pochodně",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "sudem",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "skladu",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "Zdi",
+      "ceka": "Ke"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "dveřím",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "mně",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "šeru",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "žebříku",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "domu",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "arény",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "oblázku",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "prstenu",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "K",
+      "slovo": "",
+      "ceka": "K"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "kotlíku",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "goblinovi",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "Truhle",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "Skále",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "zdi",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "Pochodně",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "sudem",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "skladu",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "Zdi",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "dveřím",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "mně",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "šeru",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "žebříku",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "domu",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "arény",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "oblázku",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "prstenu",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "na",
+      "slovo": "",
+      "ceka": "na"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "kotlíku",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "goblinovi",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "Truhle",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "Skále",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "zdi",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "Pochodně",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "sudem",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "skladu",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "Zdi",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "dveřím",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "mně",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "šeru",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "žebříku",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "domu",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "arény",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "oblázku",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "prstenu",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "do",
+      "slovo": "",
+      "ceka": "do"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "kotlíku",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "goblinovi",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "Truhle",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "Skále",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "zdi",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "Pochodně",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "sudem",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "skladu",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "Zdi",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "dveřím",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "mně",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "šeru",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "žebříku",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "domu",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "arény",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "oblázku",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "prstenu",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "u",
+      "slovo": "",
+      "ceka": "u"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "kotlíku",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "goblinovi",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "Truhle",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "Skále",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "zdi",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "Pochodně",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "sudem",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "skladu",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "Zdi",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "dveřím",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "mně",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "šeru",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "žebříku",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "domu",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "arény",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "oblázku",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "prstenu",
+      "ceka": "bez"
+    },
+    {
+      "predlozka": "bez",
+      "slovo": "",
+      "ceka": "bez"
+    }
+  ],
+  "zajmeno": [
+    {
+      "nazev": "Truhla",
+      "rod": null,
+      "ceka": "ji"
+    },
+    {
+      "nazev": "Prsten",
+      "rod": null,
+      "ceka": "ho"
+    },
+    {
+      "nazev": "Zřídlo",
+      "rod": null,
+      "ceka": "ho"
+    },
+    {
+      "nazev": "Mříže",
+      "rod": null,
+      "ceka": "je"
+    },
+    {
+      "nazev": "Goblin",
+      "rod": null,
+      "ceka": "ho"
+    },
+    {
+      "nazev": "Nevímco",
+      "rod": null,
+      "ceka": "ho"
+    },
+    {
+      "nazev": "Baba Jaga",
+      "rod": "z",
+      "ceka": "ji"
+    },
+    {
+      "nazev": "Zeď (Kámen)",
+      "rod": null,
+      "ceka": "ji"
+    }
+  ],
+  "s_predlozkou": [
+    {
+      "predlozka": "k",
+      "nazev": "Pochodeň",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "k Pochodni"
+    },
+    {
+      "predlozka": "k",
+      "nazev": "Zeď (Kámen)",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ke Zdi (Kámen)"
+    },
+    {
+      "predlozka": "k",
+      "nazev": "Skála",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "ke Skále"
+    },
+    {
+      "predlozka": "k",
+      "nazev": "Truhla",
+      "pad": 4,
+      "prepis": null,
+      "ceka": "k Truhlu"
+    },
+    {
+      "predlozka": "z",
+      "nazev": "Zeď",
+      "pad": 2,
+      "prepis": null,
+      "ceka": "ze Zdi"
+    },
+    {
+      "predlozka": "s",
+      "nazev": "Sud",
+      "pad": 7,
+      "prepis": null,
+      "ceka": "se Sud"
+    },
+    {
+      "predlozka": "v",
+      "nazev": "Sklad",
+      "pad": 6,
+      "prepis": null,
+      "ceka": "ve Sklad"
+    },
+    {
+      "predlozka": "k",
+      "nazev": "Nevímco",
+      "pad": 3,
+      "prepis": null,
+      "ceka": "k Nevímco"
+    },
+    {
+      "predlozka": "k",
+      "nazev": "Baba Jaga",
+      "pad": 3,
+      "prepis": {
+        "3": "Babě Jaze"
+      },
+      "ceka": "k Babě Jaze"
+    }
+  ]
+}

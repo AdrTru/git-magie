@@ -5,6 +5,6 @@
   "type": "module",
   "description": "Herní engine kouzel v prohlížeči (přepis z Pythonu vsc-magie do JS).",
   "scripts": {
-    "test": "node test/geometrie.test.mjs"
+    "test": "node test/vse.mjs"
   }
 }
