@@ -57,6 +57,10 @@
              color: #666; margin: .5rem 0 0; }
   .kap { display: inline-block; width: .7rem; height: .7rem; border-radius: .2rem;
          margin-right: .3rem; vertical-align: middle; }
+  #validace { border-radius: .5rem; padding: .5rem .7rem; margin: .3rem 0 .6rem;
+              font-size: .9rem; }
+  #validace.ano { background: #e8f0e8; color: #205020; }
+  #validace.ne { background: #f6ecd8; color: #7a5a1f; }
   h2 { font-size: 1rem; margin: 1.4rem 0 .25rem; }
 </style>
 
@@ -68,6 +72,9 @@
   <label for="text">Kouzlo (runová věta)</label>
   <input id="text" value="Zažehni Oheň Nepřítel" autocomplete="off" autocapitalize="off">
   <div class="priklady" id="priklady"></div>
+  <label for="faze" style="margin-top:.7rem">Fáze progrese čaroděje: <b id="fazeCislo">7</b> / 7
+    <span style="color:#888">(zná všechny runy)</span></label>
+  <input id="faze" type="range" min="0" max="7" value="7" style="width:100%">
 </div>
 
 <div id="chyba"></div>
@@ -77,11 +84,14 @@
 <div class="legenda" id="legenda"></div>
 
 <h2>Strom (AST) — výklady</h2>
+<div id="validace"></div>
 <div id="strom"></div>
 
 <script type="module">
 import { zakladLexikon } from "./engine/lexikon.js";
 import { lexuj, parsuj } from "./engine/parser.js";
+import { zvaliduj } from "./engine/validator.js";
+import { plneZnalosti } from "./engine/progression.js";
 import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
@@ -103,6 +113,9 @@ try {
   const tokenyEl = document.getElementById("tokeny");
   const stromEl = document.getElementById("strom");
   const chybaEl = document.getElementById("chyba");
+  const validaceEl = document.getElementById("validace");
+  const fazeEl = document.getElementById("faze");
+  const fazeCisloEl = document.getElementById("fazeCislo");
 
   const PRIKLADY = [
     "Zažehni Oheň Nepřítel",
@@ -187,6 +200,8 @@ try {
   function prekresli() {
     tokenyEl.innerHTML = "";
     stromEl.innerHTML = "";
+    validaceEl.textContent = "";
+    validaceEl.className = "";
     chybaEl.style.display = "none";
 
     // Tokeny (i když parser níž spadne na gramatice, tokeny ukážeme).
@@ -227,7 +242,28 @@ try {
       v.appendChild(strom(u));
       stromEl.appendChild(v);
     });
+
+    // Validace prvního výkladu proti zvolené fázi (čaroděj zná všechny runy,
+    // takže se projeví jen fázové brány progrese, ne neznalost slova).
+    const faze = Number(fazeEl.value);
+    try {
+      zvaliduj(vyklady[0], plneZnalosti(lex, faze));
+      validaceEl.className = "ano";
+      validaceEl.textContent = `✓ ve fázi ${faze} tohle kouzlo sešleš`;
+    } catch (e) {
+      if (e instanceof ChybaKouzla) {
+        validaceEl.className = "ne";
+        validaceEl.textContent = `✗ ${e.zprava}`;
+      } else {
+        throw e;
+      }
+    }
   }
+
+  fazeEl.addEventListener("input", () => {
+    fazeCisloEl.textContent = fazeEl.value;
+    prekresli();
+  });
 
   text.addEventListener("input", prekresli);
   prekresli();

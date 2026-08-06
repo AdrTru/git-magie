@@ -1,0 +1,192 @@
+{
+  "validator": [
+    {
+      "text": "Zažehni Já",
+      "faze": 0,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Oheň Já",
+      "faze": 0,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni Oheň Já",
+      "faze": 1,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Já silně",
+      "faze": 1,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni Já silně",
+      "faze": 2,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Já Projektil",
+      "faze": 2,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni Já Projektil",
+      "faze": 3,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Já a Zmraz Já",
+      "faze": 3,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni Já a Zmraz Já",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "( Zažehni Já ) silně",
+      "faze": 3,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "( Zažehni Já ) silně",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+      "faze": 5,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Přesuň Já skrze Spojení",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Přesuň Já skrze Spojení",
+      "faze": 5,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni ne Oheň Já",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni ne Oheň Já",
+      "faze": 5,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Nepřítel:Oheň",
+      "faze": 4,
+      "runy": "*",
+      "zvenci": [],
+      "chyba": "NepovolenaGramatika"
+    },
+    {
+      "text": "Zažehni Nepřítel:Oheň",
+      "faze": 5,
+      "runy": "*",
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Já",
+      "faze": 7,
+      "runy": [],
+      "zvenci": [],
+      "chyba": "NeovladaneSlovo"
+    },
+    {
+      "text": "Zažehni Já",
+      "faze": 7,
+      "runy": [
+        "zazehni"
+      ],
+      "zvenci": [],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Oheň Já",
+      "faze": 7,
+      "runy": [
+        "zazehni"
+      ],
+      "zvenci": [],
+      "chyba": "NeovladaneSlovo"
+    },
+    {
+      "text": "Zažehni Oheň Já",
+      "faze": 7,
+      "runy": [
+        "zazehni"
+      ],
+      "zvenci": [
+        "ohen"
+      ],
+      "ok": true
+    },
+    {
+      "text": "Zažehni Nepřítel:Oheň",
+      "faze": 7,
+      "runy": [
+        "zazehni",
+        "nepritel"
+      ],
+      "zvenci": [],
+      "chyba": "NeovladaneSlovo"
+    },
+    {
+      "text": "Zažehni ne Oheň Já",
+      "faze": 7,
+      "runy": [
+        "zazehni"
+      ],
+      "zvenci": [],
+      "chyba": "NeovladaneSlovo"
+    }
+  ]
+}

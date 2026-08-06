@@ -48,7 +48,13 @@ Postupuje se po částech, každá ověřená v CI:
      `pokud` s negací predikátu, `skrze` (i řetězené), volání jména, slučování
      `ne` a zúžení cíle `:`. Sloučená slovesa → víc výkladů. **40 případů**
      (výklady i chyby) proti oracle.
-   - Zbývá: validátor, ceny, vyhodnocení.
+   - **Validátor** (`engine/validator.js`, port `validator.py`; `engine/progression.js`) ✅ —
+     kontrola AST proti ČARODĚJI: zná runu? je odemčená fáze gramatiky pro
+     daný rys (živel/modifikátor/forma/spojky/podmínka…)? Runa čerpaná z okolního
+     zdroje projde i bez znalosti (§8.1). NeovladaneSlovo / NepovolenaGramatika.
+     **25 případů** (fázové brány i znalosti) proti oracle. (`progression.js` je
+     zatím jen část pro validátor — fáze a `zna`; učení přijde později.)
+   - Zbývá: ceny, vyhodnocení.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
