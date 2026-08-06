@@ -1,0 +1,181 @@
+{
+  "costs": [
+    {
+      "text": "Zažehni Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 4.0,
+      "obtiznost": 2.0,
+      "sance": 0.060000000000000005,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 6.0,
+      "obtiznost": 2.5,
+      "sance": 0.05,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": 0.5,
+      "cerpane": {},
+      "cena_many": 4.800000000000001,
+      "obtiznost": 2.5,
+      "sance": 0.45,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": 1.0,
+      "cerpane": {},
+      "cena_many": 3.5999999999999996,
+      "obtiznost": 2.5,
+      "sance": 0.95,
+      "nejslabsi": null
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel silně",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 7.5,
+      "obtiznost": 3.0,
+      "sance": 0.04000000000000001,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel silně dlouze",
+      "mastery": 1.0,
+      "cerpane": {},
+      "cena_many": 5.8500000000000005,
+      "obtiznost": 3.5,
+      "sance": 0.9299999999999999,
+      "nejslabsi": null
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel Projektil",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 7.5,
+      "obtiznost": 3.0,
+      "sance": 0.04000000000000001,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň a Zmraz Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 10.35,
+      "obtiznost": 4.0,
+      "sance": 0.020000000000000004,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň a Zmraz Nepřítel a Zhoj Já",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 16.900000000000002,
+      "obtiznost": 5.0,
+      "sance": 0.0,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "( Zažehni Oheň ) Nepřítel silně",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 7.5,
+      "obtiznost": 4.0,
+      "sance": 0.020000000000000004,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 7.0,
+      "obtiznost": 4.0,
+      "sance": 0.020000000000000004,
+      "nejslabsi": "nepritel"
+    },
+    {
+      "text": "Přesuň Já skrze Spojení",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 3.5,
+      "obtiznost": 3.5,
+      "sance": 0.03,
+      "nejslabsi": "presun"
+    },
+    {
+      "text": "Zažehni ne Oheň Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 6.5,
+      "obtiznost": 2.5,
+      "sance": 0.05,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel ne silně",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 6.75,
+      "obtiznost": 3.0,
+      "sance": 0.04000000000000001,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Nepřítel:Oheň",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 6.0,
+      "obtiznost": 2.0,
+      "sance": 0.060000000000000005,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Nepřítel : Oheň Voda",
+      "mastery": 0.0,
+      "cerpane": {},
+      "cena_many": 8.0,
+      "obtiznost": 2.0,
+      "sance": 0.060000000000000005,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {
+        "ohen": 0.8
+      },
+      "cena_many": 4.0,
+      "obtiznost": 2.5,
+      "sance": 0.05,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": 0.0,
+      "cerpane": {
+        "ohen": 1.0
+      },
+      "cena_many": 4.0,
+      "obtiznost": 2.5,
+      "sance": 0.05,
+      "nejslabsi": "zazehni"
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "mastery": {
+        "zazehni": 1.0
+      },
+      "cerpane": {},
+      "cena_many": 4.8,
+      "obtiznost": 2.5,
+      "sance": 0.05,
+      "nejslabsi": "ohen"
+    }
+  ]
+}

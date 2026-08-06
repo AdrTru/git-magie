@@ -18,12 +18,13 @@ export const FAZE_SMYCKA = 7;
 // globální cíl (`Cíl` = id "vse"). Mastery roste užíváním jako u ostatních run.
 export const VZDY_DOSTUPNE = new Set(["ja", "vse"]);
 
-// Naučený slovník a odemčená fáze jednoho čaroděje. (Mastery, zkušenost a další
-// pole z Pythonu sem přijdou s dílem o učení; validátor je nečte.)
+// Naučený slovník, odemčená fáze a mastery jednoho čaroděje. (Zkušenost a další
+// pole z Pythonu sem přijdou s dílem o učení; validátor a ceny je nečtou.)
 export class Znalosti {
-  constructor({ runy = [], faze = 0 } = {}) {
+  constructor({ runy = [], faze = 0, mastery = {} } = {}) {
     this.runy = runy instanceof Set ? runy : new Set(runy);
     this.faze = faze;
+    this.mastery = mastery;   // id -> 0.0–1.0 (§10.2), čtou ceny
   }
 
   zna(runaId) {
@@ -31,7 +32,10 @@ export class Znalosti {
   }
 }
 
-// Vševědoucí znalosti pro vývoj a demo — všechny runy, zvolená fáze.
+// Vševědoucí znalosti pro vývoj a demo — všechny runy, plná mastery, zvolená fáze.
 export function plneZnalosti(lex, faze = FAZE_SMYCKA) {
-  return new Znalosti({ runy: new Set(Object.keys(lex.runy)), faze });
+  const ids = Object.keys(lex.runy);
+  const mastery = {};
+  for (const id of ids) mastery[id] = 1.0;
+  return new Znalosti({ runy: new Set(ids), faze, mastery });
 }

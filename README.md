@@ -54,7 +54,12 @@ Postupuje se po částech, každá ověřená v CI:
      zdroje projde i bez znalosti (§8.1). NeovladaneSlovo / NepovolenaGramatika.
      **25 případů** (fázové brány i znalosti) proti oracle. (`progression.js` je
      zatím jen část pro validátor — fáze a `zna`; učení přijde později.)
-   - Zbývá: ceny, vyhodnocení.
+   - **Ceny** (`engine/costs.js`, port `costs.py`; `runyV` v `ast_nodes.js`) ✅ —
+     z AST spočítá manu (součet cen slov × modifikátory × přirážka za složky),
+     obtížnost (počet run + hloubka) a šanci na seslání (min-mastery přímo
+     sesílaných run − korekce). Mastery dává slevu; živel čerpaný z okolí je na
+     manu zdarma a podepře šanci (§8.1). **19 případů** proti oracle.
+   - Zbývá: vyhodnocení (AST → efekt, divoká magie).
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 

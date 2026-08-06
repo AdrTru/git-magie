@@ -61,6 +61,8 @@
               font-size: .9rem; }
   #validace.ano { background: #e8f0e8; color: #205020; }
   #validace.ne { background: #f6ecd8; color: #7a5a1f; }
+  #naceneni { font-size: .9rem; color: #555; margin: -.2rem 0 .6rem;
+              font-family: ui-monospace, monospace; }
   h2 { font-size: 1rem; margin: 1.4rem 0 .25rem; }
 </style>
 
@@ -75,6 +77,8 @@
   <label for="faze" style="margin-top:.7rem">Fáze progrese čaroděje: <b id="fazeCislo">7</b> / 7
     <span style="color:#888">(zná všechny runy)</span></label>
   <input id="faze" type="range" min="0" max="7" value="7" style="width:100%">
+  <label for="mastery" style="margin-top:.5rem">Ovládnutí run (mastery): <b id="masteryCislo">0</b> %</label>
+  <input id="mastery" type="range" min="0" max="100" value="0" style="width:100%">
 </div>
 
 <div id="chyba"></div>
@@ -85,13 +89,15 @@
 
 <h2>Strom (AST) — výklady</h2>
 <div id="validace"></div>
+<div id="naceneni"></div>
 <div id="strom"></div>
 
 <script type="module">
 import { zakladLexikon } from "./engine/lexikon.js";
 import { lexuj, parsuj } from "./engine/parser.js";
 import { zvaliduj } from "./engine/validator.js";
-import { plneZnalosti } from "./engine/progression.js";
+import { nacen } from "./engine/costs.js";
+import { Znalosti } from "./engine/progression.js";
 import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
@@ -114,8 +120,12 @@ try {
   const stromEl = document.getElementById("strom");
   const chybaEl = document.getElementById("chyba");
   const validaceEl = document.getElementById("validace");
+  const naceneniEl = document.getElementById("naceneni");
   const fazeEl = document.getElementById("faze");
   const fazeCisloEl = document.getElementById("fazeCislo");
+  const masteryEl = document.getElementById("mastery");
+  const masteryCisloEl = document.getElementById("masteryCislo");
+  const vsechnyRuny = Object.keys(lex.runy);
 
   const PRIKLADY = [
     "Zažehni Oheň Nepřítel",
@@ -202,6 +212,7 @@ try {
     stromEl.innerHTML = "";
     validaceEl.textContent = "";
     validaceEl.className = "";
+    naceneniEl.textContent = "";
     chybaEl.style.display = "none";
 
     // Tokeny (i když parser níž spadne na gramatice, tokeny ukážeme).
@@ -243,11 +254,16 @@ try {
       stromEl.appendChild(v);
     });
 
-    // Validace prvního výkladu proti zvolené fázi (čaroděj zná všechny runy,
-    // takže se projeví jen fázové brány progrese, ne neznalost slova).
+    // Znalosti podle posuvníků: čaroděj zná všechny runy (fáze rozhoduje o
+    // gramatice, mastery o ceně a šanci).
     const faze = Number(fazeEl.value);
+    const m = Number(masteryEl.value) / 100;
+    const mastery = {};
+    for (const id of vsechnyRuny) mastery[id] = m;
+    const zn = new Znalosti({ runy: vsechnyRuny, faze, mastery });
+
     try {
-      zvaliduj(vyklady[0], plneZnalosti(lex, faze));
+      zvaliduj(vyklady[0], zn);
       validaceEl.className = "ano";
       validaceEl.textContent = `✓ ve fázi ${faze} tohle kouzlo sešleš`;
     } catch (e) {
@@ -258,10 +274,21 @@ try {
         throw e;
       }
     }
+
+    // Cena prvního výkladu při zvolené mastery (mana klesá, šance roste s ovládnutím).
+    const n = nacen(vyklady[0], lex, zn);
+    const nejsl = n.nejslabsi ? lex.runy[n.nejslabsi].nazev : "—";
+    naceneniEl.textContent =
+      `mana ${n.cenaMany.toFixed(1)} · šance ${Math.round(n.sance * 100)} % · `
+      + `obtížnost ${n.obtiznost.toFixed(1)} · nejslabší runa: ${nejsl}`;
   }
 
   fazeEl.addEventListener("input", () => {
     fazeCisloEl.textContent = fazeEl.value;
+    prekresli();
+  });
+  masteryEl.addEventListener("input", () => {
+    masteryCisloEl.textContent = masteryEl.value;
     prekresli();
   });
 
