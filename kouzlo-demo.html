@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="cs">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engine runová věta — lexer (JS vs Python)</title>
+<!--
+  Živá ukázka DALŠÍHO kusu JS enginu (krok 3, díl 2a: lexer runové věty).
+  Napíšeš kouzlo, engine ho rozseká na tokeny a obarví je podle slovního druhu;
+  dole ukáže data každé runy ze slovníku. Neznámé slovo → šipka na chybu, jako
+  by ji vypsal Python. Importuje SKUTEČNÝ `engine/parser.js` + `engine/lexikon.js`
+  (ne kopii) — tentýž kód jako `npm test`. Odznak „= python" ověří proti vzorku
+  fixtur. Zatím jen TOKENY; strom (AST) přibude s parserem. #havarie chytí
+  nenačtený engine, ať na telefonu nemlčí.
+-->
+<style>
+  :root { color-scheme: light dark;
+    --sloveso:#c0392b; --podstata:#2471a3; --cil:#1e8449;
+    --forma:#7d3c98; --modifikator:#b9770e; --spojka:#5d6d7e; --jmeno:#117a65; }
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 1rem;
+         max-width: 46rem; margin-inline: auto; }
+  h1 { font-size: 1.25rem; }
+  #havarie { display: none; background: #f3d9d9; color: #7a1f1f;
+             padding: .75rem; border-radius: .5rem; white-space: pre-wrap;
+             font-family: ui-monospace, monospace; font-size: 13px; }
+  #odznak { display: inline-block; font-weight: 600; padding: .3rem .6rem;
+            border-radius: .5rem; background: #e8f0e8; font-size: .85rem; }
+  #odznak.spatne { background: #f3d9d9; }
+  .hracka { background: #0001; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
+  .hracka label { display: block; font-size: .8rem; color: #666; margin-bottom: .2rem; }
+  .hracka input { font: inherit; padding: .5rem .6rem; border-radius: .4rem;
+                  border: 1px solid #8886; width: 100%; box-sizing: border-box;
+                  background: transparent; color: inherit; }
+  .priklady { margin: .6rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+  .priklady button { font: .82rem/1 inherit; padding: .35rem .6rem; border-radius: 1rem;
+                     border: 1px solid #8886; background: transparent; color: inherit;
+                     cursor: pointer; }
+  #tokeny { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+  .tok { border-radius: .5rem; padding: .35rem .6rem; color: #fff;
+         display: flex; flex-direction: column; line-height: 1.15; }
+  .tok b { font-size: 1rem; }
+  .tok small { font-size: .7rem; opacity: .85; }
+  .tok.zav { background: transparent; color: #888; border: 1px dashed #8888;
+             justify-content: center; font-family: ui-monospace, monospace; }
+  #chyba { display: none; background: #f3d9d9; color: #7a1f1f; border-radius: .5rem;
+           padding: .6rem .75rem; font-family: ui-monospace, monospace;
+           white-space: pre; font-size: 14px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; margin-top: .5rem; }
+  th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid #ccc3;
+           vertical-align: top; }
+  th { color: #666; font-weight: 600; }
+  .kap { display: inline-block; width: .7rem; height: .7rem; border-radius: .2rem;
+         margin-right: .3rem; vertical-align: middle; }
+  .data { font-family: ui-monospace, monospace; font-size: .8rem; color: #555; }
+  .legenda { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .8rem;
+             color: #666; margin: .5rem 0 0; }
+  .legenda span { white-space: nowrap; }
+  h2 { font-size: 1rem; margin: 1.5rem 0 .25rem; }
+</style>
+
+<h1>Runová věta — lexer, JS proti Python oracle</h1>
+<div id="havarie"></div>
+<p><span id="odznak">Ověřuji…</span></p>
+
+<div class="hracka">
+  <label for="text">Kouzlo (runová věta)</label>
+  <input id="text" value="Zažehni Oheň Nepřítel" autocomplete="off" autocapitalize="off">
+  <div class="priklady" id="priklady"></div>
+</div>
+
+<div id="chyba"></div>
+<div id="tokeny"></div>
+
+<div class="legenda" id="legenda"></div>
+
+<h2>Runy z této věty</h2>
+<table id="detail">
+  <thead><tr><th>runa</th><th>druh</th><th>data ze slovníku</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<script type="module">
+import { zakladLexikon } from "./engine/lexikon.js";
+import { lexuj } from "./engine/parser.js";
+import { NeznameSlovo } from "./engine/errors.js";
+
+const havarie = (t) => { const e = document.getElementById("havarie");
+  e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
+
+try {
+  const lex = zakladLexikon();
+
+  const DRUHY = ["sloveso", "podstata", "cil", "forma", "modifikator", "spojka", "jmeno"];
+  const barva = (d) => `var(--${d})`;
+
+  // Legenda slovních druhů.
+  const legenda = document.getElementById("legenda");
+  for (const d of DRUHY) {
+    const s = document.createElement("span");
+    s.innerHTML = `<i class="kap" style="background:${barva(d)}"></i>${d}`;
+    legenda.appendChild(s);
+  }
+
+  const text = document.getElementById("text");
+  const tokenyEl = document.getElementById("tokeny");
+  const chybaEl = document.getElementById("chyba");
+  const detail = document.querySelector("#detail tbody");
+
+  // Vybraná zajímavá kouzla na jedno ťuknutí.
+  const PRIKLADY = [
+    "Zažehni Oheň Nepřítel",
+    "zazehni ohen nepritel",
+    "( Nepřítel : Oheň ) Výbuch",
+    "Zažehni Oheň silně a Zmraz Nepřítel",
+    "Přesuň Já skrze Spojení",
+    "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+    "Zažehni Blabla",
+  ];
+  const priklady = document.getElementById("priklady");
+  for (const p of PRIKLADY) {
+    const b = document.createElement("button");
+    b.textContent = p;
+    b.addEventListener("click", () => { text.value = p; prekresli(); });
+    priklady.appendChild(b);
+  }
+
+  // Kompaktní výpis dat runy (drž to na jeden řádek, ať se to na mobilu vejde).
+  const dataText = (data) => Object.entries(data)
+    .filter(([k]) => k !== "latentni")   // dlouhé vyprávění vynech
+    .map(([k, v]) => `${k}=${typeof v === "object" ? JSON.stringify(v) : v}`)
+    .join("  ");
+
+  function prekresli() {
+    tokenyEl.innerHTML = "";
+    detail.innerHTML = "";
+    chybaEl.style.display = "none";
+
+    let tokeny;
+    try {
+      tokeny = lexuj(text.value, lex);
+    } catch (e) {
+      if (e instanceof NeznameSlovo) {
+        // Šipka na pozici chyby, jako to dělá Python (chyby učí jazyk).
+        const sipka = " ".repeat(e.pozice) + "^";
+        chybaEl.textContent = `${e.zprava}\n${text.value}\n${sipka}`;
+        chybaEl.style.display = "block";
+        return;
+      }
+      throw e;
+    }
+
+    const videnaRuna = new Set();
+    for (const t of tokeny) {
+      const el = document.createElement("div");
+      if (t.runa === null) {                 // závorka
+        el.className = "tok zav";
+        el.textContent = t.text;
+      } else {
+        el.className = "tok";
+        el.style.background = barva(t.runa.druh);
+        el.innerHTML = `<b>${t.text}</b><small>${t.runa.druh}</small>`;
+        if (!videnaRuna.has(t.runa.id)) {
+          videnaRuna.add(t.runa.id);
+          const tr = document.createElement("tr");
+          tr.innerHTML =
+            `<td><i class="kap" style="background:${barva(t.runa.druh)}"></i>${t.runa.nazev}</td>` +
+            `<td>${t.runa.druh}</td>` +
+            `<td class="data">${dataText(t.runa.data) || "—"}</td>`;
+          detail.appendChild(tr);
+        }
+      }
+      tokenyEl.appendChild(el);
+    }
+  }
+
+  text.addEventListener("input", prekresli);
+  prekresli();
+
+  // Odznak: přehraj vzorek fixtur (tokeny i chyby) a spočítej shody.
+  const odznak = document.getElementById("odznak");
+  try {
+    const fix = await (await fetch("./test/fixtury_lexer.json")).json();
+    let sedi = 0, celkem = 0;
+    for (const c of fix.lexer) {
+      celkem++;
+      try {
+        const t = lexuj(c.text, lex).map((x) => ({
+          text: x.text, pozice: x.pozice, runaId: x.runa ? x.runa.id : null }));
+        if (c.chyba === undefined && JSON.stringify(t) === JSON.stringify(c.tokeny)) sedi++;
+      } catch (e) {
+        if (c.chyba === "NeznameSlovo" && e instanceof NeznameSlovo && e.pozice === c.pozice) sedi++;
+      }
+    }
+    odznak.textContent = sedi === celkem
+      ? `= python (${sedi}/${celkem} případů)`
+      : `≠ python (${celkem - sedi} rozdílů)`;
+    if (sedi !== celkem) odznak.classList.add("spatne");
+  } catch (e) {
+    odznak.textContent = "odznak jen na webu (fetch)";
+  }
+} catch (e) {
+  havarie((e && e.stack) || String(e));
+}
+</script>

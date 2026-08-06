@@ -36,7 +36,13 @@ Postupuje se po částech, každá ověřená v CI:
      přídavná jména pravidlem (tvrdá/měkká/přivlastňovací × rod × pád),
      opisovaný ocas fráze, vokalizace předložek (k → ke), zájmena. **1317/1317
      tvarů** proti oracle.
-   - Zbývá: lexer, parser runové věty, AST, validátor, ceny, vyhodnocení.
+   - **Lexer runové věty** (`engine/parser.js` → `lexuj`, port z `parser.py`) ✅ —
+     text kouzla → tokeny, párování slov na runy bez ohledu na velikost a
+     diakritiku (`Zazehni Ohen` = `Zažehni Oheň`), závorky/`:` jako tokeny,
+     neznámé slovo → šipka na chybu. Slovník run a interakční tabulky jsou
+     v `engine/lexikon.js` (GENEROVANÝ z Pythonu). **86 případů + 46 run** proti
+     oracle.
+   - Zbývá: parser (gramatika → AST), validátor, ceny, vyhodnocení.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
@@ -44,11 +50,13 @@ Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** 
 šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
 (`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
 
-**Vidět naživo** (na mobilu, přes Pages) — obojí importuje skutečné moduly
+**Vidět naživo** (na mobilu, přes Pages) — vše importuje skutečné moduly
 enginu a staví JS vedle Python oracle:
 [geometrie](https://adrtru.github.io/git-magie/engine-demo.html) ·
 [skloňování](https://adrtru.github.io/git-magie/jazyk-demo.html) (napiš jméno,
-vyber pád; dole celý slovník).
+vyber pád; dole celý slovník) ·
+[runová věta](https://adrtru.github.io/git-magie/kouzlo-demo.html) (napiš
+kouzlo, tokeny se obarví podle slovního druhu).
 
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 
