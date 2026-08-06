@@ -2,14 +2,14 @@
 <html lang="cs">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Engine runová věta — lexer (JS vs Python)</title>
+<title>Engine runová věta — lexer + parser (JS vs Python)</title>
 <!--
-  Živá ukázka DALŠÍHO kusu JS enginu (krok 3, díl 2a: lexer runové věty).
-  Napíšeš kouzlo, engine ho rozseká na tokeny a obarví je podle slovního druhu;
-  dole ukáže data každé runy ze slovníku. Neznámé slovo → šipka na chybu, jako
-  by ji vypsal Python. Importuje SKUTEČNÝ `engine/parser.js` + `engine/lexikon.js`
-  (ne kopii) — tentýž kód jako `npm test`. Odznak „= python" ověří proti vzorku
-  fixtur. Zatím jen TOKENY; strom (AST) přibude s parserem. #havarie chytí
+  Živá ukázka kroku 3, dílů 2a+2b: lexer a parser runové věty. Napíšeš kouzlo,
+  engine ho rozseká na tokeny (obarvené podle slovního druhu) a složí do stromu
+  (AST) — u sloučených sloves ukáže VÍC výkladů. Neznámé slovo i gramatická
+  chyba → šipka na pozici, jako by to vypsal Python. Importuje SKUTEČNÝ
+  `engine/parser.js` + `engine/lexikon.js` (ne kopii) — tentýž kód jako
+  `npm test`. Odznak „= python" ověří proti vzorku fixtur. #havarie chytí
   nenačtený engine, ať na telefonu nemlčí.
 -->
 <style>
@@ -34,7 +34,7 @@
   .priklady button { font: .82rem/1 inherit; padding: .35rem .6rem; border-radius: 1rem;
                      border: 1px solid #8886; background: transparent; color: inherit;
                      cursor: pointer; }
-  #tokeny { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+  #tokeny { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 .5rem; }
   .tok { border-radius: .5rem; padding: .35rem .6rem; color: #fff;
          display: flex; flex-direction: column; line-height: 1.15; }
   .tok b { font-size: 1rem; }
@@ -44,20 +44,23 @@
   #chyba { display: none; background: #f3d9d9; color: #7a1f1f; border-radius: .5rem;
            padding: .6rem .75rem; font-family: ui-monospace, monospace;
            white-space: pre; font-size: 14px; overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; font-size: .9rem; margin-top: .5rem; }
-  th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid #ccc3;
-           vertical-align: top; }
-  th { color: #666; font-weight: 600; }
-  .kap { display: inline-block; width: .7rem; height: .7rem; border-radius: .2rem;
-         margin-right: .3rem; vertical-align: middle; }
-  .data { font-family: ui-monospace, monospace; font-size: .8rem; color: #555; }
+  .chip { display: inline-block; border-radius: .4rem; padding: .12rem .45rem;
+          color: #fff; font-size: .85rem; margin: .1rem .2rem .1rem 0; }
+  .vyklad { border: 1px solid #8883; border-radius: .5rem; padding: .5rem .6rem;
+            margin: .5rem 0; }
+  .vyklad > .cislo { font-size: .75rem; color: #666; margin-bottom: .3rem; }
+  .uzel { border-left: 2px solid #8884; padding-left: .6rem; margin: .3rem 0 .3rem .1rem; }
+  .uzelhlava { font-size: .8rem; color: #555; font-weight: 600; margin-bottom: .15rem; }
+  .slot { display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem; margin: .1rem 0; }
+  .slot .lbl { font-size: .72rem; color: #888; min-width: 4.5rem; }
   .legenda { display: flex; flex-wrap: wrap; gap: .75rem; font-size: .8rem;
              color: #666; margin: .5rem 0 0; }
-  .legenda span { white-space: nowrap; }
-  h2 { font-size: 1rem; margin: 1.5rem 0 .25rem; }
+  .kap { display: inline-block; width: .7rem; height: .7rem; border-radius: .2rem;
+         margin-right: .3rem; vertical-align: middle; }
+  h2 { font-size: 1rem; margin: 1.4rem 0 .25rem; }
 </style>
 
-<h1>Runová věta — lexer, JS proti Python oracle</h1>
+<h1>Runová věta — lexer + parser, JS proti Python oracle</h1>
 <div id="havarie"></div>
 <p><span id="odznak">Ověřuji…</span></p>
 
@@ -68,31 +71,27 @@
 </div>
 
 <div id="chyba"></div>
-<div id="tokeny"></div>
 
+<h2>Tokeny</h2>
+<div id="tokeny"></div>
 <div class="legenda" id="legenda"></div>
 
-<h2>Runy z této věty</h2>
-<table id="detail">
-  <thead><tr><th>runa</th><th>druh</th><th>data ze slovníku</th></tr></thead>
-  <tbody></tbody>
-</table>
+<h2>Strom (AST) — výklady</h2>
+<div id="strom"></div>
 
 <script type="module">
 import { zakladLexikon } from "./engine/lexikon.js";
-import { lexuj } from "./engine/parser.js";
-import { NeznameSlovo } from "./engine/errors.js";
+import { lexuj, parsuj } from "./engine/parser.js";
+import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
   e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
 
 try {
   const lex = zakladLexikon();
-
   const DRUHY = ["sloveso", "podstata", "cil", "forma", "modifikator", "spojka", "jmeno"];
   const barva = (d) => `var(--${d})`;
 
-  // Legenda slovních druhů.
   const legenda = document.getElementById("legenda");
   for (const d of DRUHY) {
     const s = document.createElement("span");
@@ -102,18 +101,17 @@ try {
 
   const text = document.getElementById("text");
   const tokenyEl = document.getElementById("tokeny");
+  const stromEl = document.getElementById("strom");
   const chybaEl = document.getElementById("chyba");
-  const detail = document.querySelector("#detail tbody");
 
-  // Vybraná zajímavá kouzla na jedno ťuknutí.
   const PRIKLADY = [
     "Zažehni Oheň Nepřítel",
-    "zazehni ohen nepritel",
-    "( Nepřítel : Oheň ) Výbuch",
-    "Zažehni Oheň silně a Zmraz Nepřítel",
+    "Zažehni Rozbij Nepřítel",
+    "Zažehni Oheň a Zmraz Nepřítel silně",
+    "pokud ne ( Nepřítel Oheň ) pak Zhoj Já",
     "Přesuň Já skrze Spojení",
-    "pokud ( Nepřítel Oheň ) pak Zhoj Já",
-    "Zažehni Blabla",
+    "Zažehni ne Oheň Nepřítel:Kámen",
+    "Zažehni Oheň )",
   ];
   const priklady = document.getElementById("priklady");
   for (const p of PRIKLADY) {
@@ -123,71 +121,143 @@ try {
     priklady.appendChild(b);
   }
 
-  // Kompaktní výpis dat runy (drž to na jeden řádek, ať se to na mobilu vejde).
-  const dataText = (data) => Object.entries(data)
-    .filter(([k]) => k !== "latentni")   // dlouhé vyprávění vynech
-    .map(([k, v]) => `${k}=${typeof v === "object" ? JSON.stringify(v) : v}`)
-    .join("  ");
+  // Runová "pilulka" obarvená podle druhu (i pro odvozené: negace/zúžení mění název).
+  function chip(r) {
+    const s = document.createElement("span");
+    s.className = "chip";
+    s.style.background = barva(r.druh);
+    s.textContent = r.nazev;
+    return s;
+  }
+
+  // Rekurzivní vykreslení AST uzlu.
+  function strom(u) {
+    const box = document.createElement("div");
+    box.className = "uzel";
+    const hlava = document.createElement("div");
+    hlava.className = "uzelhlava";
+    box.appendChild(hlava);
+    const slot = (label, runy) => {
+      if (!runy || !runy.length) return;
+      const d = document.createElement("div");
+      d.className = "slot";
+      const l = document.createElement("span");
+      l.className = "lbl"; l.textContent = label;
+      d.appendChild(l);
+      for (const r of runy) d.appendChild(chip(r));
+      box.appendChild(d);
+    };
+    if (u.typ === "Fraze") {
+      hlava.textContent = "fráze";
+      slot("sloveso", u.sloveso); slot("podstata", u.podstaty); slot("cíl", u.cile);
+      slot("forma", u.formy); slot("modifikátor", u.modifikatory);
+    } else if (u.typ === "Volani") {
+      hlava.append("volání "); hlava.appendChild(chip(u.jmeno));
+      slot("podstata", u.podstaty); slot("cíl", u.cile);
+      slot("forma", u.formy); slot("modifikátor", u.modifikatory);
+    } else if (u.typ === "Skupina") {
+      hlava.textContent = "blok ( … )";
+      box.appendChild(strom(u.vyraz));
+      slot("+ cíl", u.cile); slot("+ modifikátor", u.modifikatory);
+    } else if (u.typ === "Spojeni") {
+      hlava.textContent = u.operator === "a" ? "a — paralelně" : "pak — sekvenčně";
+      for (const c of u.casti) box.appendChild(strom(c));
+    } else if (u.typ === "Podminka") {
+      hlava.textContent = `pokud ${u.negace ? "ne " : ""}( … ) pak`;
+      slot("cíl", [u.cil]); slot("stav", u.stavy);
+      const t = document.createElement("div");
+      t.className = "slot";
+      const l = document.createElement("span"); l.className = "lbl"; l.textContent = "pak";
+      t.appendChild(l); box.appendChild(t);
+      box.appendChild(strom(u.telo));
+    } else if (u.typ === "Skrze") {
+      hlava.textContent = "skrze — kanálem";
+      box.appendChild(strom(u.vyraz));
+      slot("kanál", u.kanal ? [u.kanal] : []);
+    }
+    return box;
+  }
+
+  function ukazChybu(e) {
+    const sipka = " ".repeat(e.pozice ?? 0) + "^";
+    chybaEl.textContent = `${e.zprava}\n${text.value}\n${sipka}`;
+    chybaEl.style.display = "block";
+  }
 
   function prekresli() {
     tokenyEl.innerHTML = "";
-    detail.innerHTML = "";
+    stromEl.innerHTML = "";
     chybaEl.style.display = "none";
 
-    let tokeny;
+    // Tokeny (i když parser níž spadne na gramatice, tokeny ukážeme).
+    let tokeny = null;
     try {
       tokeny = lexuj(text.value, lex);
     } catch (e) {
-      if (e instanceof NeznameSlovo) {
-        // Šipka na pozici chyby, jako to dělá Python (chyby učí jazyk).
-        const sipka = " ".repeat(e.pozice) + "^";
-        chybaEl.textContent = `${e.zprava}\n${text.value}\n${sipka}`;
-        chybaEl.style.display = "block";
-        return;
-      }
+      if (e instanceof NeznameSlovo) { ukazChybu(e); return; }
       throw e;
     }
-
-    const videnaRuna = new Set();
     for (const t of tokeny) {
       const el = document.createElement("div");
-      if (t.runa === null) {                 // závorka
-        el.className = "tok zav";
-        el.textContent = t.text;
-      } else {
+      if (t.runa === null) { el.className = "tok zav"; el.textContent = t.text; }
+      else {
         el.className = "tok";
         el.style.background = barva(t.runa.druh);
         el.innerHTML = `<b>${t.text}</b><small>${t.runa.druh}</small>`;
-        if (!videnaRuna.has(t.runa.id)) {
-          videnaRuna.add(t.runa.id);
-          const tr = document.createElement("tr");
-          tr.innerHTML =
-            `<td><i class="kap" style="background:${barva(t.runa.druh)}"></i>${t.runa.nazev}</td>` +
-            `<td>${t.runa.druh}</td>` +
-            `<td class="data">${dataText(t.runa.data) || "—"}</td>`;
-          detail.appendChild(tr);
-        }
       }
       tokenyEl.appendChild(el);
     }
+
+    // Strom (výklady).
+    let vyklady;
+    try {
+      vyklady = parsuj(text.value, lex);
+    } catch (e) {
+      if (e instanceof ChybaKouzla) { ukazChybu(e); return; }
+      throw e;
+    }
+    vyklady.forEach((u, i) => {
+      const v = document.createElement("div");
+      v.className = "vyklad";
+      if (vyklady.length > 1) {
+        const c = document.createElement("div");
+        c.className = "cislo"; c.textContent = `výklad ${i + 1} z ${vyklady.length}`;
+        v.appendChild(c);
+      }
+      v.appendChild(strom(u));
+      stromEl.appendChild(v);
+    });
   }
 
   text.addEventListener("input", prekresli);
   prekresli();
 
-  // Odznak: přehraj vzorek fixtur (tokeny i chyby) a spočítej shody.
+  // Odznak: přehraj vzorek fixtur parseru (výklady i chyby) a spočítej shody.
   const odznak = document.getElementById("odznak");
+  const kanon = (x) => Array.isArray(x) ? "[" + x.map(kanon).join(",") + "]"
+    : (x !== null && typeof x === "object")
+      ? "{" + Object.keys(x).sort().map((k) => JSON.stringify(k) + ":" + kanon(x[k])).join(",") + "}"
+      : JSON.stringify(x);
+  const serR = (r) => ({ id: r.id, nazev: r.nazev, data: serD(r.data) });
+  const serD = (d) => { const o = {}; for (const [k, v] of Object.entries(d)) o[k] = k === "filtr" ? v.map(serR) : v; return o; };
+  function serU(u) {
+    if (u.typ === "Fraze") return { typ: "Fraze", sloveso: u.sloveso.map(serR), podstaty: u.podstaty.map(serR), cile: u.cile.map(serR), formy: u.formy.map(serR), modifikatory: u.modifikatory.map(serR) };
+    if (u.typ === "Volani") return { typ: "Volani", jmeno: serR(u.jmeno), podstaty: u.podstaty.map(serR), cile: u.cile.map(serR), formy: u.formy.map(serR), modifikatory: u.modifikatory.map(serR) };
+    if (u.typ === "Skupina") return { typ: "Skupina", vyraz: serU(u.vyraz), cile: u.cile.map(serR), modifikatory: u.modifikatory.map(serR) };
+    if (u.typ === "Spojeni") return { typ: "Spojeni", operator: u.operator, casti: u.casti.map(serU) };
+    if (u.typ === "Podminka") return { typ: "Podminka", cil: serR(u.cil), stavy: u.stavy.map(serR), telo: serU(u.telo), negace: u.negace };
+    return { typ: "Skrze", vyraz: serU(u.vyraz), kanal: u.kanal ? serR(u.kanal) : null };
+  }
   try {
-    const fix = await (await fetch("./test/fixtury_lexer.json")).json();
+    const fix = await (await fetch("./test/fixtury_parser.json")).json();
     let sedi = 0, celkem = 0;
-    for (const c of fix.lexer) {
+    for (const c of fix.parser) {
       celkem++;
       try {
-        const t = lexuj(c.text, lex).map((x) => ({
-          text: x.text, pozice: x.pozice, runaId: x.runa ? x.runa.id : null }));
-        if (c.chyba === undefined && JSON.stringify(t) === JSON.stringify(c.tokeny)) sedi++;
+        const v = parsuj(c.text, lex);
+        if (c.chyba === undefined && kanon(v.map(serU)) === kanon(c.vyklady)) sedi++;
       } catch (e) {
-        if (c.chyba === "NeznameSlovo" && e instanceof NeznameSlovo && e.pozice === c.pozice) sedi++;
+        if (c.chyba !== undefined && e instanceof ChybaKouzla && e.name === c.chyba && e.pozice === c.pozice) sedi++;
       }
     }
     odznak.textContent = sedi === celkem

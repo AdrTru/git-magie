@@ -40,9 +40,15 @@ Postupuje se po částech, každá ověřená v CI:
      text kouzla → tokeny, párování slov na runy bez ohledu na velikost a
      diakritiku (`Zazehni Ohen` = `Zažehni Oheň`), závorky/`:` jako tokeny,
      neznámé slovo → šipka na chybu. Slovník run a interakční tabulky jsou
-     v `engine/lexikon.js` (GENEROVANÝ z Pythonu). **86 případů + 46 run** proti
-     oracle.
-   - Zbývá: parser (gramatika → AST), validátor, ceny, vyhodnocení.
+     v `engine/lexikon_data.js` (GENEROVANÝ z Pythonu), funkce `neguj`/`zuz`
+     v `engine/lexikon.js`. **86 případů + 46 run** proti oracle.
+   - **Parser runové věty** (`engine/parser.js` → `parsuj`, `engine/ast_nodes.js`) ✅ —
+     tokeny → AST (všechny platné výklady, §9). Fráze s pevným slovosledem,
+     výchozí `Zažehni`, bloky `( )` s doplněním slotů, spojky `a`/`pak`,
+     `pokud` s negací predikátu, `skrze` (i řetězené), volání jména, slučování
+     `ne` a zúžení cíle `:`. Sloučená slovesa → víc výkladů. **40 případů**
+     (výklady i chyby) proti oracle.
+   - Zbývá: validátor, ceny, vyhodnocení.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 

@@ -1,0 +1,1698 @@
+{
+  "parser": [
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zmraz Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zmraz",
+              "nazev": "Zmraz",
+              "data": {
+                "typ": "OVLADNUTI",
+                "sila": 6,
+                "dosah": 6,
+                "trvani": 3,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zhoj Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zhoj",
+              "nazev": "Zhoj",
+              "data": {
+                "typ": "LECENI",
+                "sila": 12,
+                "dosah": 2,
+                "trvani": 0,
+                "cena": 3.5
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Rozbij Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "rozbij",
+              "nazev": "Rozbij",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 14,
+                "dosah": 4,
+                "trvani": 0,
+                "cena": 4
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zaštiť Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zastit",
+              "nazev": "Zaštiť",
+              "data": {
+                "typ": "POSILENI",
+                "sila": 8,
+                "dosah": 0,
+                "trvani": 5,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Odhal Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "odhal",
+              "nazev": "Odhal",
+              "data": {
+                "typ": "UZITEK",
+                "sila": 0,
+                "dosah": 8,
+                "trvani": 0,
+                "cena": 2,
+                "priznak": "odhalení"
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Sváž Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "svaz",
+              "nazev": "Sváž",
+              "data": {
+                "typ": "UZITEK",
+                "sila": 4,
+                "dosah": 8,
+                "trvani": 10,
+                "cena": 2.5,
+                "produkuje": "Spojení",
+                "latentni": {
+                  "jadro": "SPOJENI(A, B)",
+                  "napoveda": "pouto mezi dvěma body v prostoru — efekt lze vést skrze ně (kanál Spojeni), ne jen svázat provaz",
+                  "priklad": "Sváž Já Bod pak Přesuň Já skrze Spojení = teleport"
+                }
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Přesuň Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "presun",
+              "nazev": "Přesuň",
+              "data": {
+                "typ": "UZITEK",
+                "sila": 5,
+                "dosah": 10,
+                "trvani": 0,
+                "cena": 3,
+                "latentni": {
+                  "jadro": "PRESUN(co, kam)",
+                  "napoveda": "přemístění v prostoru — vedeno po poutu (skrze Spojeni) se z něj stává teleport",
+                  "priklad": "Přesuň Já skrze Spojení"
+                }
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel Projektil silně dlouze",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [
+            {
+              "id": "projektil",
+              "nazev": "Projektil",
+              "data": {
+                "plosne": false,
+                "cena": 1.5,
+                "dorucuje": true,
+                "cena_dosahem": 0.03
+              }
+            }
+          ],
+          "modifikatory": [
+            {
+              "id": "silne",
+              "nazev": "silně",
+              "data": {
+                "parametr": "sila",
+                "nasobek": 1.5,
+                "cena_nasobek": 1.25,
+                "dovednost": true
+              }
+            },
+            {
+              "id": "dlouze",
+              "nazev": "dlouze",
+              "data": {
+                "parametr": "trvani",
+                "nasobek": 1.8,
+                "cena_nasobek": 1.3,
+                "dovednost": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Rozbij Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            },
+            {
+              "id": "rozbij",
+              "nazev": "Rozbij",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 14,
+                "dosah": 4,
+                "trvani": 0,
+                "cena": 4
+              }
+            }
+          ],
+          "podstaty": [],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        },
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "rozbij",
+              "nazev": "Rozbij",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 14,
+                "dosah": 4,
+                "trvani": 0,
+                "cena": 4
+              }
+            },
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň a Zmraz Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Spojeni",
+          "operator": "a",
+          "casti": [
+            {
+              "typ": "Fraze",
+              "sloveso": [
+                {
+                  "id": "zazehni",
+                  "nazev": "Zažehni",
+                  "data": {
+                    "typ": "POSKOZENI",
+                    "sila": 10,
+                    "dosah": 6,
+                    "trvani": 0,
+                    "cena": 3
+                  }
+                }
+              ],
+              "podstaty": [
+                {
+                  "id": "ohen",
+                  "nazev": "Oheň",
+                  "data": {
+                    "priznak": "hoří",
+                    "cena": 2
+                  }
+                }
+              ],
+              "cile": [],
+              "formy": [],
+              "modifikatory": []
+            },
+            {
+              "typ": "Fraze",
+              "sloveso": [
+                {
+                  "id": "zmraz",
+                  "nazev": "Zmraz",
+                  "data": {
+                    "typ": "OVLADNUTI",
+                    "sila": 6,
+                    "dosah": 6,
+                    "trvani": 3,
+                    "cena": 3
+                  }
+                }
+              ],
+              "podstaty": [],
+              "cile": [
+                {
+                  "id": "nepritel",
+                  "nazev": "Nepřítel",
+                  "data": {
+                    "strana": "enemy",
+                    "cena": 1
+                  }
+                }
+              ],
+              "formy": [],
+              "modifikatory": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Sváž Já Bod pak Přesuň Já",
+      "vyklady": [
+        {
+          "typ": "Spojeni",
+          "operator": "pak",
+          "casti": [
+            {
+              "typ": "Fraze",
+              "sloveso": [
+                {
+                  "id": "svaz",
+                  "nazev": "Sváž",
+                  "data": {
+                    "typ": "UZITEK",
+                    "sila": 4,
+                    "dosah": 8,
+                    "trvani": 10,
+                    "cena": 2.5,
+                    "produkuje": "Spojení",
+                    "latentni": {
+                      "jadro": "SPOJENI(A, B)",
+                      "napoveda": "pouto mezi dvěma body v prostoru — efekt lze vést skrze ně (kanál Spojeni), ne jen svázat provaz",
+                      "priklad": "Sváž Já Bod pak Přesuň Já skrze Spojení = teleport"
+                    }
+                  }
+                }
+              ],
+              "podstaty": [],
+              "cile": [
+                {
+                  "id": "ja",
+                  "nazev": "Já",
+                  "data": {
+                    "strana": "self",
+                    "cena": 0.5
+                  }
+                },
+                {
+                  "id": "bod",
+                  "nazev": "Bod",
+                  "data": {
+                    "strana": "point",
+                    "cena": 1
+                  }
+                }
+              ],
+              "formy": [],
+              "modifikatory": []
+            },
+            {
+              "typ": "Fraze",
+              "sloveso": [
+                {
+                  "id": "presun",
+                  "nazev": "Přesuň",
+                  "data": {
+                    "typ": "UZITEK",
+                    "sila": 5,
+                    "dosah": 10,
+                    "trvani": 0,
+                    "cena": 3,
+                    "latentni": {
+                      "jadro": "PRESUN(co, kam)",
+                      "napoveda": "přemístění v prostoru — vedeno po poutu (skrze Spojeni) se z něj stává teleport",
+                      "priklad": "Přesuň Já skrze Spojení"
+                    }
+                  }
+                }
+              ],
+              "podstaty": [],
+              "cile": [
+                {
+                  "id": "ja",
+                  "nazev": "Já",
+                  "data": {
+                    "strana": "self",
+                    "cena": 0.5
+                  }
+                }
+              ],
+              "formy": [],
+              "modifikatory": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "( Zažehni Oheň a Zmraz ) Nepřítel silně",
+      "vyklady": [
+        {
+          "typ": "Skupina",
+          "vyraz": {
+            "typ": "Spojeni",
+            "operator": "a",
+            "casti": [
+              {
+                "typ": "Fraze",
+                "sloveso": [
+                  {
+                    "id": "zazehni",
+                    "nazev": "Zažehni",
+                    "data": {
+                      "typ": "POSKOZENI",
+                      "sila": 10,
+                      "dosah": 6,
+                      "trvani": 0,
+                      "cena": 3
+                    }
+                  }
+                ],
+                "podstaty": [
+                  {
+                    "id": "ohen",
+                    "nazev": "Oheň",
+                    "data": {
+                      "priznak": "hoří",
+                      "cena": 2
+                    }
+                  }
+                ],
+                "cile": [],
+                "formy": [],
+                "modifikatory": []
+              },
+              {
+                "typ": "Fraze",
+                "sloveso": [
+                  {
+                    "id": "zmraz",
+                    "nazev": "Zmraz",
+                    "data": {
+                      "typ": "OVLADNUTI",
+                      "sila": 6,
+                      "dosah": 6,
+                      "trvani": 3,
+                      "cena": 3
+                    }
+                  }
+                ],
+                "podstaty": [],
+                "cile": [],
+                "formy": [],
+                "modifikatory": []
+              }
+            ]
+          },
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "modifikatory": [
+            {
+              "id": "silne",
+              "nazev": "silně",
+              "data": {
+                "parametr": "sila",
+                "nasobek": 1.5,
+                "cena_nasobek": 1.25,
+                "dovednost": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "( Zažehni Rozbij ) Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Skupina",
+          "vyraz": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "zazehni",
+                "nazev": "Zažehni",
+                "data": {
+                  "typ": "POSKOZENI",
+                  "sila": 10,
+                  "dosah": 6,
+                  "trvani": 0,
+                  "cena": 3
+                }
+              },
+              {
+                "id": "rozbij",
+                "nazev": "Rozbij",
+                "data": {
+                  "typ": "POSKOZENI",
+                  "sila": 14,
+                  "dosah": 4,
+                  "trvani": 0,
+                  "cena": 4
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [],
+            "formy": [],
+            "modifikatory": []
+          },
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "modifikatory": []
+        },
+        {
+          "typ": "Skupina",
+          "vyraz": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "rozbij",
+                "nazev": "Rozbij",
+                "data": {
+                  "typ": "POSKOZENI",
+                  "sila": 14,
+                  "dosah": 4,
+                  "trvani": 0,
+                  "cena": 4
+                }
+              },
+              {
+                "id": "zazehni",
+                "nazev": "Zažehni",
+                "data": {
+                  "typ": "POSKOZENI",
+                  "sila": 10,
+                  "dosah": 6,
+                  "trvani": 0,
+                  "cena": 3
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [],
+            "formy": [],
+            "modifikatory": []
+          },
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+      "vyklady": [
+        {
+          "typ": "Podminka",
+          "cil": {
+            "id": "nepritel",
+            "nazev": "Nepřítel",
+            "data": {
+              "strana": "enemy",
+              "cena": 1
+            }
+          },
+          "stavy": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "telo": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "zhoj",
+                "nazev": "Zhoj",
+                "data": {
+                  "typ": "LECENI",
+                  "sila": 12,
+                  "dosah": 2,
+                  "trvani": 0,
+                  "cena": 3.5
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [
+              {
+                "id": "ja",
+                "nazev": "Já",
+                "data": {
+                  "strana": "self",
+                  "cena": 0.5
+                }
+              }
+            ],
+            "formy": [],
+            "modifikatory": []
+          },
+          "negace": false
+        }
+      ]
+    },
+    {
+      "text": "pokud ne ( Nepřítel Oheň ) pak Zhoj Já",
+      "vyklady": [
+        {
+          "typ": "Podminka",
+          "cil": {
+            "id": "nepritel",
+            "nazev": "Nepřítel",
+            "data": {
+              "strana": "enemy",
+              "cena": 1
+            }
+          },
+          "stavy": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "telo": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "zhoj",
+                "nazev": "Zhoj",
+                "data": {
+                  "typ": "LECENI",
+                  "sila": 12,
+                  "dosah": 2,
+                  "trvani": 0,
+                  "cena": 3.5
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [
+              {
+                "id": "ja",
+                "nazev": "Já",
+                "data": {
+                  "strana": "self",
+                  "cena": 0.5
+                }
+              }
+            ],
+            "formy": [],
+            "modifikatory": []
+          },
+          "negace": true
+        }
+      ]
+    },
+    {
+      "text": "pokud ( ne ( Nepřítel Oheň ) ) pak Zhoj Já",
+      "vyklady": [
+        {
+          "typ": "Podminka",
+          "cil": {
+            "id": "nepritel",
+            "nazev": "Nepřítel",
+            "data": {
+              "strana": "enemy",
+              "cena": 1
+            }
+          },
+          "stavy": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "telo": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "zhoj",
+                "nazev": "Zhoj",
+                "data": {
+                  "typ": "LECENI",
+                  "sila": 12,
+                  "dosah": 2,
+                  "trvani": 0,
+                  "cena": 3.5
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [
+              {
+                "id": "ja",
+                "nazev": "Já",
+                "data": {
+                  "strana": "self",
+                  "cena": 0.5
+                }
+              }
+            ],
+            "formy": [],
+            "modifikatory": []
+          },
+          "negace": true
+        }
+      ]
+    },
+    {
+      "text": "Přesuň Já skrze Spojení",
+      "vyklady": [
+        {
+          "typ": "Skrze",
+          "vyraz": {
+            "typ": "Fraze",
+            "sloveso": [
+              {
+                "id": "presun",
+                "nazev": "Přesuň",
+                "data": {
+                  "typ": "UZITEK",
+                  "sila": 5,
+                  "dosah": 10,
+                  "trvani": 0,
+                  "cena": 3,
+                  "latentni": {
+                    "jadro": "PRESUN(co, kam)",
+                    "napoveda": "přemístění v prostoru — vedeno po poutu (skrze Spojeni) se z něj stává teleport",
+                    "priklad": "Přesuň Já skrze Spojení"
+                  }
+                }
+              }
+            ],
+            "podstaty": [],
+            "cile": [
+              {
+                "id": "ja",
+                "nazev": "Já",
+                "data": {
+                  "strana": "self",
+                  "cena": 0.5
+                }
+              }
+            ],
+            "formy": [],
+            "modifikatory": []
+          },
+          "kanal": {
+            "id": "spojeni",
+            "nazev": "Spojení",
+            "data": {
+              "priznak": "pouto",
+              "cena": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "Přesuň Já skrze Spojení skrze Éter",
+      "vyklady": [
+        {
+          "typ": "Skrze",
+          "vyraz": {
+            "typ": "Skrze",
+            "vyraz": {
+              "typ": "Fraze",
+              "sloveso": [
+                {
+                  "id": "presun",
+                  "nazev": "Přesuň",
+                  "data": {
+                    "typ": "UZITEK",
+                    "sila": 5,
+                    "dosah": 10,
+                    "trvani": 0,
+                    "cena": 3,
+                    "latentni": {
+                      "jadro": "PRESUN(co, kam)",
+                      "napoveda": "přemístění v prostoru — vedeno po poutu (skrze Spojeni) se z něj stává teleport",
+                      "priklad": "Přesuň Já skrze Spojení"
+                    }
+                  }
+                }
+              ],
+              "podstaty": [],
+              "cile": [
+                {
+                  "id": "ja",
+                  "nazev": "Já",
+                  "data": {
+                    "strana": "self",
+                    "cena": 0.5
+                  }
+                }
+              ],
+              "formy": [],
+              "modifikatory": []
+            },
+            "kanal": {
+              "id": "spojeni",
+              "nazev": "Spojení",
+              "data": {
+                "priznak": "pouto",
+                "cena": 2
+              }
+            }
+          },
+          "kanal": {
+            "id": "eter",
+            "nazev": "Éter",
+            "data": {
+              "priznak": "odhmotněno",
+              "cena": 2.5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "text": "ne Zažehni Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "ne Zažehni",
+              "data": {
+                "typ": "UZITEK",
+                "sila": 8,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3,
+                "priznak": "uhašeno",
+                "negace": true
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni ne Oheň Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Chlad",
+              "data": {
+                "priznak": "prochladlé",
+                "cena": 2,
+                "negace": true
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň ne Nepřítel",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "ne Nepřítel",
+              "data": {
+                "strana": "kromě enemy",
+                "cena": 1,
+                "negace": true
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel ne silně",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": [
+            {
+              "id": "silne",
+              "nazev": "ne silně",
+              "data": {
+                "parametr": "sila",
+                "nasobek": 0.6,
+                "cena_nasobek": 0.9,
+                "dovednost": true,
+                "negace": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel ne dlouze",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel",
+              "data": {
+                "strana": "enemy",
+                "cena": 1
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": [
+            {
+              "id": "dlouze",
+              "nazev": "ne dlouze",
+              "data": {
+                "parametr": "trvani",
+                "nasobek": 0.5555555555555556,
+                "cena_nasobek": 1.3,
+                "dovednost": true,
+                "negace": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel:Oheň",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel : Oheň",
+              "data": {
+                "strana": "enemy",
+                "cena": 1,
+                "filtr": [
+                  {
+                    "id": "ohen",
+                    "nazev": "Oheň",
+                    "data": {
+                      "priznak": "hoří",
+                      "cena": 2
+                    }
+                  }
+                ],
+                "zaklad": "Nepřítel"
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel : Oheň Voda",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel : Oheň Voda",
+              "data": {
+                "strana": "enemy",
+                "cena": 1,
+                "filtr": [
+                  {
+                    "id": "ohen",
+                    "nazev": "Oheň",
+                    "data": {
+                      "priznak": "hoří",
+                      "cena": 2
+                    }
+                  },
+                  {
+                    "id": "voda",
+                    "nazev": "Voda",
+                    "data": {
+                      "priznak": "promáčeno",
+                      "cena": 2
+                    }
+                  }
+                ],
+                "zaklad": "Nepřítel"
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel : Oheň : Voda",
+      "vyklady": [
+        {
+          "typ": "Fraze",
+          "sloveso": [
+            {
+              "id": "zazehni",
+              "nazev": "Zažehni",
+              "data": {
+                "typ": "POSKOZENI",
+                "sila": 10,
+                "dosah": 6,
+                "trvani": 0,
+                "cena": 3
+              }
+            }
+          ],
+          "podstaty": [
+            {
+              "id": "ohen",
+              "nazev": "Oheň",
+              "data": {
+                "priznak": "hoří",
+                "cena": 2
+              }
+            }
+          ],
+          "cile": [
+            {
+              "id": "nepritel",
+              "nazev": "Nepřítel : Oheň Voda",
+              "data": {
+                "strana": "enemy",
+                "cena": 1,
+                "filtr": [
+                  {
+                    "id": "ohen",
+                    "nazev": "Oheň",
+                    "data": {
+                      "priznak": "hoří",
+                      "cena": 2
+                    }
+                  },
+                  {
+                    "id": "voda",
+                    "nazev": "Voda",
+                    "data": {
+                      "priznak": "promáčeno",
+                      "cena": 2
+                    }
+                  }
+                ],
+                "zaklad": "Nepřítel"
+              }
+            }
+          ],
+          "formy": [],
+          "modifikatory": []
+        }
+      ]
+    },
+    {
+      "text": "",
+      "chyba": "ChybaGramatiky",
+      "pozice": 0
+    },
+    {
+      "text": "Zažehni silně Oheň",
+      "chyba": "ChybaGramatiky",
+      "pozice": 14
+    },
+    {
+      "text": "Zažehni Oheň Zmraz",
+      "chyba": "ChybaGramatiky",
+      "pozice": 13
+    },
+    {
+      "text": "Zažehni Oheň a Zmraz pak Zhoj",
+      "chyba": "ChybaGramatiky",
+      "pozice": 21
+    },
+    {
+      "text": "Zažehni Oheň )",
+      "chyba": "ChybaGramatiky",
+      "pozice": 13
+    },
+    {
+      "text": "( Zažehni Oheň",
+      "chyba": "ChybaGramatiky",
+      "pozice": 14
+    },
+    {
+      "text": "skrze Spojení",
+      "chyba": "ChybaGramatiky",
+      "pozice": 0
+    },
+    {
+      "text": "Zažehni ne ne Oheň",
+      "chyba": "ChybaGramatiky",
+      "pozice": 8
+    },
+    {
+      "text": "Zažehni Oheň ne",
+      "chyba": "ChybaGramatiky",
+      "pozice": 13
+    },
+    {
+      "text": "ne Přesuň Já",
+      "chyba": "Nejednoznacnost",
+      "pozice": 0
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel :",
+      "chyba": "ChybaGramatiky",
+      "pozice": 22
+    }
+  ]
+}
