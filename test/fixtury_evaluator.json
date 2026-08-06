@@ -1,0 +1,1315 @@
+{
+  "evaluator": [
+    {
+      "text": "Zažehni Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zmraz Nepřítel",
+      "efekt": {
+        "typ": "ovládnutí",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 6.0,
+        "dosah": 6.0,
+        "trvani": 3.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zmraz",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zhoj Nepřítel",
+      "efekt": {
+        "typ": "léčení",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 12.0,
+        "dosah": 2.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zhoj",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Rozbij Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 14.0,
+        "dosah": 4.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "rozbij",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zaštiť Nepřítel",
+      "efekt": {
+        "typ": "posílení",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 8.0,
+        "dosah": 0.0,
+        "trvani": 5.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zastit",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Odhal Nepřítel",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 0.0,
+        "dosah": 8.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "odhalení"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "odhal",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Sváž Nepřítel",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 4.0,
+        "dosah": 8.0,
+        "trvani": 10.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "svaz",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": "Spojení",
+        "slozky": []
+      }
+    },
+    {
+      "text": "Přesuň Nepřítel",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 5.0,
+        "dosah": 10.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "presun",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Oheň",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "hoří"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ohen",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň Oheň Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Oheň",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 14.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "hoří"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ohen",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň Voda Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Pára",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 16.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "hoří",
+          "tepelný šok"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ohen",
+          "voda",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň Voda Vítr Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Horká mlha",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 20.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "hoří",
+          "tepelný šok",
+          "oslepeno párou"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ohen",
+          "voda",
+          "vitr",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Voda Vítr Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Voda+Vítr",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "promáčeno",
+          "odmrštěno",
+          "surge"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "voda",
+          "vitr",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Já Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Já",
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Já": "self",
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ja",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 14.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel:Oheň",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel : Oheň"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {
+          "Nepřítel : Oheň": {
+            "cil": "Nepřítel",
+            "stavy": [
+              "hoří"
+            ]
+          }
+        },
+        "strany": {
+          "Nepřítel : Oheň": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel : Oheň Voda",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel : Oheň Voda"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {
+          "Nepřítel : Oheň Voda": {
+            "cil": "Nepřítel",
+            "stavy": [
+              "hoří",
+              "promáčeno"
+            ]
+          }
+        },
+        "strany": {
+          "Nepřítel : Oheň Voda": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň Nepřítel Výbuch",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Oheň",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": "Výbuch",
+        "sila": 10.0,
+        "dosah": 7.800000000000001,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "hoří"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "ohen",
+          "nepritel",
+          "vybuch"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel Projektil Projektil",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": "Projektil",
+        "sila": 10.0,
+        "dosah": 8.399999999999999,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "projektil"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel Projektil Výbuch",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": "Tříštivý projektil",
+        "sila": 10.0,
+        "dosah": 7.800000000000001,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "tříští se"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "projektil",
+          "vybuch"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel Výbuch Kužel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": "Výbuch+Kužel",
+        "sila": 10.0,
+        "dosah": 6.240000000000001,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "surge"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "vybuch",
+          "kuzel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel silně",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 15.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "silne"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel dlouze doširoka",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 9.600000000000001,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "dlouze",
+          "dosiroka"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel soustředěně",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "soustředění",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "soustredene"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel tiše",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "nenápadné"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "tise"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel iluzorně",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 0.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "iluze"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "iluzorne"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Nepřítel Projektil průrazně",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": "Projektil",
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "průrazné"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel",
+          "projektil",
+          "prurazne"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "ne Zažehni Nepřítel",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 8.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "uhašeno"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni ne Oheň Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": "Chlad",
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 10.0,
+        "dosah": 6.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "prochladlé"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [
+          "zazehni",
+          "nepritel"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Sváž Já Bod",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Já",
+          "Bod"
+        ],
+        "forma": null,
+        "sila": 4.0,
+        "dosah": 8.0,
+        "trvani": 10.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Já": "self",
+          "Bod": "point"
+        },
+        "runy": [
+          "svaz",
+          "ja",
+          "bod"
+        ],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": "Spojení",
+        "slozky": []
+      }
+    },
+    {
+      "text": "Zažehni Oheň a Zmraz Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [],
+        "forma": null,
+        "sila": 16.0,
+        "dosah": 6.0,
+        "trvani": 3.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "paralelně"
+        ],
+        "filtry": {},
+        "strany": {},
+        "runy": [],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": [
+          {
+            "typ": "poškození",
+            "zivel": "Oheň",
+            "cile": [],
+            "forma": null,
+            "sila": 10.0,
+            "dosah": 6.0,
+            "trvani": 0.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [
+              "hoří"
+            ],
+            "filtry": {},
+            "strany": {},
+            "runy": [
+              "zazehni",
+              "ohen"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": null,
+            "slozky": []
+          },
+          {
+            "typ": "ovládnutí",
+            "zivel": null,
+            "cile": [
+              "Nepřítel"
+            ],
+            "forma": null,
+            "sila": 6.0,
+            "dosah": 6.0,
+            "trvani": 3.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [],
+            "filtry": {},
+            "strany": {
+              "Nepřítel": "enemy"
+            },
+            "runy": [
+              "zmraz",
+              "nepritel"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": null,
+            "slozky": []
+          }
+        ]
+      }
+    },
+    {
+      "text": "Sváž Já Bod pak Přesuň Já",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [],
+        "forma": null,
+        "sila": 9.0,
+        "dosah": 10.0,
+        "trvani": 10.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "sekvence"
+        ],
+        "filtry": {},
+        "strany": {},
+        "runy": [],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": [
+          {
+            "typ": "užitek",
+            "zivel": null,
+            "cile": [
+              "Já",
+              "Bod"
+            ],
+            "forma": null,
+            "sila": 4.0,
+            "dosah": 8.0,
+            "trvani": 10.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [],
+            "filtry": {},
+            "strany": {
+              "Já": "self",
+              "Bod": "point"
+            },
+            "runy": [
+              "svaz",
+              "ja",
+              "bod"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": "Spojení",
+            "slozky": []
+          },
+          {
+            "typ": "užitek",
+            "zivel": null,
+            "cile": [
+              "Já"
+            ],
+            "forma": null,
+            "sila": 5.0,
+            "dosah": 10.0,
+            "trvani": 0.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [],
+            "filtry": {},
+            "strany": {
+              "Já": "self"
+            },
+            "runy": [
+              "presun",
+              "ja"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": null,
+            "slozky": []
+          }
+        ]
+      }
+    },
+    {
+      "text": "( Zažehni Oheň a Zmraz ) Nepřítel",
+      "efekt": {
+        "typ": "poškození",
+        "zivel": null,
+        "cile": [
+          "Nepřítel"
+        ],
+        "forma": null,
+        "sila": 16.0,
+        "dosah": 6.0,
+        "trvani": 3.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [
+          "paralelně"
+        ],
+        "filtry": {},
+        "strany": {
+          "Nepřítel": "enemy"
+        },
+        "runy": [],
+        "podminka": null,
+        "kanal": null,
+        "produkuje": null,
+        "slozky": [
+          {
+            "typ": "poškození",
+            "zivel": "Oheň",
+            "cile": [
+              "Nepřítel"
+            ],
+            "forma": null,
+            "sila": 10.0,
+            "dosah": 6.0,
+            "trvani": 0.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [
+              "hoří"
+            ],
+            "filtry": {},
+            "strany": {
+              "Nepřítel": "enemy"
+            },
+            "runy": [
+              "zazehni",
+              "ohen"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": null,
+            "slozky": []
+          },
+          {
+            "typ": "ovládnutí",
+            "zivel": null,
+            "cile": [
+              "Nepřítel"
+            ],
+            "forma": null,
+            "sila": 6.0,
+            "dosah": 6.0,
+            "trvani": 3.0,
+            "rezim_trvani": "čas",
+            "upkeep": 0.0,
+            "priznaky": [],
+            "filtry": {},
+            "strany": {
+              "Nepřítel": "enemy"
+            },
+            "runy": [
+              "zmraz"
+            ],
+            "podminka": null,
+            "kanal": null,
+            "produkuje": null,
+            "slozky": []
+          }
+        ]
+      }
+    },
+    {
+      "text": "pokud ( Nepřítel Oheň ) pak Zhoj Já",
+      "efekt": {
+        "typ": "léčení",
+        "zivel": null,
+        "cile": [
+          "Já"
+        ],
+        "forma": null,
+        "sila": 12.0,
+        "dosah": 2.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Já": "self"
+        },
+        "runy": [
+          "zhoj",
+          "ja"
+        ],
+        "podminka": {
+          "cil": "Nepřítel",
+          "stavy": [
+            "hoří"
+          ]
+        },
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "pokud ne ( Nepřítel Oheň ) pak Zhoj Já",
+      "efekt": {
+        "typ": "léčení",
+        "zivel": null,
+        "cile": [
+          "Já"
+        ],
+        "forma": null,
+        "sila": 12.0,
+        "dosah": 2.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Já": "self"
+        },
+        "runy": [
+          "zhoj",
+          "ja"
+        ],
+        "podminka": {
+          "cil": "Nepřítel",
+          "stavy": [
+            "hoří"
+          ],
+          "negace": true
+        },
+        "kanal": null,
+        "produkuje": null,
+        "slozky": []
+      }
+    },
+    {
+      "text": "Přesuň Já skrze Spojení",
+      "efekt": {
+        "typ": "užitek",
+        "zivel": null,
+        "cile": [
+          "Já"
+        ],
+        "forma": null,
+        "sila": 5.0,
+        "dosah": 10.0,
+        "trvani": 0.0,
+        "rezim_trvani": "čas",
+        "upkeep": 0.0,
+        "priznaky": [],
+        "filtry": {},
+        "strany": {
+          "Já": "self"
+        },
+        "runy": [
+          "presun",
+          "ja"
+        ],
+        "podminka": null,
+        "kanal": "Spojení",
+        "produkuje": null,
+        "slozky": []
+      }
+    }
+  ]
+}

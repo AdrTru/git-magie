@@ -59,7 +59,18 @@ Postupuje se po částech, každá ověřená v CI:
      obtížnost (počet run + hloubka) a šanci na seslání (min-mastery přímo
      sesílaných run − korekce). Mastery dává slevu; živel čerpaný z okolí je na
      manu zdarma a podepře šanci (§8.1). **19 případů** proti oracle.
-   - Zbývá: vyhodnocení (AST → efekt, divoká magie).
+   - **Vyhodnocení** (`engine/evaluator.js`, port `evaluator.py`; `engine/effects.js`) ✅ —
+     z AST na SpellEffect: sloveso dá typ/sílu/dosah/trvání, živly se skládají
+     (stejný → intenzita, různé → interakce z tabulky, neznámá dvojice → surge),
+     cíle stackují, formy se skládají (geometrie z dat), modifikátory transformují
+     parametry; spojení `a`/`pak` dělá obálku se složkami, podmínka a `skrze` se
+     zapíšou pro engine. **37 případů** proti oracle.
+   - **Celý pipeline jazyka běží v JS**: `Zažehni Oheň Voda Nepřítel Výbuch silně`
+     → tokeny → AST → validace(fáze/znalosti) → cena(mana/šance) → efekt
+     (Pára ~Výbuch, síla 24). Ověřeno bod po bodu proti Pythonu.
+   - Zbývá k jazyku (přijde se scénou, krok 4, protože potřebuje běh/kontext):
+     smyčka učení (zbytek `progression.py`), pojmenování kouzel (`spellbook.py`),
+     vyústění a divoká magie (RNG, `errors.py`).
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 

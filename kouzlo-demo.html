@@ -63,6 +63,11 @@
   #validace.ne { background: #f6ecd8; color: #7a5a1f; }
   #naceneni { font-size: .9rem; color: #555; margin: -.2rem 0 .6rem;
               font-family: ui-monospace, monospace; }
+  h3 { font-size: .9rem; margin: 1rem 0 .2rem; color: #444; }
+  #efekt { border-left: 3px solid #8887; padding: .3rem .7rem; margin: .2rem 0 .6rem; }
+  .efhlava { font-weight: 600; }
+  .efdetail { color: #555; font-family: ui-monospace, monospace; font-size: .82rem; }
+  .efslozka { border-left: 2px solid #8884; margin: .35rem 0 .35rem .5rem; padding-left: .5rem; }
   h2 { font-size: 1rem; margin: 1.4rem 0 .25rem; }
 </style>
 
@@ -87,9 +92,12 @@
 <div id="tokeny"></div>
 <div class="legenda" id="legenda"></div>
 
-<h2>Strom (AST) — výklady</h2>
+<h2>Vyhodnocení prvního výkladu</h2>
 <div id="validace"></div>
 <div id="naceneni"></div>
+<h3>Efekt (co kouzlo udělá)</h3>
+<div id="efekt"></div>
+<h2>Strom výkladů (AST)</h2>
 <div id="strom"></div>
 
 <script type="module">
@@ -97,6 +105,7 @@ import { zakladLexikon } from "./engine/lexikon.js";
 import { lexuj, parsuj } from "./engine/parser.js";
 import { zvaliduj } from "./engine/validator.js";
 import { nacen } from "./engine/costs.js";
+import { vyhodnot } from "./engine/evaluator.js";
 import { Znalosti } from "./engine/progression.js";
 import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
 
@@ -121,6 +130,7 @@ try {
   const chybaEl = document.getElementById("chyba");
   const validaceEl = document.getElementById("validace");
   const naceneniEl = document.getElementById("naceneni");
+  const efektEl = document.getElementById("efekt");
   const fazeEl = document.getElementById("faze");
   const fazeCisloEl = document.getElementById("fazeCislo");
   const masteryEl = document.getElementById("mastery");
@@ -213,6 +223,7 @@ try {
     validaceEl.textContent = "";
     validaceEl.className = "";
     naceneniEl.textContent = "";
+    efektEl.innerHTML = "";
     chybaEl.style.display = "none";
 
     // Tokeny (i když parser níž spadne na gramatice, tokeny ukážeme).
@@ -281,6 +292,43 @@ try {
     naceneniEl.textContent =
       `mana ${n.cenaMany.toFixed(1)} · šance ${Math.round(n.sance * 100)} % · `
       + `obtížnost ${n.obtiznost.toFixed(1)} · nejslabší runa: ${nejsl}`;
+
+    // Efekt prvního výkladu — co kouzlo doopravdy udělá (§5).
+    efektEl.appendChild(popisEfektu(vyhodnot(vyklady[0], lex)));
+  }
+
+  // Lidsky čitelný souhrn efektu (rekurzivně přes složky u a/pak).
+  function popisEfektu(ef) {
+    const box = document.createElement("div");
+    const hlava = document.createElement("div");
+    hlava.className = "efhlava";
+    hlava.textContent = ef.typ + (ef.zivel ? ` [${ef.zivel}]` : "") + (ef.forma ? ` ~${ef.forma}` : "");
+    box.appendChild(hlava);
+
+    const d = [`síla ${ef.sila.toFixed(1)}`, `dosah ${ef.dosah.toFixed(1)}`,
+               `trvání ${ef.trvani.toFixed(1)}`];
+    if (ef.rezimTrvani !== "čas") d.push(`režim ${ef.rezimTrvani}`);
+    if (ef.cile.length) d.push(`cíl ${ef.cile.join("+")}`);
+    if (ef.priznaky.length) d.push(`příznaky ${ef.priznaky.join("+")}`);
+    const det = document.createElement("div");
+    det.className = "efdetail";
+    det.textContent = d.join(" · ");
+    box.appendChild(det);
+
+    const radek = (t) => { const e = document.createElement("div"); e.className = "efdetail"; e.textContent = t; box.appendChild(e); };
+    if (ef.produkuje) radek(`produkuje kanál: ${ef.produkuje}`);
+    if (ef.podminka) {
+      const spona = ef.podminka.negace ? "není" : "je";
+      radek(`pokud: ${ef.podminka.cil} ${spona} ${ef.podminka.stavy.join("+")}`);
+    }
+    if (ef.kanal) radek(`skrze: ${ef.kanal}`);
+    for (const s of ef.slozky) {
+      const sb = document.createElement("div");
+      sb.className = "efslozka";
+      sb.appendChild(popisEfektu(s));
+      box.appendChild(sb);
+    }
+    return box;
   }
 
   fazeEl.addEventListener("input", () => {

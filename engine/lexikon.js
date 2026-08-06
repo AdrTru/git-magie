@@ -8,6 +8,12 @@ import { ChybaGramatiky, Nejednoznacnost } from "./errors.js";
 
 export { zakladLexikon } from "./lexikon_data.js";
 
+// Vyhledání interakce dvou živlů / forem (§3.4). Klíč = seřazená dvojice názvů
+// spojená "|" — týž tvar, jaký generuje oracle (BMP → JS řazení == Python).
+const _klicDvojice = (a, b) => [a, b].sort().join("|");
+export const interakce = (lex, a, b) => lex.interakceZivlu[_klicDvojice(a, b)] ?? null;
+export const interakceFormy = (lex, a, b) => lex.interakceForem[_klicDvojice(a, b)] ?? null;
+
 // `CÍL : VLASTNOST…` → odvozená runa zúženého cíle (#38, §3.4).
 // Id zůstává původní (mastery cíle se dědí — zúžení je gramatika, ne nové
 // slovo); vlastnosti jedou v data.filtr a do min-mastery i ceny vstupují samy.
