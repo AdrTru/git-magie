@@ -38,6 +38,7 @@
 
 <script type="module">
 import { vzdalenost, vnima, projde, obrys, zornyKlin } from "./engine/geometrie.js";
+import { zonaPohybu } from "./engine/pohyb.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
   e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
@@ -45,8 +46,8 @@ const havarie = (t) => { const e = document.getElementById("havarie");
 function objekt(spec) { return { ...spec, tagy: spec.tagy || [], stavy: spec.stavy || [] }; }
 function paruj(p) { const i = p.indexOf("|"); return [p.slice(0, i), p.slice(i + 1)]; }
 
-// Drobná kresba scény z obrysů + zorný klín, obojí z enginu (ne z kopie).
-function nakresli(objekty, klin) {
+// Drobná kresba scény z obrysů + zorný klín + zóna pohybu, vše z enginu.
+function nakresli(objekty, klin, zona) {
   const S = 26, W = 8, H = 5, ox = 1, oy = 2.5;   // krok→px, počátek doprostřed
   const px = (x) => (x + ox) * S, py = (y) => (H - (y + oy)) * S;
   let kresba = "";
@@ -58,6 +59,15 @@ function nakresli(objekty, klin) {
     if (!body.length) continue;
     const b = [o.pozice, ...body];
     kresba += `<polygon points="${b.map((p) => `${px(p[0])},${py(p[1])}`).join(" ")}" fill="rgba(245,167,66,.18)" />`;
+  }
+  // Zóna pohybu: dosažitelné body jako tečky. Nahoře (na plošině, h>0) fialově,
+  // ať je vidět, že se tam bytost dostala po žebříku o patro výš.
+  for (const kdo of Object.keys(zona?.kdo || {})) {
+    const o = objekty[kdo]; if (!o) continue;
+    for (const [x, y, h] of zonaPohybu(o, scena, { dosah: zona.dosah, hustota: zona.hustota })) {
+      const barva = h > 0 ? "rgba(150,110,255,.75)" : "rgba(60,180,130,.5)";
+      kresba += `<circle cx="${px(x)}" cy="${py(y)}" r="2.2" fill="${barva}" />`;
+    }
   }
   for (const o of Object.values(objekty)) {
     const u = obrys(o); if (!u) continue;
@@ -101,7 +111,7 @@ try {
         (par in z.vidi ? bunka(vd, z.vidi[par]) : "<td>—</td>") +
         (par in z.projde ? bunka(pr, z.projde[par]) : "<td>—</td>") + `</tr>`);
     }
-    ven.push(`<section><h2>${nazev}</h2>${nakresli(objekty, z.klin)}
+    ven.push(`<section><h2>${nazev}</h2>${nakresli(objekty, z.klin, z.zona)}
       <table><thead><tr><th>dvojice</th><th>vzdál.</th><th>vidí</th><th>projde</th></tr></thead>
       <tbody>${radky.join("")}</tbody></table></section>`);
   }

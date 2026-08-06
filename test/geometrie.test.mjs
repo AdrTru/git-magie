@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { vzdalenost, vnima, projde, zornyKlin } from "../engine/geometrie.js";
+import { zonaPohybu } from "../engine/pohyb.js";
 
 const ZDE = dirname(fileURLToPath(import.meta.url));
 const data = JSON.parse(readFileSync(join(ZDE, "fixtury_geometrie.json"), "utf-8"));
@@ -72,6 +73,22 @@ for (const [nazev, z] of Object.entries(data)) {
       const ok = Math.abs(dostal[i][0] - cekal[i][0]) < TOLERANCE &&
                  Math.abs(dostal[i][1] - cekal[i][1]) < TOLERANCE;
       zkus("klín", `${kdo}[${i}]`, "…", "…", ok);
+    }
+  }
+  // Zóna pohybu: bod po bodu proti oracle (týž graf, Dijkstra, mřížka; i patra).
+  const zn = z.zona;
+  for (const [kdo, cekal] of Object.entries(zn.kdo)) {
+    const dostal = zonaPohybu(objekty[kdo], scena,
+                              { dosah: zn.dosah, hustota: zn.hustota });
+    if (dostal.length !== cekal.length) {
+      chyby.push(`  [${nazev}] zóna ${kdo}: JS ${dostal.length} bodů, oracle ${cekal.length}`);
+      continue;
+    }
+    for (let i = 0; i < cekal.length; i++) {
+      const ok = Math.abs(dostal[i][0] - cekal[i][0]) < TOLERANCE &&
+                 Math.abs(dostal[i][1] - cekal[i][1]) < TOLERANCE &&
+                 Math.abs(dostal[i][2] - cekal[i][2]) < TOLERANCE;
+      zkus("zóna", `${kdo}[${i}]`, "…", "…", ok);
     }
   }
 }

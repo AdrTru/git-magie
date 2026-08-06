@@ -24,10 +24,17 @@ Postupuje se po částech, každá ověřená v CI:
 
 1. **Kostra + geometrie** — `engine/geometrie.js`: tvary, vzdálenost, dvě
    nezávislé osy clonění (výhled × pohyb), výška (2.5D), zorné pole a **zorný
-   klín** (věnec paprsků s cloněním). Ověřeno **130/130 hodnot proti Pythonu**
-   na pěti zkouškách. ✅ *tady jsme*
-2. **Zóna pohybu** (Dijkstra, víceúrovňový graf) živě — konec zapékání zóny.
-   Klín už je hotový (bod 1); zbývá dopočítat i dosažitelnost živě.
+   klín** (věnec paprsků s cloněním). ✅
+2. **Zóna pohybu** — `engine/pohyb.js`: kam bytost dojde, než se scéna pohne.
+   Viditelnostní graf **po patrech** (rohy překážek + žebříky/pěšiny jako
+   přechody), Dijkstra, mřížka dosažitelných bodů. **UMÍ PATRA** — kdo vyleze
+   po žebříku, má zónu i nahoře. ✅ *tady jsme*
+
+Celá geometrická vrstva ověřená bod po bodu proti Pythonu: **627/627 hodnot**
+na šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
+(`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
+
+Další na řadě: jazyk kouzel a skloňování (`cestina.py`).
 3. Jazyk kouzel + skloňování.
 4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.

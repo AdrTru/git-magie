@@ -86,7 +86,7 @@ function otoc(v, stupne) {
 
 function posun(bod, o) { return [bod[0] + o[0], bod[1] + o[1]]; }
 
-function dist(a, b) { return Math.hypot(a[0] - b[0], a[1] - b[1]); }
+export function dist(a, b) { return Math.hypot(a[0] - b[0], a[1] - b[1]); }
 
 // Tvar objektu ve světě — JEDINÁ pravda o geometrii.
 // Vrací ["kruh", [stred, r]] nebo ["usecky", [[a,b], ...]]; null bez místa.
@@ -142,7 +142,7 @@ function kriz(p, q) {
   return zk.some(([d, u, v, w]) => d === 0 && leziNa(u, v, w));
 }
 
-function bodUsecka(bod, u) {           // vzdálenost bodu od úsečky
+export function bodUsecka(bod, u) {           // vzdálenost bodu od úsečky
   const [ax, ay] = u[0], [bx, by] = u[1];
   const dx = bx - ax, dy = by - ay;
   const delka2 = dx * dx + dy * dy;
@@ -291,7 +291,7 @@ function paprsek(a, b, scena) {
   return [odkud, nejblizsiObrysu(tel, odkud)];
 }
 
-function protinaObrys(a, b, cizi) {
+export function protinaObrys(a, b, cizi) {
   if (cizi[0] === "kruh") {
     const [stred, r] = cizi[1];
     return r > 0 && bodUsecka(stred, [a, b]) <= r;
@@ -300,7 +300,7 @@ function protinaObrys(a, b, cizi) {
                              useckyVzdalenost([a, b], u) <= 0);
 }
 
-function prekaziPohybu(prekazka, kdo, hladina = null) {
+export function prekaziPohybu(prekazka, kdo, hladina = null) {
   if (kdo === null) return true;
   const z = hladina === null ? pole(kdo, "z") : hladina;
   const spodek = z + KROK_NAHORU;
