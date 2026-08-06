@@ -44,6 +44,12 @@ Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** 
 šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
 (`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
 
+**Vidět naživo** (na mobilu, přes Pages) — obojí importuje skutečné moduly
+enginu a staví JS vedle Python oracle:
+[geometrie](https://adrtru.github.io/git-magie/engine-demo.html) ·
+[skloňování](https://adrtru.github.io/git-magie/jazyk-demo.html) (napiš jméno,
+vyber pád; dole celý slovník).
+
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 
 ## Geometrie prostoru

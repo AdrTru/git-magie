@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="cs">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engine skloňování — JS vs Python</title>
+<!--
+  Živá ukázka DRUHÉHO kusu JS enginu (krok 3, díl 1: skloňování hlášek).
+  Importuje SKUTEČNÝ `engine/cestina.js` (ne slepenou kopii) — tentýž kód, co
+  pouští `npm test`. Nahoře si napíšeš jméno a vybereš pád, dole je celý
+  slovník ve všech pádech. Odznak „= python" ověří proti vzorku fixtur z
+  Pythonu, že port sedí. Kdyby se engine nenačetl, ukáže se to v #havarie, ať
+  to nemlčí (na telefonu není konzole).
+-->
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 1rem;
+         max-width: 46rem; margin-inline: auto; }
+  h1 { font-size: 1.25rem; }
+  #havarie { display: none; background: #f3d9d9; color: #7a1f1f;
+             padding: .75rem; border-radius: .5rem; white-space: pre-wrap;
+             font-family: ui-monospace, monospace; font-size: 13px; }
+  #odznak { display: inline-block; font-weight: 600; padding: .3rem .6rem;
+            border-radius: .5rem; background: #e8f0e8; font-size: .85rem; }
+  #odznak.spatne { background: #f3d9d9; }
+  .hracka { background: #0001; border-radius: .6rem; padding: 1rem; margin: 1rem 0; }
+  .hracka label { display: block; font-size: .8rem; color: #666; margin-bottom: .2rem; }
+  .hracka input { font: inherit; padding: .4rem .5rem; border-radius: .4rem;
+                  border: 1px solid #8886; width: 100%; box-sizing: border-box;
+                  background: transparent; color: inherit; }
+  .radek { display: flex; gap: .75rem; margin-bottom: .75rem; }
+  .radek > div { flex: 1; }
+  .pady { display: flex; gap: .4rem; margin: .25rem 0 .75rem; }
+  .pady button { font: inherit; padding: .35rem .7rem; border-radius: .4rem;
+                 border: 1px solid #8886; background: transparent; color: inherit;
+                 cursor: pointer; }
+  .pady button.on { background: #3b6; color: #fff; border-color: #3b6; }
+  #vysledek { font-size: 1.4rem; font-weight: 600; min-height: 1.6em; }
+  #vysledek small { font-size: .9rem; font-weight: 400; color: #666; }
+  .veta { font-size: 1.05rem; margin-top: .4rem; }
+  .veta b { font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; margin-top: .5rem; }
+  th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid #ccc3; }
+  th { color: #666; font-weight: 600; }
+  td:first-child { font-weight: 600; }
+  .rod { color: #888; font-size: .8rem; }
+  h2 { font-size: 1rem; margin: 1.5rem 0 .25rem; }
+  .popis { color: #666; font-size: .85rem; margin: 0 0 .5rem; }
+</style>
+
+<h1>Engine skloňování — JS proti Python oracle</h1>
+<div id="havarie"></div>
+<p><span id="odznak">Ověřuji…</span></p>
+
+<div class="hracka">
+  <div class="radek">
+    <div>
+      <label for="jmeno">Jméno věci (jako ve scéně)</label>
+      <input id="jmeno" value="Kamenná bedna" autocomplete="off" autocapitalize="off">
+    </div>
+    <div style="max-width: 6rem">
+      <label for="predlozka">Předložka</label>
+      <input id="predlozka" value="k" autocomplete="off" autocapitalize="off">
+    </div>
+  </div>
+  <div class="pady" id="pady">
+    <button data-pad="2">2. pád</button>
+    <button data-pad="3" class="on">3. pád</button>
+    <button data-pad="4">4. pád</button>
+  </div>
+  <div id="vysledek"></div>
+  <div class="veta" id="veta"></div>
+</div>
+
+<h2>Celý slovník</h2>
+<p class="popis">Podstatná jména, která engine zná. Přídavná jména se k nim
+počítají pravidlem, takže „Kamenná bedna" projde, i když ji nikdo nezapsal.</p>
+<table id="slovnik">
+  <thead><tr><th>1. pád</th><th>2. pád</th><th>3. pád</th><th>4. pád</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<script type="module">
+import { SLOVA, sklonuj, rodFraze, vokalizuj, sPredlozkou, zajmeno }
+  from "./engine/cestina.js";
+
+const havarie = (t) => { const e = document.getElementById("havarie");
+  e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
+
+try {
+  const jmeno = document.getElementById("jmeno");
+  const predlozka = document.getElementById("predlozka");
+  const vysledek = document.getElementById("vysledek");
+  const veta = document.getElementById("veta");
+  const padyEl = document.getElementById("pady");
+  let pad = 3;
+
+  const PADNAZEV = { 2: "2. pád (koho/čeho)", 3: "3. pád (komu/čemu)", 4: "4. pád (koho/co)" };
+
+  function prekresli() {
+    const nazev = jmeno.value.trim();
+    if (!nazev) { vysledek.textContent = ""; veta.textContent = ""; return; }
+    const rod = rodFraze(nazev);
+    const tvar = sklonuj(nazev, pad);
+    const zna = rod !== null;
+    vysledek.innerHTML =
+      `${tvar} <small>— ${PADNAZEV[pad]}` +
+      (zna ? ` · rod ${rod}` : " · <b>nezná</b>, vrací 1. pád") + "</small>";
+    const p = predlozka.value.trim();
+    const sPred = p ? sPredlozkou(p, nazev, pad) : tvar;
+    veta.innerHTML =
+      `Jdeš <b>${sPred}</b>. &nbsp; Neseš <b>${zajmeno(nazev)}</b>.`;
+  }
+
+  jmeno.addEventListener("input", prekresli);
+  predlozka.addEventListener("input", prekresli);
+  for (const b of padyEl.children) {
+    b.addEventListener("click", () => {
+      pad = Number(b.dataset.pad);
+      for (const x of padyEl.children) x.classList.toggle("on", x === b);
+      prekresli();
+    });
+  }
+  prekresli();
+
+  // Slovník ve všech pádech (klíč s velkým písmenem, ať se čte jako název).
+  const telo = document.querySelector("#slovnik tbody");
+  for (const klic of Object.keys(SLOVA).sort((a, b) => a.localeCompare(b, "cs"))) {
+    const nazev = klic[0].toUpperCase() + klic.slice(1);
+    const [rod] = SLOVA[klic];
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      `<td>${nazev} <span class="rod">${rod}</span></td>` +
+      `<td>${sklonuj(nazev, 2)}</td><td>${sklonuj(nazev, 3)}</td><td>${sklonuj(nazev, 4)}</td>`;
+    telo.appendChild(tr);
+  }
+
+  // Odznak: ověř port proti VZORKU fixtur z Pythonu (celé je v `npm test`).
+  const odznak = document.getElementById("odznak");
+  try {
+    const fix = await (await fetch("./test/fixtury_jazyk.json")).json();
+    let sedi = 0, celkem = 0;
+    const rozdil = [];
+    for (const c of fix.sklonuj) {
+      celkem++;
+      const dostal = sklonuj(c.nazev, c.pad, c.prepis);
+      if (dostal === c.ceka) sedi++;
+      else rozdil.push(`"${c.nazev}" ${c.pad}.: JS ${dostal} ≠ ${c.ceka}`);
+    }
+    if (sedi === celkem) {
+      odznak.textContent = `= python (${sedi}/${celkem} tvarů)`;
+    } else {
+      odznak.textContent = `≠ python (${celkem - sedi} rozdílů)`;
+      odznak.classList.add("spatne");
+      havarie(rozdil.slice(0, 8).join("\n"));
+    }
+  } catch (e) {
+    // Fixtury se přes `file://` nenačtou (fetch je blokovaný) — na Pages ano.
+    odznak.textContent = "odznak jen na webu (fetch)";
+  }
+} catch (e) {
+  havarie((e && e.stack) || String(e));
+}
+</script>
