@@ -528,6 +528,251 @@
           }
         }
       ]
+    },
+    {
+      "nazev": "látka objevená sesláním",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "latka",
+          "zivel": "Jed",
+          "ceka": {
+            "id": "jed",
+            "slug": "jed",
+            "vKnize": true,
+            "zna": true,
+            "mastery": 1.0,
+            "text": "Smrt Voda",
+            "odvozeny": "podstata",
+            "slozky": [
+              "zivot",
+              "voda"
+            ]
+          }
+        },
+        {
+          "op": "latka",
+          "zivel": "Jed",
+          "ceka": {
+            "id": null,
+            "slug": "jed",
+            "vKnize": true,
+            "zna": true
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Zažehni Jed Nepřítel",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Jed",
+              "cile": [
+                "Nepřítel"
+              ],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "odumírá",
+                "otráveno"
+              ],
+              "filtry": {},
+              "strany": {
+                "Nepřítel": "enemy"
+              },
+              "runy": [
+                "zazehni",
+                "jed",
+                "nepritel"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 4.245,
+              "obtiznost": 2.5,
+              "sance": 0.95,
+              "nejslabsi": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "látka viděná u zdroje, doučená sesláním",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "latka",
+          "zivel": "Láva",
+          "nauc": false,
+          "ceka": {
+            "id": "lava",
+            "slug": "lava",
+            "vKnize": true,
+            "zna": false,
+            "mastery": null,
+            "text": "Kámen Oheň",
+            "odvozeny": "podstata",
+            "slozky": [
+              "kamen",
+              "ohen"
+            ]
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Zažehni Láva",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Láva",
+              "cile": [],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "zavaleno",
+                "taví"
+              ],
+              "filtry": {},
+              "strany": {},
+              "runy": [
+                "zazehni",
+                "lava"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 4.199999999999999,
+              "obtiznost": 2.0,
+              "sance": 0.060000000000000005,
+              "nejslabsi": "lava"
+            }
+          }
+        },
+        {
+          "op": "latka",
+          "zivel": "Láva",
+          "ceka": {
+            "id": "lava",
+            "slug": "lava",
+            "vKnize": true,
+            "zna": true,
+            "mastery": 1.0,
+            "text": "Kámen Oheň",
+            "odvozeny": "podstata",
+            "slozky": [
+              "kamen",
+              "ohen"
+            ]
+          }
+        },
+        {
+          "op": "latka",
+          "zivel": "Láva",
+          "ceka": {
+            "id": null,
+            "slug": "lava",
+            "vKnize": true,
+            "zna": true
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "látka s neznámou složkou se nenaučí",
+      "faze": 6,
+      "runy": [
+        "zazehni",
+        "voda"
+      ],
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "latka",
+          "zivel": "Jed",
+          "ceka": {
+            "id": null,
+            "slug": "jed",
+            "vKnize": true,
+            "zna": false
+          }
+        },
+        {
+          "op": "latka",
+          "zivel": "Jed",
+          "nauc": false,
+          "ceka": {
+            "id": null,
+            "slug": "jed",
+            "vKnize": true,
+            "zna": false
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "látka koliduje s runou jazyka",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "latka",
+          "zivel": "Oheň",
+          "ceka": {
+            "id": null,
+            "slug": "ohen",
+            "vKnize": false,
+            "zna": true
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "látka bez receptu",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "latka",
+          "zivel": "Mlhovina",
+          "recept": false,
+          "ceka": {
+            "id": "mlhovina",
+            "slug": "mlhovina",
+            "vKnize": true,
+            "zna": true,
+            "mastery": 0.0,
+            "text": "",
+            "odvozeny": "podstata",
+            "slozky": []
+          }
+        }
+      ]
     }
   ]
 }

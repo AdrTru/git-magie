@@ -2,3 +2,9 @@
 # Do repa nepatří: publikuje se jeho OBSAH nakopírovaný do kořene, ne on sám.
 # Bez tohohle řádku by ho `git add -A` v publikačním kroku přibalil taky.
 staz/
+
+# Volitelný jsdom (kontrola démo stránek v DOM). Není to závislost enginu —
+# ten běží v prohlížeči na holých modulech — jen nástroj, který si člověk
+# doinstaluje `npm install --no-save jsdom`. Bez tohohle řádku ho `git add -A`
+# přibalí celý do repa (a stalo se: 1500 souborů ve stage).
+node_modules/

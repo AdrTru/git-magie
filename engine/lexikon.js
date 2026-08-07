@@ -14,8 +14,7 @@ const _klicDvojice = (a, b) => [a, b].sort().join("|");
 export const interakce = (lex, a, b) => lex.interakceZivlu[_klicDvojice(a, b)] ?? null;
 export const interakceFormy = (lex, a, b) => lex.interakceForem[_klicDvojice(a, b)] ?? null;
 
-// `CÍL : VLASTNOST…` → odvozená runa zúženého cíle (#38, §3.4).
-// Id zůstává původní (mastery cíle se dědí — zúžení je gramatika, ne nové
+// `CÍL : VLASTNOST…` → odvozená runa zúženého cíle (#38, §3.4).// Id zůstává původní (mastery cíle se dědí — zúžení je gramatika, ne nové
 // slovo); vlastnosti jedou v data.filtr a do min-mastery i ceny vstupují samy.
 export function zuz(cil, vlastnosti) {
   const data = { ...cil.data };
@@ -87,4 +86,46 @@ export function neguj(runa, lex) {
   }
 
   throw new ChybaGramatiky(`Runu ${JSON.stringify(runa.nazev)} nelze negovat (§3.5).`);
+}
+
+// -- recept odvozeného živlu (§3.4, §8.1) ------------------------------------
+
+/** Název složky receptu → runa: přímý živel svou runou, absence negací základu. */
+function _slozkaNaRunu(nazev, lex) {
+  const cil = nazev.toLowerCase();
+  for (const runa of Object.values(lex.runy)) {
+    if (runa.druh === DRUH.PODSTATA && runa.nazev.toLowerCase() === cil) return runa;
+  }
+  for (const [baseId, absence] of Object.entries(lex.absenceZivlu ?? {})) {
+    if ((absence.zivel ?? "").toLowerCase() === cil) {
+      const base = lex.runy[baseId];
+      return base === undefined ? null : neguj(base, lex);
+    }
+  }
+  return null;
+}
+
+/**
+ * Odvozený živel → podstaty jeho receptu jako RUNY (§3.4, §8.1).
+ *
+ * `Jed` → `[Smrt, Voda]`: přímá složka je svou runou, absence (Smrt, Chlad…)
+ * negovanou runou svého základu. Slouží jako definice jméno-látky objevené
+ * u zdroje (kotlík, #47). Vrací `null`, není-li živel v interakční tabulce nebo
+ * nejde-li některou složku složit ze základních run (recept s další odvozenou
+ * složkou — Ledovec = Led + Kámen — zatím nepodporujeme).
+ *
+ * POŘADÍ je pořadí v klíči `A|B`, tedy seřazené — viz `slozkyZivlu` v `cerpani.js`.
+ */
+export function receptPodstaty(zivel, lex) {
+  const cil = zivel.toLowerCase();
+  const recept = Object.entries(lex.interakceZivlu ?? {})
+    .find(([, data]) => (data.zivel ?? "").toLowerCase() === cil);
+  if (recept === undefined) return null;
+  const podstaty = [];
+  for (const nazev of recept[0].split("|")) {
+    const runa = _slozkaNaRunu(nazev, lex);
+    if (runa === null) return null;
+    podstaty.push(runa);
+  }
+  return podstaty;
 }

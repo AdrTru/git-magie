@@ -55,14 +55,29 @@ export function pole(o, jmeno) {
   return v === undefined ? vych[jmeno] : v;
 }
 
-export function maTag(o, tag) {
-  const t = o.tagy;
-  return t instanceof Set ? t.has(tag) : Array.isArray(t) && t.includes(tag);
+// `stavy`/`tagy` drží scéna jako `Set`, geometrie je ale čte i ze syrového
+// pole (JSON před `zeSlovniku`) — proto tolerantně obojí.
+function _polozky(mnozina) {
+  if (mnozina instanceof Set) return [...mnozina];
+  return Array.isArray(mnozina) ? mnozina : [];
 }
 
+export function maTag(o, tag) {
+  const cil = tag.toLowerCase();
+  return _polozky(o.tagy).some((t) => t.toLowerCase() === cil);
+}
+
+// ILUZE NEKLAME MECHANIKU (§5.2). Zdánlivý stav se zapisuje s prefixem
+// „zdánlivě " a `maStav` ho NEVIDÍ — jinak by iluzorní „zničeno" doopravdy
+// zrušilo překážku a zeď by šla projít vírou. Bytosti jednají podle toho, co
+// VNÍMAJÍ, ale to je jiná otázka a jiná funkce (přijde s vnímáním, díl 3d).
+export const ZDANLIVE = "zdánlivě ";
+
 export function maStav(o, stav) {
-  const s = o.stavy;
-  return s instanceof Set ? s.has(stav) : Array.isArray(s) && s.includes(stav);
+  const cil = stav.toLowerCase();
+  return _polozky(o.stavy).some(
+    (s) => !s.startsWith(ZDANLIVE) && s.toLowerCase() === cil,
+  );
 }
 
 // -- kde objekt je -----------------------------------------------------------

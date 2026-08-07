@@ -1,9 +1,7 @@
-// Kniha kouzel — pojmenovaná kouzla jako funkce (§6). Port `spelllang/spellbook.py`,
-// jen VĚC POJMENOVÁNÍ: `vyloz`, `Zaznam`, `Spellbook.pojmenuj` a kontrola cyklu.
-//
-// Odvozené LÁTKY (`zaznamenej_latku`, `slozky_latky` z Pythonu, §3.4/#47) sem
-// NEPATŘÍ — visí na čerpání many ze zdrojů okolí (§8.1) a přijdou s dílem o
-// čerpání. Spellbook se řeže podle věci, ne podle řádků.
+// Kniha kouzel — pojmenovaná kouzla jako funkce (§6). Port `spelllang/spellbook.py`:
+// věc POJMENOVÁNÍ (`vyloz`, `Zaznam`, `Spellbook.pojmenuj`, kontrola cyklu, díl 3a)
+// a věc ODVOZENÝCH LÁTEK (`zaznamenejLatku`, `slozkyLatky`, díl 3c) — ta patří
+// k čerpání ze zdrojů okolí (§8.1), protože látka se objevuje U ZDROJE.
 //
 // `pojmenuj` udělá z hotového kouzla nové slovo: zvaliduje definici, odvodí
 // slovní druh z kořene (látkový efekt → podstata, jinak sloveso, §6),
@@ -18,7 +16,7 @@
 // při definici neexistuje), cyklus vznikne jen REDEFINICÍ — tu hlídá
 // `_zkontrolujCyklus` průchodem odkazovaných jmen.
 
-import { runyV } from "./ast_nodes.js";
+import { Fraze, runyV } from "./ast_nodes.js";
 import { TypEfektu } from "./effects.js";
 import {
   ChybaKouzla,
@@ -139,6 +137,72 @@ export class Spellbook {
       ...obsazene.map((r) => znalosti.mastery[r.id] ?? 0.0));
     this.zaznamy[jmenoId] = new Zaznam(runa, text, vyklady, ukotveni);
     return runa;
+  }
+
+  // -- odvozené látky (§3.4, §8.1, #47) -------------------------------------
+
+  // Odvozenou látku (Jed, Láva, Led…) zavede jako JMÉNO-LÁTKU. Definice je
+  // BEZSLOVESNÁ FRÁZE základních živlů, z nichž látka vznikla (`Voda ne Život`):
+  // na ně se při ocenění rozbalí, takže do látky jde čerpat manu ze zdrojů
+  // okolí (základní živel z pramene je zdarma, §8.1).
+  //
+  // `nauc=true` (objev sesláním) runu rovnou přidá do znalostí. `nauc=false`
+  // (naražení U ZDROJE, `prozkoumej` kotlík) jméno jen ZPŘÍSTUPNÍ — runa je
+  // v lexikonu a záznam v knize, takže ho čaroděj umí napsat a čerpat, ale
+  // NEUMÍ ho: naučí se až úspěšným sesláním. Vidět jméno ≠ umět ho.
+  //
+  // Vrací id runy jen když se skutečně NAUČILA (`nauc=true`), nebo když se nově
+  // zavedlo viděné jméno (`nauc=false`); jinak `null`. Neběží přes `pojmenuj` —
+  // objev v terénu nemá fázovou bránu ani práh mastery.
+  //
+  // PREREKVIZITA (§10.3): naučit látku lze jen se ZNÁMÝMI vnitřními složkami.
+  // Neznámá složka = látka viděná a půjčitelná, ale nenaučitelná.
+  zaznamenejLatku(zivel, podstaty, lex, znalosti, { nauc = true } = {}) {
+    const jmenoId = _slug(zivel);
+    if (jmenoId in this.zaznamy) {
+      // Už zavedená (třeba viděná z prozkoumání zdroje) — definici NEPŘEPISUJ;
+      // jen ji případně douč, zná-li čaroděj složky.
+      if (nauc && !znalosti.zna(jmenoId)
+          && this._naucLatku(jmenoId, this.zaznamy[jmenoId].ast, znalosti)) {
+        return jmenoId;
+      }
+      return null;
+    }
+    if (znalosti.zna(jmenoId)) return null;
+    const stavajici = lex.runy[jmenoId];
+    if (stavajici !== undefined && stavajici.druh !== DRUH.JMENO) {
+      return null;   // jméno koliduje s runou jazyka — nepřepisuj
+    }
+    const defAst = Fraze([], [...podstaty]);   // látka je fráze bez slovesa
+    const runa = { id: jmenoId, druh: DRUH.JMENO, nazev: zivel,
+                   data: { odvozeny: "podstata" } };
+    lex.runy[jmenoId] = runa;
+    this.zaznamy[jmenoId] = new Zaznam(
+      runa, podstaty.map((p) => p.nazev).join(" "), [defAst], null);
+    if (nauc) {
+      return this._naucLatku(jmenoId, defAst, znalosti) ? jmenoId : null;
+    }
+    return jmenoId;   // nauc=false: nově zavedené viděné jméno
+  }
+
+  // Vnitřní runy receptu odvozené JMÉNO-LÁTKY (Voda, Život u Jedu), nebo `null`,
+  // není-li `runaId` odvozená látka v knize. Prerekvizita naučení (§10.3).
+  slozkyLatky(runaId) {
+    const zaznam = this.zaznamy[runaId];
+    if (zaznam === undefined || zaznam.runa.data.odvozeny !== "podstata") return null;
+    return runyV(zaznam.ast);
+  }
+
+  // Naučí jméno-látku; mastery = MIN VNITŘNÍCH RUN definice (odvozená míra
+  // seslání, jako u `pojmenuj`). Neznámá složka → nenaučí (vrací false).
+  _naucLatku(jmenoId, defAst, znalosti) {
+    const vnitrni = runyV(defAst);
+    if (vnitrni.some((r) => !znalosti.zna(r.id))) return false;
+    znalosti.runy.add(jmenoId);
+    znalosti.mastery[jmenoId] = vnitrni.length
+      ? Math.min(...vnitrni.map((r) => znalosti.mastery[r.id] ?? 0.0))
+      : 0.0;
+    return true;
   }
 
   // Nová definice nesmí (ani přes jiná jména) odkázat sama na sebe.

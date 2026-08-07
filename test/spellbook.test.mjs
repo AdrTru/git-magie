@@ -19,12 +19,20 @@ import { vyhodnot } from "../engine/evaluator.js";
 import { nacen } from "../engine/costs.js";
 import { Znalosti } from "../engine/progression.js";
 import { Spellbook } from "../engine/spellbook.js";
+import { receptPodstaty } from "../engine/lexikon.js";
 
 const zde = dirname(fileURLToPath(import.meta.url));
 const fix = JSON.parse(readFileSync(join(zde, "fixtury_spellbook.json"), "utf-8"));
 
 // -- komparátory (týž tvar jako evaluator.test / costs.test) ----------------
-const blizko = (a, b) => Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b));
+// „Blízko" pro čísla — a zároveň poctivé porovnání CHYBĚJÍCÍ hodnoty. Python
+// `mastery.get(id)` vrací None, JS `mastery[id]` vrací undefined; obojí znamená
+// „nic tam není" a musí se rovnat. Bez toho by `Math.abs(undefined - null)`
+// dalo NaN a rozdíl by se hlásil i tam, kde obě strany souhlasí, že hodnota není.
+const chybi = (x) => x === null || x === undefined;
+const blizko = (a, b) => (chybi(a) || chybi(b))
+  ? (chybi(a) && chybi(b))
+  : Math.abs(a - b) <= 1e-9 * Math.max(1, Math.abs(a), Math.abs(b));
 
 function serEfekt(ef) {
   return {
@@ -128,6 +136,34 @@ for (const scenar of fix.spellbook) {
       if (runa.data.odvozeny !== ceka.odvozeny) selhalo(`${kde} odvozeny`, ceka.odvozeny, runa.data.odvozeny);
       if (!blizko(znalosti.mastery[runa.id], ceka.mastery)) selhalo(`${kde} mastery`, ceka.mastery, znalosti.mastery[runa.id]);
       if (znalosti.zna(runa.id) !== ceka.zna) selhalo(`${kde} zna`, ceka.zna, znalosti.zna(runa.id));
+      continue;
+    }
+
+    if (krok.op === "latka") {
+      // Objev odvozené látky (§8.1, #47). Podstaty se berou z receptu STEJNĚ
+      // jako v oraclu — scénář nese jen živel a přepínače, ne hotový seznam run.
+      const podstaty = krok.recept === false ? [] : (receptPodstaty(krok.zivel, lex) ?? []);
+      const id = kniha.zaznamenejLatku(krok.zivel, podstaty, lex, znalosti,
+                                       { nauc: krok.nauc ?? true });
+      if (id !== ceka.id) selhalo(`${kde} id`, ceka.id, id);
+      const slug = ceka.slug;   // `_slug` drží Python; JS ho v testu neopisuje
+      const vKnize = kniha.zaznam(slug) !== null;
+      if (vKnize !== ceka.vKnize) selhalo(`${kde} vKnize`, ceka.vKnize, vKnize);
+      if (znalosti.zna(slug) !== ceka.zna) selhalo(`${kde} zna`, ceka.zna, znalosti.zna(slug));
+      if (id !== null) {
+        const zaznam = kniha.zaznam(id);
+        if (!blizko(znalosti.mastery[id], ceka.mastery)) {
+          selhalo(`${kde} mastery`, ceka.mastery, znalosti.mastery[id]);
+        }
+        if (zaznam.text !== ceka.text) selhalo(`${kde} text`, ceka.text, zaznam.text);
+        if (zaznam.runa.data.odvozeny !== ceka.odvozeny) {
+          selhalo(`${kde} odvozeny`, ceka.odvozeny, zaznam.runa.data.odvozeny);
+        }
+        const slozky = (kniha.slozkyLatky(id) ?? []).map((r) => r.id);
+        if (JSON.stringify(slozky) !== JSON.stringify(ceka.slozky)) {
+          selhalo(`${kde} slozky`, JSON.stringify(ceka.slozky), JSON.stringify(slozky));
+        }
+      }
       continue;
     }
 

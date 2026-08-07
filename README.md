@@ -46,6 +46,22 @@ Postupuje se po částech, každá ověřená v CI:
      poznámka) + 6 chybových větví; navíc **hlídač** srovná generovaný spec
      53 polí s Python dataclassem. (`Udalost` — běhová událost pro spouště —
      přijde s chováním, díl 3e.)
+   - **Čerpání a živlové okolí** (`engine/cerpani.js`, port mechanické části
+     `scene.py`; tabulky `engine/mechaniky_data.js` GENEROVANÉ z Pythonu) ✅ —
+     dvě otázky, které scéna klade jazyku. CO JDE ČERPAT: čím objekt zrovna je
+     jako zdroj (`zdrojObjektu` — statický i odvozený ze stavu: hořící dveře
+     jsou slabý zdroj Ohně) a na které základní runy se to rozpadne
+     (`cerpatelne`, `slozkyZivlu` — Jed = Voda + ne Život, recept rekurzivně).
+     JAK DLOUHO TO NA ČEM VYDRŽÍ: `trvaniStavu` (troje hodiny — jev, kouzlo,
+     objekt), `nasobekTrvani` (materiál a autorský přepis kusu) a
+     `zadrzujeSireni` (§8.2: pec hoří, ale chalupu nezapálí). Odtud bere
+     validátor `dostupneZvenci` a ceny slevu za živel z okolí — obojí bylo
+     portované z kroku 3, ale bez scény NEOVĚŘENÉ. Sem patří i **odvozené látky**
+     v knize (`zaznamenejLatku`/`slozkyLatky` ve `spellbook.js`,
+     `receptPodstaty` v `lexikon.js`): látka objevená u zdroje se zavede jako
+     jméno-podstata, viděná ≠ naučená, a neznámá vnitřní složka naučení brání.
+     **44 příznaků + 51 rozkladů + 1035 jevů na 23 objektech** proti oracle.
+     Jen ČTENÍ: zápis stavu, šíření a tik scény jsou stavové a jdou s chováním (3e).
      podstatná jména ze slovníku (`slova.js`, GENEROVANÝ z Pythonu, ne opsaný),
      přídavná jména pravidlem (tvrdá/měkká/přivlastňovací × rod × pád),
      opisovaný ocas fráze, vokalizace předložek (k → ke), zájmena. **1317/1317
@@ -82,8 +98,8 @@ Postupuje se po částech, každá ověřená v CI:
    - **Celý pipeline jazyka běží v JS**: `Zažehni Oheň Voda Nepřítel Výbuch silně`
      → tokeny → AST → validace(fáze/znalosti) → cena(mana/šance) → efekt
      (Pára ~Výbuch, síla 24). Ověřeno bod po bodu proti Pythonu.
-   - **Pojmenování kouzel** (`engine/spellbook.js`, port `spellbook.py` — jen věc
-     pojmenování; odvozené látky visí na čerpání many a přijdou s ním) ✅ —
+   - **Pojmenování kouzel** (`engine/spellbook.js`, port `spellbook.py`; odvozené
+     látky přibyly s čerpáním, viz níže) ✅ —
      z hotového kouzla udělá nové slovo (§6): zvaliduje definici, odvodí slovní
      druh z kořene (látkový efekt → podstata, jinak sloveso), zaregistruje runu
      JMENO do lexikonu a uloží záznam s (volitelně **ukotveným**) výkladem
@@ -91,15 +107,19 @@ Postupuje se po částech, každá ověřená v CI:
      tím se konečně ověřily cesty `Volani` v parseru, cenách i vyhodnocení, které
      byly portované, ale bez knihy NEOVĚŘENÉ. Pojistky: fázová brána, práh mastery
      pro zabalení, kontrola cyklu při redefinici, strop hloubky rozbalení (ceny na
-     něj narazí o úroveň dřív než vyhodnocení — fixtura pinuje oba). **10 scénářů,
-     25 kroků** proti oracle.
+     něj narazí o úroveň dřív než vyhodnocení — fixtura pinuje oba). **15 scénářů,
+     36 kroků** proti oracle (z toho 5 scénářů o látkách).
    - Zbývá k jazyku (přijde se scénou, krok 4, protože potřebuje běh/kontext):
      smyčka učení (zbytek `progression.py`), vyústění a divoká magie (RNG,
      `errors.py`).
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
-Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** na
-šesti zkouškách (vč. víceúrovňové „plošina a žebřík"). Geometrie je čistá
+Geometrická vrstva je ověřená bod po bodu proti Pythonu — každou hodnotu
+(vzdálenost, výhled, průchod, zorný klín, zóna pohybu) na každém scénáři
+fixtury, včetně víceúrovňové „plošina a žebřík" a páru „iluze zničení"
+vs. „zeď zničená" (zdánlivý stav klame vnímání, ne geometrii). Přesný počet
+říká `npm test`, ne tenhle odstavec — vypsané číslo by zestárlo, jakmile
+přibude scénář, a nikdo by si toho nevšiml. Geometrie je čistá
 (`geometrie.js`), pohyb staví na jejích primitivech (`pohyb.js`).
 
 **Vidět naživo** (na mobilu, přes Pages) — vše importuje skutečné moduly
@@ -110,9 +130,10 @@ vyber pád; dole celý slovník) ·
 [runová věta](https://adrtru.github.io/git-magie/kouzlo-demo.html) (napiš
 kouzlo, tokeny se obarví podle slovního druhu; dole **pojmenuj kouzlo a volej ho
 jménem** — volání se v poli nahoře rozbalí zpět na definici) ·
-[scéna jako data](https://adrtru.github.io/git-magie/scena-demo.html) (vyber
-místnost; engine ji načte z JSONu, zapíše zpět proti Pythonu a rovnou nakreslí
-z týchž dat).
+[scéna a živlové okolí](https://adrtru.github.io/git-magie/scena-demo.html)
+(vyber místnost; engine ji načte z JSONu, zapíše zpět proti Pythonu a rovnou
+nakreslí z týchž dat — a dole ukáže, co z čeho jde čerpat a jak dlouho na čem
+který jev vydrží).
 
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 

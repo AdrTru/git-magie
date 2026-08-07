@@ -13,11 +13,21 @@
 
   Kreslení je jen obrys (kde co leží a jaký má tvar). Kdo koho vidí a odkud —
   clony, tma, slepý úhel — přijde s dílem o vnímání; tady jde o data a tvar.
+
+  Druhá polovina stránky je ŽIVLOVÉ OKOLÍ (`cerpani.js`, §8.1/§5.1/§8.2): co
+  z které věci jde čerpat a jak dlouho na ní který jev vydrží. Je to táž scéna
+  a týž objekt — jen se ho ptáme na jiné otázky. Mechanické tabulky jsou
+  generovaná data z Pythonu (`mechaniky_data.js`), takže vyvážení je jedno.
 -->
 <style>
   body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 1rem;
          max-width: 46rem; margin-inline: auto; color: #222; }
   h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.05rem; margin-top: 2rem; }
+  .podnadpis { font-size: .88rem; color: #555; }
+  .jevy { margin: 0; padding-left: 0; list-style: none; font-size: .8rem; }
+  .jevy li { padding: .1rem 0; }
+  .zadrz { color: #7a5a1f; }
   #havarie { display: none; background: #f3d9d9; color: #7a1f1f; padding: .75rem;
              border-radius: .5rem; white-space: pre-wrap; font: 13px ui-monospace, monospace; }
   #odznak { display: inline-block; font-weight: 600; padding: .3rem .6rem;
@@ -55,6 +65,12 @@ a načtenou scénu rovnou nakreslí z týchž dat. <span id="odznak">Ověřuji�
 <div id="kresba"></div>
 <div id="seznam"></div>
 
+<h2>Živlové okolí</h2>
+<p class="podnadpis">Co z které věci jde čerpat (§8.1) a jak dlouho na ní který
+jev vydrží (§5.1). Zdroj může být statický (studna je Voda), nebo ze stavu —
+hořící dveře jsou slabý zdroj Ohně, dokud hoří.</p>
+<div id="cerpani"></div>
+
 <script type="module">
 const havarie = (t) => { const e = document.getElementById("havarie");
   e.style.display = "block"; e.textContent = "Nepovedlo se:\n" + t; };
@@ -62,6 +78,10 @@ const havarie = (t) => { const e = document.getElementById("havarie");
 try {
   const { zeSlovniku, doSlovniku } = await import("./engine/scena.js");
   const { obrys } = await import("./engine/geometrie.js");
+  const { zakladLexikon } = await import("./engine/lexikon.js");
+  const { cerpatelne, zdrojObjektu, zdroje, trvaniStavu, nasobekTrvani,
+          zadrzujeSireni, TRVANI_PODLE_TAGU } = await import("./engine/cerpani.js");
+  const lex = zakladLexikon();
 
   function stejne(a, b) {
     if (a === b) return true;
@@ -96,6 +116,7 @@ try {
   }
 
   const kresbaEl = document.getElementById("kresba");
+  const cerpaniEl = document.getElementById("cerpani");
   const seznamEl = document.getElementById("seznam");
   const rtEl = document.getElementById("rt");
 
@@ -152,11 +173,65 @@ try {
         <td><code>${o.id}</code></td>
         <td>${o.nazev}</td>
         <td>${tagy.length ? tagy.map((t) => `<code>${t}</code>`).join(" ") : "<span class='prazdne'>—</span>"}</td>
+        <td>${mnozina(o.stavy).length ? mnozina(o.stavy).map((t) => `<code>${t}</code>`).join(" ") : "<span class='prazdne'>—</span>"}</td>
         <td>${o.tvar}</td>
         <td>${poz}</td>
       </tr>`;
     }).join("");
-    return `<table><thead><tr><th>id</th><th>název</th><th>tagy</th><th>tvar</th><th>pozice</th></tr></thead><tbody>${radky}</tbody></table>`;
+    return `<table><thead><tr><th>id</th><th>název</th><th>tagy</th><th>stavy</th><th>tvar</th><th>pozice</th></tr></thead><tbody>${radky}</tbody></table>`;
+  }
+
+  // Jméno runy podle id — čerpání mluví v id (`ohen`), člověk v názvech (Oheň).
+  const nazevRuny = (rid) => (lex.runy[rid] ?? {}).nazev ?? rid;
+
+  // Které jevy má smysl u objektu ukázat: ty, které na sobě NESE, plus ty, na
+  // které mluví jeho materiál (jinak by tabulka vypsala všech 44 příznaků
+  // a zajímavé by v tom zapadlo). Vyčteno z dat, ne vypsáno rukou.
+  function jevyObjektu(o) {
+    const nase = new Set(mnozina(o.stavy).map((s) => s.replace(/^zdánlivě /, "")));
+    for (const [tag, tabulka] of Object.entries(TRVANI_PODLE_TAGU)) {
+      if (mnozina(o.tagy).some((t) => t.toLowerCase() === tag.toLowerCase())) {
+        for (const stav of Object.keys(tabulka)) nase.add(stav);
+      }
+    }
+    for (const stav of Object.keys(o.trvani_jevu ?? {})) nase.add(stav);
+    return [...nase].sort();
+  }
+
+  function vypisCerpani(scena) {
+    const objekty = Object.values(scena.objekty);
+    const zdrojove = new Set(zdroje(scena).map((o) => o.id));
+    const radky = objekty.map((o) => {
+      const [zivel, kvalita] = zdrojObjektu(o);
+      const nabidka = cerpatelne(o, lex);
+      const klice = Object.keys(nabidka);
+      const zdrojText = zivel
+        ? `<code>${nazevRuny(zivel)}</code> × ${kvalita.toFixed(2)}`
+        : "<span class='prazdne'>—</span>";
+      const cerpText = klice.length
+        ? klice.map((r) => `<code>${nazevRuny(r)}</code> ${nabidka[r].toFixed(2)}`).join("<br>")
+        : "<span class='prazdne'>—</span>";
+      const jevy = jevyObjektu(o).map((stav) => {
+        const doba = trvaniStavu(stav, null, o);
+        const nas = nasobekTrvani(stav, o);
+        const kolik = doba === null ? "natrvalo"
+          : (doba === 0 ? "trvalý výsledek" : `${doba} kroků`);
+        const nasobek = Math.abs(nas - 1) < 1e-9 ? "" : ` (×${nas})`;
+        const zadrz = zadrzujeSireni(o, stav)
+          ? " <span class='zadrz'>· ven nepřeskočí</span>" : "";
+        return `<li>${stav}: ${kolik}${nasobek}${zadrz}</li>`;
+      }).join("");
+      return `<tr>
+        <td><code>${o.id}</code>${zdrojove.has(o.id) ? " ⛏" : ""}</td>
+        <td>${o.nazev}</td>
+        <td>${zdrojText}</td>
+        <td>${cerpText}</td>
+        <td>${jevy ? `<ul class="jevy">${jevy}</ul>` : "<span class='prazdne'>—</span>"}</td>
+      </tr>`;
+    }).join("");
+    return `<table><thead><tr><th>id</th><th>název</th><th>zdroj</th>
+      <th>jde čerpat</th><th>jevy na tomhle kusu</th></tr></thead>
+      <tbody>${radky}</tbody></table>`;
   }
 
   function ukaz(nazev) {
@@ -168,6 +243,7 @@ try {
     rtEl.textContent = shoda ? "round-trip ✓ = python" : "round-trip ✗";
     kresbaEl.innerHTML = nakresli(scena);
     seznamEl.innerHTML = vypisSeznam(scena);
+    cerpaniEl.innerHTML = vypisCerpani(scena);
   }
 
   vyber.addEventListener("change", () => ukaz(vyber.value));
