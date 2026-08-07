@@ -30,7 +30,10 @@ Postupuje se po částech, každá ověřená v CI:
    Viditelnostní graf **po patrech** (rohy překážek + žebříky/pěšiny jako
    přechody), Dijkstra, mřížka dosažitelných bodů. **UMÍ PATRA** — kdo vyleze
    po žebříku, má zónu i nahoře. ✅
-3. **Jazyk kouzel + skloňování** — *tady jsme*.
+3. **Jazyk kouzel + skloňování** — pipeline hotov (viz níže).
+4. **Běh scény, manipulace, chování, uložení; konec serveru** — *tady jsme dál*.
+   Sem spadne i zbytek jazyka (učení, jména, vyústění), protože visí na běhu
+   a kontextu scény.
    - **Skloňování hlášek** (`engine/cestina.js`, port `cestina.py`) ✅ —
      podstatná jména ze slovníku (`slova.js`, GENEROVANÝ z Pythonu, ne opsaný),
      přídavná jména pravidlem (tvrdá/měkká/přivlastňovací × rod × pád),
@@ -71,7 +74,6 @@ Postupuje se po částech, každá ověřená v CI:
    - Zbývá k jazyku (přijde se scénou, krok 4, protože potřebuje běh/kontext):
      smyčka učení (zbytek `progression.py`), pojmenování kouzel (`spellbook.py`),
      vyústění a divoká magie (RNG, `errors.py`).
-4. Běh scény, manipulace, chování, uložení; konec serveru.
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
 Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** na
