@@ -100,13 +100,34 @@
 <h2>Strom výkladů (AST)</h2>
 <div id="strom"></div>
 
+<h2>Kniha kouzel (§6): pojmenuj kouzlo a volej ho jménem</h2>
+<div class="hracka">
+  <p style="margin:.1rem 0 .7rem; font-size:.85rem; color:#555">
+    Z hotového kouzla uděláš nové slovo. Napiš ho pak nahoře do pole jako běžné
+    sloveso — parser ho pozná jako <b style="color:var(--jmeno)">volání</b> a rozbalí
+    zpět na definici (efekt i cena sedí). Pojmenování tu běží „jako mistr"; hlavní
+    pole ho pak ocení podle tvé zvolené fáze a mastery.
+  </p>
+  <label for="knihaNazev">Název (jedno slovo, víc slov spoj pomlčkou)</label>
+  <input id="knihaNazev" placeholder="Ohnivka" autocomplete="off" autocapitalize="off">
+  <label for="knihaDef" style="margin-top:.5rem">Definice kouzla</label>
+  <input id="knihaDef" placeholder="Zažehni Oheň" autocomplete="off" autocapitalize="off">
+  <div class="priklady" style="margin-top:.6rem">
+    <button id="knihaPojmenuj">Pojmenuj</button>
+  </div>
+  <div id="knihaChyba" style="display:none; margin-top:.6rem; background:#f3d9d9;
+       color:#7a1f1f; border-radius:.5rem; padding:.5rem .7rem; font-size:.85rem"></div>
+  <div id="knihaSeznam" style="margin-top:.7rem"></div>
+</div>
+
 <script type="module">
 import { zakladLexikon } from "./engine/lexikon.js";
 import { lexuj, parsuj } from "./engine/parser.js";
 import { zvaliduj } from "./engine/validator.js";
 import { nacen } from "./engine/costs.js";
 import { vyhodnot } from "./engine/evaluator.js";
-import { Znalosti } from "./engine/progression.js";
+import { Znalosti, plneZnalosti } from "./engine/progression.js";
+import { Spellbook } from "./engine/spellbook.js";
 import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
@@ -114,6 +135,8 @@ const havarie = (t) => { const e = document.getElementById("havarie");
 
 try {
   const lex = zakladLexikon();
+  const kniha = new Spellbook();                 // kniha kouzel dema (§6)
+  const znalostiKnihy = plneZnalosti(lex);       // pojmenování „jako mistr" — obejde brány
   const DRUHY = ["sloveso", "podstata", "cil", "forma", "modifikator", "spojka", "jmeno"];
   const barva = (d) => `var(--${d})`;
 
@@ -135,7 +158,6 @@ try {
   const fazeCisloEl = document.getElementById("fazeCislo");
   const masteryEl = document.getElementById("mastery");
   const masteryCisloEl = document.getElementById("masteryCislo");
-  const vsechnyRuny = Object.keys(lex.runy);
 
   const PRIKLADY = [
     "Zažehni Oheň Nepřítel",
@@ -266,12 +288,14 @@ try {
     });
 
     // Znalosti podle posuvníků: čaroděj zná všechny runy (fáze rozhoduje o
-    // gramatice, mastery o ceně a šanci).
+    // gramatice, mastery o ceně a šanci). Runy bereme ČERSTVĚ z lexikonu, ať
+    // jsou vidět i kouzla pojmenovaná v knize níž (volání jménem se pak validuje).
     const faze = Number(fazeEl.value);
     const m = Number(masteryEl.value) / 100;
+    const runyTed = Object.keys(lex.runy);
     const mastery = {};
-    for (const id of vsechnyRuny) mastery[id] = m;
-    const zn = new Znalosti({ runy: vsechnyRuny, faze, mastery });
+    for (const id of runyTed) mastery[id] = m;
+    const zn = new Znalosti({ runy: runyTed, faze, mastery });
 
     try {
       zvaliduj(vyklady[0], zn);
@@ -287,14 +311,14 @@ try {
     }
 
     // Cena prvního výkladu při zvolené mastery (mana klesá, šance roste s ovládnutím).
-    const n = nacen(vyklady[0], lex, zn);
+    const n = nacen(vyklady[0], lex, zn, kniha);
     const nejsl = n.nejslabsi ? lex.runy[n.nejslabsi].nazev : "—";
     naceneniEl.textContent =
       `mana ${n.cenaMany.toFixed(1)} · šance ${Math.round(n.sance * 100)} % · `
       + `obtížnost ${n.obtiznost.toFixed(1)} · nejslabší runa: ${nejsl}`;
 
-    // Efekt prvního výkladu — co kouzlo doopravdy udělá (§5).
-    efektEl.appendChild(popisEfektu(vyhodnot(vyklady[0], lex)));
+    // Efekt prvního výkladu — co kouzlo doopravdy udělá (§5). Kniha rozbalí volání jmen.
+    efektEl.appendChild(popisEfektu(vyhodnot(vyklady[0], lex, kniha)));
   }
 
   // Lidsky čitelný souhrn efektu (rekurzivně přes složky u a/pak).
@@ -342,6 +366,70 @@ try {
 
   text.addEventListener("input", prekresli);
   prekresli();
+
+  // -- Kniha kouzel: pojmenuj a zavolej (§6) --------------------------------
+  const knihaNazevEl = document.getElementById("knihaNazev");
+  const knihaDefEl = document.getElementById("knihaDef");
+  const knihaChybaEl = document.getElementById("knihaChyba");
+  const knihaSeznamEl = document.getElementById("knihaSeznam");
+
+  const strucnyEfekt = (ef) =>
+    `${ef.typ}${ef.zivel ? " " + ef.zivel : ""}, síla ${Math.round(ef.sila)}`;
+
+  function prekresliKnihu() {
+    knihaSeznamEl.innerHTML = "";
+    const jmena = Object.keys(kniha.zaznamy);
+    if (jmena.length === 0) {
+      knihaSeznamEl.innerHTML =
+        '<small style="color:#888">Zatím žádné pojmenované kouzlo.</small>';
+      return;
+    }
+    for (const id of jmena) {
+      const z = kniha.zaznamy[id];
+      const radek = document.createElement("div");
+      radek.style.cssText =
+        "padding:.4rem .1rem; border-top:1px solid #8882; cursor:pointer";
+      radek.title = "klikni = zkus zavolat v poli nahoře";
+      let shrnuti = "";
+      try { shrnuti = " → " + strucnyEfekt(vyhodnot(z.ast, lex, kniha)); }
+      catch (e) { shrnuti = ""; }
+      radek.innerHTML =
+        `<b style="color:var(--jmeno)">${z.runa.nazev}</b> `
+        + `<small style="color:#888">(${z.runa.data.odvozeny})</small> = `
+        + `<code>${z.text}</code>${shrnuti}`;
+      radek.addEventListener("click", () => {
+        text.value = z.runa.nazev + " Nepřítel";
+        prekresli();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      knihaSeznamEl.appendChild(radek);
+    }
+  }
+
+  document.getElementById("knihaPojmenuj").addEventListener("click", () => {
+    knihaChybaEl.style.display = "none";
+    const nazev = knihaNazevEl.value.trim();
+    const def = knihaDefEl.value.trim();
+    if (!nazev || !def) {
+      knihaChybaEl.textContent = "Vyplň název i definici.";
+      knihaChybaEl.style.display = "block";
+      return;
+    }
+    try {
+      kniha.pojmenuj(nazev, def, lex, znalostiKnihy);
+    } catch (e) {
+      knihaChybaEl.textContent =
+        "✗ " + ((e && e.zprava) || (e && e.message) || String(e));
+      knihaChybaEl.style.display = "block";
+      return;
+    }
+    knihaNazevEl.value = "";
+    knihaDefEl.value = "";
+    prekresliKnihu();
+    prekresli();   // hlavní box teď runu zná a volání rozbalí
+  });
+
+  prekresliKnihu();
 
   // Odznak: přehraj vzorek fixtur parseru (výklady i chyby) a spočítej shody.
   const odznak = document.getElementById("odznak");

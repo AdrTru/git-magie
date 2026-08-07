@@ -71,9 +71,20 @@ Postupuje se po částech, každá ověřená v CI:
    - **Celý pipeline jazyka běží v JS**: `Zažehni Oheň Voda Nepřítel Výbuch silně`
      → tokeny → AST → validace(fáze/znalosti) → cena(mana/šance) → efekt
      (Pára ~Výbuch, síla 24). Ověřeno bod po bodu proti Pythonu.
+   - **Pojmenování kouzel** (`engine/spellbook.js`, port `spellbook.py` — jen věc
+     pojmenování; odvozené látky visí na čerpání many a přijdou s ním) ✅ —
+     z hotového kouzla udělá nové slovo (§6): zvaliduje definici, odvodí slovní
+     druh z kořene (látkový efekt → podstata, jinak sloveso), zaregistruje runu
+     JMENO do lexikonu a uloží záznam s (volitelně **ukotveným**) výkladem
+     u nejednoznačného textu (§9.1). Volání jménem se rozbaluje zpět na definici —
+     tím se konečně ověřily cesty `Volani` v parseru, cenách i vyhodnocení, které
+     byly portované, ale bez knihy NEOVĚŘENÉ. Pojistky: fázová brána, práh mastery
+     pro zabalení, kontrola cyklu při redefinici, strop hloubky rozbalení (ceny na
+     něj narazí o úroveň dřív než vyhodnocení — fixtura pinuje oba). **10 scénářů,
+     25 kroků** proti oracle.
    - Zbývá k jazyku (přijde se scénou, krok 4, protože potřebuje běh/kontext):
-     smyčka učení (zbytek `progression.py`), pojmenování kouzel (`spellbook.py`),
-     vyústění a divoká magie (RNG, `errors.py`).
+     smyčka učení (zbytek `progression.py`), vyústění a divoká magie (RNG,
+     `errors.py`).
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
 Geometrická vrstva je ověřená bod po bodu proti Pythonu: **627/627 hodnot** na
@@ -86,7 +97,8 @@ enginu a staví JS vedle Python oracle:
 [skloňování](https://adrtru.github.io/git-magie/jazyk-demo.html) (napiš jméno,
 vyber pád; dole celý slovník) ·
 [runová věta](https://adrtru.github.io/git-magie/kouzlo-demo.html) (napiš
-kouzlo, tokeny se obarví podle slovního druhu).
+kouzlo, tokeny se obarví podle slovního druhu; dole **pojmenuj kouzlo a volej ho
+jménem** — volání se v poli nahoře rozbalí zpět na definici).
 
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 

@@ -1,0 +1,533 @@
+{
+  "spellbook": [
+    {
+      "nazev": "základ a volání",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Ohnivka",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Ohnivka",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {},
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 1.7999999999999998,
+              "obtiznost": 3.0,
+              "sance": 0.94,
+              "nejslabsi": null
+            }
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {},
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 3.0,
+              "obtiznost": 2.0,
+              "sance": 0.96,
+              "nejslabsi": null
+            }
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Ohnivka Nepřítel",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [
+                "Nepřítel"
+              ],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {
+                "Nepřítel": "enemy"
+              },
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 2.4,
+              "obtiznost": 3.5,
+              "sance": 0.9299999999999999,
+              "nejslabsi": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "argumenty do volání",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Sesli",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Sesli Nepřítel Výbuch silně",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [
+                "Nepřítel"
+              ],
+              "forma": "Výbuch",
+              "sila": 15.0,
+              "dosah": 7.800000000000001,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {
+                "Nepřítel": "enemy"
+              },
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 4.875,
+              "obtiznost": 4.5,
+              "sance": 0.91,
+              "nejslabsi": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "jméno-podstata ve frázi",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Pouto",
+          "text": "Sváž Voda",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "podstata",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "Zažehni Pouto Nepřítel",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Voda",
+              "cile": [
+                "Nepřítel"
+              ],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "promáčeno"
+              ],
+              "filtry": {},
+              "strany": {
+                "Nepřítel": "enemy"
+              },
+              "runy": [
+                "zazehni",
+                "pouto",
+                "nepritel"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 4.02,
+              "obtiznost": 2.5,
+              "sance": 0.95,
+              "nejslabsi": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "nejednoznačnost a ukotvení",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Dvojka",
+          "text": "Zažehni Zmraz Nepřítel",
+          "ceka": {
+            "chyba": "Nejednoznacnost"
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Dvojka",
+          "text": "Zažehni Zmraz Nepřítel",
+          "ukotveni": 0,
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Trojka",
+          "text": "Zažehni Zmraz Nepřítel",
+          "ukotveni": 99,
+          "ceka": {
+            "chyba": "ChybaKouzla"
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "fázová brána",
+      "faze": 5,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Brzo",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "chyba": "NepovolenaGramatika"
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "neplatné jméno a kolize",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Ohnivý šíp",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "chyba": "ChybaKouzla"
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Oheň",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "chyba": "ChybaKouzla"
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "práh mastery",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {
+        "ohen": 0.2,
+        "voda": 0.5
+      },
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Slaba",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "chyba": "NedostatecnaMastery"
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Parni",
+          "text": "Zažehni Voda",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 0.5,
+            "zna": true
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "neovládaná runa v definici",
+      "faze": 6,
+      "runy": [
+        "zazehni"
+      ],
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Nezna",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "chyba": "NeovladaneSlovo"
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "cyklus přes redefinici",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "pojmenuj",
+          "nazev": "Aaa",
+          "text": "Zažehni Oheň",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Bbb",
+          "text": "Aaa",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Aaa",
+          "text": "Bbb",
+          "ceka": {
+            "chyba": "CyklusJmen"
+          }
+        },
+        {
+          "op": "pojmenuj",
+          "nazev": "Aaa",
+          "text": "Zmraz Voda",
+          "ceka": {
+            "ok": true,
+            "odvozeny": "sloveso",
+            "mastery": 1.0,
+            "zna": true
+          }
+        }
+      ]
+    },
+    {
+      "nazev": "hloubka rozbalení",
+      "faze": 6,
+      "runy": "*",
+      "masteryBase": 1.0,
+      "masteryOver": {},
+      "kroky": [
+        {
+          "op": "retez",
+          "prefix": "h",
+          "zaklad": "Zažehni Oheň",
+          "delka": 17
+        },
+        {
+          "op": "sesli",
+          "text": "h14",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {},
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "cena_many": 0.0014105549537279992,
+              "obtiznost": 17.0,
+              "sance": 0.6599999999999999,
+              "nejslabsi": null
+            }
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "h15",
+          "ceka": {
+            "efekt": {
+              "typ": "poškození",
+              "zivel": "Oheň",
+              "cile": [],
+              "forma": null,
+              "sila": 10.0,
+              "dosah": 6.0,
+              "trvani": 0.0,
+              "rezim_trvani": "čas",
+              "upkeep": 0.0,
+              "priznaky": [
+                "hoří"
+              ],
+              "filtry": {},
+              "strany": {},
+              "runy": [
+                "zazehni",
+                "ohen"
+              ],
+              "podminka": null,
+              "kanal": null,
+              "produkuje": null,
+              "slozky": []
+            },
+            "cena": {
+              "chyba": "ChybaKouzla"
+            }
+          }
+        },
+        {
+          "op": "sesli",
+          "text": "h16",
+          "ceka": {
+            "efekt": {
+              "chyba": "ChybaKouzla"
+            },
+            "cena": {
+              "chyba": "ChybaKouzla"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
