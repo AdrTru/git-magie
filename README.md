@@ -34,7 +34,18 @@ Postupuje se po částech, každá ověřená v CI:
 4. **Běh scény, manipulace, chování, uložení; konec serveru** — *tady jsme dál*.
    Sem spadne i zbytek jazyka (učení, jména, vyústění), protože visí na běhu
    a kontextu scény.
-   - **Skloňování hlášek** (`engine/cestina.js`, port `cestina.py`) ✅ —
+   - **Scéna jako data** (`engine/scena.js`, port `sceny.py`; spec polí
+     `engine/scena_data.js` GENEROVANÝ z `scene.py`) ✅ — definice místnosti tam
+     a zpátky (JSON): `zeSlovniku`/`doSlovniku` nad `Objekt`/`Scena`/`Spoust`.
+     Objekt je PROSTÝ JS objekt se všemi poli — přesně to, co už čte
+     `geometrie.js` (jedna pravda, ne druhá kopie); množiny drží jako `Set`.
+     Formát je DEFINICE, ne uložená hra: píše jen autorská pole lišící se od
+     výchozí, běhový stav jen s `sBehem` (uložená hra). Neznámý klíč je chyba.
+     Ověřeno ROUND-TRIPEM: **10 reálných scén** (`sceny/*.json` jsou fixtury) +
+     hrany (běhový stav, `brani` None/prázdná/plná, obsah, spouště, ignorovaná
+     poznámka) + 6 chybových větví; navíc **hlídač** srovná generovaný spec
+     53 polí s Python dataclassem. (`Udalost` — běhová událost pro spouště —
+     přijde s chováním, díl 3e.)
      podstatná jména ze slovníku (`slova.js`, GENEROVANÝ z Pythonu, ne opsaný),
      přídavná jména pravidlem (tvrdá/měkká/přivlastňovací × rod × pád),
      opisovaný ocas fráze, vokalizace předložek (k → ke), zájmena. **1317/1317
@@ -98,7 +109,10 @@ enginu a staví JS vedle Python oracle:
 vyber pád; dole celý slovník) ·
 [runová věta](https://adrtru.github.io/git-magie/kouzlo-demo.html) (napiš
 kouzlo, tokeny se obarví podle slovního druhu; dole **pojmenuj kouzlo a volej ho
-jménem** — volání se v poli nahoře rozbalí zpět na definici).
+jménem** — volání se v poli nahoře rozbalí zpět na definici) ·
+[scéna jako data](https://adrtru.github.io/git-magie/scena-demo.html) (vyber
+místnost; engine ji načte z JSONu, zapíše zpět proti Pythonu a rovnou nakreslí
+z týchž dat).
 
 Zapékané pískoviště níž zatím běží beze změny vedle nového enginu.
 

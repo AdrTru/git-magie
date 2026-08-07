@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scéna jako data — vsc-magie</title>
+<!--
+  Definice scény je DATA (JSON). Tahle stránka načte scénu enginem
+  (`scena.js` → `zeSlovniku`), zkusí ji zapsat zpět (`doSlovniku`) a ukáže, že
+  round-trip sedí na Python oracle — a hlavně: NAČTENOU scénu rovnou nakreslí
+  přes `geometrie.js` (`obrys`). Tím se vidí, že scéna a geometrie jsou JEDNA
+  pravda: objekt ze souboru je přesně to, co geometrie čte, žádná druhá kopie.
+
+  Kreslení je jen obrys (kde co leží a jaký má tvar). Kdo koho vidí a odkud —
+  clony, tma, slepý úhel — přijde s dílem o vnímání; tady jde o data a tvar.
+-->
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; margin: 0; padding: 1rem;
+         max-width: 46rem; margin-inline: auto; color: #222; }
+  h1 { font-size: 1.25rem; }
+  #havarie { display: none; background: #f3d9d9; color: #7a1f1f; padding: .75rem;
+             border-radius: .5rem; white-space: pre-wrap; font: 13px ui-monospace, monospace; }
+  #odznak { display: inline-block; font-weight: 600; padding: .3rem .6rem;
+            border-radius: .5rem; background: #e8f0e8; font-size: .85rem; }
+  #odznak.spatne { background: #f3d9d9; }
+  .ovladani { background: #0001; border-radius: .6rem; padding: 1rem; margin: 1rem 0;
+              display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+  select { font: inherit; padding: .4rem .5rem; border-radius: .4rem; border: 1px solid #8886;
+           background: transparent; color: inherit; }
+  .rt { font-size: .85rem; padding: .25rem .55rem; border-radius: .5rem; }
+  .rt.ano { background: #e8f0e8; color: #205020; }
+  .rt.ne { background: #f3d9d9; color: #7a1f1f; }
+  svg { background: #fafaf7; border: 1px solid #0001; border-radius: .5rem; width: 100%; height: auto; }
+  .znacka { font: 11px ui-monospace, monospace; fill: #555; }
+  table { border-collapse: collapse; width: 100%; font-size: .82rem; margin-top: .8rem; }
+  th, td { text-align: left; padding: .3rem .4rem; border-bottom: 1px solid #0001; vertical-align: top; }
+  th { color: #666; font-weight: 600; }
+  code { font: .82rem ui-monospace, monospace; background: #0000000d; padding: 0 .2rem; border-radius: .2rem; }
+  .prazdne { color: #aaa; }
+</style>
+</head>
+<body>
+<h1>Scéna jako data</h1>
+<p>Definice místnosti je JSON. Engine ji načte, zapíše zpět a porovná s Pythonem —
+a načtenou scénu rovnou nakreslí z týchž dat. <span id="odznak">Ověřuji…</span></p>
+
+<div id="havarie"></div>
+
+<div class="ovladani">
+  <label for="vyber">Scéna:</label>
+  <select id="vyber"></select>
+  <span id="rt" class="rt"></span>
+</div>
+
+<div id="kresba"></div>
+<div id="seznam"></div>
+
+<script type="module">
+const havarie = (t) => { const e = document.getElementById("havarie");
+  e.style.display = "block"; e.textContent = "Nepovedlo se:\n" + t; };
+
+try {
+  const { zeSlovniku, doSlovniku } = await import("./engine/scena.js");
+  const { obrys } = await import("./engine/geometrie.js");
+
+  function stejne(a, b) {
+    if (a === b) return true;
+    if (a === null || b === null || typeof a !== "object" || typeof b !== "object") return false;
+    if (Array.isArray(a) || Array.isArray(b)) {
+      if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+      return a.every((x, i) => stejne(x, b[i]));
+    }
+    const ka = Object.keys(a), kb = Object.keys(b);
+    return ka.length === kb.length && ka.every((k) => stejne(a[k], b[k]));
+  }
+
+  const fix = await (await fetch("./test/fixtury_sceny.json")).json();
+  const sceny = fix.sceny.filter((s) => !s.chyba);
+
+  // Souhrnný odznak: kolik scén projde round-tripem (jako „= python").
+  let ok = 0;
+  for (const s of sceny) {
+    const out = doSlovniku(zeSlovniku(s.data), { sBehem: s.sBehem ?? false });
+    if (stejne(out, s.ceka ?? s.data)) ok++;
+  }
+  const odznak = document.getElementById("odznak");
+  odznak.textContent = ok === sceny.length
+    ? `= python (${ok}/${sceny.length} scén)` : `≠ python (${sceny.length - ok} rozdílů)`;
+  if (ok !== sceny.length) odznak.classList.add("spatne");
+
+  const vyber = document.getElementById("vyber");
+  for (const s of sceny) {
+    const opt = document.createElement("option");
+    opt.value = s.nazev; opt.textContent = s.nazev;
+    vyber.appendChild(opt);
+  }
+
+  const kresbaEl = document.getElementById("kresba");
+  const seznamEl = document.getElementById("seznam");
+  const rtEl = document.getElementById("rt");
+
+  const mnozina = (v) => v instanceof Set ? [...v] : (Array.isArray(v) ? v : []);
+
+  function nakresli(scena) {
+    const objekty = Object.values(scena.objekty);
+    // Ohraničení ze všech obrysů (auto-fit, ať sedí libovolná scéna).
+    let minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
+    const zapoj = (x, y) => {
+      minx = Math.min(minx, x); miny = Math.min(miny, y);
+      maxx = Math.max(maxx, x); maxy = Math.max(maxy, y);
+    };
+    const tvary = [];
+    for (const o of objekty) {
+      const u = obrys(o, scena);
+      if (!u) continue;
+      tvary.push([o, u]);
+      if (u[0] === "kruh") { const [[cx, cy], r] = u[1]; zapoj(cx - r, cy - r); zapoj(cx + r, cy + r); }
+      else for (const [a, b] of u[1]) { zapoj(a[0], a[1]); zapoj(b[0], b[1]); }
+    }
+    if (minx === Infinity) return "<p class='prazdne'>Scéna nemá umístěné objekty (běží bez souřadnic).</p>";
+
+    const W = 620, H = 380, M = 28;
+    const sv = Math.min((W - 2 * M) / Math.max(0.001, maxx - minx),
+                        (H - 2 * M) / Math.max(0.001, maxy - miny));
+    const px = (x) => M + (x - minx) * sv;
+    const py = (y) => H - M - (y - miny) * sv;   // svět: y nahoru → svg: y dolů
+    let s = "";
+    for (const [o, u] of tvary) {
+      if (u[0] === "kruh") {
+        const [[cx, cy], r] = u[1];
+        s += `<circle cx="${px(cx)}" cy="${py(cy)}" r="${Math.max(3, r * sv)}" fill="rgba(60,170,120,.35)" stroke="#2a7" stroke-width="1.5" />`;
+        s += `<text class="znacka" x="${px(cx) + Math.max(4, r * sv) + 2}" y="${py(cy) + 4}">${o.id}</text>`;
+      } else {
+        const segmenty = u[1].filter(([a, b]) => !(a[0] === b[0] && a[1] === b[1]));
+        for (const [a, b] of segmenty) {
+          s += `<line x1="${px(a[0])}" y1="${py(a[1])}" x2="${px(b[0])}" y2="${py(b[1])}" stroke="#a63" stroke-width="3" stroke-linecap="round" />`;
+        }
+        if (segmenty.length) {
+          const [a] = segmenty[0];
+          s += `<text class="znacka" x="${px(a[0]) + 3}" y="${py(a[1]) - 3}">${o.id}</text>`;
+        }
+      }
+    }
+    return `<svg viewBox="0 0 ${W} ${H}">${s}</svg>`;
+  }
+
+  function vypisSeznam(scena) {
+    const radky = Object.values(scena.objekty).map((o) => {
+      const tagy = mnozina(o.tagy);
+      const poz = o.pozice ? `[${o.pozice.map((n) => +n.toFixed(1)).join(", ")}]` : "—";
+      return `<tr>
+        <td><code>${o.id}</code></td>
+        <td>${o.nazev}</td>
+        <td>${tagy.length ? tagy.map((t) => `<code>${t}</code>`).join(" ") : "<span class='prazdne'>—</span>"}</td>
+        <td>${o.tvar}</td>
+        <td>${poz}</td>
+      </tr>`;
+    }).join("");
+    return `<table><thead><tr><th>id</th><th>název</th><th>tagy</th><th>tvar</th><th>pozice</th></tr></thead><tbody>${radky}</tbody></table>`;
+  }
+
+  function ukaz(nazev) {
+    const zaznam = sceny.find((s) => s.nazev === nazev);
+    const scena = zeSlovniku(zaznam.data);
+    const out = doSlovniku(scena, { sBehem: zaznam.sBehem ?? false });
+    const shoda = stejne(out, zaznam.ceka ?? zaznam.data);
+    rtEl.className = "rt " + (shoda ? "ano" : "ne");
+    rtEl.textContent = shoda ? "round-trip ✓ = python" : "round-trip ✗";
+    kresbaEl.innerHTML = nakresli(scena);
+    seznamEl.innerHTML = vypisSeznam(scena);
+  }
+
+  vyber.addEventListener("change", () => ukaz(vyber.value));
+  ukaz(sceny[0].nazev);
+} catch (e) {
+  havarie((e && e.stack) || String(e));
+}
+</script>
+</body>
+</html>

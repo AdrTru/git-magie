@@ -1,0 +1,3565 @@
+{
+  "pole_objektu": [
+    {
+      "jmeno": "id",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": true,
+      "vych": null
+    },
+    {
+      "jmeno": "nazev",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": true,
+      "vych": null
+    },
+    {
+      "jmeno": "rod",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "tvary",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "tagy",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "stavy",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "docasne",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "trvani_jevu",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "zadrzuje",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "docasne_tagy",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "potlacene_tagy",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "popis",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "zivel",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "kvalita",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": 0.0
+    },
+    {
+      "jmeno": "slozeny_zivel",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "vycerpatelny",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": false
+    },
+    {
+      "jmeno": "zdroj_many",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": false
+    },
+    {
+      "jmeno": "prenosny",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": false
+    },
+    {
+      "jmeno": "otviratelny",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": false
+    },
+    {
+      "jmeno": "slot",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "vybaveno",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": false
+    },
+    {
+      "jmeno": "otisky",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "puvod_kouzla",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "rozhovor",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "bonusy",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "vydrz",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "obsah",
+      "kat": "obsah",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "spousti",
+      "kat": "spousti",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "podtyp",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "pozice",
+      "kat": "ntice",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "tvar",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": "bod"
+    },
+    {
+      "jmeno": "rozmer",
+      "kat": "ntice",
+      "beh": false,
+      "povinne": false,
+      "vych": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "jmeno": "smer",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": 0.0
+    },
+    {
+      "jmeno": "body",
+      "kat": "nticeSeznam",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "pozice_do",
+      "kat": "ntice",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "z",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": 0.0
+    },
+    {
+      "jmeno": "z_do",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "vyska",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "zorne_pole",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "vnimane",
+      "kat": "mnozina",
+      "beh": true,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "pamet_stavu",
+      "kat": "slovnikMnozin",
+      "beh": true,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "chovani",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "rezim",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "postup_chovani",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": {}
+    },
+    {
+      "jmeno": "cekani",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": 0.0
+    },
+    {
+      "jmeno": "zajem",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "zajem_misto",
+      "kat": "ntice",
+      "beh": true,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "prekonava",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": 0.0
+    },
+    {
+      "jmeno": "vyska_vstoje",
+      "kat": "skalar",
+      "beh": true,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "stav_uvnitr",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "povoluje",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": []
+    },
+    {
+      "jmeno": "brani",
+      "kat": "mnozina",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    },
+    {
+      "jmeno": "zanikne_za",
+      "kat": "skalar",
+      "beh": false,
+      "povinne": false,
+      "vych": null
+    }
+  ],
+  "sceny": [
+    {
+      "nazev": "arena",
+      "sBehem": false,
+      "data": {
+        "nazev": "Cvičná aréna",
+        "mana_max": 40.0,
+        "objekty": [
+          {
+            "id": "ohrazeni",
+            "nazev": "Ohrazení arény",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              6.5,
+              4.5
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -6.5,
+                -4.5
+              ],
+              [
+                6.5,
+                -4.5
+              ],
+              [
+                6.5,
+                4.5
+              ],
+              [
+                -6.5,
+                4.5
+              ]
+            ]
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 30.0,
+            "pozice": [
+              2.0,
+              4.5
+            ],
+            "smer": 20.0,
+            "vyska": 1.8
+          },
+          {
+            "id": "spojenec",
+            "nazev": "Druh",
+            "tagy": [
+              "spojenec"
+            ],
+            "vydrz": 20.0,
+            "pozice": [
+              2.4,
+              3.2
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "terc1",
+            "nazev": "Terč 1",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 15.0,
+            "podtyp": "terč",
+            "pozice": [
+              9.0,
+              6.5
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "terc2",
+            "nazev": "Terč 2",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 15.0,
+            "podtyp": "terč",
+            "pozice": [
+              10.2,
+              7.1
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "terc3",
+            "nazev": "Terč 3",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 15.0,
+            "podtyp": "terč",
+            "pozice": [
+              9.4,
+              7.7
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "pramen",
+            "nazev": "Zřídlo světla",
+            "tagy": [
+              "světlo"
+            ],
+            "zivel": "svetlo",
+            "kvalita": 0.9,
+            "pozice": [
+              11.5,
+              2.0
+            ],
+            "vyska": 1.2
+          },
+          {
+            "id": "kotva",
+            "nazev": "Runová kotva",
+            "tagy": [
+              "kámen"
+            ],
+            "zivel": "kamen",
+            "kvalita": 0.3,
+            "zdroj_many": true,
+            "puvod_kouzla": [
+              "svaz",
+              "kamen",
+              "bod"
+            ],
+            "pozice": [
+              1.2,
+              5.8
+            ],
+            "vyska": 0.6
+          },
+          {
+            "id": "truhla",
+            "nazev": "Zamčená truhla",
+            "tagy": [
+              "bod",
+              "kamenné",
+              "truhla"
+            ],
+            "stavy": [
+              "zamčeno"
+            ],
+            "popis": "Okovaná truhla s těžkým visacím zámkem. Uvnitř to cinká.",
+            "otviratelny": true,
+            "vydrz": 10.0,
+            "obsah": [
+              {
+                "id": "mesec",
+                "nazev": "Měšec s mincemi",
+                "tagy": [
+                  "bod",
+                  "měšec"
+                ],
+                "prenosny": true
+              }
+            ],
+            "pozice": [
+              6.0,
+              2.0
+            ],
+            "tvar": "obdelnik",
+            "rozmer": [
+              1.4,
+              0.9
+            ],
+            "vyska": 0.9
+          },
+          {
+            "id": "klic",
+            "nazev": "Rezavý klíč",
+            "tagy": [
+              "bod",
+              "klíč"
+            ],
+            "popis": "Starý klíč od truhly — použij ho na zámek.",
+            "prenosny": true,
+            "pozice": [
+              4.0,
+              3.4
+            ],
+            "vyska": 0.05
+          },
+          {
+            "id": "boty_k",
+            "nazev": "Kožené boty",
+            "tagy": [
+              "bod",
+              "boty"
+            ],
+            "prenosny": true,
+            "slot": "boty",
+            "puvod_kouzla": [
+              "zastit",
+              "bod"
+            ],
+            "bonusy": {
+              "sance": 0.05
+            },
+            "pozice": [
+              2.6,
+              5.5
+            ],
+            "vyska": 0.15
+          },
+          {
+            "id": "boty_z",
+            "nazev": "Železné okované boty",
+            "tagy": [
+              "bod",
+              "boty"
+            ],
+            "prenosny": true,
+            "slot": "boty",
+            "puvod_kouzla": [
+              "zastit",
+              "kamen",
+              "bod"
+            ],
+            "bonusy": {
+              "mana": 0.9
+            },
+            "pozice": [
+              3.0,
+              5.6
+            ],
+            "vyska": 0.15
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "chalupa",
+      "sBehem": false,
+      "data": {
+        "nazev": "Chalupa Baby Jagy",
+        "cil": [
+          {
+            "cil": "čarodějnice",
+            "stavy": [
+              "zničeno"
+            ]
+          }
+        ],
+        "mana_max": 28.0,
+        "objekty": [
+          {
+            "id": "steny",
+            "nazev": "Stěny chalupy",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              4.0,
+              3.0
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -4.0,
+                -3.0
+              ],
+              [
+                4.0,
+                -3.0
+              ],
+              [
+                4.0,
+                3.0
+              ],
+              [
+                -4.0,
+                3.0
+              ]
+            ]
+          },
+          {
+            "id": "baba",
+            "nazev": "Baba Jaga",
+            "rod": "z",
+            "tvary": {
+              "2": "Baby Jagy",
+              "3": "Babě Jaze",
+              "4": "Babu Jagu"
+            },
+            "tagy": [
+              "nepřítel",
+              "čarodějnice",
+              "živé"
+            ],
+            "vydrz": 20.0,
+            "pozice": [
+              5.0,
+              3.0
+            ],
+            "vyska": 1.7
+          },
+          {
+            "id": "pec",
+            "nazev": "Rozpálená pec",
+            "tagy": [
+              "bod",
+              "kamenné",
+              "oheň",
+              "ohniště"
+            ],
+            "stavy": [
+              "hoří"
+            ],
+            "zivel": "ohen",
+            "kvalita": 0.6,
+            "pozice": [
+              6.8,
+              1.2
+            ],
+            "tvar": "obdelnik",
+            "rozmer": [
+              2.0,
+              1.2
+            ],
+            "vyska": 1.0
+          },
+          {
+            "id": "kotlik",
+            "nazev": "Kotlík s jedem",
+            "tagy": [
+              "bod",
+              "nádoba"
+            ],
+            "stavy": [
+              "otráveno"
+            ],
+            "popis": "Bublá v něm hustý zelenkavý var — zkažená voda prosycená smrtí. Dá se z něj čerpat Jed.",
+            "kvalita": 0.5,
+            "slozeny_zivel": "Jed",
+            "vycerpatelny": true,
+            "obsah": [
+              {
+                "id": "ruka",
+                "nazev": "Vařená ruka s prstenem",
+                "tagy": [
+                  "bod"
+                ],
+                "prenosny": true,
+                "obsah": [
+                  {
+                    "id": "prsten",
+                    "nazev": "Babin prsten",
+                    "tagy": [
+                      "bod",
+                      "prsten"
+                    ],
+                    "zdroj_many": true,
+                    "prenosny": true,
+                    "slot": "prsten",
+                    "bonusy": {
+                      "mana": 0.8,
+                      "sance": 0.05
+                    }
+                  }
+                ]
+              }
+            ],
+            "pozice": [
+              5.6,
+              2.2
+            ],
+            "vyska": 0.8
+          },
+          {
+            "id": "police",
+            "nazev": "Police s lektvary",
+            "tagy": [
+              "bod",
+              "hořlavé",
+              "křehké"
+            ],
+            "vydrz": 6.0,
+            "obsah": [
+              {
+                "id": "lektvar_ohen",
+                "nazev": "Ohnivý lektvar",
+                "tagy": [
+                  "bod",
+                  "lektvar"
+                ],
+                "popis": "Lahvička s tekutým ohněm — na jedno čerpnutí.",
+                "zivel": "ohen",
+                "kvalita": 0.4,
+                "vycerpatelny": true,
+                "prenosny": true
+              },
+              {
+                "id": "lektvar_zivot",
+                "nazev": "Lektvar života",
+                "tagy": [
+                  "bod",
+                  "lektvar"
+                ],
+                "popis": "Zlatavý elixír života — na jedno čerpnutí.",
+                "zivel": "zivot",
+                "kvalita": 0.4,
+                "vycerpatelny": true,
+                "prenosny": true
+              }
+            ],
+            "pozice": [
+              2.5,
+              5.6
+            ],
+            "tvar": "obdelnik",
+            "rozmer": [
+              2.6,
+              0.4
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "panenka",
+            "nazev": "Vasilisina panenka",
+            "tagy": [
+              "spojenec"
+            ],
+            "rozhovor": {
+              "tema:pozdrav": "Tiše. Ona spí jen napůl.",
+              "tema:sebe": "Vasilisa mě nechala. Šeptám, když se nikdo nedívá.",
+              "tema:místo": "Chalupa je celá její. I stěny poslouchají — mluv potichu.",
+              "tema:pomoc": "Sama ji neporazíš silou. Podívej se, co má po ruce ona.",
+              "tema:magii": "Ona vaří. Co se vaří v kotlíku, to není voda.",
+              "vec:baba": "Hoří i jedem. Obojí umí dát, obojí umí dostat.",
+              "vec:kotlik": "Nesahej dovnitř. Ale co je na dně, to bys chtěl.",
+              "vec:pec": "Pec drží plamen uvnitř. Vezmi si z ní, chalupa neshoří.",
+              "vec:police": "Křehké a hořlavé. Jedna jiskra a police není."
+            },
+            "vydrz": 6.0,
+            "pozice": [
+              1.2,
+              2.2
+            ],
+            "vyska": 0.35
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 20.0,
+            "pozice": [
+              1.2,
+              3.0
+            ],
+            "vyska": 1.8
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "cvicna",
+      "sBehem": false,
+      "data": {
+        "nazev": "Zkušebna kroků",
+        "objekty": [
+          {
+            "id": "steny",
+            "nazev": "Stěny zkušebny",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              7.0,
+              5.0
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -7.0,
+                -5.0
+              ],
+              [
+                7.0,
+                -5.0
+              ],
+              [
+                7.0,
+                5.0
+              ],
+              [
+                -7.0,
+                5.0
+              ]
+            ]
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "pozice": [
+              1.5,
+              5.0
+            ],
+            "vyska": 1.8,
+            "zorne_pole": 120.0
+          },
+          {
+            "id": "obrubnik",
+            "nazev": "Obrubník",
+            "tagy": [
+              "kamenné",
+              "zeď"
+            ],
+            "popis": "Nízký práh. Překročíš ho, aniž bys zpomalil.",
+            "pozice": [
+              3.0,
+              7.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                -1.5
+              ],
+              [
+                0.0,
+                1.5
+              ]
+            ],
+            "vyska": 0.3
+          },
+          {
+            "id": "zidka",
+            "nazev": "Zídka",
+            "tagy": [
+              "kamenné",
+              "zeď"
+            ],
+            "popis": "Po pás. Vidíš přes ni, ale obejít ji musíš.",
+            "pozice": [
+              3.0,
+              3.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                -1.5
+              ],
+              [
+                0.0,
+                1.5
+              ]
+            ],
+            "vyska": 1.2
+          },
+          {
+            "id": "pricka",
+            "nazev": "Příčka",
+            "tagy": [
+              "kamenné",
+              "zeď"
+            ],
+            "popis": "Nedosahuje ke stropu místnosti ani k severní stěně — obejde se.",
+            "pozice": [
+              6.0,
+              3.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                -3.0
+              ],
+              [
+                0.0,
+                3.0
+              ]
+            ],
+            "vyska": 2.5
+          },
+          {
+            "id": "sloup",
+            "nazev": "Sloup",
+            "tagy": [
+              "kamenné",
+              "sloup"
+            ],
+            "pozice": [
+              8.5,
+              7.5
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              1.2,
+              1.2
+            ]
+          },
+          {
+            "id": "bedna_jih",
+            "nazev": "Bedna (jižní)",
+            "tagy": [
+              "dřevěné",
+              "zeď"
+            ],
+            "pozice": [
+              10.5,
+              2.3
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                -2.3
+              ],
+              [
+                0.0,
+                2.3
+              ]
+            ],
+            "vyska": 1.5
+          },
+          {
+            "id": "bedna_sever",
+            "nazev": "Bedna (severní)",
+            "tagy": [
+              "dřevěné",
+              "zeď"
+            ],
+            "pozice": [
+              10.5,
+              7.7
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                -2.3
+              ],
+              [
+                0.0,
+                2.3
+              ]
+            ],
+            "vyska": 1.5
+          },
+          {
+            "id": "komora",
+            "nazev": "Zazděná komora",
+            "tagy": [
+              "kamenné",
+              "zeď"
+            ],
+            "popis": "Bez dveří. Kdo chce dovnitř, musí zeď nejdřív rozbít.",
+            "pozice": [
+              12.5,
+              2.0
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -1.2,
+                -1.2
+              ],
+              [
+                1.2,
+                -1.2
+              ],
+              [
+                1.2,
+                1.2
+              ],
+              [
+                -1.2,
+                1.2
+              ]
+            ]
+          },
+          {
+            "id": "truhla",
+            "nazev": "Truhla",
+            "tagy": [
+              "dřevěné",
+              "truhla"
+            ],
+            "otviratelny": true,
+            "obsah": [
+              {
+                "id": "kridka",
+                "nazev": "Křída",
+                "tagy": [
+                  "křída"
+                ],
+                "prenosny": true
+              }
+            ],
+            "pozice": [
+              8.0,
+              5.0
+            ],
+            "vyska": 0.8
+          },
+          {
+            "id": "kamen",
+            "nazev": "Oblázek",
+            "tagy": [
+              "kámen"
+            ],
+            "prenosny": true,
+            "pozice": [
+              2.5,
+              2.0
+            ],
+            "vyska": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "hrbitov",
+      "sBehem": false,
+      "data": {
+        "nazev": "Půlnoční hřbitov",
+        "cil": [
+          {
+            "cil": "nekromant",
+            "stavy": [
+              "zničeno"
+            ]
+          }
+        ],
+        "mana_max": 32.0,
+        "objekty": [
+          {
+            "id": "hradba",
+            "nazev": "Hřbitovní zeď",
+            "tagy": [
+              "kamenné",
+              "zeď"
+            ],
+            "pozice": [
+              8.0,
+              5.5
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                2.5,
+                -5.5
+              ],
+              [
+                8.0,
+                -5.5
+              ],
+              [
+                8.0,
+                5.5
+              ],
+              [
+                -8.0,
+                5.5
+              ],
+              [
+                -8.0,
+                -5.5
+              ],
+              [
+                0.5,
+                -5.5
+              ]
+            ],
+            "vyska": 1.2
+          },
+          {
+            "id": "nekromant",
+            "nazev": "Nekromant",
+            "tagy": [
+              "nekromant",
+              "spojenec",
+              "živé"
+            ],
+            "rozhovor": {
+              "tema:pozdrav": "Také hledáš klid? Tady ho je dost.",
+              "tema:sebe": "Jsem tu jen správce. Někdo se o ně starat musí.",
+              "tema:místo": "Starý hřbitov. Nikdo sem nechodí — až na tebe.",
+              "tema:cestu": "Branou, kudy jsi přišel. Jestli tě pustí.",
+              "tema:mrtvé": "Nejsou mrtví. Jsou jen trpěliví.",
+              "tema:magii": "Slova jsou levná. Drahé je jim rozumět.",
+              "vec:krypta": "Zavřená. A zavřená zůstane.",
+              "vec:hul_nekromant": "Moje. A po mně nic nezdědíš."
+            },
+            "vydrz": 20.0,
+            "obsah": [
+              {
+                "id": "hul_nekromant",
+                "nazev": "Nekromantova hůl",
+                "tagy": [
+                  "bod",
+                  "hůl"
+                ],
+                "popis": "Ohořelá hůl z černého dřeva. Nese otisky magie, které její majitel nikdy nepochopil — jeho nedočtená knihovna. Nasaď si ji místo své a přečteš z ní, co on nestihl (§4.1).",
+                "prenosny": true,
+                "slot": "hůl",
+                "otisky": [
+                  "svaz",
+                  "zmraz"
+                ],
+                "vyska": 1.4
+              }
+            ],
+            "spousti": [
+              {
+                "kdyz": {
+                  "typ": "promluveno",
+                  "objekt": "nekromant",
+                  "stav": [
+                    "tema:sebe",
+                    "tema:místo",
+                    "tema:cestu",
+                    "tema:mrtvé",
+                    "tema:magii",
+                    "vec:krypta",
+                    "vec:hul_nekromant"
+                  ]
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Nekromant se odmlčí. „Ptáš se moc.“ — a kostlivci se zvednou."
+                  },
+                  {
+                    "akce": "potlac_tag",
+                    "objekt": "nekromant",
+                    "tag": "spojenec"
+                  },
+                  {
+                    "akce": "pridej_tag",
+                    "objekt": "nekromant",
+                    "tag": "nepřítel"
+                  }
+                ],
+                "jen_jednou": true
+              }
+            ],
+            "podtyp": "nekromant",
+            "pozice": [
+              10.0,
+              8.0
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "kostlivec",
+            "nazev": "Kostlivec",
+            "tagy": [
+              "kostěné",
+              "křehké",
+              "nepřítel"
+            ],
+            "vydrz": 8.0,
+            "podtyp": "kostlivec",
+            "pozice": [
+              11.0,
+              3.6
+            ],
+            "vyska": 1.7
+          },
+          {
+            "id": "kostlivec2",
+            "nazev": "Kostlivec u brány",
+            "tagy": [
+              "kostěné",
+              "křehké",
+              "nepřítel"
+            ],
+            "vydrz": 8.0,
+            "podtyp": "kostlivec",
+            "pozice": [
+              9.0,
+              3.0
+            ],
+            "vyska": 1.7
+          },
+          {
+            "id": "zombie",
+            "nazev": "Oživlá mrtvola",
+            "tagy": [
+              "nepřítel"
+            ],
+            "stavy": [
+              "odumírá"
+            ],
+            "vydrz": 14.0,
+            "podtyp": "zombie",
+            "pozice": [
+              10.2,
+              5.0
+            ],
+            "vyska": 1.7
+          },
+          {
+            "id": "krypta",
+            "nazev": "Stará krypta",
+            "tagy": [
+              "bod",
+              "kamenné",
+              "stavba"
+            ],
+            "vydrz": 20.0,
+            "pozice": [
+              3.5,
+              7.5
+            ],
+            "tvar": "obdelnik",
+            "rozmer": [
+              4.0,
+              3.0
+            ],
+            "vyska": 3.0,
+            "brani": [
+              "pohyb",
+              "výhled"
+            ]
+          },
+          {
+            "id": "plamen",
+            "nazev": "Věčný plamen",
+            "tagy": [
+              "bod",
+              "oheň"
+            ],
+            "stavy": [
+              "hoří"
+            ],
+            "zivel": "ohen",
+            "kvalita": 0.6,
+            "pozice": [
+              13.5,
+              5.0
+            ],
+            "vyska": 1.1
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 24.0,
+            "pozice": [
+              9.5,
+              1.0
+            ],
+            "smer": 90.0,
+            "vyska": 1.8
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "komnata",
+      "sBehem": false,
+      "data": {
+        "nazev": "Komnata za dveřmi",
+        "mana_max": 26.0,
+        "objekty": [
+          {
+            "id": "zdivo",
+            "nazev": "Kamenné zdivo",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "popis": "Tesané kvádry po strop. Skrz ně vede jen to, co je rozbije.",
+            "pozice": [
+              7.5,
+              7.5
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                6.0,
+                -6.0
+              ],
+              [
+                -6.0,
+                -6.0
+              ],
+              [
+                -6.0,
+                6.0
+              ],
+              [
+                6.0,
+                6.0
+              ]
+            ]
+          },
+          {
+            "id": "pricka",
+            "nazev": "Příčka",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "popis": "Dělí komnatu na dvě. Nahoře jsou dveře, dole průchod.",
+            "vydrz": 18.0,
+            "pozice": [
+              7.5,
+              7.4105
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                3.84
+              ],
+              [
+                0.0,
+                -3.839
+              ]
+            ]
+          },
+          {
+            "id": "pricka_nad",
+            "nazev": "Příčka nad dveřmi",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              7.5,
+              13.125
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                0.375
+              ],
+              [
+                0.0,
+                -0.375
+              ]
+            ]
+          },
+          {
+            "id": "pricka_pod",
+            "nazev": "Příčka pod průchodem",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              7.5,
+              1.9645
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.0,
+                0.464
+              ],
+              [
+                0.0,
+                -0.464
+              ]
+            ]
+          },
+          {
+            "id": "dvere",
+            "nazev": "Okované dveře",
+            "tagy": [
+              "bod",
+              "dveře",
+              "dřevěné"
+            ],
+            "stavy": [
+              "zamčeno"
+            ],
+            "popis": "Zamčené. Klíč tu nikde neleží — tudy se jde jen silou nebo kouzlem.",
+            "otviratelny": true,
+            "vydrz": 12.0,
+            "pozice": [
+              7.5,
+              12.75
+            ],
+            "pozice_do": [
+              7.5,
+              11.25
+            ]
+          },
+          {
+            "id": "pruchod",
+            "nazev": "Průchod bez dveří",
+            "tagy": [
+              "bod",
+              "dveře"
+            ],
+            "stavy": [
+              "otevřeno"
+            ],
+            "popis": "Prázdná zárubeň. Projdeš, ale je odsud vidět skrz.",
+            "pozice": [
+              7.5,
+              3.571
+            ],
+            "pozice_do": [
+              7.5,
+              2.429
+            ]
+          },
+          {
+            "id": "stul",
+            "nazev": "Kulatý stůl",
+            "tagy": [
+              "bod",
+              "dřevěné",
+              "hořlavé"
+            ],
+            "popis": "Otlučená deska na jedné noze. Za ni se dá schovat, jen když si sedneš.",
+            "vydrz": 8.0,
+            "pozice": [
+              6.0,
+              3.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                -0.026,
+                0.589
+              ],
+              [
+                -0.595,
+                0.026
+              ],
+              [
+                0.032,
+                -0.595
+              ],
+              [
+                0.595,
+                -0.032
+              ],
+              [
+                -0.026,
+                0.595
+              ]
+            ],
+            "vyska": 0.8
+          },
+          {
+            "id": "pochoden",
+            "nazev": "Pochodeň v držáku",
+            "tagy": [
+              "bod",
+              "oheň"
+            ],
+            "stavy": [
+              "hoří"
+            ],
+            "popis": "Zaražená ve stěně nad hlavou. Hoří klidně a dá se z ní čerpat.",
+            "zivel": "ohen",
+            "kvalita": 0.4,
+            "vycerpatelny": true,
+            "pozice": [
+              9.855,
+              3.0
+            ],
+            "z": 1.2,
+            "vyska": 0.5
+          },
+          {
+            "id": "mech",
+            "nazev": "Světélkující mech",
+            "tagy": [
+              "bod",
+              "život"
+            ],
+            "popis": "Zelenkavý povlak na kameni. Studeně svítí a je z něj cítit život.",
+            "zivel": "zivot",
+            "kvalita": 0.5,
+            "pozice": [
+              9.012,
+              12.023
+            ],
+            "vyska": 0.1
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 24.0,
+            "pozice": [
+              4.0,
+              7.0
+            ],
+            "vyska": 1.8
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "skala",
+      "sBehem": false,
+      "data": {
+        "nazev": "Skála s pozorovatelnou",
+        "spousti": [
+          {
+            "kdyz": {
+              "typ": "stav_pridan",
+              "objekt": "hlidka",
+              "stav": [
+                "znehybněno",
+                "zničeno"
+              ]
+            },
+            "udelej": [
+              {
+                "akce": "pridej_tag",
+                "objekt": "zebrik",
+                "tag": "žebřík"
+              }
+            ],
+            "jen_jednou": true
+          }
+        ],
+        "objekty": [
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "stavy": [
+              "přikrčeno"
+            ],
+            "popis": "Krčíš se za balvanem. Nad tebou je ve skalní stěně vykousnutá římsa a po ní chodí hlídka. Vestoje by tě odtamtud viděla.",
+            "pozice": [
+              3.2,
+              3.2
+            ],
+            "smer": 36.0,
+            "vyska": 0.6,
+            "zorne_pole": 120.0
+          },
+          {
+            "id": "balvan",
+            "nazev": "Balvan",
+            "tagy": [
+              "skála"
+            ],
+            "popis": "Po pás. Obejít, nebo se za něj schovat.",
+            "pozice": [
+              3.8,
+              4.0
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              1.6,
+              1.6
+            ],
+            "vyska": 1.1
+          },
+          {
+            "id": "ohniste",
+            "nazev": "Vyhaslé ohniště",
+            "tagy": [
+              "kámen"
+            ],
+            "popis": "Obrubek po kotník — překročíš ho, aniž bys zpomalil.",
+            "pozice": [
+              3.5,
+              9.0
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              1.2,
+              1.2
+            ],
+            "vyska": 0.25
+          },
+          {
+            "id": "skala",
+            "nazev": "Skála",
+            "tagy": [
+              "skála"
+            ],
+            "popis": "Sráz do všech stran. Nahoru jen po žebříku, nebo pěšinou.",
+            "pozice": [
+              16.0,
+              6.0
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              18.0,
+              18.0
+            ],
+            "vyska": 5.0
+          },
+          {
+            "id": "plosina",
+            "nazev": "Pozorovatelna",
+            "tagy": [
+              "dřevěné",
+              "stavba"
+            ],
+            "popis": "Zářez ve skalní stěně pět metrů nad zemí, vyztužený dřevěnou podlahou. Podlaha sahá až k hraně — dozadu přes temeno skály odsud vidět není.",
+            "pozice": [
+              7.0,
+              6.0
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              5.0,
+              5.0
+            ],
+            "z": 5.0,
+            "vyska": 0.2
+          },
+          {
+            "id": "zabradli",
+            "nazev": "Zábradlí",
+            "tagy": [
+              "dřevěné",
+              "plot"
+            ],
+            "popis": "Dřevěné zábradlí po odkryté straně římsy, nad srázem.",
+            "pozice": [
+              7.0,
+              6.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                0.43,
+                2.43
+              ],
+              [
+                -0.22,
+                2.46
+              ],
+              [
+                -0.84,
+                2.32
+              ],
+              [
+                -1.42,
+                2.02
+              ],
+              [
+                -1.89,
+                1.59
+              ],
+              [
+                -2.24,
+                1.04
+              ],
+              [
+                -2.43,
+                0.43
+              ],
+              [
+                -2.46,
+                -0.22
+              ],
+              [
+                -2.32,
+                -0.84
+              ],
+              [
+                -2.02,
+                -1.42
+              ],
+              [
+                -1.59,
+                -1.89
+              ],
+              [
+                -1.04,
+                -2.24
+              ],
+              [
+                -0.43,
+                -2.43
+              ],
+              [
+                0.22,
+                -2.46
+              ]
+            ],
+            "z": 5.0,
+            "vyska": 1.0
+          },
+          {
+            "id": "hlidka",
+            "nazev": "Hlídka",
+            "tagy": [
+              "hlídka",
+              "živé"
+            ],
+            "popis": "Chodí po plošině od kraje ke kraji a shlíží dolů na rovinku. Její zóna pohybu končí u zábradlí.",
+            "vydrz": 20.0,
+            "spousti": [
+              {
+                "kdyz": {
+                  "typ": "spatreno",
+                  "cil_tag": "já"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Hlídka: „Stůj! Kdo leze ke skále?!“"
+                  },
+                  {
+                    "akce": "vsimni_si"
+                  },
+                  {
+                    "akce": "prepni",
+                    "rezim": "u žebříku"
+                  },
+                  {
+                    "akce": "potlac_tag",
+                    "objekt": "zebrik",
+                    "tag": "žebřík"
+                  }
+                ],
+                "jen_jednou": false
+              },
+              {
+                "kdyz": {
+                  "typ": "zaslechnuto",
+                  "cil_tag": "já"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Hlídka: „Kdo to tam kouzlí?!“"
+                  },
+                  {
+                    "akce": "vsimni_si"
+                  },
+                  {
+                    "akce": "prepni",
+                    "rezim": "u žebříku"
+                  },
+                  {
+                    "akce": "potlac_tag",
+                    "objekt": "zebrik",
+                    "tag": "žebřík"
+                  }
+                ],
+                "jen_jednou": false
+              },
+              {
+                "kdyz": {
+                  "typ": "ztraceno",
+                  "cil_tag": "já"
+                },
+                "udelej": [
+                  {
+                    "akce": "pridej_tag",
+                    "objekt": "zebrik",
+                    "tag": "žebřík"
+                  },
+                  {
+                    "akce": "prepni",
+                    "rezim": "pátrání"
+                  }
+                ],
+                "jen_jednou": false
+              },
+              {
+                "kdyz": {
+                  "typ": "zranen",
+                  "objekt_kdyz": {
+                    "vydrz_pod": 6.0
+                  }
+                },
+                "udelej": [
+                  {
+                    "akce": "prepni",
+                    "rezim": "ústup",
+                    "od_zacatku": true
+                  }
+                ],
+                "jen_jednou": true
+              }
+            ],
+            "pozice": [
+              7.5,
+              6.0
+            ],
+            "smer": 200.0,
+            "z": 5.0,
+            "vyska": 1.8,
+            "zorne_pole": 60.0,
+            "chovani": {
+              "obhlídka": [
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_zebrik"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "balvan"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_sever"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "ohniste"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "ohniste"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_zebrik"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "ohniste"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_jih"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "balvan"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "pesina_1"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "balvan"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                }
+              ],
+              "u žebříku": [
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_zebrik"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "balvan"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "zebrik"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                }
+              ],
+              "pátrání": [
+                {
+                  "akce": "rekni",
+                  "text": "Hlídka slézá dolů: „Kam ses poděl?!“"
+                },
+                {
+                  "akce": "jdi"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 2
+                },
+                {
+                  "akce": "rekni",
+                  "text": "Hlídka si odplivne: „Zdálo se mi to.“"
+                },
+                {
+                  "akce": "zapomen"
+                },
+                {
+                  "akce": "prepni",
+                  "rezim": "obhlídka"
+                }
+              ],
+              "ústup": [
+                {
+                  "akce": "rekni",
+                  "text": "Hlídka couvá: „Dost! Na tebe já nestačím!“"
+                },
+                {
+                  "akce": "pridej_tag",
+                  "objekt": "zebrik",
+                  "tag": "žebřík"
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_sever"
+                },
+                {
+                  "akce": "prepni",
+                  "rezim": "krčí se"
+                }
+              ],
+              "krčí se": [
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                }
+              ]
+            },
+            "rezim": "obhlídka"
+          },
+          {
+            "id": "zebrik",
+            "nazev": "Žebřík",
+            "tagy": [
+              "dřevěné",
+              "žebřík"
+            ],
+            "popis": "Od paty skály na temeno. Půdorys nulový, zaplatíš jeho výšku.",
+            "pozice": [
+              5.4,
+              6.0
+            ],
+            "vyska": 5.0
+          },
+          {
+            "id": "pesina_1",
+            "nazev": "Pěšina — úsek 1",
+            "tagy": [
+              "kámen",
+              "pěšina"
+            ],
+            "popis": "Stoupá z 0.0 m na 1.7 m po úbočí.",
+            "pozice": [
+              5.0,
+              2.2
+            ],
+            "pozice_do": [
+              10.0,
+              1.3
+            ],
+            "z_do": 1.7,
+            "vyska": 0.15
+          },
+          {
+            "id": "pesina_2",
+            "nazev": "Pěšina — úsek 2",
+            "tagy": [
+              "kámen",
+              "pěšina"
+            ],
+            "popis": "Stoupá z 1.7 m na 3.4 m po úbočí.",
+            "pozice": [
+              10.0,
+              1.3
+            ],
+            "pozice_do": [
+              14.6,
+              6.0
+            ],
+            "z": 1.7,
+            "z_do": 3.4,
+            "vyska": 0.15
+          },
+          {
+            "id": "pesina_3",
+            "nazev": "Pěšina — úsek 3",
+            "tagy": [
+              "kámen",
+              "pěšina"
+            ],
+            "popis": "Stoupá z 3.4 m na 5.0 m po úbočí.",
+            "pozice": [
+              14.6,
+              6.0
+            ],
+            "pozice_do": [
+              11.0,
+              9.2
+            ],
+            "z": 3.4,
+            "z_do": 5.0,
+            "vyska": 0.15
+          },
+          {
+            "id": "stanoviste_sever",
+            "nazev": "Severní kraj plošiny",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "Odsud je vidět na ohniště a celý severní přístup.",
+            "pozice": [
+              7.0,
+              7.1
+            ],
+            "z": 5.0,
+            "vyska": 0.0
+          },
+          {
+            "id": "stanoviste_jih",
+            "nazev": "Jižní kraj plošiny",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "Odsud je vidět na balvan a pěšinu.",
+            "pozice": [
+              7.0,
+              4.9
+            ],
+            "z": 5.0,
+            "vyska": 0.0
+          },
+          {
+            "id": "stanoviste_zebrik",
+            "nazev": "Ústí žebříku",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "Mezera v zábradlí, kudy žebřík vychází na plošinu.",
+            "pozice": [
+              6.3,
+              6.0
+            ],
+            "z": 5.0,
+            "vyska": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "sklad",
+      "sBehem": false,
+      "data": {
+        "nazev": "Hořící sklad",
+        "cil": [
+          {
+            "cil": "dveře",
+            "stavy": [
+              "hoří"
+            ],
+            "negace": true
+          },
+          {
+            "cil": "nepřítel",
+            "stavy": [
+              "zničeno"
+            ]
+          }
+        ],
+        "mana_max": 30.0,
+        "objekty": [
+          {
+            "id": "dvere",
+            "nazev": "Dubové dveře",
+            "tagy": [
+              "bod",
+              "dveře",
+              "hořlavé"
+            ],
+            "stavy": [
+              "hoří"
+            ],
+            "vydrz": 12.0,
+            "pozice": [
+              8.0,
+              4.0
+            ],
+            "pozice_do": [
+              8.0,
+              6.0
+            ]
+          },
+          {
+            "id": "goblin",
+            "nazev": "Goblin s klíčem",
+            "tagy": [
+              "goblin",
+              "nepřítel",
+              "živé"
+            ],
+            "vydrz": 10.0,
+            "podtyp": "goblin",
+            "pozice": [
+              5.5,
+              2.5
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "potok",
+            "nazev": "Stružka vody",
+            "tagy": [
+              "voda"
+            ],
+            "zivel": "voda",
+            "kvalita": 0.5,
+            "vycerpatelny": true,
+            "pozice": [
+              3.2,
+              6.6
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                -2.6,
+                -0.25
+              ],
+              [
+                -1.55,
+                0.3
+              ],
+              [
+                -0.5,
+                -0.2
+              ],
+              [
+                0.55,
+                0.3
+              ],
+              [
+                1.6,
+                -0.15
+              ],
+              [
+                2.6,
+                0.2
+              ]
+            ],
+            "vyska": 0.05
+          },
+          {
+            "id": "pochoden",
+            "nazev": "Pochodeň",
+            "tagy": [
+              "oheň"
+            ],
+            "zivel": "ohen",
+            "kvalita": 0.3,
+            "vycerpatelny": true,
+            "prenosny": true,
+            "pozice": [
+              3.4,
+              2.4
+            ],
+            "vyska": 1.5
+          },
+          {
+            "id": "krystal",
+            "nazev": "Manový krystal",
+            "tagy": [
+              "kámen"
+            ],
+            "zivel": "kamen",
+            "kvalita": 0.2,
+            "zdroj_many": true,
+            "puvod_kouzla": [
+              "svaz",
+              "kamen",
+              "bod"
+            ],
+            "pozice": [
+              2.0,
+              2.5
+            ],
+            "vyska": 0.4
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 20.0,
+            "pozice": [
+              2.0,
+              4.0
+            ],
+            "smer": 350.0,
+            "vyska": 1.8
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "slejvak",
+      "sBehem": false,
+      "data": {
+        "nazev": "Sklad ve slejváku",
+        "mana_max": 30.0,
+        "spousti": [
+          {
+            "kdyz": {
+              "typ": "stav_spatren",
+              "objekt_tag": "nepřítel",
+              "cil_tag": "já",
+              "stav": "vetřelec"
+            },
+            "udelej": [
+              {
+                "akce": "rekni",
+                "text": "Někdo z goblinů zaječí: „Hej! Kdo tě sem pustil?!“"
+              }
+            ],
+            "jen_jednou": true
+          },
+          {
+            "kdyz": {
+              "typ": "stav_spatren",
+              "objekt_tag": "hlídka",
+              "cil": "g3",
+              "stav": "hoří"
+            },
+            "udelej": [
+              {
+                "akce": "rekni",
+                "text": "Goblin zařve: „Dozorce hoří! Vodu, honem!“"
+              },
+              {
+                "akce": "vsimni_si"
+              },
+              {
+                "akce": "prepni",
+                "rezim": "záchrana",
+                "od_zacatku": true
+              }
+            ],
+            "jen_jednou": false
+          }
+        ],
+        "objekty": [
+          {
+            "id": "steny",
+            "nazev": "Zdi skladu",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "popis": "Zděný obvod s vraty do ulice. Výšku schválně nemá — nezadaná je strop, a přes zeď se tedy nekouká.",
+            "pozice": [
+              5.5,
+              4.0
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                1.0,
+                -4.0
+              ],
+              [
+                5.5,
+                -4.0
+              ],
+              [
+                5.5,
+                4.0
+              ],
+              [
+                -5.5,
+                4.0
+              ],
+              [
+                -5.5,
+                -4.0
+              ],
+              [
+                -0.5,
+                -4.0
+              ]
+            ]
+          },
+          {
+            "id": "g1",
+            "nazev": "Goblin u dveří",
+            "tagy": [
+              "hlídka",
+              "nepřítel",
+              "ve službě",
+              "živé"
+            ],
+            "stavy": [
+              "promáčeno",
+              "vodivé"
+            ],
+            "popis": "Přešlapuje mokrý u dveří a chodí odsud doprostřed skladu. Kouká tam, kam jde — cestou do středu má tebe za zády.",
+            "vydrz": 20.0,
+            "podtyp": "goblin",
+            "pozice": [
+              4.5,
+              4.0
+            ],
+            "vyska": 1.6,
+            "zorne_pole": 60.0,
+            "chovani": {
+              "obchůzka": [
+                {
+                  "akce": "otoc_se",
+                  "kam": "stanoviste_stred"
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_stred"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 2
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "stanoviste_zapad"
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_zapad"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 2
+                }
+              ],
+              "záchrana": [
+                {
+                  "akce": "jdi"
+                },
+                {
+                  "akce": "pridej_stav",
+                  "zajem": true,
+                  "stav": "promáčeno",
+                  "kdyz": {
+                    "stavy": [
+                      "promáčeno"
+                    ]
+                  }
+                },
+                {
+                  "akce": "zapomen"
+                },
+                {
+                  "akce": "prepni",
+                  "rezim": "obchůzka"
+                }
+              ]
+            },
+            "rezim": "obchůzka"
+          },
+          {
+            "id": "g2",
+            "nazev": "Goblin u beden",
+            "tagy": [
+              "hlídka",
+              "nepřítel",
+              "ve službě",
+              "živé"
+            ],
+            "stavy": [
+              "promáčeno",
+              "vodivé"
+            ],
+            "popis": "Obchází severní uličku mezi bednami. Do středu skladu dojde ve stejném taktu jako ten první, jenže čelem k tobě.",
+            "vydrz": 20.0,
+            "podtyp": "goblin",
+            "pozice": [
+              6.5,
+              4.5
+            ],
+            "smer": 180.0,
+            "vyska": 1.6,
+            "zorne_pole": 60.0,
+            "chovani": {
+              "obchůzka": [
+                {
+                  "akce": "otoc_se",
+                  "kam": "stanoviste_sever"
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_sever"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 2
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "stanoviste_vychod"
+                },
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_vychod"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 2
+                }
+              ],
+              "záchrana": [
+                {
+                  "akce": "jdi"
+                },
+                {
+                  "akce": "pridej_stav",
+                  "zajem": true,
+                  "stav": "promáčeno",
+                  "kdyz": {
+                    "stavy": [
+                      "promáčeno"
+                    ]
+                  }
+                },
+                {
+                  "akce": "zapomen"
+                },
+                {
+                  "akce": "prepni",
+                  "rezim": "obchůzka"
+                }
+              ]
+            },
+            "rezim": "obchůzka"
+          },
+          {
+            "id": "g3",
+            "nazev": "Suchý goblin (dozorce)",
+            "tagy": [
+              "nepřítel",
+              "ve službě",
+              "živé"
+            ],
+            "popis": "Stojí v suchu u východní stěny a přejíždí očima obchůzku. Co se s hlídkou stane na očích, to pozná; co se stane za jeho zády nebo potmě, to ne.",
+            "vydrz": 20.0,
+            "spousti": [
+              {
+                "kdyz": {
+                  "typ": "stav_spatren",
+                  "cil_tag": "já",
+                  "stav": "vetřelec"
+                },
+                "udelej": [
+                  {
+                    "akce": "prepni",
+                    "rezim": "poplach"
+                  }
+                ],
+                "jen_jednou": true
+              },
+              {
+                "kdyz": {
+                  "typ": "stav_spatren",
+                  "cil_tag": "hlídka",
+                  "stav": "zničeno"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Dozorce zařve: „Oni nám ho složili! Do zbraně!“"
+                  },
+                  {
+                    "akce": "prepni",
+                    "rezim": "poplach"
+                  }
+                ],
+                "jen_jednou": true
+              },
+              {
+                "kdyz": {
+                  "typ": "stav_spatren",
+                  "cil_tag": "hlídka",
+                  "stav": [
+                    "spí",
+                    "omráčeno",
+                    "znehybněno"
+                  ]
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Dozorce zavrčí: „Co je s ním?! Na stráži se nestojí jako pařez!“"
+                  }
+                ],
+                "jen_jednou": true
+              },
+              {
+                "kdyz": {
+                  "typ": "stav_spatren",
+                  "cil_tag": "hlídka",
+                  "stav": "ovládnuto"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Dozorce couvne: „Ten už není náš. Ten už poslouchá jeho.“"
+                  },
+                  {
+                    "akce": "prepni",
+                    "rezim": "poplach"
+                  }
+                ],
+                "jen_jednou": true
+              },
+              {
+                "kdyz": {
+                  "typ": "stav_ztracen",
+                  "cil_tag": "hlídka",
+                  "stav": "promáčeno"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Dozorce přimhouří oči: „Ty jsi nějak uschl. Kdo tě sušil?“"
+                  }
+                ],
+                "jen_jednou": true
+              },
+              {
+                "kdyz": {
+                  "typ": "ztraceno",
+                  "cil_tag": "hlídka"
+                },
+                "udelej": [
+                  {
+                    "akce": "rekni",
+                    "text": "Dozorce mhouří oči do šera: „Kam se poděl?!“"
+                  }
+                ],
+                "jen_jednou": true
+              }
+            ],
+            "podtyp": "goblin",
+            "pozice": [
+              9.5,
+              3.0
+            ],
+            "smer": 180.0,
+            "vyska": 1.6,
+            "zorne_pole": 60.0,
+            "chovani": {
+              "dozor": [
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                }
+              ],
+              "poplach": [
+                {
+                  "akce": "jdi",
+                  "kam": "stanoviste_stred"
+                },
+                {
+                  "akce": "otoc_se",
+                  "kam": "stanoviste_zapad"
+                },
+                {
+                  "akce": "cekej",
+                  "kroku": 1
+                }
+              ]
+            },
+            "rezim": "dozor"
+          },
+          {
+            "id": "bedna",
+            "nazev": "Bedna se senem",
+            "tagy": [
+              "bod",
+              "hořlavé"
+            ],
+            "vydrz": 14.0,
+            "pozice": [
+              6.5,
+              6.5
+            ],
+            "tvar": "obdelnik",
+            "rozmer": [
+              1.6,
+              1.0
+            ],
+            "vyska": 0.8
+          },
+          {
+            "id": "sud",
+            "nazev": "Sud se smůlou",
+            "tagy": [
+              "hořlavé"
+            ],
+            "vydrz": 8.0,
+            "pozice": [
+              7.5,
+              2.0
+            ],
+            "tvar": "kruh",
+            "rozmer": [
+              1.0,
+              1.0
+            ],
+            "vyska": 1.0
+          },
+          {
+            "id": "socha",
+            "nazev": "Kamenná socha",
+            "tagy": [
+              "kamenné"
+            ],
+            "pozice": [
+              3.5,
+              6.0
+            ],
+            "vyska": 2.2
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "popis": "Stojíš v ulici před skladem. Sem smí každý; dovnitř ne. Vrata jsou pár kroků na východ.",
+            "vydrz": 20.0,
+            "pozice": [
+              1.5,
+              -1.8
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "stanoviste_zapad",
+            "nazev": "Západní konec obchůzky",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "U dveří. Odsud je to k druhému goblinovi přes čtyři kroky — blesk mezi ně neskočí.",
+            "pozice": [
+              3.5,
+              4.0
+            ],
+            "vyska": 0.0
+          },
+          {
+            "id": "stanoviste_stred",
+            "nazev": "Střed skladu",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "Kde se obchůzky potkávají. Tady jsou mokří dva na necelý krok od sebe.",
+            "pozice": [
+              5.5,
+              3.8
+            ],
+            "vyska": 0.0
+          },
+          {
+            "id": "stanoviste_sever",
+            "nazev": "Severní ulička",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "Druhá půlka téhož setkání, o krok stranou mezi bednami.",
+            "pozice": [
+              6.2,
+              4.9
+            ],
+            "vyska": 0.0
+          },
+          {
+            "id": "stanoviste_vychod",
+            "nazev": "Východní konec obchůzky",
+            "tagy": [
+              "značka"
+            ],
+            "popis": "U beden. Odsud je první goblin z dosahu řetězu.",
+            "pozice": [
+              7.8,
+              5.0
+            ],
+            "vyska": 0.0
+          },
+          {
+            "id": "sklad_vnitrek",
+            "nazev": "Vnitřek skladu",
+            "tagy": [
+              "zóna"
+            ],
+            "popis": "Podlaha skladu. Ulice je veřejná, tohle ne — kdo sem vejde bez povolení, je vetřelec.",
+            "pozice": [
+              5.5,
+              4.0
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -5.5,
+                -4.0
+              ],
+              [
+                5.5,
+                -4.0
+              ],
+              [
+                5.5,
+                4.0
+              ],
+              [
+                -5.5,
+                4.0
+              ]
+            ],
+            "vyska": 0.0,
+            "stav_uvnitr": "vetřelec",
+            "povoluje": [
+              "ve službě"
+            ],
+            "brani": []
+          },
+          {
+            "id": "domy_naproti",
+            "nazev": "Domy kolem ulice",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "popis": "Průčelí naproti a sousední domy po stranách. Ulice mezi nimi a skladem vede dál městem — scéna z ní ukazuje ten kus, který je před vraty.",
+            "pozice": [
+              5.5,
+              -1.75
+            ],
+            "tvar": "lomena",
+            "body": [
+              [
+                -5.5,
+                1.75
+              ],
+              [
+                -5.5,
+                -1.75
+              ],
+              [
+                5.5,
+                -1.75
+              ],
+              [
+                5.5,
+                1.75
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "vezeni",
+      "sBehem": false,
+      "data": {
+        "nazev": "Útěk z vězení",
+        "cil": [
+          {
+            "cil": "já",
+            "stavy": [
+              "spoutáno"
+            ],
+            "negace": true
+          },
+          {
+            "cil": "mříže",
+            "stavy": [
+              "zničeno"
+            ]
+          }
+        ],
+        "mana_max": 24.0,
+        "objekty": [
+          {
+            "id": "zdivo",
+            "nazev": "Kamenné zdivo",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              4.5,
+              2.5
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -4.5,
+                -2.5
+              ],
+              [
+                4.5,
+                -2.5
+              ],
+              [
+                4.5,
+                2.5
+              ],
+              [
+                -4.5,
+                2.5
+              ]
+            ]
+          },
+          {
+            "id": "ja",
+            "nazev": "Vězeň (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "stavy": [
+              "spoutáno",
+              "zatemněno"
+            ],
+            "vydrz": 20.0,
+            "obsah": [
+              {
+                "id": "lampa",
+                "nazev": "Zhaslá lampa",
+                "tagy": [
+                  "bod",
+                  "lampa"
+                ]
+              }
+            ],
+            "pozice": [
+              2.0,
+              2.5
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "mrize",
+            "nazev": "Rezavé mříže",
+            "tagy": [
+              "bod",
+              "kovové",
+              "mříž",
+              "mříže",
+              "stavba"
+            ],
+            "vydrz": 14.0,
+            "pozice": [
+              5.0,
+              0.3
+            ],
+            "pozice_do": [
+              5.0,
+              4.7
+            ]
+          },
+          {
+            "id": "straz",
+            "nazev": "Chrápající strážný",
+            "tagy": [
+              "nepřítel",
+              "živé"
+            ],
+            "stavy": [
+              "ozářeno"
+            ],
+            "vydrz": 14.0,
+            "pozice": [
+              7.2,
+              2.0
+            ],
+            "vyska": 1.8
+          },
+          {
+            "id": "pochoden",
+            "nazev": "Strážného pochodeň",
+            "rod": "z",
+            "tvary": {
+              "2": "Strážného pochodně",
+              "3": "Strážného pochodni",
+              "4": "Strážného pochodeň"
+            },
+            "tagy": [
+              "oheň"
+            ],
+            "stavy": [
+              "hoří"
+            ],
+            "zivel": "ohen",
+            "kvalita": 0.4,
+            "vycerpatelny": true,
+            "pozice": [
+              7.2,
+              3.4
+            ],
+            "vyska": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "zazemi",
+      "sBehem": false,
+      "data": {
+        "nazev": "Runová dílna (zázemí)",
+        "objekty": [
+          {
+            "id": "steny_dilny",
+            "nazev": "Stěny dílny",
+            "tagy": [
+              "kamenné",
+              "stavba",
+              "zeď"
+            ],
+            "pozice": [
+              5.0,
+              4.0
+            ],
+            "tvar": "polygon",
+            "body": [
+              [
+                -5.0,
+                -4.0
+              ],
+              [
+                5.0,
+                -4.0
+              ],
+              [
+                5.0,
+                4.0
+              ],
+              [
+                -5.0,
+                4.0
+              ]
+            ]
+          },
+          {
+            "id": "ja",
+            "nazev": "Čaroděj (ty)",
+            "tagy": [
+              "já",
+              "živé"
+            ],
+            "vydrz": 30.0,
+            "pozice": [
+              2.0,
+              2.0
+            ],
+            "smer": 45.0,
+            "vyska": 1.8
+          },
+          {
+            "id": "zridlo",
+            "nazev": "Zřídlo blesku",
+            "tagy": [
+              "blesk"
+            ],
+            "popis": "Praská z něj čistá elektřina — dá se od něj naučit runa Blesk (čerpej ⛏ a sešli).",
+            "zivel": "blesk",
+            "kvalita": 0.9,
+            "pozice": [
+              8.6,
+              6.6
+            ],
+            "vyska": 1.5
+          },
+          {
+            "id": "kotlik",
+            "nazev": "Cvičný kotlík s jedem",
+            "tagy": [
+              "bod",
+              "nádoba"
+            ],
+            "stavy": [
+              "otráveno"
+            ],
+            "popis": "Bublá v něm zelenkavý jed. Nevyčerpatelný cvičný zdroj — čerpej z něj Jed, kolikrát chceš.",
+            "kvalita": 0.5,
+            "slozeny_zivel": "Jed",
+            "pozice": [
+              8.6,
+              1.4
+            ],
+            "vyska": 0.8
+          },
+          {
+            "id": "kotva",
+            "nazev": "Runová kotva",
+            "tagy": [
+              "kámen"
+            ],
+            "zivel": "kamen",
+            "kvalita": 0.4,
+            "zdroj_many": true,
+            "puvod_kouzla": [
+              "svaz",
+              "kamen",
+              "bod"
+            ],
+            "pozice": [
+              1.2,
+              1.0
+            ],
+            "vyska": 0.6
+          },
+          {
+            "id": "terc1",
+            "nazev": "Cvičný terč 1",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 40.0,
+            "podtyp": "terč",
+            "pozice": [
+              5.0,
+              6.0
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "terc2",
+            "nazev": "Cvičný terč 2",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 40.0,
+            "podtyp": "terč",
+            "pozice": [
+              6.2,
+              6.6
+            ],
+            "vyska": 1.6
+          },
+          {
+            "id": "terc3",
+            "nazev": "Cvičný terč 3",
+            "tagy": [
+              "bod",
+              "nepřítel"
+            ],
+            "vydrz": 40.0,
+            "podtyp": "terč",
+            "pozice": [
+              5.4,
+              7.2
+            ],
+            "vyska": 1.6
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "běhový stav (uložená hra)",
+      "sBehem": true,
+      "data": {
+        "nazev": "Uložená partie",
+        "cil": [
+          {
+            "stav": "vyřešeno"
+          }
+        ],
+        "mana_max": 20.0,
+        "objekty": [
+          {
+            "id": "hlidka",
+            "nazev": "Hlídka",
+            "tagy": [
+              "bytost",
+              "nepřítel"
+            ],
+            "docasne": {
+              "omráčeno": 2.0
+            },
+            "docasne_tagy": {
+              "spojenec": 1.0
+            },
+            "potlacene_tagy": {
+              "nepřítel": 1.0
+            },
+            "vydrz": 10.0,
+            "pozice": [
+              3.0,
+              4.0
+            ],
+            "zorne_pole": 60.0,
+            "vnimane": [
+              "vetrelec"
+            ],
+            "pamet_stavu": {
+              "vetrelec": [
+                "hoří"
+              ]
+            },
+            "chovani": {
+              "okruh": [
+                {
+                  "akce": "jdi"
+                }
+              ]
+            },
+            "rezim": "okruh",
+            "postup_chovani": {
+              "okruh": 2
+            },
+            "cekani": 1.0,
+            "zajem": "vetrelec",
+            "zajem_misto": [
+              5.0,
+              6.0,
+              0.0
+            ],
+            "prekonava": 0.5,
+            "vyska_vstoje": 1.8
+          }
+        ],
+        "beh": {
+          "mana": 12.5,
+          "uz_vyresena": true
+        }
+      }
+    },
+    {
+      "nazev": "brani None/prázdná/plná",
+      "sBehem": false,
+      "data": {
+        "nazev": "Brání trojmo",
+        "objekty": [
+          {
+            "id": "dle_tagu",
+            "nazev": "Zeď"
+          },
+          {
+            "id": "nebrani",
+            "nazev": "Duch",
+            "brani": []
+          },
+          {
+            "id": "brani_pohyb",
+            "nazev": "Mříž",
+            "brani": [
+              "pohyb"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "obsah a lomená geometrie",
+      "sBehem": false,
+      "data": {
+        "nazev": "Geometrie a obsah",
+        "objekty": [
+          {
+            "id": "potok",
+            "nazev": "Potok",
+            "pozice": [
+              0.0,
+              0.0
+            ],
+            "tvar": "lomena",
+            "smer": 15.0,
+            "body": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                2.0,
+                1.0
+              ],
+              [
+                4.0,
+                0.0
+              ]
+            ]
+          },
+          {
+            "id": "pesina",
+            "nazev": "Pěšina",
+            "pozice": [
+              1.0,
+              1.0
+            ],
+            "tvar": "usecka",
+            "rozmer": [
+              4.0,
+              0.0
+            ],
+            "pozice_do": [
+              3.0,
+              5.0
+            ],
+            "z_do": 2.0
+          },
+          {
+            "id": "kotlik",
+            "nazev": "Kotlík",
+            "zivel": "voda",
+            "kvalita": 0.7,
+            "vycerpatelny": true,
+            "obsah": [
+              {
+                "id": "klic",
+                "nazev": "Klíč",
+                "tagy": [
+                  "bod"
+                ],
+                "prenosny": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "spouště (scéna i objekt)",
+      "sBehem": false,
+      "data": {
+        "nazev": "Se spouštěmi",
+        "spousti": [
+          {
+            "kdyz": {
+              "typ": "stav_pridan",
+              "stav": "vyřešeno"
+            },
+            "udelej": {
+              "akce": "vyhraj"
+            },
+            "jen_jednou": true
+          }
+        ],
+        "objekty": [
+          {
+            "id": "socha",
+            "nazev": "Socha",
+            "tagy": [
+              "nepřítel"
+            ],
+            "spousti": [
+              {
+                "kdyz": {
+                  "typ": "zranen",
+                  "objekt_kdyz": {
+                    "vydrz_pod": 3
+                  }
+                },
+                "udelej": {
+                  "akce": "prepni",
+                  "rezim": "útěk"
+                },
+                "jen_jednou": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "poznámka se ignoruje",
+      "sBehem": false,
+      "data": {
+        "nazev": "Brání trojmo",
+        "objekty": [
+          {
+            "id": "dle_tagu",
+            "nazev": "Zeď"
+          },
+          {
+            "id": "nebrani",
+            "nazev": "Duch",
+            "brani": []
+          },
+          {
+            "id": "brani_pohyb",
+            "nazev": "Mříž",
+            "brani": [
+              "pohyb"
+            ]
+          }
+        ],
+        "poznamka": "sem autor píše, proč tu co je"
+      },
+      "ceka": {
+        "nazev": "Brání trojmo",
+        "objekty": [
+          {
+            "id": "dle_tagu",
+            "nazev": "Zeď"
+          },
+          {
+            "id": "nebrani",
+            "nazev": "Duch",
+            "brani": []
+          },
+          {
+            "id": "brani_pohyb",
+            "nazev": "Mříž",
+            "brani": [
+              "pohyb"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "neznámý klíč objektu (překlep)",
+      "chyba": "ChybaSceny",
+      "data": {
+        "nazev": "S",
+        "objekty": [
+          {
+            "id": "a",
+            "nazev": "A",
+            "pozcie": [
+              1,
+              2
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "objekt bez id",
+      "chyba": "ChybaSceny",
+      "data": {
+        "nazev": "S",
+        "objekty": [
+          {
+            "nazev": "A"
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "objekt bez názvu",
+      "chyba": "ChybaSceny",
+      "data": {
+        "nazev": "S",
+        "objekty": [
+          {
+            "id": "a"
+          }
+        ]
+      }
+    },
+    {
+      "nazev": "scéna bez názvu",
+      "chyba": "ChybaSceny",
+      "data": {
+        "objekty": []
+      }
+    },
+    {
+      "nazev": "neznámý klíč scény",
+      "chyba": "ChybaSceny",
+      "data": {
+        "nazev": "S",
+        "blabol": 1
+      }
+    },
+    {
+      "nazev": "neznámý klíč spouště",
+      "chyba": "ChybaSceny",
+      "data": {
+        "nazev": "S",
+        "spousti": [
+          {
+            "kdyz": {},
+            "udelej": {},
+            "navic": 1
+          }
+        ]
+      }
+    }
+  ]
+}
