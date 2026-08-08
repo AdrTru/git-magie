@@ -109,9 +109,24 @@ Postupuje se po částech, každá ověřená v CI:
      pro zabalení, kontrola cyklu při redefinici, strop hloubky rozbalení (ceny na
      něj narazí o úroveň dřív než vyhodnocení — fixtura pinuje oba). **15 scénářů,
      36 kroků** proti oracle (z toho 5 scénářů o látkách).
+   - **Sdílená náhoda a divoká magie** (`engine/nahoda.js`, port
+     `spelllang/nahoda.py`; vyústění a `zdivocej` v `engine/errors.js`) ✅ —
+     JEDEN GENERÁTOR PRO OBA JAZYKY. Pythonův `random` (Mersenne Twister) se
+     v JS zopakovat nedá a `Math.random()` se nedá ani nasadit; jenže celý
+     přepis stojí na tom, že se JS dá porovnat s Pythonem. Oba jazyky proto
+     ustoupily a používají **mulberry32** — desetiřádkový 32bitový generátor,
+     který v obou počítá po bitech totéž (JS přes `Math.imul`, Python přes
+     maskování). Semínko drží hráč, takže hod jde zopakovat i uložit.
+     Na něm stojí škála vyústění (čisté / **surge** / fatální selhání, §11),
+     `zdivocej` (jiný živel — a živel se i PROJEVÍ, ne jen přepíše nálepka —
+     odraz na sesilatele, nebo ujetá síla) a objev podtypu zabitím (§3.7).
+     Ověřeno **3000 hodů BIT V BIT** (bez tolerance) na šesti semínkách,
+     7 škál vyústění po 60 hodech, 20 zdivočení, 4 objevy. Fixtury pinují i
+     STAV generátoru po každé sérii: náhoda je jedna páska, ne studna
+     nezávislých čísel, takže přeskočený nebo přebytečný hod se musí projevit
+     hned, ne o kus dál jako „divná čísla někde jinde".
    - Zbývá k jazyku (přijde se scénou, krok 4, protože potřebuje běh/kontext):
-     smyčka učení (zbytek `progression.py`), vyústění a divoká magie (RNG,
-     `errors.py`).
+     smyčka učení (zbytek `progression.py`).
 5. Vypnout pečení/publikaci; JS je primár, Python zmrazit jako spec.
 
 Geometrická vrstva je ověřená bod po bodu proti Pythonu — každou hodnotu
@@ -129,7 +144,9 @@ enginu a staví JS vedle Python oracle:
 vyber pád; dole celý slovník) ·
 [runová věta](https://adrtru.github.io/git-magie/kouzlo-demo.html) (napiš
 kouzlo, tokeny se obarví podle slovního druhu; dole **pojmenuj kouzlo a volej ho
-jménem** — volání se v poli nahoře rozbalí zpět na definici) ·
+jménem** — volání se v poli nahoře rozbalí zpět na definici — a **hoď na
+vyústění**: zadej semínko a šanci, série 20 hodů se ze stejného semínka odehraje
+pokaždé stejně) ·
 [scéna a živlové okolí](https://adrtru.github.io/git-magie/scena-demo.html)
 (vyber místnost; engine ji načte z JSONu, zapíše zpět proti Pythonu a rovnou
 nakreslí z týchž dat — a dole ukáže, co z čeho jde čerpat a jak dlouho na čem

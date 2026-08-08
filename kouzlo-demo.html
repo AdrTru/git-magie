@@ -120,6 +120,27 @@
   <div id="knihaSeznam" style="margin-top:.7rem"></div>
 </div>
 
+<h2>Hod na vyústění (§11): divoká magie</h2>
+<div class="hracka">
+  <p style="margin:.1rem 0 .7rem; font-size:.85rem; color:#555">
+    Sešle se kouzlo z pole nahoře na tvou šanci. Vysoká šance → čisté seslání;
+    neúspěch → <b>surge</b>, tedy zajímavá odchylka, ne trest; velmi nízká šance
+    a smůla → fatální selhání (kouzlo se obrátí proti tobě). Náhoda je
+    <b>seedovaná</b> a sdílená s Pythonem: stejné semínko dá pokaždé týž hod —
+    a to i v enginu, který stejný soubor počítá v Pythonu.
+  </p>
+  <label for="seminko">Semínko</label>
+  <input id="seminko" type="number" value="1" style="width:9rem">
+  <label for="sance" style="margin-top:.5rem">Šance na seslání:
+    <b id="sanceCislo">30</b> %</label>
+  <input id="sance" type="range" min="0" max="100" value="30" style="width:100%">
+  <div class="priklady" style="margin-top:.6rem">
+    <button id="hod">Hoď</button>
+    <button id="hodSerie">Sérii 20×</button>
+  </div>
+  <div id="hodVysledek" style="margin-top:.7rem"></div>
+</div>
+
 <script type="module">
 import { zakladLexikon } from "./engine/lexikon.js";
 import { lexuj, parsuj } from "./engine/parser.js";
@@ -128,7 +149,9 @@ import { nacen } from "./engine/costs.js";
 import { vyhodnot } from "./engine/evaluator.js";
 import { Znalosti, plneZnalosti } from "./engine/progression.js";
 import { Spellbook } from "./engine/spellbook.js";
-import { ChybaKouzla, NeznameSlovo } from "./engine/errors.js";
+import { ChybaKouzla, NeznameSlovo, Vyusteni, rozhodniVyusteni, zdivocej }
+  from "./engine/errors.js";
+import { Nahoda } from "./engine/nahoda.js";
 
 const havarie = (t) => { const e = document.getElementById("havarie");
   e.style.display = "block"; e.textContent = "Engine se nenačetl:\n" + t; };
@@ -430,6 +453,72 @@ try {
   });
 
   prekresliKnihu();
+
+  // -- hod na vyústění (§11) -------------------------------------------------
+  // Semínko drží hráč, takže hod jde ZOPAKOVAT — to je celý smysl vlastního
+  // generátoru: co je náhodné v každém jazyce jinak, nejde porovnat s Pythonem.
+  const seminkoEl = document.getElementById("seminko");
+  const sanceEl = document.getElementById("sance");
+  const sanceCisloEl = document.getElementById("sanceCislo");
+  const hodVysledekEl = document.getElementById("hodVysledek");
+
+  const BARVA = {
+    [Vyusteni.CISTE]: "#205020",
+    [Vyusteni.SURGE]: "#7a5a1f",
+    [Vyusteni.FATALNI]: "#7a1f1f",
+  };
+
+  function shrnEfekt(ef) {
+    const kusy = [`typ <b>${ef.typ}</b>`];
+    if (ef.zivel) kusy.push(`živel <b>${ef.zivel}</b>`);
+    kusy.push(`síla <b>${(+ef.sila).toFixed(2)}</b>`);
+    if (ef.cile.length) kusy.push(`cíle <b>${ef.cile.join(", ")}</b>`);
+    if (ef.priznaky.length) kusy.push(`příznaky <b>${ef.priznaky.join(", ")}</b>`);
+    return kusy.join(" · ");
+  }
+
+  function hod(kolik) {
+    const text = document.getElementById("text").value.trim();
+    const sance = Number(sanceEl.value) / 100;
+    // ČERSTVÝ LEXIKON na každou sérii: zdivočení sahá do run jen pro čtení,
+    // ale efekt se počítá z knihy, kterou hráč mezitím mohl doplnit — tak ať
+    // se bere ta živá. Semínko je ale pořád jeho, takže výsledek je opakovatelný.
+    const rng = new Nahoda(Number(seminkoEl.value) || 0);
+    const radky = [];
+    for (let i = 0; i < kolik; i++) {
+      let efekt;
+      try {
+        efekt = vyhodnot(parsuj(text, lex)[0], lex, kniha);
+      } catch (e) {
+        hodVysledekEl.innerHTML =
+          `<p style="color:#7a1f1f">Kouzlo se nedá vyhodnotit: ${
+            (e && e.zprava) || (e && e.message) || String(e)}</p>`;
+        return;
+      }
+      const vyusteni = rozhodniVyusteni(sance, rng);
+      const pred = shrnEfekt(efekt);
+      if (vyusteni !== Vyusteni.CISTE) {
+        zdivocej(efekt, lex, rng, vyusteni === Vyusteni.FATALNI);
+      }
+      radky.push(`<tr>
+        <td>${i + 1}</td>
+        <td style="color:${BARVA[vyusteni]}; font-weight:600">${vyusteni}</td>
+        <td>${vyusteni === Vyusteni.CISTE ? pred : shrnEfekt(efekt)}</td>
+      </tr>`);
+    }
+    hodVysledekEl.innerHTML =
+      `<table><thead><tr><th>#</th><th>vyústění</th><th>efekt</th></tr></thead>
+       <tbody>${radky.join("")}</tbody></table>
+       <p style="font-size:.8rem; color:#666; margin-top:.4rem">
+         Stav generátoru po sérii: <code>${rng.stav}</code> — táž série ze
+         stejného semínka dá vždycky totéž.</p>`;
+  }
+
+  sanceEl.addEventListener("input", () => {
+    sanceCisloEl.textContent = sanceEl.value;
+  });
+  document.getElementById("hod").addEventListener("click", () => hod(1));
+  document.getElementById("hodSerie").addEventListener("click", () => hod(20));
 
   // Odznak: přehraj vzorek fixtur parseru (výklady i chyby) a spočítej shody.
   const odznak = document.getElementById("odznak");
